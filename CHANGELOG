@@ -1,0 +1,6 @@
+v0.1.0 - Discrete Optimization 
+    x Commit: 2025-12-01 21:08
+    x discrete.Problem
+    x discrete.Variable, Value 
+    x discrete.Constraint 
+    x discrete.Solution
