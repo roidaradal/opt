@@ -8,12 +8,14 @@ import (
 
 const (
 	ACTIVITY_SELECTION = "activity"
-	RESOURCE_OPT       = "resource"
+	LIS                = "lis"
 	MAGIC_SERIES       = "magicseries"
+	RESOURCE_OPT       = "resource"
 )
 
 var Creator = map[string]func(int) *discrete.Problem{
 	ACTIVITY_SELECTION: ActivitySelection,
+	LIS:                LongestIncreasingSubsequence,
 	MAGIC_SERIES:       MagicSeries,
 	RESOURCE_OPT:       ResourceOptimization,
 }
