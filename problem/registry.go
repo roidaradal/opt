@@ -7,12 +7,14 @@ import (
 )
 
 const (
-	ACTIVITY_SELECTION string = "activity"
-	RESOURCE_OPT       string = "resource"
+	ACTIVITY_SELECTION = "activity"
+	RESOURCE_OPT       = "resource"
+	MAGIC_SERIES       = "magicseries"
 )
 
 var Creator = map[string]func(int) *discrete.Problem{
 	ACTIVITY_SELECTION: ActivitySelection,
+	MAGIC_SERIES:       MagicSeries,
 	RESOURCE_OPT:       ResourceOptimization,
 }
 
