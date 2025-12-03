@@ -8,10 +8,12 @@ import (
 
 const (
 	ACTIVITY_SELECTION string = "activity"
+	RESOURCE_OPT       string = "resource"
 )
 
 var Creator = map[string]func(int) *discrete.Problem{
 	ACTIVITY_SELECTION: ActivitySelection,
+	RESOURCE_OPT:       ResourceOptimization,
 }
 
 // Create problem test case name

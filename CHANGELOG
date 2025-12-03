@@ -1,3 +1,9 @@
+v0.1.2 - Resource Optimization 
+    x Commit: 2025-12-03 21:13
+    x problem.ResourceOptimization
+    x resourceOptCfg, newResourceOptimziation
+    x fn.Score_SumWeightedValues
+    x fn.String_Values
 v0.1.1 - Activity Selection
     x Commit: 2025-12-02 22:41
     x problem.ActivitySelection
