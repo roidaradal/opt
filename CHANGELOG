@@ -1,3 +1,7 @@
+v0.1.5 - Knapsack 
+    x Commit: 2025-12-03 22:17
+    x problem.Knapsack 
+    x knapsackCfg, newKnapsack
 v0.1.4 - Longest Increasing Subsequence 
     x Commit: 2025-12-03 22:09
     x problem.LongestIncreasingSubsequence 
