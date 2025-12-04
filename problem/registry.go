@@ -9,6 +9,7 @@ import (
 const (
 	ACTIVITY_SELECTION = "activity"
 	KNAPSACK           = "knapsack"
+	LANGFORD_PAIR      = "langford"
 	LIS                = "lis"
 	MAGIC_SERIES       = "magicseries"
 	RESOURCE_OPT       = "resource"
@@ -17,6 +18,7 @@ const (
 var Creator = map[string]func(int) *discrete.Problem{
 	ACTIVITY_SELECTION: ActivitySelection,
 	KNAPSACK:           Knapsack,
+	LANGFORD_PAIR:      LangfordPair,
 	LIS:                LongestIncreasingSubsequence,
 	MAGIC_SERIES:       MagicSeries,
 	RESOURCE_OPT:       ResourceOptimization,

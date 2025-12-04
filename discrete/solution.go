@@ -52,3 +52,8 @@ func (s Solution) Values() []Value {
 func (s Solution) Tuple(p *Problem) []Value {
 	return list.Translate(p.Variables, s.Map)
 }
+
+// Get solution length
+func (s Solution) Length() int {
+	return len(s.Map)
+}

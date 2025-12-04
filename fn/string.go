@@ -34,3 +34,13 @@ func String_Values[T any](p *discrete.Problem, values []T) discrete.SolutionStri
 		return strings.Join(output, " ")
 	}
 }
+
+// SolutionStringFn: display solution as sequence of variables
+func String_Sequence[T any](variables []T) discrete.SolutionStringFn {
+	return func(solution *discrete.Solution) string {
+		sequence := list.Map(AsSequence(solution), func(x discrete.Variable) string {
+			return str.Any(variables[x])
+		})
+		return strings.Join(sequence, " ")
+	}
+}
