@@ -16,10 +16,29 @@ func Core_MirroredSequence[T any](variables []T) discrete.SolutionCoreFn {
 		sequence := list.Map(AsSequence(solution), func(x discrete.Variable) string {
 			return str.Any(variables[x])
 		})
-		first, last := sequence[0], sequence[solution.Length()-1]
+		first, last := sequence[0], sequence[len(sequence)-1]
 		if cmp.Compare(first, last) == 1 {
 			slices.Reverse(sequence)
 		}
 		return strings.Join(sequence, " ")
+	}
+}
+
+// SolutionCoreFn: mirrored values
+func Core_MirroredValues[T any](p *discrete.Problem, values []T) discrete.SolutionCoreFn {
+	return func(solution *discrete.Solution) string {
+		output := list.Map(p.Variables, func(x discrete.Variable) string {
+			value := solution.Map[x]
+			if values == nil {
+				return str.Int(value)
+			} else {
+				return str.Any(values[value])
+			}
+		})
+		first, last := output[0], output[len(output)-1]
+		if cmp.Compare(first, last) == 1 {
+			slices.Reverse(output)
+		}
+		return strings.Join(output, " ")
 	}
 }
