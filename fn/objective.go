@@ -1,6 +1,7 @@
 package fn
 
 import (
+	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/opt/discrete"
 )
@@ -18,4 +19,10 @@ func Score_SumWeightedValues(variables []discrete.Variable, weight []float64) di
 			return float64(count[x]) * weight[x]
 		}))
 	}
+}
+
+// ObjectiveFn: count unique values
+func Score_CountUniqueValues(solution *discrete.Solution) discrete.Score {
+	uniqueValues := ds.SetFrom(solution.Values())
+	return discrete.Score(uniqueValues.Len())
 }

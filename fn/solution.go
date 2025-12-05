@@ -3,6 +3,8 @@ package fn
 import (
 	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/list"
+	"github.com/roidaradal/fn/number"
+	"github.com/roidaradal/fn/str"
 	"github.com/roidaradal/opt/discrete"
 )
 
@@ -31,4 +33,34 @@ func AsSequence(solution *discrete.Solution) []discrete.Variable {
 		sequence[idx] = variable
 	}
 	return sequence
+}
+
+// Return list of partitions from the solution
+func AsPartitions(solution *discrete.Solution, values []discrete.Value) [][]discrete.Variable {
+	groups := make(map[discrete.Value][]discrete.Variable)
+	for _, value := range values {
+		groups[value] = make([]discrete.Variable, 0)
+	}
+	for variable, value := range solution.Map {
+		groups[value] = append(groups[value], variable)
+	}
+	partitions := make([][]discrete.Variable, len(values))
+	for i, value := range values {
+		partitions[i] = groups[value]
+	}
+	return partitions
+}
+
+// Return sums of partition lists
+func PartitionSums[T number.Number](solution *discrete.Solution, values []discrete.Value, variables []T) []T {
+	return list.Map(AsPartitions(solution, values), func(partition []discrete.Variable) T {
+		return list.Sum(list.MapList(partition, variables))
+	})
+}
+
+// Return partitions as list of strings
+func PartitionStrings[T any](solution *discrete.Solution, values []discrete.Value, variables []T) [][]string {
+	return list.Map(AsPartitions(solution, values), func(partition []discrete.Variable) []string {
+		return list.Map(list.MapList(partition, variables), str.Any)
+	})
 }

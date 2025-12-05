@@ -1,3 +1,11 @@
+v0.1.8 - Bin Packing 
+    x Commit: 2025-12-05 20:54
+    x problem.BinPacking 
+    x binPackingCfg, newBinPacking 
+    x fn.Score_CountUniqueValues 
+    x fn.Core_SortedPartition 
+    x fn.String_Partitions
+    x fn.AsPartitions, PartitionSums, PartitionStrings
 v0.1.7 - N-Queens 
     x Commit: 2025-12-04 22:02
     x problem.NQueens 

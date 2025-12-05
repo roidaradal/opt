@@ -42,3 +42,17 @@ func Core_MirroredValues[T any](p *discrete.Problem, values []T) discrete.Soluti
 		return strings.Join(output, " ")
 	}
 }
+
+// SolutionCoreFn: sorted partitions
+func Core_SortedPartition[T any](values []discrete.Value, variables []T) discrete.SolutionCoreFn {
+	return func(solution *discrete.Solution) string {
+		groups := PartitionStrings(solution, values, variables)
+		groups = list.Filter(groups, list.NotEmpty)
+		partitions := list.Map(groups, func(group []string) string {
+			slices.Sort(group)
+			return str.WrapBraces(group)
+		})
+		slices.Sort(partitions)
+		return strings.Join(partitions, "/")
+	}
+}

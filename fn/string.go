@@ -44,3 +44,15 @@ func String_Sequence[T any](variables []T) discrete.SolutionStringFn {
 		return strings.Join(sequence, " ")
 	}
 }
+
+// SolutionStringFn: display solution as partitions
+func String_Partitions[T any](values []discrete.Value, variables []T) discrete.SolutionStringFn {
+	return func(solution *discrete.Solution) string {
+		groups := PartitionStrings(solution, values, variables)
+		partitions := list.Map(groups, func(group []string) string {
+			slices.Sort(group)
+			return str.WrapBraces(group)
+		})
+		return strings.Join(partitions, " ")
+	}
+}
