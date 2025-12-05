@@ -14,6 +14,7 @@ const (
 	LIS                = "lis"
 	MAGIC_SERIES       = "magicseries"
 	NQUEENS            = "nqueens"
+	NUMBER_PARTITION   = "numberpartition"
 	RESOURCE_OPT       = "resource"
 )
 
@@ -25,6 +26,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	LIS:                LongestIncreasingSubsequence,
 	MAGIC_SERIES:       MagicSeries,
 	NQUEENS:            NQueens,
+	NUMBER_PARTITION:   NumberPartition,
 	RESOURCE_OPT:       ResourceOptimization,
 }
 
