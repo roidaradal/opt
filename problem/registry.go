@@ -16,6 +16,7 @@ const (
 	NQUEENS            = "nqueens"
 	NUMBER_PARTITION   = "numberpartition"
 	RESOURCE_OPT       = "resource"
+	SUBSET_SUM         = "subsetsum"
 )
 
 var Creator = map[string]func(int) *discrete.Problem{
@@ -28,6 +29,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	NQUEENS:            NQueens,
 	NUMBER_PARTITION:   NumberPartition,
 	RESOURCE_OPT:       ResourceOptimization,
+	SUBSET_SUM:         SubsetSum,
 }
 
 // Create problem test case name
