@@ -1,3 +1,7 @@
+v0.1.16 - Graph Partition 
+    x Commit: 2025-12-06 20:34
+    x problem.GraphPartition
+    x graphPartitionCfg, newGraphPartition
 v0.1.15 - Graph Coloring 
     x Commit: 2025-12-06 17:45
     x problem.GraphColoring
