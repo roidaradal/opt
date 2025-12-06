@@ -30,12 +30,14 @@ func NumberPartition(n int) *discrete.Problem {
 		if p.IsOptimization() {
 			return true // don't test if optimization problem
 		}
+		// Check if the 2 partition sums are the same
 		sums := fn.PartitionSums(solution, domain, numbers)
 		return list.AllSame(sums)
 	}
 	p.AddUniversalConstraint(test)
 
 	p.ObjectiveFn = func(solution *discrete.Solution) discrete.Score {
+		// Minimize the difference between the 2 partition sums
 		sums := fn.PartitionSums(solution, domain, numbers)
 		return discrete.Score(number.Abs(sums[0] - sums[1]))
 	}

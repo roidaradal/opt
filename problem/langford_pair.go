@@ -32,6 +32,7 @@ func LangfordPair(n int) *discrete.Problem {
 	test := func(solution *discrete.Solution) bool {
 		index := solution.Map
 		for x := 0; x < numPositions; x += 2 {
+			// Check that the gap between the number pair == number
 			n := (x / 2) + 1
 			gap := number.Abs(index[x+1]-index[x]) - 1
 			if gap != n {

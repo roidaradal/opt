@@ -27,17 +27,25 @@ func SubsetSum(n int) *discrete.Problem {
 	}
 
 	test := func(solution *discrete.Solution) bool {
+		// Get the solution subset sum
 		total := list.Sum(list.MapList(fn.AsSubset(solution), numbers))
 		if p.IsSatisfaction() {
+			//Check if subset sum == target sum
 			return total == target
 		} else {
+			// Check if subset sum does not exceed target
 			return total <= target
 		}
 	}
 	p.AddUniversalConstraint(test)
 
 	p.ObjectiveFn = func(solution *discrete.Solution) discrete.Score {
+		// For optimization version, minimize the difference between target and subset sum
+		// If it exceeds target, invalid solution
 		total := list.Sum(list.MapList(fn.AsSubset(solution), numbers))
+		if total > target {
+			return discrete.HardPenalty
+		}
 		return discrete.Score(target - total)
 	}
 	p.SolutionStringFn = fn.String_Subset(numbers)

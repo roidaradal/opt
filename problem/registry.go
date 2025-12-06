@@ -9,6 +9,7 @@ import (
 const (
 	ACTIVITY_SELECTION = "activity"
 	BIN_PACKING        = "binpacking"
+	EXACT_COVER        = "exactcover"
 	KNAPSACK           = "knapsack"
 	LANGFORD_PAIR      = "langford"
 	LIS                = "lis"
@@ -22,6 +23,7 @@ const (
 var Creator = map[string]func(int) *discrete.Problem{
 	ACTIVITY_SELECTION: ActivitySelection,
 	BIN_PACKING:        BinPacking,
+	EXACT_COVER:        ExactCover,
 	KNAPSACK:           Knapsack,
 	LANGFORD_PAIR:      LangfordPair,
 	LIS:                LongestIncreasingSubsequence,

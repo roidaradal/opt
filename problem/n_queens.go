@@ -24,11 +24,13 @@ func NQueens(n int) *discrete.Problem {
 
 	// No diagonal conflict
 	test := func(solution *discrete.Solution) bool {
+		// Gather coords occupied by queens
 		row := solution.Map
 		occupied := ds.NewSet[ds.Coords]()
 		for _, x := range p.Variables {
 			occupied.Add(ds.Coords{row[x], x})
 		}
+		// Check each queen if it has diagonal conflict
 		for _, x := range p.Variables {
 			coords := ds.Coords{row[x], x}
 			if hasDiagonalConflict(coords, occupied, n) {

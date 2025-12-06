@@ -27,13 +27,16 @@ func BinPacking(n int) *discrete.Problem {
 	}
 
 	test := func(solution *discrete.Solution) bool {
+		// Get the sum of item weights in each partition
 		sums := fn.PartitionSums(solution, domain, cfg.weight)
+		// Check that all partition sums do not execeed capacity
 		return list.All(sums, func(sum float64) bool {
 			return sum <= cfg.capacity
 		})
 	}
 	p.AddUniversalConstraint(test)
 
+	// Minimize the number of bins used
 	p.ObjectiveFn = fn.Score_CountUniqueValues
 	p.SolutionCoreFn = fn.Core_SortedPartition(domain, cfg.weight)
 	p.SolutionStringFn = fn.String_Partitions(domain, cfg.weight)

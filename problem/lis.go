@@ -30,7 +30,7 @@ func LongestIncreasingSubsequence(n int) *discrete.Problem {
 	test := func(solution *discrete.Solution) bool {
 		// Check if selected subsequence has increasing values
 		subset := fn.AsSubset(solution)
-		slices.Sort(subset)
+		slices.Sort(subset) // sort the indexes
 		subseq := list.MapList(subset, sequence)
 		for i := 1; i < len(subseq); i++ {
 			if subseq[i-1] >= subseq[i] {
