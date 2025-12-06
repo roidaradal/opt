@@ -1,3 +1,8 @@
+v0.1.14 - Edge Coloring 
+    x Commit: 2025-12-06 11:01
+    x problem.EdgeColoring 
+    x newEdgeColoring 
+    x fn.Core_LookupValueOrder
 v0.1.13 - Warehouse Location 
     x Commit: 2025-12-06 10:31 
     x problem.WarehouseLocation 

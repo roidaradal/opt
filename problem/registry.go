@@ -9,6 +9,7 @@ import (
 const (
 	ACTIVITY_SELECTION = "activity"
 	BIN_PACKING        = "binpacking"
+	EDGE_COLOR         = "edgecolor"
 	EXACT_COVER        = "exactcover"
 	KNAPSACK           = "knapsack"
 	LANGFORD_PAIR      = "langford"
@@ -25,6 +26,7 @@ const (
 var Creator = map[string]func(int) *discrete.Problem{
 	ACTIVITY_SELECTION: ActivitySelection,
 	BIN_PACKING:        BinPacking,
+	EDGE_COLOR:         EdgeColoring,
 	EXACT_COVER:        ExactCover,
 	KNAPSACK:           Knapsack,
 	LANGFORD_PAIR:      LangfordPair,

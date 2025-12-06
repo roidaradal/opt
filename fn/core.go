@@ -5,6 +5,7 @@ import (
 	"slices"
 	"strings"
 
+	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/fn/str"
 	"github.com/roidaradal/opt/discrete"
@@ -54,5 +55,23 @@ func Core_SortedPartition[T any](values []discrete.Value, variables []T) discret
 		})
 		slices.Sort(partitions)
 		return strings.Join(partitions, "/")
+	}
+}
+
+// SolutionCoreFn: lookup value order
+func Core_LookupValueOrder(problem *discrete.Problem) discrete.SolutionCoreFn {
+	return func(solution *discrete.Solution) string {
+		values := solution.Tuple(problem)
+		core := make([]string, len(values))
+		lookup := make(map[discrete.Value]string)
+		order := 0
+		for i, value := range values {
+			if dict.NoKey(lookup, value) {
+				lookup[value] = str.Int(order)
+				order++
+			}
+			core[i] = lookup[value]
+		}
+		return strings.Join(core, "")
 	}
 }
