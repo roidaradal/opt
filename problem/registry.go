@@ -20,6 +20,7 @@ const (
 	LANGFORD_PAIR      = "langford"
 	LIS                = "lis"
 	MAGIC_SERIES       = "magicseries"
+	MST                = "mst"
 	NQUEENS            = "nqueens"
 	NUMBER_PARTITION   = "numberpartition"
 	RESOURCE_OPT       = "resource"
@@ -42,6 +43,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	LANGFORD_PAIR:      LangfordPair,
 	LIS:                LongestIncreasingSubsequence,
 	MAGIC_SERIES:       MagicSeries,
+	MST:                MinimumSpanningTree,
 	NQUEENS:            NQueens,
 	NUMBER_PARTITION:   NumberPartition,
 	RESOURCE_OPT:       ResourceOptimization,

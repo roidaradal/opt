@@ -8,6 +8,7 @@ import (
 	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/io"
 	"github.com/roidaradal/fn/list"
+	"github.com/roidaradal/fn/number"
 	"github.com/roidaradal/opt/a"
 )
 
@@ -40,4 +41,15 @@ func NewUnweightedGraph(name string) *ds.Graph {
 		return nil
 	}
 	return ds.GraphFrom(lines[0], lines[1])
+}
+
+// Load new test case containing weighted graph
+func NewWeightedGraph(name string) (*ds.Graph, []float64) {
+	lines, err := LoadProblem(name)
+	if err != nil || len(lines) != 3 {
+		return nil, nil
+	}
+	graph := ds.GraphFrom(lines[0], lines[1])
+	edgeWeight := list.Map(strings.Fields(lines[2]), number.ParseFloat)
+	return graph, edgeWeight
 }
