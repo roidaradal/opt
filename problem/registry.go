@@ -19,6 +19,7 @@ const (
 	RESOURCE_OPT       = "resource"
 	SET_COVER          = "setcover"
 	SUBSET_SUM         = "subsetsum"
+	WAREHOUSE          = "warehouse"
 )
 
 var Creator = map[string]func(int) *discrete.Problem{
@@ -34,6 +35,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	RESOURCE_OPT:       ResourceOptimization,
 	SET_COVER:          SetCover,
 	SUBSET_SUM:         SubsetSum,
+	WAREHOUSE:          WarehouseLocation,
 }
 
 // Create problem test case name

@@ -1,3 +1,7 @@
+v0.1.13 - Warehouse Location 
+    x Commit: 2025-12-06 10:31 
+    x problem.WarehouseLocation 
+    x warehouseCfg, newWarehouseLocation
 v0.1.12 - Set Cover 
     x Commit: 2025-12-06 10:12
     x problem.SetCover
