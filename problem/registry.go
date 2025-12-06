@@ -1,3 +1,4 @@
+// Package problem contains definitions of some discrete optimization problems
 package problem
 
 import (
@@ -22,6 +23,7 @@ const (
 	RESOURCE_OPT       = "resource"
 	SET_COVER          = "setcover"
 	SUBSET_SUM         = "subsetsum"
+	VERTEX_COVER       = "vertexcover"
 	WAREHOUSE          = "warehouse"
 )
 
@@ -41,6 +43,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	RESOURCE_OPT:       ResourceOptimization,
 	SET_COVER:          SetCover,
 	SUBSET_SUM:         SubsetSum,
+	VERTEX_COVER:       VertexCover,
 	WAREHOUSE:          WarehouseLocation,
 }
 

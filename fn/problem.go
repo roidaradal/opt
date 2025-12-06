@@ -1,9 +1,11 @@
+// Package fn contains various functions used in discrete optimization problems
 package fn
 
 import (
 	"fmt"
 	"strings"
 
+	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/io"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/opt/a"
@@ -29,4 +31,13 @@ func NewSubsets(name string) *a.Subsets {
 		return nil
 	}
 	return a.NewSubsets(lines[0], lines[1:])
+}
+
+// Load new test case containing unweighted graph
+func NewUnweightedGraph(name string) *ds.Graph {
+	lines, err := LoadProblem(name)
+	if err != nil || len(lines) != 2 {
+		return nil
+	}
+	return ds.GraphFrom(lines[0], lines[1])
 }

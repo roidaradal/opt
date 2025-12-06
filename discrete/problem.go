@@ -1,3 +1,4 @@
+// Package discrete contains the common parts to discrete optimization problems
 package discrete
 
 import (

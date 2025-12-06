@@ -1,3 +1,4 @@
+// Package constraint contains commonly used constraint functions
 package constraint
 
 import (
