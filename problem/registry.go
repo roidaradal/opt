@@ -10,6 +10,7 @@ import (
 const (
 	ACTIVITY_SELECTION = "activity"
 	BIN_PACKING        = "binpacking"
+	CLIQUE             = "clique"
 	EDGE_COLOR         = "edgecolor"
 	EXACT_COVER        = "exactcover"
 	GRAPH_COLOR        = "graphcolor"
@@ -30,6 +31,7 @@ const (
 var Creator = map[string]func(int) *discrete.Problem{
 	ACTIVITY_SELECTION: ActivitySelection,
 	BIN_PACKING:        BinPacking,
+	CLIQUE:             Clique,
 	EDGE_COLOR:         EdgeColoring,
 	EXACT_COVER:        ExactCover,
 	GRAPH_COLOR:        GraphColoring,
