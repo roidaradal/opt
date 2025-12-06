@@ -15,6 +15,7 @@ const (
 	EXACT_COVER        = "exactcover"
 	GRAPH_COLOR        = "graphcolor"
 	GRAPH_PARTITION    = "graphpartition"
+	INDEPENDENT_SET    = "independentset"
 	KNAPSACK           = "knapsack"
 	LANGFORD_PAIR      = "langford"
 	LIS                = "lis"
@@ -36,6 +37,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	EXACT_COVER:        ExactCover,
 	GRAPH_COLOR:        GraphColoring,
 	GRAPH_PARTITION:    GraphPartition,
+	INDEPENDENT_SET:    IndependentSet,
 	KNAPSACK:           Knapsack,
 	LANGFORD_PAIR:      LangfordPair,
 	LIS:                LongestIncreasingSubsequence,
