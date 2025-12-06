@@ -11,6 +11,7 @@ const (
 	BIN_PACKING        = "binpacking"
 	EDGE_COLOR         = "edgecolor"
 	EXACT_COVER        = "exactcover"
+	GRAPH_COLOR        = "graphcolor"
 	KNAPSACK           = "knapsack"
 	LANGFORD_PAIR      = "langford"
 	LIS                = "lis"
@@ -28,6 +29,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	BIN_PACKING:        BinPacking,
 	EDGE_COLOR:         EdgeColoring,
 	EXACT_COVER:        ExactCover,
+	GRAPH_COLOR:        GraphColoring,
 	KNAPSACK:           Knapsack,
 	LANGFORD_PAIR:      LangfordPair,
 	LIS:                LongestIncreasingSubsequence,

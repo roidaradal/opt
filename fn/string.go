@@ -2,6 +2,7 @@ package fn
 
 import (
 	"cmp"
+	"fmt"
 	"slices"
 	"strings"
 
@@ -54,5 +55,23 @@ func String_Partitions[T any](values []discrete.Value, variables []T) discrete.S
 			return str.WrapBraces(group)
 		})
 		return strings.Join(partitions, " ")
+	}
+}
+
+// SolutionStringFn: display solution as translated { variable = value }
+func String_Map[T any, V any](p *discrete.Problem, variables []T, values []V) discrete.SolutionStringFn {
+	return func(solution *discrete.Solution) string {
+		output := list.Map(p.Variables, func(x discrete.Variable) string {
+			value := solution.Map[x]
+			text1, text2 := str.Int(x), str.Int(value)
+			if variables != nil {
+				text1 = str.Any(variables[x])
+			}
+			if values != nil {
+				text2 = str.Any(values[value])
+			}
+			return fmt.Sprintf("%s = %s", text1, text2)
+		})
+		return str.WrapBraces(output)
 	}
 }
