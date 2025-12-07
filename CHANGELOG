@@ -1,3 +1,15 @@
+v0.2.0 - Linear Solver
+    x Commit: 2025-12-07 22:43
+    x worker.LogLevel 
+    x worker.Solver Interface 
+    x worker.Result
+    x base.Solver, LinearSolver
+    x base.Solver.Initialize, GetResult
+    x base.Solver.IsComplete, IsScoreBetter
+    x base.LinearSolver.IsSolutionLimitReached
+    x base.LinearSolver.IsIterationLimitReached
+    x worker.Logger Interface 
+    x worker.CmdLogger, NoLogger
 v0.1.20 - Minimum Spanning Tree 
     x Commit: 2025-12-06 21:14
     x problem.MinimumSpanningTree
