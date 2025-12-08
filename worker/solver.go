@@ -1,3 +1,4 @@
+// Pacakge worker contains common discrete optimization workers
 package worker
 
 import (
@@ -5,15 +6,7 @@ import (
 	"github.com/roidaradal/opt/discrete"
 )
 
-const (
-	LOG_NONE  LogLevel = iota // no logging
-	LOG_BATCH                 // log iteration batch
-	LOG_STEPS                 // log step-by-step
-)
-
 const IterationBatch int = 1_000_000
-
-type LogLevel uint
 
 type Solver interface {
 	Solve(LogLevel)

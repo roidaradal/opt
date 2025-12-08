@@ -35,7 +35,7 @@ func (s LinearSolver) IsSolutionLimitReached() bool {
 }
 
 // Display batch progress and check if iteration limit is reached
-func (s LinearSolver) IsIterationLimitReached(log worker.Logger) bool {
+func (s LinearSolver) IsIterationLimitReached(logger worker.Logger) bool {
 	iterationBatch := worker.IterationBatch
 	if s.NumSteps%iterationBatch == 0 {
 		batch := s.NumSteps / iterationBatch
@@ -44,7 +44,7 @@ func (s LinearSolver) IsIterationLimitReached(log worker.Logger) bool {
 			if s.Problem.IsOptimization() {
 				bestScore = fmt.Sprintf("BestScore: %.2f, %d solutions", s.BestScore, len(s.BestSolutions))
 			}
-			log.Output("IterBatch:", batch, bestScore, s.FullName())
+			logger.Output("IterBatch:", batch, bestScore, s.FullName())
 		}
 	}
 	return s.IterationLimit > 0 && s.NumSteps >= s.IterationLimit

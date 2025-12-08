@@ -1,3 +1,10 @@
+v0.2.1 - Linear Brute Force Solver 
+    x Commit: 2025-12-08 21:10
+    x brute.LinearSolver 
+    x brute.NewLinearSolver
+    x brute.LinearSolver.Solve
+    x base.Solver.AddSolution
+    x worker.NewLogger
 v0.2.0 - Linear Solver
     x Commit: 2025-12-07 22:43
     x worker.LogLevel 

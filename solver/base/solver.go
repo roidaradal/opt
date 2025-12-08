@@ -1,3 +1,4 @@
+// Package base contains base solver types
 package base
 
 import (
@@ -38,6 +39,33 @@ func (s *Solver) Initialize(name string, problem *discrete.Problem) {
 // Get solver's result
 func (s *Solver) GetResult() *worker.Result {
 	return s.Result
+}
+
+// Add solution to solver results
+func (s *Solver) AddSolution(solution *discrete.Solution) {
+	if solution == nil {
+		return
+	}
+
+	score := solution.Score
+	s.FeasibleSolutions[score] += 1 // increment counter for feasible solutions with solution score
+
+	if s.IsScoreBetter(score) {
+		// Reset the best score, best solutions and core solutions if we find a better score
+		s.BestScore = score
+		s.BestSolutions = make([]*discrete.Solution, 0)
+		s.CoreSolutions = make(map[string][]*discrete.Solution)
+	} else if score != s.BestScore && s.Problem.IsOptimization() {
+		// skip if optimization problem and score is not better than current best
+		return
+	}
+
+	coreFn := s.Problem.SolutionCoreFn
+	if coreFn != nil {
+		coreKey := coreFn(solution)
+		s.CoreSolutions[coreKey] = append(s.CoreSolutions[coreKey], solution)
+	}
+	s.BestSolutions = append(s.BestSolutions, solution)
 }
 
 // Check if solution is complete
