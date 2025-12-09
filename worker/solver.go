@@ -8,6 +8,8 @@ import (
 
 const IterationBatch int = 1_000_000
 
+type SolverCreator = func(*discrete.Problem) Solver
+
 type Solver interface {
 	Solve(LogLevel)
 	GetResult() *Result

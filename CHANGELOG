@@ -1,3 +1,14 @@
+v0.2.2 - Concurrent Brute Force Solver 
+    x Commit: 2025-12-09 20:54
+    x base.ConcurrentTaskFn
+    x base.ConcurrentSolver 
+    x base.ConcurrentSolver.Initialize
+    x base.ConcurrentSolver.RunWorkers
+    x base.Solver.DisplayProgress
+    x base.Solver.Prelude
+    x brute.ConcurrentSolver 
+    x brute.NewConcurrentSolver 
+    x brute.ConcurrentSolver.Solve
 v0.2.1 - Linear Brute Force Solver 
     x Commit: 2025-12-08 21:10
     x brute.LinearSolver 

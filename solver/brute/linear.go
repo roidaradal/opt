@@ -4,7 +4,6 @@ package brute
 import (
 	"github.com/roidaradal/fn/comb"
 	"github.com/roidaradal/fn/list"
-	"github.com/roidaradal/fn/number"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/solver/base"
 	"github.com/roidaradal/opt/worker"
@@ -23,13 +22,8 @@ func NewLinearSolver(problem *discrete.Problem) worker.Solver {
 
 // Solve problem using the Linear Brute-Force solver
 func (solver *LinearSolver) Solve(logLevel worker.LogLevel) {
-	logger := worker.NewLogger(logLevel)
 	problem := solver.Problem
-	solutionSpace := problem.SolutionSpace()
-	if solutionSpace > worker.IterationBatch {
-		logger.Output("SolutionSpace:", number.Comma(solutionSpace))
-	}
-
+	logger := solver.Prelude(logLevel)
 	domains := list.Translate(problem.Variables, problem.Domain)
 	for _, values := range comb.Product(domains...) {
 		solver.NumSteps += 1

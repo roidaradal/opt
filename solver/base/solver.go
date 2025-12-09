@@ -2,10 +2,12 @@
 package base
 
 import (
+	"fmt"
 	"math"
 
 	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/list"
+	"github.com/roidaradal/fn/number"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/worker"
 )
@@ -36,9 +38,28 @@ func (s *Solver) Initialize(name string, problem *discrete.Problem) {
 	}
 }
 
+// Get solver's identifier
+func (s Solver) FullName() string {
+	problemName := ""
+	if s.Problem != nil {
+		problemName = s.Problem.Name
+	}
+	return fmt.Sprintf("%s(%s)", s.Name, problemName)
+}
+
 // Get solver's result
 func (s *Solver) GetResult() *worker.Result {
 	return s.Result
+}
+
+// Create logger based on log level and display solution space size
+func (s Solver) Prelude(logLevel worker.LogLevel) worker.Logger {
+	logger := worker.NewLogger(logLevel)
+	solutionSpace := s.Problem.SolutionSpace()
+	if solutionSpace > worker.IterationBatch {
+		logger.Output("SolutionSpace:", number.Comma(solutionSpace))
+	}
+	return logger
 }
 
 // Add solution to solver results
@@ -66,6 +87,20 @@ func (s *Solver) AddSolution(solution *discrete.Solution) {
 		s.CoreSolutions[coreKey] = append(s.CoreSolutions[coreKey], solution)
 	}
 	s.BestSolutions = append(s.BestSolutions, solution)
+}
+
+// Display solver's progress
+func (s Solver) DisplayProgress(logger worker.Logger) {
+	iterationBatch := worker.IterationBatch
+	if s.NumSteps%iterationBatch != 0 || s.NumSteps < iterationBatch {
+		return
+	}
+	var bestScore string
+	batch := s.NumSteps / iterationBatch
+	if s.Problem.IsOptimization() {
+		bestScore = fmt.Sprintf("BestScore: %.2f, %d solutions", s.BestScore, len(s.BestSolutions))
+	}
+	logger.Output("IterBatch:", batch, bestScore, s.FullName())
 }
 
 // Check if solution is complete
