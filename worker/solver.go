@@ -11,7 +11,7 @@ const IterationBatch int = 1_000_000
 type SolverCreator = func(*discrete.Problem) Solver
 
 type Solver interface {
-	Solve(LogLevel)
+	Solve(Logger)
 	GetResult() *Result
 }
 
@@ -22,3 +22,9 @@ type Result struct {
 	CoreSolutions     map[string][]*discrete.Solution
 	FeasibleSolutions dict.Counter[discrete.Score]
 }
+
+const (
+	InfeasibleSolution string = "FAIL"
+	FeasibleSolution   string = "PASS"
+	BestSolution       string = "BEST"
+)

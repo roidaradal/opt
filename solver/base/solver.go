@@ -52,33 +52,35 @@ func (s *Solver) GetResult() *worker.Result {
 	return s.Result
 }
 
-// Create logger based on log level and display solution space size
-func (s Solver) Prelude(logLevel worker.LogLevel) worker.Logger {
-	logger := worker.NewLogger(logLevel)
+// Display and return solution space size
+func (s Solver) Prelude(logger worker.Logger) int {
 	solutionSpace := s.Problem.SolutionSpace()
 	if solutionSpace > worker.IterationBatch {
 		logger.Output("SolutionSpace:", number.Comma(solutionSpace))
 	}
-	return logger
+	return solutionSpace
 }
 
-// Add solution to solver results
-func (s *Solver) AddSolution(solution *discrete.Solution) {
+// Add solution to solver results,
+// Returns boolean indicating whether solution score is better than current
+func (s *Solver) AddSolution(solution *discrete.Solution) bool {
 	if solution == nil {
-		return
+		return false
 	}
 
 	score := solution.Score
 	s.FeasibleSolutions[score] += 1 // increment counter for feasible solutions with solution score
 
+	isBetter := false
 	if s.IsScoreBetter(score) {
 		// Reset the best score, best solutions and core solutions if we find a better score
 		s.BestScore = score
 		s.BestSolutions = make([]*discrete.Solution, 0)
 		s.CoreSolutions = make(map[string][]*discrete.Solution)
+		isBetter = true
 	} else if score != s.BestScore && s.Problem.IsOptimization() {
 		// skip if optimization problem and score is not better than current best
-		return
+		return false
 	}
 
 	coreFn := s.Problem.SolutionCoreFn
@@ -87,6 +89,7 @@ func (s *Solver) AddSolution(solution *discrete.Solution) {
 		s.CoreSolutions[coreKey] = append(s.CoreSolutions[coreKey], solution)
 	}
 	s.BestSolutions = append(s.BestSolutions, solution)
+	return isBetter
 }
 
 // Display solver's progress

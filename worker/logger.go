@@ -1,36 +1,45 @@
 package worker
 
-import "fmt"
-
-const (
-	LOG_NONE  LogLevel = iota // no logging
-	LOG_BATCH                 // log iteration batch
-	LOG_STEPS                 // log step-by-step
+import (
+	"fmt"
+	"time"
 )
-
-type LogLevel uint
 
 type Logger interface {
 	Output(args ...any)
+	Steps(args ...any)
 }
 
-type CmdLogger struct{}
 type NoLogger struct{}
-
-func (l CmdLogger) Output(args ...any) {
-	fmt.Println(args...)
+type BatchLogger struct{}
+type StepsLogger struct {
+	DelayMs int
 }
 
 func (l NoLogger) Output(args ...any) {
 	// do nothing
 }
 
-// Create new Logger based on LogLevel
-func NewLogger(level LogLevel) Logger {
-	switch level {
-	case LOG_NONE:
-		return NoLogger{}
-	default:
-		return CmdLogger{}
+func (l NoLogger) Steps(args ...any) {
+	// do nothing
+}
+
+func (l BatchLogger) Output(args ...any) {
+	fmt.Println(args...)
+}
+
+func (l BatchLogger) Steps(args ...any) {
+	// do nothing
+}
+
+func (l StepsLogger) Output(args ...any) {
+	// do nothing
+}
+
+func (l StepsLogger) Steps(args ...any) {
+	fmt.Print("\033[1A\033[K")
+	fmt.Println(args...)
+	if l.DelayMs > 0 {
+		time.Sleep(time.Duration(l.DelayMs) * time.Millisecond)
 	}
 }

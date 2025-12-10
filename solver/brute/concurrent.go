@@ -24,9 +24,9 @@ func NewConcurrentSolver(numWorkers int) worker.SolverCreator {
 }
 
 // Solve problem using the Concurrent Brute-Force solver
-func (solver *ConcurrentSolver) Solve(logLevel worker.LogLevel) {
+func (solver *ConcurrentSolver) Solve(logger worker.Logger) {
+	solver.Prelude(logger)
 	problem := solver.Problem
-	logger := solver.Prelude(logLevel)
 	domains := list.Translate(problem.Variables, problem.Domain)
 	task := func(workerID int, stepsCh chan<- struct{}, solutionsCh chan<- *discrete.Solution) {
 		workerRange := solver.workerRange[workerID]
