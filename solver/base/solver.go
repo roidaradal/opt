@@ -52,6 +52,11 @@ func (s *Solver) GetResult() *worker.Result {
 	return s.Result
 }
 
+// Get solver's problem
+func (s *Solver) GetProblem() *discrete.Problem {
+	return s.Problem
+}
+
 // Display and return solution space size
 func (s Solver) Prelude(logger worker.Logger) int {
 	solutionSpace := s.Problem.SolutionSpace()

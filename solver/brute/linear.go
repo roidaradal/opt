@@ -44,6 +44,7 @@ func (solver *LinearSolver) Solve(logger worker.Logger) {
 		}
 
 		progress := (solver.NumSteps * 100) / solutionSpace
+		logger.Clear(1)
 		logger.Steps(fmt.Sprintf("%3d%% %v %s %.2f", progress, values, result, solver.BestScore))
 
 		if solver.IsSolutionLimitReached() {

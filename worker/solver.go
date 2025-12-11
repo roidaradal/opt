@@ -13,6 +13,7 @@ type SolverCreator = func(*discrete.Problem) Solver
 type Solver interface {
 	Solve(Logger)
 	GetResult() *Result
+	GetProblem() *discrete.Problem
 }
 
 type Result struct {
