@@ -11,24 +11,24 @@ type Logger interface {
 	Clear(n int)
 }
 
-type NoLogger struct{}
+type QuietLogger struct{}
 type BatchLogger struct {
-	NoLogger
+	QuietLogger
 }
 type StepsLogger struct {
-	NoLogger
+	QuietLogger
 	DelayNanosecond int
 }
 
-func (l NoLogger) Output(args ...any) {
+func (l QuietLogger) Output(args ...any) {
 	// do nothing
 }
 
-func (l NoLogger) Steps(args ...any) {
+func (l QuietLogger) Steps(args ...any) {
 	// do nothing
 }
 
-func (l NoLogger) Clear(n int) {
+func (l QuietLogger) Clear(n int) {
 	// do nothing
 }
 

@@ -1,3 +1,11 @@
+v0.2.5 - Command-Line Parameters 
+    x Commit: 2025-12-12 21:53
+    x RunReporter WithSolution
+    x Main command-line Parameters
+    x newProblem 
+    x newWorker 
+    x newSolverCreator
+    x newLogger
 v0.2.4 - RunReporter 
     x Commit: 2025-12-11 21:34
     x worker.Reporter interface
