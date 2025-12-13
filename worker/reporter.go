@@ -16,6 +16,10 @@ import (
 	"github.com/roidaradal/fn/str"
 )
 
+type Reporter interface {
+	Run(Solver, Logger)
+}
+
 type RunReporter struct {
 	WithSolutions bool
 }

@@ -2,10 +2,13 @@ package main
 
 import (
 	"fmt"
-	"log"
+	"os"
+	"regexp"
+	"slices"
 	"strings"
 
 	"github.com/roidaradal/fn/dict"
+	"github.com/roidaradal/fn/io"
 	"github.com/roidaradal/fn/number"
 	"github.com/roidaradal/fn/str"
 	"github.com/roidaradal/opt/discrete"
@@ -14,67 +17,130 @@ import (
 	"github.com/roidaradal/opt/worker"
 )
 
-// Create new problem
-func newProblem(value string) *discrete.Problem {
-	parts := str.CleanSplit(value, ":")
-	if len(parts) != 2 {
+var (
+	defaultLogger        worker.Logger        = worker.BatchLogger{}
+	defaultSolverCreator worker.SolverCreator = brute.NewLinearSolver
+)
+
+// Load args from file, defaults to config.json
+func loadFileArgs(args []string) []string {
+	path := "config.json"
+	if len(args) > 1 {
+		path = args[1]
+	}
+	cfg, err := io.ReadJSONMap[string](path)
+	if err != nil {
+		fmt.Println(str.Red("Error:"), err)
 		return nil
 	}
+	if dict.NoKey(cfg, "task") {
+		fmt.Println(str.Red("Error:"), "Undefined task from config")
+		return nil
+	}
+
+	args = make([]string, 0, len(cfg))
+	args = append(args, cfg["task"])
+	delete(cfg, "task")
+	for key, value := range cfg {
+		args = append(args, fmt.Sprintf("%s=%s", key, value))
+	}
+	return args
+}
+
+// Create new problem
+func newProblem(value string) (*discrete.Problem, error) {
+	parts := str.CleanSplit(value, ":")
+	if len(parts) != 2 {
+		return nil, fmt.Errorf("Invalid problem string: %q", value)
+	}
+
 	name, n := parts[0], parts[1]
 	if dict.NoKey(problem.Creator, name) {
-		log.Fatal("Unknown problem: ", name)
+		return nil, fmt.Errorf("Unknown problem: %q", name)
 	}
+
 	p := problem.Creator[name](number.ParseInt(n))
 	if p == nil {
-		log.Fatal("Unknown test case: ", value)
+		return nil, fmt.Errorf("Unknown test case: %q", value)
 	}
-	return p
+
+	return p, nil
 }
 
-// Create new worker, defaults to RunReporter
-func newWorker(value string) worker.Worker {
-	var mainWorker worker.Worker = defaultWorker
-	parts := str.CleanSplit(value, ":")
-	name := parts[0]
-	switch name {
-	case "RunReporter":
-		mainWorker = worker.RunReporter{}
-	case "RunReporterWithSolutions":
-		mainWorker = worker.RunReporter{WithSolutions: true}
-	case "SolutionReporter":
-		mainWorker = worker.SolutionReporter{}
-	default:
-		fmt.Printf("Unknown worker %q, using the default worker...\n", name)
+// Display problem options
+func displayProblemOptions() {
+	entries, err := os.ReadDir("data/")
+	if err != nil {
+		fmt.Println(str.Red("Error:"), err)
+		return
 	}
-	return mainWorker
+
+	testCases := make(map[string][]int)
+	letters := regexp.MustCompile("[a-zA-Z]+")
+	for _, e := range entries {
+		filename := e.Name()
+		if !strings.HasSuffix(filename, ".txt") {
+			continue // skip non-text files
+		}
+		filename = strings.Split(filename, ".")[0]
+		name := letters.FindString(filename)
+		if dict.NoKey(problem.Creator, name) {
+			continue // skip unknown problem
+		}
+		n := number.ParseInt(strings.TrimPrefix(filename, name))
+		testCases[name] = append(testCases[name], n)
+	}
+	names := dict.Keys(testCases)
+	names = append(names, problem.NoFiles...)
+	slices.Sort(names)
+	for _, name := range names {
+		if dict.HasKey(testCases, name) {
+			first := slices.Min(testCases[name])
+			last := slices.Max(testCases[name])
+			fmt.Printf("%s:[%d,%d]\n", name, first, last)
+		} else {
+			fmt.Printf("%s:n\n", name)
+		}
+	}
 }
 
-// Create new solver creator, defaults to LinearBruteForce
+// Create new SolverCreator, defaults to LinearBruteForce
 func newSolverCreator(value string) worker.SolverCreator {
-	var solver worker.SolverCreator = defaultSolverCreator
+	newSolver := defaultSolverCreator
 	parts := str.CleanSplit(value, ":")
 	name := parts[0]
 	switch name {
 	case "LinearBruteForce":
-		solver = brute.NewLinearSolver
+		newSolver = brute.NewLinearSolver
 	case "ConcurrentBruteForce":
-		numWorkers := 10
+		numWorkers := 10 // default
 		if len(parts) > 1 {
 			numWorkers = max(numWorkers, number.ParseInt(parts[1]))
 		}
-		solver = brute.NewConcurrentSolver(numWorkers)
+		newSolver = brute.NewConcurrentSolver(numWorkers)
 	default:
-		fmt.Printf("Unknown solver %q, using the default solver...\n", name)
+		fmt.Printf("Unknown solver %q, using default...", name)
 	}
-	return solver
+	return newSolver
+}
+
+// Display solver options
+func displaySolverOptions() {
+	options := []string{
+		"LinearBruteForce",
+		"ConcurrentBruteForce:<numWorkers>",
+	}
+	for _, option := range options {
+		fmt.Printf("%s\n", option)
+	}
 }
 
 // Create new logger, defaults to BatchLogger
 func newLogger(value string) worker.Logger {
-	var logger worker.Logger = defaultLogger
+	logger := defaultLogger
 	parts := str.CleanSplit(value, ":")
-	name := parts[0]
-	switch strings.ToLower(name) {
+	name := strings.ToLower(parts[0])
+	switch name {
 	case "quiet":
 		logger = worker.QuietLogger{}
 	case "batch":
@@ -86,7 +152,18 @@ func newLogger(value string) worker.Logger {
 		}
 		logger = worker.StepsLogger{DelayNanosecond: delay}
 	default:
-		fmt.Printf("Unknown logger %q, using the default logger...\n", name)
+		fmt.Printf("Unknown logger %q, using default...", name)
 	}
 	return logger
+}
+
+func displayLoggerOptions() {
+	options := []string{
+		"quiet",
+		"batch",
+		"steps:<delay>",
+	}
+	for _, option := range options {
+		fmt.Printf("%s\n", option)
+	}
 }

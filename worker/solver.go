@@ -1,3 +1,4 @@
+// Package worker contains common discrete optimization workers
 package worker
 
 import (

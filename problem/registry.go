@@ -53,6 +53,8 @@ var Creator = map[string]func(int) *discrete.Problem{
 	WAREHOUSE:          WarehouseLocation,
 }
 
+var NoFiles = []string{LANGFORD_PAIR, MAGIC_SERIES, NQUEENS}
+
 // Create problem test case name
 func newName(problem string, n int) string {
 	return fmt.Sprintf("%s%d", problem, n)

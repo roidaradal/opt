@@ -1,3 +1,13 @@
+v0.2.7 - Command-Line Helper 
+    x Commit: 2025-12-13 13:33
+    x Fix command-line parameter structure
+    x Add color to help message
+    x Display Usage:
+        x List of task choices
+        - List of problems and range of test cases
+        x List of solver options 
+        x List of logger options
+    x Read command-line args from JSON file
 v0.2.6 - SolutionReporter 
     x Commit: 2025-12-13 08:42
     x worker.SolutionReporter 
