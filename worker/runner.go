@@ -2,8 +2,6 @@ package worker
 
 import (
 	"fmt"
-	"log"
-	"path/filepath"
 	"slices"
 	"strings"
 	"time"
@@ -16,18 +14,18 @@ import (
 	"github.com/roidaradal/fn/str"
 )
 
-type Reporter interface {
+type Runner interface {
 	Run(Solver, Logger)
 }
 
-type RunReporter struct {
-	WithSolutions bool
+type SolverRunner struct {
+	DisplaySolutions bool
 }
 
-type SolutionReporter struct{}
+type SolutionSaver struct{}
 
-// Basic Reporter for running Solver
-func (r RunReporter) Run(solver Solver, logger Logger) {
+// Runs Solver.Solve() using Logger
+func (r SolverRunner) Run(solver Solver, logger Logger) {
 	problem := solver.GetProblem()
 	stringFn := problem.SolutionStringFn
 	coreFn := problem.SolutionCoreFn
@@ -36,7 +34,7 @@ func (r RunReporter) Run(solver Solver, logger Logger) {
 	solver.Solve(logger)
 	result := solver.GetResult()
 
-	if r.WithSolutions {
+	if r.DisplaySolutions {
 		if coreFn == nil {
 			for i, solution := range result.BestSolutions {
 				prefix := fmt.Sprintf("S%-3d : ", i+1)
@@ -84,8 +82,8 @@ func (r RunReporter) Run(solver Solver, logger Logger) {
 	}
 }
 
-// Saves solutions to solution/<problemname>.txt
-func (r SolutionReporter) Run(solver Solver, logger Logger) {
+// Runs Solver.Solve() and saves solutions to solution/<problemname>.txt
+func (r SolutionSaver) Run(solver Solver, logger Logger) {
 	problem := solver.GetProblem()
 	stringFn := problem.SolutionStringFn
 	coreFn := problem.SolutionCoreFn
@@ -126,13 +124,15 @@ func (r SolutionReporter) Run(solver Solver, logger Logger) {
 
 	err := io.EnsurePathExists("solution/")
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(redError, err)
+		return
 	}
 
-	path := filepath.Join("solution", fmt.Sprintf("%s.txt", problem.Name))
+	path := fmt.Sprintf("solution/%s.txt", problem.Name)
 	err = io.SaveString(strings.Join(out, "\n"), path)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(redError, err)
+		return
 	}
-	fmt.Println("Saved: ", path)
+	fmt.Println(str.Green("Saved:"), path)
 }

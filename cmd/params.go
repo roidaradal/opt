@@ -20,6 +20,7 @@ import (
 var (
 	defaultLogger        worker.Logger        = worker.BatchLogger{}
 	defaultSolverCreator worker.SolverCreator = brute.NewLinearSolver
+	redError             string               = str.Red("Error:")
 )
 
 // Load args from file, defaults to config.json
@@ -30,11 +31,11 @@ func loadFileArgs(args []string) []string {
 	}
 	cfg, err := io.ReadJSONMap[string](path)
 	if err != nil {
-		fmt.Println(str.Red("Error:"), err)
+		fmt.Println(redError, err)
 		return nil
 	}
 	if dict.NoKey(cfg, "task") {
-		fmt.Println(str.Red("Error:"), "Undefined task from config")
+		fmt.Println(redError, "Undefined task from config")
 		return nil
 	}
 
@@ -71,7 +72,7 @@ func newProblem(value string) (*discrete.Problem, error) {
 func displayProblemOptions() {
 	entries, err := os.ReadDir("data/")
 	if err != nil {
-		fmt.Println(str.Red("Error:"), err)
+		fmt.Println(redError, err)
 		return
 	}
 

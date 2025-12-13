@@ -9,12 +9,18 @@ import (
 	"github.com/roidaradal/opt/worker"
 )
 
-// Run Reporter task
-func runReporterTask(task worker.Reporter, args []string) {
-	var err error
-	var p *discrete.Problem
-	newSolver := defaultSolverCreator
-	logger := defaultLogger
+type Config struct {
+	problem   *discrete.Problem
+	newSolver worker.SolverCreator
+	logger    worker.Logger
+}
+
+// Build Config from args
+func buildConfig(args []string) (*Config, error) {
+	cfg := &Config{
+		newSolver: defaultSolverCreator,
+		logger:    defaultLogger,
+	}
 
 	for _, pair := range args[1:] {
 		parts := str.CleanSplit(pair, "=")
@@ -24,24 +30,52 @@ func runReporterTask(task worker.Reporter, args []string) {
 		key, value := parts[0], parts[1]
 		switch key {
 		case "p", "problem":
-			p, err = newProblem(value)
+			p, err := newProblem(value)
 			if err != nil {
-				fmt.Println(str.Red("Error:"), err)
-				return
+				return nil, err
 			}
+			cfg.problem = p
 		case "s", "solver":
-			newSolver = newSolverCreator(value)
+			cfg.newSolver = newSolverCreator(value)
 		case "l", "logger":
-			logger = newLogger(value)
+			cfg.logger = newLogger(value)
 		}
 	}
 
-	if p == nil {
-		fmt.Println(str.Red("Error:"), "Undefined problem")
-		displayUsage(strings.ToLower(args[0]))
+	return cfg, nil
+}
+
+// Execute Runner task
+func runTask(task worker.Runner, args []string) {
+	cfg, err := buildConfig(args)
+	if err != nil {
+		fmt.Println(redError, err)
 		return
 	}
 
-	solver := newSolver(p)
-	task.Run(solver, logger)
+	if cfg.problem == nil {
+		fmt.Println(redError, "Undefined problem")
+		displayUsage(strings.ToLower(args[0]), false)
+		return
+	}
+
+	solver := cfg.newSolver(cfg.problem)
+	task.Run(solver, cfg.logger)
+}
+
+// Read Solution
+func readSolution(task worker.SolutionReader, args []string) {
+	cfg, err := buildConfig(args)
+	if err != nil {
+		fmt.Println(redError, err)
+		return
+	}
+
+	if cfg.problem == nil {
+		fmt.Println(redError, "Undefined test case")
+		displayUsage(strings.ToLower(args[0]), false)
+		return
+	}
+
+	task.Read(cfg.problem)
 }

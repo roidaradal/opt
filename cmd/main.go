@@ -16,7 +16,7 @@ const allTasks string = "*"
 func main() {
 	args := os.Args[1:]
 	if len(args) == 0 {
-		displayUsage(allTasks)
+		displayUsage(allTasks, false)
 		return
 	}
 
@@ -31,30 +31,34 @@ func main() {
 	option := strings.ToLower(args[0])
 	switch option {
 	case "?", "help":
-		displayUsage(allTasks)
+		displayUsage(allTasks, true)
 	case "run":
-		task := worker.RunReporter{}
-		runReporterTask(task, args)
+		task := worker.SolverRunner{}
+		runTask(task, args)
 	case "run+sol":
-		task := worker.RunReporter{WithSolutions: true}
-		runReporterTask(task, args)
+		task := worker.SolverRunner{DisplaySolutions: true}
+		runTask(task, args)
 	case "sol.save":
-		task := worker.SolutionReporter{}
-		runReporterTask(task, args)
+		task := worker.SolutionSaver{}
+		runTask(task, args)
+	case "sol.read":
+		task := worker.SolutionReader{}
+		readSolution(task, args)
 	default:
 		fmt.Println("Unknown command: ", option)
 	}
 
 }
 
-func displayUsage(taskFocus string) {
+func displayUsage(taskFocus string, detailed bool) {
 	if taskFocus == allTasks {
+		required, autocreate := str.Red("required"), str.Blue("autocreate")
 		fmt.Println(str.Yellow("opt"), " - discrete optimization tool")
 		folders := [][3]string{
-			{"data/", str.Red("required"), "Contains test case text files"},
-			{"test/", str.Red("required"), "Contains test suite configurations"},
-			{"results/", str.Blue("autocreate"), "Stores test suite result files"},
-			{"solution/", str.Blue("autocreate"), "Stores test case solutions"},
+			{"data/", required, "Contains test case text files"},
+			{"test/", required, "Contains test suite configurations"},
+			{"results/", autocreate, "Stores test suite result files"},
+			{"solution/", autocreate, "Stores test case solutions"},
 		}
 		fmt.Println("\nCurrent Directory Assumptions:")
 		for _, folder := range folders {
@@ -66,7 +70,7 @@ func displayUsage(taskFocus string) {
 	fmt.Println("\nUsage:", str.Yellow("opt"), str.Cyan("<task>"), str.Green("(option=key(:param)*)*\n"))
 
 	// Task Choices
-	reporterRequired := fmt.Sprintf("%s %s", str.Red("Required:"), str.Green("problem"))
+	requiredProblem := fmt.Sprintf("%s %s", str.Red("Required:"), str.Green("problem"))
 	reporterOption := fmt.Sprintf("%s %s", str.Yellow("Option:"), str.Green("solver, logger"))
 	tasks := [][]string{
 		{"help", "Display help"},
@@ -74,16 +78,19 @@ func displayUsage(taskFocus string) {
 			fmt.Sprintf("%s %s, defaults to %s", str.Yellow("Option:"), str.Violet("<configPath>"), str.Violet("./config.json")),
 		},
 		{"run", "Run solver on problem",
-			reporterRequired,
+			requiredProblem,
 			reporterOption,
 		},
 		{"run+sol", "Run solver on problem, display solutions",
-			reporterRequired,
+			requiredProblem,
 			reporterOption,
 		},
 		{"sol.save", "Run solver on problem, save solution file",
-			reporterRequired,
+			requiredProblem,
 			reporterOption,
+		},
+		{"sol.read", "Read solution from saved file",
+			requiredProblem,
 		},
 	}
 
@@ -92,9 +99,9 @@ func displayUsage(taskFocus string) {
 		"run":      reporterOptions,
 		"run+sol":  reporterOptions,
 		"sol.save": reporterOptions,
+		"sol.read": []string{"problem"},
 	}
 	// TODO:
-	// sol.read 	SolutionReader
 	// test			Tester
 	// multi 		MultiTasker
 
@@ -132,13 +139,15 @@ func displayUsage(taskFocus string) {
 		fmt.Printf("%-30s %s\n", str.Green(command), description)
 		fmt.Println(str.Green(command2))
 
-		switch key {
-		case "problem":
-			displayProblemOptions()
-		case "solver":
-			displaySolverOptions()
-		case "logger":
-			displayLoggerOptions()
+		if detailed {
+			switch key {
+			case "problem":
+				displayProblemOptions()
+			case "solver":
+				displaySolverOptions()
+			case "logger":
+				displayLoggerOptions()
+			}
 		}
 
 		fmt.Println()

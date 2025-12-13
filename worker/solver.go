@@ -8,6 +8,12 @@ import (
 
 const IterationBatch int = 1_000_000
 
+const (
+	InfeasibleResult string = "FAIL"
+	FeasibleResult   string = "PASS"
+	BestResult       string = "BEST"
+)
+
 type SolverCreator = func(*discrete.Problem) Solver
 
 type Solver interface {
@@ -24,9 +30,3 @@ type Result struct {
 	CoreSolutions     map[string][]*discrete.Solution
 	FeasibleSolutions dict.Counter[discrete.Score]
 }
-
-const (
-	InfeasibleResult string = "FAIL"
-	FeasibleResult   string = "PASS"
-	BestResult       string = "BEST"
-)
