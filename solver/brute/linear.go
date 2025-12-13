@@ -38,9 +38,9 @@ func (solver *LinearSolver) Solve(logger worker.Logger) {
 		if problem.IsSatisfied(solution) {
 			problem.ComputeScore(solution)
 			isBetter := solver.AddSolution(solution)
-			result = lang.Ternary(isBetter, worker.BestSolution, worker.FeasibleSolution)
+			result = lang.Ternary(isBetter, worker.BestResult, worker.FeasibleResult)
 		} else {
-			result = worker.InfeasibleSolution
+			result = worker.InfeasibleResult
 		}
 
 		progress := (solver.NumSteps * 100) / solutionSpace

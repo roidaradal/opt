@@ -38,6 +38,11 @@ func (s *Solver) Initialize(name string, problem *discrete.Problem) {
 	}
 }
 
+// Get solver's name
+func (s Solver) GetName() string {
+	return s.Name
+}
+
 // Get solver's identifier
 func (s Solver) FullName() string {
 	problemName := ""

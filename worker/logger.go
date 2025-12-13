@@ -11,10 +11,14 @@ type Logger interface {
 	Clear(n int)
 }
 
+// All other loggers embed the QuietLogger, so that the default
+// behavior for undefined Logger methods is to do nothing
 type QuietLogger struct{}
+
 type BatchLogger struct {
 	QuietLogger
 }
+
 type StepsLogger struct {
 	QuietLogger
 	DelayNanosecond int
@@ -39,7 +43,7 @@ func (l BatchLogger) Output(args ...any) {
 func (l StepsLogger) Steps(args ...any) {
 	fmt.Println(args...)
 	if l.DelayNanosecond > 0 {
-		time.Sleep(time.Duration(l.DelayNanosecond) * time.Millisecond)
+		time.Sleep(time.Duration(l.DelayNanosecond) * time.Nanosecond)
 	}
 }
 

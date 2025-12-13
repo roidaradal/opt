@@ -16,7 +16,7 @@ type ConcurrentTaskFn = func(int, chan<- struct{}, chan<- *discrete.Solution)
 type ConcurrentSolver struct {
 	Solver
 	NumWorkers  int
-	StepsCh     chan struct{}
+	StepsCh     chan struct{} // empty struct costs 0 bytes, only used to signal increment
 	SolutionsCh chan *discrete.Solution
 }
 

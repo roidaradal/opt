@@ -1,4 +1,3 @@
-// Pacakge worker contains common discrete optimization workers
 package worker
 
 import (
@@ -11,9 +10,10 @@ const IterationBatch int = 1_000_000
 type SolverCreator = func(*discrete.Problem) Solver
 
 type Solver interface {
-	Solve(Logger)
-	GetResult() *Result
+	GetName() string
 	GetProblem() *discrete.Problem
+	GetResult() *Result
+	Solve(Logger)
 }
 
 type Result struct {
@@ -25,7 +25,7 @@ type Result struct {
 }
 
 const (
-	InfeasibleSolution string = "FAIL"
-	FeasibleSolution   string = "PASS"
-	BestSolution       string = "BEST"
+	InfeasibleResult string = "FAIL"
+	FeasibleResult   string = "PASS"
+	BestResult       string = "BEST"
 )
