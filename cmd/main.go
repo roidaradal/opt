@@ -32,6 +32,9 @@ func main() {
 	switch option {
 	case "?", "help":
 		displayUsage(allTasks, true)
+	case "space":
+		task := worker.SpaceSolver{}
+		runWorker(task, args)
 	case "run":
 		task := worker.SolverRunner{}
 		runWorker(task, args)
@@ -80,6 +83,9 @@ func displayUsage(taskFocus string, detailed bool) {
 		{"load", "Load config from file",
 			fmt.Sprintf("%s %s, defaults to %s", optional, str.Violet("<configPath>"), str.Violet("./config.json")),
 		},
+		{"space", "Display problem solution space",
+			requiredProblem,
+		},
 		{"run", "Run solver on problem",
 			requiredProblem,
 			solverOption,
@@ -101,13 +107,15 @@ func displayUsage(taskFocus string, detailed bool) {
 		},
 	}
 
+	onlyProblem := []string{"problem"}
 	solverOptions := []string{"problem", "solver", "logger"}
 	multiOptions := []string{"worker", "data", "solver", "logger"}
 	taskOptions := dict.StringListMap{
+		"space":    onlyProblem,
 		"run":      solverOptions,
 		"run+sol":  solverOptions,
 		"sol.save": solverOptions,
-		"sol.read": []string{"problem"},
+		"sol.read": onlyProblem,
 		"solo":     multiOptions,
 	}
 	// TODO:

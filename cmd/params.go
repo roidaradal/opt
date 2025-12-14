@@ -174,6 +174,8 @@ func displayLoggerOptions() {
 func newWorker(value string) (worker.Worker, bool) {
 	var w worker.Worker
 	switch value {
+	case "space":
+		return worker.SpaceSolver{}, true
 	case "sol.save":
 		return worker.SolutionSaver{}, true
 	default:
@@ -184,6 +186,7 @@ func newWorker(value string) (worker.Worker, bool) {
 // Display worker options
 func displayWorkerOptions() {
 	options := []string{
+		"space",
 		"sol.save",
 	}
 	for _, option := range options {
