@@ -14,10 +14,6 @@ import (
 	"github.com/roidaradal/fn/str"
 )
 
-type Runner interface {
-	Run(Solver, Logger)
-}
-
 type SolverRunner struct {
 	DisplaySolutions bool
 }
@@ -25,23 +21,29 @@ type SolverRunner struct {
 type SolutionSaver struct{}
 
 // Runs Solver.Solve() using Logger
-func (r SolverRunner) Run(solver Solver, logger Logger) {
-	problem := solver.GetProblem()
+func (r SolverRunner) Run(cfg *Config) string {
+	problem := cfg.Problem
+	if problem == nil {
+		return errMessage(errMissingProblem)
+	}
+
+	solver := cfg.NewSolver(problem)
 	stringFn := problem.SolutionStringFn
 	coreFn := problem.SolutionCoreFn
 
 	start := time.Now()
-	solver.Solve(logger)
+	solver.Solve(cfg.Logger)
 	result := solver.GetResult()
+	out := make([]string, 0)
 
 	if r.DisplaySolutions {
 		if coreFn == nil {
 			for i, solution := range result.BestSolutions {
-				prefix := fmt.Sprintf("S%-3d : ", i+1)
+				prefix := fmt.Sprintf("S%-3d :", i+1)
 				if stringFn == nil {
-					fmt.Println(prefix, solution)
+					out = append(out, fmt.Sprintf("%s %v", prefix, solution))
 				} else {
-					fmt.Println(prefix, stringFn(solution))
+					out = append(out, fmt.Sprintf("%s %s", prefix, stringFn(solution)))
 				}
 			}
 		} else {
@@ -51,11 +53,11 @@ func (r SolverRunner) Run(solver Solver, logger Logger) {
 				// Get first solution as representative
 				solution := result.CoreSolutions[key][0]
 				count := len(result.CoreSolutions[key])
-				prefix := fmt.Sprintf("S%-3d : %s | %3d | ", i+1, key, count)
+				prefix := fmt.Sprintf("S%-3d : %s | %3d |", i+1, key, count)
 				if stringFn == nil {
-					fmt.Println(prefix, solution)
+					out = append(out, fmt.Sprintf("%s %v", prefix, solution))
 				} else {
-					fmt.Println(prefix, stringFn(solution))
+					out = append(out, fmt.Sprintf("%s %s", prefix, stringFn(solution)))
 				}
 			}
 		}
@@ -74,21 +76,27 @@ func (r SolverRunner) Run(solver Solver, logger Logger) {
 	lengths := list.Map(items, func(pair [2]string) int {
 		return len(pair[0])
 	})
-	template := fmt.Sprintf("%%-%ds : %%s\n", slices.Max(lengths))
+	template := fmt.Sprintf("%%-%ds : %%s", slices.Max(lengths))
 
 	for _, pair := range items {
 		key, value := pair[0], pair[1]
-		fmt.Printf(template, key, value)
+		out = append(out, fmt.Sprintf(template, key, value))
 	}
+	return strings.Join(out, "\n")
 }
 
 // Runs Solver.Solve() and saves solutions to solution/<problemname>.txt
-func (r SolutionSaver) Run(solver Solver, logger Logger) {
-	problem := solver.GetProblem()
+func (r SolutionSaver) Run(cfg *Config) string {
+	problem := cfg.Problem
+	if problem == nil {
+		return errMessage(errMissingProblem)
+	}
+
+	solver := cfg.NewSolver(problem)
 	stringFn := problem.SolutionStringFn
 	coreFn := problem.SolutionCoreFn
 
-	solver.Solve(logger)
+	solver.Solve(cfg.Logger)
 	result := solver.GetResult()
 
 	out := make([]string, 0)
@@ -124,15 +132,14 @@ func (r SolutionSaver) Run(solver Solver, logger Logger) {
 
 	err := io.EnsurePathExists("solution/")
 	if err != nil {
-		fmt.Println(redError, err)
-		return
+		return errMessage(err)
 	}
 
 	path := fmt.Sprintf("solution/%s.txt", problem.Name)
 	err = io.SaveString(strings.Join(out, "\n"), path)
 	if err != nil {
-		fmt.Println(redError, err)
-		return
+		return errMessage(err)
 	}
-	fmt.Println(str.Green("Saved:"), path)
+
+	return fmt.Sprintf("%s %s", str.Green("Saved:"), path)
 }

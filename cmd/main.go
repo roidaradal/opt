@@ -34,20 +34,22 @@ func main() {
 		displayUsage(allTasks, true)
 	case "run":
 		task := worker.SolverRunner{}
-		runTask(task, args)
+		runWorker(task, args)
 	case "run+sol":
 		task := worker.SolverRunner{DisplaySolutions: true}
-		runTask(task, args)
+		runWorker(task, args)
 	case "sol.save":
 		task := worker.SolutionSaver{}
-		runTask(task, args)
+		runWorker(task, args)
 	case "sol.read":
 		task := worker.SolutionReader{}
-		readSolution(task, args)
+		runWorker(task, args)
+	case "solo":
+		manager := worker.Solo{}
+		runManager(manager, args)
 	default:
 		fmt.Println("Unknown command: ", option)
 	}
-
 }
 
 func displayUsage(taskFocus string, detailed bool) {
@@ -70,40 +72,46 @@ func displayUsage(taskFocus string, detailed bool) {
 	fmt.Println("\nUsage:", str.Yellow("opt"), str.Cyan("<task>"), str.Green("(option=key(:param)*)*\n"))
 
 	// Task Choices
-	requiredProblem := fmt.Sprintf("%s %s", str.Red("Required:"), str.Green("problem"))
-	reporterOption := fmt.Sprintf("%s %s", str.Yellow("Option:"), str.Green("solver, logger"))
+	required, optional := str.Red("Required:"), str.Yellow("Option:")
+	requiredProblem := fmt.Sprintf("%s %s", required, str.Green("problem"))
+	solverOption := fmt.Sprintf("%s %s", optional, str.Green("solver, logger"))
 	tasks := [][]string{
 		{"help", "Display help"},
 		{"load", "Load config from file",
-			fmt.Sprintf("%s %s, defaults to %s", str.Yellow("Option:"), str.Violet("<configPath>"), str.Violet("./config.json")),
+			fmt.Sprintf("%s %s, defaults to %s", optional, str.Violet("<configPath>"), str.Violet("./config.json")),
 		},
 		{"run", "Run solver on problem",
 			requiredProblem,
-			reporterOption,
+			solverOption,
 		},
 		{"run+sol", "Run solver on problem, display solutions",
 			requiredProblem,
-			reporterOption,
+			solverOption,
 		},
 		{"sol.save", "Run solver on problem, save solution file",
 			requiredProblem,
-			reporterOption,
+			solverOption,
 		},
 		{"sol.read", "Read solution from saved file",
 			requiredProblem,
 		},
+		{"solo", "Run worker task on dataset (one worker)",
+			fmt.Sprintf("%s %s", required, str.Green("worker, data")),
+			solverOption,
+		},
 	}
 
-	reporterOptions := []string{"problem", "solver", "logger"}
+	solverOptions := []string{"problem", "solver", "logger"}
+	multiOptions := []string{"worker", "data", "solver", "logger"}
 	taskOptions := dict.StringListMap{
-		"run":      reporterOptions,
-		"run+sol":  reporterOptions,
-		"sol.save": reporterOptions,
+		"run":      solverOptions,
+		"run+sol":  solverOptions,
+		"sol.save": solverOptions,
 		"sol.read": []string{"problem"},
+		"solo":     multiOptions,
 	}
 	// TODO:
 	// test			Tester
-	// multi 		MultiTasker
 
 	if taskFocus == allTasks {
 		fmt.Println("Task Choices:", len(tasks))
@@ -125,6 +133,8 @@ func displayUsage(taskFocus string, detailed bool) {
 		{"problem", "p", "name:n", "Set problem test case"},
 		{"solver", "s", "name(:param)*", "Set solver"},
 		{"logger", "l", "name(:param)*", "Set logger"},
+		{"worker", "w", "name(:param)*", "Set base worker"},
+		{"data", "d", "name", "Dataset name"},
 	}
 	if taskFocus == allTasks {
 		fmt.Println("Options:", len(options))
@@ -147,6 +157,10 @@ func displayUsage(taskFocus string, detailed bool) {
 				displaySolverOptions()
 			case "logger":
 				displayLoggerOptions()
+			case "worker":
+				displayWorkerOptions()
+			case "data":
+				displayDatasetOptions()
 			}
 		}
 

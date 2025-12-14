@@ -132,7 +132,7 @@ func displaySolverOptions() {
 		"ConcurrentBruteForce:<numWorkers>",
 	}
 	for _, option := range options {
-		fmt.Printf("%s\n", option)
+		fmt.Println(option)
 	}
 }
 
@@ -158,6 +158,7 @@ func newLogger(value string) worker.Logger {
 	return logger
 }
 
+// Display logger options
 func displayLoggerOptions() {
 	options := []string{
 		"quiet",
@@ -165,6 +166,76 @@ func displayLoggerOptions() {
 		"steps:<delay>",
 	}
 	for _, option := range options {
-		fmt.Printf("%s\n", option)
+		fmt.Println(option)
+	}
+}
+
+// Create new base worker
+func newWorker(value string) (worker.Worker, bool) {
+	var w worker.Worker
+	switch value {
+	case "sol.save":
+		return worker.SolutionSaver{}, true
+	default:
+		return w, false
+	}
+}
+
+// Display worker options
+func displayWorkerOptions() {
+	options := []string{
+		"sol.save",
+	}
+	for _, option := range options {
+		fmt.Println(option)
+	}
+}
+
+// Read list of problems from test/<name>.json
+func newDataset(name string) []*discrete.Problem {
+	path := fmt.Sprintf("test/%s.json", name)
+	dataset, err := io.ReadJSONMap[[2]int](path)
+	if err != nil {
+		fmt.Println(redError, err)
+		return nil
+	}
+
+	names := dict.Keys(dataset)
+	slices.Sort(names)
+	problems := make([]*discrete.Problem, 0)
+	for _, name := range names {
+		r := dataset[name]
+		for n := r[0]; n <= r[1]; n++ {
+			key := fmt.Sprintf("%s:%d", name, n)
+			p, err := newProblem(key)
+			if err != nil {
+				fmt.Println(redError, err)
+				return nil
+			}
+			problems = append(problems, p)
+		}
+	}
+	return problems
+}
+
+// Display dataset options
+func displayDatasetOptions() {
+	entries, err := os.ReadDir("test/")
+	if err != nil {
+		fmt.Println(redError, err)
+		return
+	}
+	names := make([]string, 0)
+	for _, e := range entries {
+		name := e.Name()
+		if !strings.HasSuffix(name, ".json") {
+			continue
+		}
+		name = strings.Split(name, ".")[0]
+		names = append(names, name)
+	}
+	slices.Sort(names)
+	for _, name := range names {
+		fmt.Println(name)
 	}
 }

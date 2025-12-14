@@ -10,16 +10,17 @@ import (
 	"github.com/roidaradal/fn/io"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/fn/number"
-	"github.com/roidaradal/fn/str"
-	"github.com/roidaradal/opt/discrete"
 )
-
-var redError = str.Red("Error:")
 
 type SolutionReader struct{}
 
 // Read solution from file and display stats
-func (r SolutionReader) Read(problem *discrete.Problem) {
+func (r SolutionReader) Run(cfg *Config) string {
+	problem := cfg.Problem
+	if problem == nil {
+		return errMessage(errMissingProblem)
+	}
+
 	items := [][2]string{
 		{"Problem", problem.Name},
 	}
@@ -27,8 +28,7 @@ func (r SolutionReader) Read(problem *discrete.Problem) {
 	path := fmt.Sprintf("solution/%s.txt", problem.Name)
 	lines, err := io.ReadLines(path)
 	if err != nil {
-		fmt.Println(redError, err)
-		return
+		return errMessage(err)
 	}
 	items = append(items, [2]string{"Best Score", lines[0]})
 
@@ -68,13 +68,13 @@ func (r SolutionReader) Read(problem *discrete.Problem) {
 	lengths := list.Map(items, func(pair [2]string) int {
 		return len(pair[0])
 	})
-	template := fmt.Sprintf("%%-%ds : %%s\n", slices.Max(lengths))
+	template := fmt.Sprintf("%%-%ds : %%s", slices.Max(lengths))
 
+	out := make([]string, 0)
 	for _, pair := range items {
 		key, value := pair[0], pair[1]
-		fmt.Printf(template, key, value)
+		out = append(out, fmt.Sprintf(template, key, value))
 	}
-	for _, detail := range details {
-		fmt.Println(detail)
-	}
+	out = append(out, details...)
+	return strings.Join(out, "\n")
 }

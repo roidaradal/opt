@@ -1,4 +1,3 @@
-// Package worker contains common discrete optimization workers
 package worker
 
 import (
@@ -18,7 +17,6 @@ type SolverCreator = func(*discrete.Problem) Solver
 
 type Solver interface {
 	GetName() string
-	GetProblem() *discrete.Problem
 	GetResult() *Result
 	Solve(Logger)
 }

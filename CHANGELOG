@@ -1,3 +1,15 @@
+v0.2.9 - Solo Manager 
+    x Commit: 2025-12-14 14:58
+    x Update workers to return string instead of directly printing:
+        x SolverRunner 
+        x SolutionSaver
+        x SolutionReader
+    x worker.Config
+    x Updated Worker APIs to use worker.Config to unify into Worker interface
+    x Add test suite data: grouped into easy, medium, hard, ultra
+    x worker.Manager interface 
+    x worker.Solo
+    x worker.SoloRun
 v0.2.8 - SolutionReader 
     x Commit: 2025-12-13 19:03
     x worker.SolutionReader

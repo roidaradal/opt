@@ -1,0 +1,6 @@
+{
+    "magicseries"       : [8,8],
+    "nqueens"           : [9,9],
+    "numberpartition"   : [5,5],
+    "resource"          : [3,3]
+}

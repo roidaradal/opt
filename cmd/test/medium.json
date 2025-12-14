@@ -1,0 +1,10 @@
+{
+    "binpacking"        : [4,6],
+    "graphcolor"        : [7,9],
+    "edgecolor"         : [3,4],
+    "langford"          : [4,4],
+    "magicseries"       : [6,7],
+    "nqueens"           : [7,8],
+    "numberpartition"   : [4,4],
+    "warehouse"         : [1,1]
+}
