@@ -15,6 +15,7 @@ var (
 
 type Worker interface {
 	Run(*Config) string
+	Columns() string
 }
 
 type Config struct {

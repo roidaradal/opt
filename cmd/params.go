@@ -170,14 +170,18 @@ func displayLoggerOptions() {
 	}
 }
 
-// Create new base worker
+// Create new base worker for Manager
 func newWorker(value string) (worker.Worker, bool) {
 	var w worker.Worker
 	switch value {
 	case "space":
 		return worker.SpaceSolver{}, true
+	case "run":
+		return worker.SolverRunner{HorizontalOutput: true}, true
 	case "sol.save":
 		return worker.SolutionSaver{}, true
+	case "sol.read":
+		return worker.SolutionReader{HorizontalOutput: true}, true
 	default:
 		return w, false
 	}
@@ -187,7 +191,9 @@ func newWorker(value string) (worker.Worker, bool) {
 func displayWorkerOptions() {
 	options := []string{
 		"space",
+		"run",
 		"sol.save",
+		"sol.read",
 	}
 	for _, option := range options {
 		fmt.Println(option)

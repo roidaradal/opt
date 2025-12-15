@@ -45,5 +45,11 @@ func (s SpaceSolver) Run(cfg *Config) string {
 	if size == 0 {
 		space = problem.SolutionSpaceEquation()
 	}
-	return fmt.Sprintf("%-20s: %15s", problem.Name, space)
+	return fmt.Sprintf("%s | %s", problem.Name, space)
+}
+
+// SpaceSolver columns
+func (s SpaceSolver) Columns() string {
+	// ProblemName | SolutionSpace
+	return "%-20s %10s"
 }

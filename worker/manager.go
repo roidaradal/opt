@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/fn/str"
 	"github.com/roidaradal/opt/discrete"
 )
@@ -24,7 +25,11 @@ func (w Solo) Run(problems []*discrete.Problem, cfg *Config) {
 		cfg.Problem = problem
 		output := cfg.Worker.Run(cfg)
 		duration := str.Violet(fmt.Sprintf("%v", time.Since(start).Round(time.Millisecond)))
-		fmt.Printf("%-20s | %s\n", duration, output)
+		parts := str.CleanSplit(output, "|")
+		if len(parts) > 1 {
+			output = fmt.Sprintf(cfg.Worker.Columns(), list.ToAny(parts)...)
+		}
+		fmt.Printf("%-15s | %s\n", duration, output)
 	}
 	fmt.Println("\nTime:", time.Since(runStart).Round(time.Millisecond))
 }

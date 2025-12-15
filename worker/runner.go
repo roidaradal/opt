@@ -16,6 +16,7 @@ import (
 
 type SolverRunner struct {
 	DisplaySolutions bool
+	HorizontalOutput bool
 }
 
 type SolutionSaver struct{}
@@ -63,15 +64,35 @@ func (r SolverRunner) Run(cfg *Config) string {
 		}
 	}
 
+	numSteps := number.Comma(result.NumSteps)
+	feasibleCount := number.Comma(list.Sum(dict.Values(result.FeasibleSolutions)))
+	bestCount := number.Comma(len(result.BestSolutions))
+	coreCount := number.Comma(len(result.CoreSolutions))
+	bestScore := fmt.Sprintf("%.2f", result.BestScore)
+	timeElapsed := str.Any(time.Since(start).Round(time.Millisecond))
+
+	if r.HorizontalOutput {
+		out := []string{
+			problem.Name,
+			feasibleCount,
+			bestCount,
+			coreCount,
+			bestScore,
+			numSteps,
+			timeElapsed,
+		}
+		return strings.Join(out, "|")
+	}
+
 	items := [][2]string{
 		{"Problem", problem.Name},
 		{"Solver", solver.GetName()},
-		{"Iterations", number.Comma(result.NumSteps)},
-		{"Feasible Solutions", number.Comma(list.Sum(dict.Values(result.FeasibleSolutions)))},
-		{"Best Solutions", number.Comma(len(result.BestSolutions))},
-		{"Core Solutions", number.Comma(len(result.CoreSolutions))},
-		{"Best Score", fmt.Sprintf("%.2f", result.BestScore)},
-		{"Time", str.Any(time.Since(start).Round(time.Millisecond))},
+		{"Iterations", numSteps},
+		{"Feasible Solutions", feasibleCount},
+		{"Best Solutions", bestCount},
+		{"Core Solutions", coreCount},
+		{"Best Score", bestScore},
+		{"Time", timeElapsed},
 	}
 	lengths := list.Map(items, func(pair [2]string) int {
 		return len(pair[0])
@@ -83,6 +104,12 @@ func (r SolverRunner) Run(cfg *Config) string {
 		out = append(out, fmt.Sprintf(template, key, value))
 	}
 	return strings.Join(out, "\n")
+}
+
+// SolverRunner columns
+func (r SolverRunner) Columns() string {
+	// ProblemName | FeasibleCount | BestCount | CoreCount | BestScore | NumSteps | TimeElapsed
+	return "%-20s %10s %7s %7s %10s %10s %10s"
 }
 
 // Runs Solver.Solve() and saves solutions to solution/<problemname>.txt
@@ -142,4 +169,9 @@ func (r SolutionSaver) Run(cfg *Config) string {
 	}
 
 	return fmt.Sprintf("%s %s", str.Green("Saved:"), path)
+}
+
+// SolutionSaver columns
+func (r SolutionSaver) Columns() string {
+	return "%s"
 }

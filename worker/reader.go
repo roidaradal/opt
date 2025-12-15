@@ -12,7 +12,9 @@ import (
 	"github.com/roidaradal/fn/number"
 )
 
-type SolutionReader struct{}
+type SolutionReader struct {
+	HorizontalOutput bool
+}
 
 // Read solution from file and display stats
 func (r SolutionReader) Run(cfg *Config) string {
@@ -35,6 +37,7 @@ func (r SolutionReader) Run(cfg *Config) string {
 	details := []string{""}
 	if problem.SolutionCoreFn == nil {
 		items = append(items, [2]string{"Best Solutions", number.Comma(len(lines[1:]))})
+		items = append(items, [2]string{"Core Solutions", ""})
 	} else {
 		var key string
 		var count int
@@ -65,6 +68,13 @@ func (r SolutionReader) Run(cfg *Config) string {
 		}
 	}
 
+	if r.HorizontalOutput {
+		out := list.Map(items, func(pair [2]string) string {
+			return pair[1] // return right side of pair
+		})
+		return strings.Join(out, "|")
+	}
+
 	lengths := list.Map(items, func(pair [2]string) int {
 		return len(pair[0])
 	})
@@ -73,8 +83,17 @@ func (r SolutionReader) Run(cfg *Config) string {
 	out := make([]string, 0)
 	for _, pair := range items {
 		key, value := pair[0], pair[1]
+		if value == "" {
+			continue // skip blank values
+		}
 		out = append(out, fmt.Sprintf(template, key, value))
 	}
 	out = append(out, details...)
 	return strings.Join(out, "\n")
+}
+
+// SolutionReader columns
+func (r SolutionReader) Columns() string {
+	// ProblemName | BestScore | BestSolutions | CoreSolutions
+	return "%-20s %7s %7s %7s"
 }
