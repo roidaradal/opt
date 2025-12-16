@@ -41,7 +41,6 @@ func (s *ConcurrentSolver) RunWorkers(task ConcurrentTaskFn, logger worker.Logge
 	go func() {
 		wg.Wait()
 		close(s.StepsCh)
-		close(s.SolutionsCh)
 	}()
 
 	go func() {
@@ -49,6 +48,7 @@ func (s *ConcurrentSolver) RunWorkers(task ConcurrentTaskFn, logger worker.Logge
 			s.NumSteps += 1
 			s.DisplayProgress(logger)
 		}
+		close(s.SolutionsCh)
 	}()
 
 	for solution := range s.SolutionsCh {

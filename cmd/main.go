@@ -50,6 +50,9 @@ func main() {
 	case "solo":
 		manager := worker.Solo{}
 		runManager(manager, args)
+	case "pool":
+		manager := worker.Pool{NumWorkers: 10}
+		runManager(manager, args)
 	default:
 		fmt.Println("Unknown command: ", option)
 	}
@@ -77,6 +80,7 @@ func displayUsage(taskFocus string, detailed bool) {
 	// Task Choices
 	required, optional := str.Red("Required:"), str.Yellow("Option:")
 	requiredProblem := fmt.Sprintf("%s %s", required, str.Green("problem"))
+	requiredManager := fmt.Sprintf("%s %s", required, str.Green("worker, data"))
 	solverOption := fmt.Sprintf("%s %s", optional, str.Green("solver, logger"))
 	tasks := [][]string{
 		{"help", "Display help"},
@@ -102,21 +106,26 @@ func displayUsage(taskFocus string, detailed bool) {
 			requiredProblem,
 		},
 		{"solo", "Run worker task on dataset (one worker)",
-			fmt.Sprintf("%s %s", required, str.Green("worker, data")),
+			requiredManager,
+			solverOption,
+		},
+		{"pool", "Run worker task on dataset (worker pool)",
+			requiredManager,
 			solverOption,
 		},
 	}
 
 	onlyProblem := []string{"problem"}
 	solverOptions := []string{"problem", "solver", "logger"}
-	multiOptions := []string{"worker", "data", "solver", "logger"}
+	managerOptions := []string{"worker", "data", "solver", "logger"}
 	taskOptions := dict.StringListMap{
 		"space":    onlyProblem,
 		"run":      solverOptions,
 		"run+sol":  solverOptions,
 		"sol.save": solverOptions,
 		"sol.read": onlyProblem,
-		"solo":     multiOptions,
+		"solo":     managerOptions,
+		"pool":     managerOptions,
 	}
 	// TODO:
 	// test			Tester

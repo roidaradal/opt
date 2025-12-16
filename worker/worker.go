@@ -30,6 +30,7 @@ func (c Config) Copy() *Config {
 		Problem:   c.Problem,
 		NewSolver: c.NewSolver,
 		Logger:    c.Logger,
+		Worker:    c.Worker,
 	}
 }
 
