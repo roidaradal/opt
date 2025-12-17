@@ -103,12 +103,14 @@ func (s Solver) DisplayProgress(logger worker.Logger) {
 	if s.NumSteps%iterationBatch != 0 || s.NumSteps < iterationBatch {
 		return
 	}
-	var bestScore string
+	var solutions string
 	batch := s.NumSteps / iterationBatch
 	if s.Problem.IsOptimization() {
-		bestScore = fmt.Sprintf("BestScore: %.2f, %d solutions", s.BestScore, len(s.BestSolutions))
+		solutions = fmt.Sprintf("BestScore: %.2f, %d solutions", s.BestScore, len(s.BestSolutions))
+	} else {
+		solutions = fmt.Sprintf("%d solutions", len(s.BestSolutions))
 	}
-	logger.Output("IterBatch:", batch, bestScore, s.FullName())
+	logger.Output("IterBatch:", batch, solutions, s.FullName())
 }
 
 // Check if solution is complete
