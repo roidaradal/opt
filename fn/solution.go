@@ -64,3 +64,16 @@ func PartitionStrings[T any](solution *discrete.Solution, values []discrete.Valu
 		return list.Map(list.MapList(partition, variables), str.Any)
 	})
 }
+
+// Count color changes in the sequence
+func CountColorChanges[T comparable](colorSequence []T) int {
+	var prevColor T
+	changes := 0
+	for i, currColor := range colorSequence {
+		if i > 0 && prevColor != currColor {
+			changes += 1
+		}
+		prevColor = currColor
+	}
+	return changes
+}
