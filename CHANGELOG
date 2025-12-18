@@ -1,3 +1,8 @@
+v0.2.15 - Car Painting 
+    x Commit: 2025-12-19 06:50
+    x problem.CarPainting
+    x carPaintCfg, newCarPainting
+    x a.StrInt, NewStrInt
 v0.2.14 - Binary PaintShop 
     x Commit: 2025-12-18 04:25
     x problem.BinaryPaintShop
