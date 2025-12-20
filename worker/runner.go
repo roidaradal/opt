@@ -151,9 +151,7 @@ func (r SolutionSaver) Run(cfg *Config) string {
 			}
 			solutionStrings := solutions.Items()
 			slices.Sort(solutionStrings)
-			for _, solutionString := range solutionStrings {
-				out = append(out, solutionString)
-			}
+			out = append(out, solutionStrings...)
 		}
 	}
 

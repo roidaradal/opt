@@ -12,6 +12,7 @@ const (
 	BIN_PACKING        = "binpacking"
 	BINARY_PAINTSHOP   = "binarypaint"
 	CAR_PAINT          = "carpaint"
+	CAR_SEQUENCE       = "carsequence"
 	CLIQUE             = "clique"
 	EDGE_COLOR         = "edgecolor"
 	EXACT_COVER        = "exactcover"
@@ -38,6 +39,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	BIN_PACKING:        BinPacking,
 	BINARY_PAINTSHOP:   BinaryPaintShop,
 	CAR_PAINT:          CarPainting,
+	CAR_SEQUENCE:       CarSequencing,
 	CLIQUE:             Clique,
 	EDGE_COLOR:         EdgeColoring,
 	EXACT_COVER:        ExactCover,

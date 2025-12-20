@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	errMissingProblem = errors.New("Undefined problem")
+	errMissingProblem = errors.New("undefined problem")
 )
 
 type Worker interface {
