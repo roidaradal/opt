@@ -1,3 +1,13 @@
+v0.2.17 - Job Shop Scheduling 
+    x Commit: 2025-12-21 20:50
+    x problem.JobShopSchedule
+    x newJobShop
+    x a.ShopSchedCfg, a.Job, a.Task
+    x a.TimeRange, a.SlotSched
+    x a.NewJob, a.NewTask
+    x constraint.NoMachineOverlap
+    x fn.Score_ScheduleMakespan
+    x fn.String_ShopSchedule
 v0.2.16 - Car Sequencing 
     x Commit: 2025-12-20 08:07
     x problem.CarSequencing

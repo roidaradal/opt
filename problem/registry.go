@@ -19,6 +19,7 @@ const (
 	GRAPH_COLOR        = "graphcolor"
 	GRAPH_PARTITION    = "graphpartition"
 	INDEPENDENT_SET    = "independentset"
+	JOBSHOP_SCHED      = "jobshop"
 	KNAPSACK           = "knapsack"
 	LANGFORD_PAIR      = "langford"
 	LIS                = "lis"
@@ -46,6 +47,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	GRAPH_COLOR:        GraphColoring,
 	GRAPH_PARTITION:    GraphPartition,
 	INDEPENDENT_SET:    IndependentSet,
+	JOBSHOP_SCHED:      JobShopSchedule,
 	KNAPSACK:           Knapsack,
 	LANGFORD_PAIR:      LangfordPair,
 	LIS:                LongestIncreasingSubsequence,

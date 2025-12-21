@@ -3,6 +3,7 @@ package fn
 import (
 	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
+	"github.com/roidaradal/opt/a"
 	"github.com/roidaradal/opt/discrete"
 )
 
@@ -25,4 +26,16 @@ func Score_SumWeightedValues(variables []discrete.Variable, weight []float64) di
 func Score_CountUniqueValues(solution *discrete.Solution) discrete.Score {
 	uniqueValues := ds.SetFrom(solution.Values())
 	return discrete.Score(uniqueValues.Len())
+}
+
+// ObjectiveFn: schedule makespan (total length)
+func Score_ScheduleMakespan(tasks []*a.Task) discrete.ObjectiveFn {
+	return func(solution *discrete.Solution) discrete.Score {
+		makespan := 0
+		for x, start := range solution.Map {
+			end := start + tasks[x].Duration
+			makespan = max(makespan, end)
+		}
+		return discrete.Score(makespan)
+	}
 }

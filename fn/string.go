@@ -8,6 +8,7 @@ import (
 
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/fn/str"
+	"github.com/roidaradal/opt/a"
 	"github.com/roidaradal/opt/discrete"
 )
 
@@ -73,5 +74,38 @@ func String_Map[T any, V any](p *discrete.Problem, variables []T, values []V) di
 			return fmt.Sprintf("%s = %s", text1, text2)
 		})
 		return str.WrapBraces(output)
+	}
+}
+
+// SolutionStringFn: display solution as shop schedule (task and machine schedules)
+func String_ShopSchedule(tasks []*a.Task, machines []string) discrete.SolutionStringFn {
+	return func(solution *discrete.Solution) string {
+		var line string
+		machineSched := make(map[string][]a.SlotSched)
+		output := make([]string, 0)
+		// Display each task's schedule
+		for x, task := range tasks {
+			start := solution.Map[x]
+			end := start + task.Duration
+			line = fmt.Sprintf("%s - %s - [%d,%d]", task.Name, task.Machine, start, end)
+			output = append(output, line)
+			slot := a.SlotSched{Start: start, End: end, Name: task.Name}
+			machineSched[task.Machine] = append(machineSched[task.Machine], slot)
+		}
+		// Display each machine's schedule
+		for _, machine := range machines {
+			slots := machineSched[machine]
+			if len(slots) == 0 {
+				line = fmt.Sprintf("%s - NONE", machine)
+				output = append(output, line)
+			} else {
+				slices.SortFunc(slots, a.SortBySchedStart)
+				for _, slot := range slots {
+					line = fmt.Sprintf("%s - [%d,%d] - %s", machine, slot.Start, slot.End, slot.Name)
+					output = append(output, line)
+				}
+			}
+		}
+		return strings.Join(output, "|")
 	}
 }
