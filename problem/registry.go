@@ -27,6 +27,7 @@ const (
 	MST                = "mst"
 	NQUEENS            = "nqueens"
 	NUMBER_PARTITION   = "numberpartition"
+	OPENSHOP_SCHED     = "openshop"
 	RESOURCE_OPT       = "resource"
 	SCENE_ALLOCATION   = "scene"
 	SET_COVER          = "setcover"
@@ -55,6 +56,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	MST:                MinimumSpanningTree,
 	NQUEENS:            NQueens,
 	NUMBER_PARTITION:   NumberPartition,
+	OPENSHOP_SCHED:     OpenShopSchedule,
 	RESOURCE_OPT:       ResourceOptimization,
 	SCENE_ALLOCATION:   SceneAllocation,
 	SET_COVER:          SetCover,

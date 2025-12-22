@@ -1,3 +1,9 @@
+v0.2.18 - Open Shop Scheduling 
+    x Commit: 2025-12-22 18:50
+    x problem.OpenShopSchedule 
+    x newOpenShop 
+    x a.TaskString 
+    x constraint.NoJobTaskOverlap
 v0.2.17 - Job Shop Scheduling 
     x Commit: 2025-12-21 20:50
     x problem.JobShopSchedule

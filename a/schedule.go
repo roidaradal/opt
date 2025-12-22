@@ -88,6 +88,11 @@ func (j Job) TaskMargins(taskID int) (before int, after int) {
 	return before, after
 }
 
+// Create machine:duration task string
+func TaskString(machine, duration string) string {
+	return fmt.Sprintf("%s:%s", machine, duration)
+}
+
 // Comparison function: sort time ranges by start time
 func SortByStartTime(a, b TimeRange) int {
 	return cmp.Compare(a[0], b[0])

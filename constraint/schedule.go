@@ -3,6 +3,7 @@ package constraint
 import (
 	"slices"
 
+	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/opt/a"
 	"github.com/roidaradal/opt/discrete"
 )
@@ -11,6 +12,16 @@ import (
 func NoMachineOverlap(cfg *a.ShopSchedCfg) discrete.ConstraintFn {
 	return noOverlap(cfg, cfg.Machines, func(task *a.Task) string {
 		return task.Machine
+	})
+}
+
+// Constraint: No Job Task overlap
+func NoJobTaskOverlap(cfg *a.ShopSchedCfg) discrete.ConstraintFn {
+	keys := list.Map(cfg.Jobs, func(job *a.Job) string {
+		return job.Name
+	})
+	return noOverlap(cfg, keys, func(task *a.Task) string {
+		return task.JobName
 	})
 }
 
