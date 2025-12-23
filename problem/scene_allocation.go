@@ -56,7 +56,7 @@ func SceneAllocation(n int) *discrete.Problem {
 		return score
 	}
 
-	p.SolutionCoreFn = fn.Core_SortedPartition(domain, cfg.scenes)
+	// p.SolutionCoreFn = fn.Core_SortedPartition(domain, cfg.scenes)
 	p.SolutionStringFn = fn.String_Partitions(domain, cfg.scenes)
 
 	return p

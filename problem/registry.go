@@ -16,6 +16,7 @@ const (
 	CLIQUE             = "clique"
 	EDGE_COLOR         = "edgecolor"
 	EXACT_COVER        = "exactcover"
+	FLOWSHOP_SCHED     = "flowshop"
 	GRAPH_COLOR        = "graphcolor"
 	GRAPH_PARTITION    = "graphpartition"
 	INDEPENDENT_SET    = "independentset"
@@ -45,6 +46,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	CLIQUE:             Clique,
 	EDGE_COLOR:         EdgeColoring,
 	EXACT_COVER:        ExactCover,
+	FLOWSHOP_SCHED:     FlowShopSchedule,
 	GRAPH_COLOR:        GraphColoring,
 	GRAPH_PARTITION:    GraphPartition,
 	INDEPENDENT_SET:    IndependentSet,
