@@ -1,3 +1,7 @@
+v0.2.20 - Traveling Salesman 
+    x Commit: 2025-12-24 18:41
+    x problem.TravelingSalesman 
+    x newTravelingSalesman
 v0.2.19 - Flow Shop Scheduling 
     x Commit: 2025-12-23 18:55
     x problem.FlowShopSchedule
