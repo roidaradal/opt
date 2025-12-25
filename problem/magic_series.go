@@ -12,6 +12,7 @@ func MagicSeries(n int) *discrete.Problem {
 	name := newName(MAGIC_SERIES, n)
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Satisfy
+	p.Type = discrete.Assignment
 
 	p.Variables = discrete.RangeVariables(0, n)
 	domain := discrete.RangeDomain(0, n)

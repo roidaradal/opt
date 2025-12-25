@@ -21,6 +21,7 @@ func GraphPartition(n int) *discrete.Problem {
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Minimize
+	p.Type = discrete.Partition
 
 	p.Variables = discrete.Variables(graph.Vertices)
 	domain := discrete.RangeDomain(1, cfg.numPartitions)

@@ -19,6 +19,7 @@ func ResourceOptimization(n int) *discrete.Problem {
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Maximize
+	p.Type = discrete.Assignment
 
 	p.Variables = discrete.Variables(cfg.resources)
 	for i, variable := range p.Variables {

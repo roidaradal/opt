@@ -20,6 +20,7 @@ func LongestIncreasingSubsequence(n int) *discrete.Problem {
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Maximize
+	p.Type = discrete.Subset
 
 	p.Variables = discrete.Variables(sequence)
 	domain := discrete.BooleanDomain()

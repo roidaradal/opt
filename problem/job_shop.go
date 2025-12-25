@@ -20,6 +20,7 @@ func JobShopSchedule(n int) *discrete.Problem {
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Minimize
+	p.Type = discrete.Assignment
 
 	variableID := 0
 	jobTasks := make(map[int][]discrete.Variable)

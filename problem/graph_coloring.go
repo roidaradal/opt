@@ -19,6 +19,7 @@ func GraphColoring(n int) *discrete.Problem {
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Minimize
+	p.Type = discrete.Assignment
 
 	p.Variables = discrete.Variables(graph.Vertices)
 	domain := discrete.MapDomain(colors)

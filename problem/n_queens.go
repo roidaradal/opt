@@ -12,6 +12,7 @@ func NQueens(n int) *discrete.Problem {
 	name := newName(NQUEENS, n)
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Satisfy
+	p.Type = discrete.Sequence
 
 	p.Variables = discrete.RangeVariables(1, n)
 	domain := discrete.RangeDomain(1, n)

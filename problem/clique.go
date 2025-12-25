@@ -16,6 +16,7 @@ func Clique(n int) *discrete.Problem {
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Maximize
+	p.Type = discrete.Subset
 
 	p.Variables = discrete.Variables(graph.Vertices)
 	domain := discrete.BooleanDomain()

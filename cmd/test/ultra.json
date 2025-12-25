@@ -1,3 +1,7 @@
 {
-    "binpacking"        : [7,7]
+    "binpacking"        : [7,7],
+    "carsequence"       : [1,1],
+    "jobshop"           : [1,3],
+    "openshop"          : [1,2],
+    "scene"             : [1,1]
 }

@@ -19,6 +19,7 @@ func BinaryPaintShop(n int) *discrete.Problem {
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Minimize
+	p.Type = discrete.Assignment
 
 	p.Variables = discrete.RangeVariables(0, cfg.numCars-1)
 	domain := discrete.BooleanDomain()

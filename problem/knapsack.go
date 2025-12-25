@@ -19,6 +19,7 @@ func Knapsack(n int) *discrete.Problem {
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Maximize
+	p.Type = discrete.Subset
 
 	p.Variables = discrete.Variables(cfg.items)
 	domain := discrete.BooleanDomain()

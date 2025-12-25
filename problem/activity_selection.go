@@ -21,6 +21,7 @@ func ActivitySelection(n int) *discrete.Problem {
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Maximize
+	p.Type = discrete.Subset
 
 	p.Variables = discrete.Variables(cfg.activities)
 	domain := discrete.BooleanDomain()

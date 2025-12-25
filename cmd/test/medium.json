@@ -1,5 +1,6 @@
 {
     "binpacking"        : [4,6],
+    "carpaint"          : [1,1],
     "graphcolor"        : [7,9],
     "edgecolor"         : [3,4],
     "langford"          : [4,4],

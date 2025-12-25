@@ -26,6 +26,7 @@ func EdgeColoring(n int) *discrete.Problem {
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Minimize
+	p.Type = discrete.Assignment
 
 	p.Variables = discrete.Variables(edgeNames)
 	domain := discrete.MapDomain(colors)

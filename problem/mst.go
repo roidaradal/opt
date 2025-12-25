@@ -18,6 +18,7 @@ func MinimumSpanningTree(n int) *discrete.Problem {
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Minimize
+	p.Type = discrete.Subset
 
 	edgeNames := list.Map(graph.Edges, ds.Edge.String)
 	p.Variables = discrete.Variables(edgeNames)

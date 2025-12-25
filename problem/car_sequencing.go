@@ -22,6 +22,7 @@ func CarSequencing(n int) *discrete.Problem {
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Satisfy
+	p.Type = discrete.Sequence
 
 	p.Variables = discrete.Variables(cfg.cars)
 	domain := discrete.IndexDomain(numCars)

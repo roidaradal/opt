@@ -24,6 +24,7 @@ func TravelingSalesman(n int) *discrete.Problem {
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Minimize
+	p.Type = discrete.Sequence
 
 	p.Variables = discrete.Variables(cfg.cities)
 	domain := discrete.IndexDomain(numCities)

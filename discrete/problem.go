@@ -18,10 +18,21 @@ const (
 	Satisfy  Goal = "sat"
 )
 
-type Goal string
+const (
+	Assignment ProblemType = "assignment"
+	Partition  ProblemType = "partition"
+	Sequence   ProblemType = "sequence"
+	Subset     ProblemType = "subset"
+)
+
+type (
+	Goal        string
+	ProblemType string
+)
 
 type Problem struct {
 	Name        string
+	Type        ProblemType
 	Variables   []Variable
 	Domain      map[Variable][]Value
 	Constraints []Constraint

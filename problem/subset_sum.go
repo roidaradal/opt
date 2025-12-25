@@ -19,6 +19,7 @@ func SubsetSum(n int) *discrete.Problem {
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Minimize
+	p.Type = discrete.Subset
 
 	p.Variables = discrete.Variables(numbers)
 	domain := discrete.BooleanDomain()

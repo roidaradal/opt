@@ -12,6 +12,7 @@ func LangfordPair(n int) *discrete.Problem {
 	name := newName(LANGFORD_PAIR, n)
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Satisfy
+	p.Type = discrete.Sequence
 
 	numPositions := n * 2
 	numbers := make([]int, 0, numPositions)

@@ -17,6 +17,7 @@ func ExactCover(n int) *discrete.Problem {
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Satisfy
+	p.Type = discrete.Subset
 
 	p.Variables = discrete.Variables(cfg.Names)
 	domain := discrete.BooleanDomain()

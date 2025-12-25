@@ -21,6 +21,7 @@ func WarehouseLocation(n int) *discrete.Problem {
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Minimize
+	p.Type = discrete.Assignment
 
 	p.Variables = discrete.Variables(cfg.stores)
 	domain := discrete.MapDomain(cfg.warehouses)

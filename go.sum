@@ -1,4 +1,6 @@
-github.com/roidaradal/fn v0.5.19 h1:a8HqVLLMUfcZuGrkE78OELGx93VVfBx0WudzZIZc9KQ=
-github.com/roidaradal/fn v0.5.19/go.mod h1:8XYFZDFZpHLXWIXznlsH4o0kmezvKjnF6eJD0dyuqJI=
+github.com/roidaradal/fn v0.5.20 h1:BzbpwHgteBQ3rl7L+v/wxhXnM+OG/dmhPX6tg/aj07Q=
+github.com/roidaradal/fn v0.5.20/go.mod h1:Y+2FebaYWVSGHVuUcM294iJZg8huYmJLOo22vfLzF9E=
 golang.org/x/text v0.31.0 h1:aC8ghyu4JhP8VojJ2lEHBnochRno1sgL6nEi9WGFGMM=
 golang.org/x/text v0.31.0/go.mod h1:tKRAlv61yKIjGGHX/4tP1LTbc13YSec1pxVEWXzfoeM=
+gonum.org/v1/gonum v0.16.0 h1:5+ul4Swaf3ESvrOnidPp4GZbzf0mxVQpDCYUQE7OJfk=
+gonum.org/v1/gonum v0.16.0/go.mod h1:fef3am4MQ93R2HHpKnLk4/Tbh/s0+wqD5nfa6Pnwy4E=
