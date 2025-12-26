@@ -3,6 +3,7 @@ package brute
 
 import (
 	"fmt"
+	"iter"
 
 	"github.com/roidaradal/fn/comb"
 	"github.com/roidaradal/fn/lang"
@@ -28,7 +29,13 @@ func (solver *LinearSolver) Solve(logger worker.Logger) {
 	solutionSpace := solver.Prelude(logger)
 	problem := solver.Problem
 	domains := list.Translate(problem.Variables, problem.Domain)
-	for _, values := range comb.Product(domains...) {
+
+	var valuesIterator iter.Seq2[int, []discrete.Value] = comb.Product(domains...)
+	if problem.Type == discrete.Sequence {
+		valuesIterator = comb.Permutations(domains[0], len(domains[0]))
+	}
+
+	for _, values := range valuesIterator {
 		solver.NumSteps += 1
 		if solver.IsIterationLimitReached(logger) {
 			break

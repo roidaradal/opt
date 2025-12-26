@@ -59,28 +59,40 @@ func (p *Problem) AddConstraint(constraint Constraint) {
 
 // Compute the total solution space of the problem
 func (p Problem) SolutionSpace() int {
-	return list.Product(list.Map(dict.Values(p.Domain), list.Length))
+	switch p.Type {
+	case Sequence:
+		domain := p.Domain[p.Variables[0]]
+		return list.Product(list.NumRange(1, len(domain)+1))
+	default:
+		return list.Product(list.Map(dict.Values(p.Domain), list.Length))
+	}
 }
 
 // Create the solution space equation of the problem
 func (p Problem) SolutionSpaceEquation() string {
-	entries := dict.Entries(dict.CounterFunc(dict.Values(p.Domain), list.Length))
-	slices.SortFunc(entries, func(a, b dict.Entry[int, int]) int {
-		// Sort by descending counts
-		return cmp.Compare(b.Value, a.Value)
-	})
-	equation := make([]string, 0)
-	for _, e := range entries {
-		size, count := e.Tuple()
-		equation = append(equation, fmt.Sprintf("%s^%s", number.Comma(size), number.Comma(count)))
+	switch p.Type {
+	case Sequence:
+		domain := p.Domain[p.Variables[0]]
+		return fmt.Sprintf("%d!", len(domain))
+	default:
+		entries := dict.Entries(dict.CounterFunc(dict.Values(p.Domain), list.Length))
+		slices.SortFunc(entries, func(a, b dict.Entry[int, int]) int {
+			// Sort by descending counts
+			return cmp.Compare(b.Value, a.Value)
+		})
+		equation := make([]string, 0)
+		for _, e := range entries {
+			size, count := e.Tuple()
+			equation = append(equation, fmt.Sprintf("%s^%s", number.Comma(size), number.Comma(count)))
+		}
+		if len(equation) == 1 {
+			return equation[0]
+		}
+		equation = list.Map(equation, func(expr string) string {
+			return fmt.Sprintf("(%s)", expr)
+		})
+		return strings.Join(equation, " * ")
 	}
-	if len(equation) == 1 {
-		return equation[0]
-	}
-	equation = list.Map(equation, func(expr string) string {
-		return fmt.Sprintf("(%s)", expr)
-	})
-	return strings.Join(equation, " * ")
 }
 
 // Check if solution satisfies the problem constraints

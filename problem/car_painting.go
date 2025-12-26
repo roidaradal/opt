@@ -25,7 +25,7 @@ func CarPainting(n int) *discrete.Problem {
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Minimize
-	p.Type = discrete.Sequence
+	p.Type = discrete.Assignment
 
 	p.Variables = discrete.Variables(cfg.cars)
 	minLimit, maxLimit := 0, numCars-1

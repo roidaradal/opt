@@ -49,17 +49,12 @@ func CarSequencing(n int) *discrete.Problem {
 		// using that option for each window, ensure doesn't exceed maxCount
 		for optionIdx, optionCfg := range cfg.options {
 			maxCount, windowSize := optionCfg[0], optionCfg[1]
-			limit := (numCars / windowSize) * windowSize
-			for i := 0; i < limit; i += windowSize {
-				window := optionSequence[optionIdx][i : i+windowSize]
+			for i := range numCars {
+				limit := min(numCars, i+windowSize)
+				window := optionSequence[optionIdx][i:limit]
 				if list.Count(window, true) > maxCount {
 					return false
 				}
-			}
-			// Check last window
-			window := optionSequence[optionIdx][limit:]
-			if list.Count(window, true) > maxCount {
-				return false
 			}
 		}
 		return true

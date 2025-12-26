@@ -1,10 +1,10 @@
 {
     "binpacking"        : [4,6],
     "carpaint"          : [1,1],
+    "carsequence"       : [1,1],
     "graphcolor"        : [7,9],
     "edgecolor"         : [3,4],
-    "langford"          : [4,4],
     "magicseries"       : [6,7],
-    "nqueens"           : [7,8],
+    "nqueens"           : [9,10],
     "warehouse"         : [1,1]
 }
