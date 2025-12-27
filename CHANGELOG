@@ -1,3 +1,9 @@
+v0.2.23 - Assignment Problem 
+    x Commit: 2025-12-27 22:46
+    x problem.Assignment 
+    x assignmentCfg, newAssignment
+    x discrete.IndexVariables
+    x fn.ParseFloatInf
 v0.2.22 - Linear Brute Force Sequencer 
     x Commit: 2025-12-26 20:09
     x Update brute.LinearSolver for Sequencer 

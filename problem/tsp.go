@@ -1,12 +1,10 @@
 package problem
 
 import (
-	"math"
 	"slices"
 	"strings"
 
 	"github.com/roidaradal/fn/list"
-	"github.com/roidaradal/fn/number"
 	"github.com/roidaradal/fn/str"
 	"github.com/roidaradal/opt/constraint"
 	"github.com/roidaradal/opt/discrete"
@@ -81,13 +79,7 @@ func newTravelingSalesman(name string) *tspCfg {
 		distance: make([][]float64, 0),
 	}
 	for _, line := range lines[1:] {
-		d := list.Map(strings.Fields(line), func(x string) float64 {
-			if x == "x" {
-				return math.Inf(1)
-			} else {
-				return number.ParseFloat(x)
-			}
-		})
+		d := list.Map(strings.Fields(line), fn.ParseFloatInf)
 		cfg.distance = append(cfg.distance, d)
 	}
 	return cfg

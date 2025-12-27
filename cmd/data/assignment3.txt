@@ -1,0 +1,9 @@
+# NumWorkers NumTasks
+# TaskNames
+5 4 
+    1   2   3   4
+A   5   8   6   10 
+B   7   5   7   4
+C   11  5   10  8
+D   6   6   7   2
+E   7   5   3   4

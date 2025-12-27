@@ -1,5 +1,6 @@
 {
     "activity"          : [1,2],
+    "assignment"        : [1,5],
     "binarypaint"       : [1,3],
     "binpacking"        : [1,3],
     "clique"            : [1,3],

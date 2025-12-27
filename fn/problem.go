@@ -3,6 +3,7 @@ package fn
 
 import (
 	"fmt"
+	"math"
 	"strings"
 
 	"github.com/roidaradal/fn/ds"
@@ -52,4 +53,13 @@ func NewWeightedGraph(name string) (*ds.Graph, []float64) {
 	graph := ds.GraphFrom(lines[0], lines[1])
 	edgeWeight := list.Map(strings.Fields(lines[2]), number.ParseFloat)
 	return graph, edgeWeight
+}
+
+// Parse float or inf if "x"
+func ParseFloatInf(x string) float64 {
+	if x == "x" {
+		return math.Inf(1)
+	} else {
+		return number.ParseFloat(x)
+	}
 }

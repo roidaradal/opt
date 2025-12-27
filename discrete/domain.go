@@ -14,6 +14,11 @@ func Variables[T any](items []T) []Variable {
 	return list.NumRange(0, len(items))
 }
 
+// Create list of variables from [0, numItems)
+func IndexVariables(numItems int) []Variable {
+	return list.NumRange(0, numItems)
+}
+
 // Create list of variables from [first, last]
 func RangeVariables(first, last int) []Variable {
 	return list.NumRange(first, last+1)
