@@ -1,8 +1,11 @@
-# NumWorkers NumTasks
+# NumWorkers NumTasks NumTeams MaxPerTeam
 # TaskNames
-4 4
+# Cost Matrix 
+# Team Lines
+4 4 1 4 
     A   B   C   D
 1   10  5   12  8
 2   12  10  14  15
 3   19  7   13  11
 4   11  8   11  9
+1 2 3 4
