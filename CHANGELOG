@@ -1,3 +1,7 @@
+v0.2.26 - Quadratic Assignment 
+    x Commit: 2025-12-30 00:12
+    x problem.QuadraticAssignment 
+    x quadraticAssignmentCfg, newQuadraticAssignment
 v0.2.25 - Generalized Assignment 
     x Commit: 2025-12-29 18:30
     x problem.GeneralizedAssignment 

@@ -73,7 +73,7 @@ type generalizedAssignmentCfg struct {
 	capacity []float64
 }
 
-// Load generalized assignment problem
+// Load generalized assignment problem test case
 func loadGeneralizedAssignment(name string) *generalizedAssignmentCfg {
 	lines, err := fn.LoadProblem(name)
 	if err != nil || len(lines) < 2 {

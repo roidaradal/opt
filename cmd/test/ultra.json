@@ -3,5 +3,6 @@
     "genassignment"     : [3,4],
     "jobshop"           : [1,3],
     "openshop"          : [1,2],
+    "quadassignment"    : [2,2],
     "scene"             : [1,1]
 }

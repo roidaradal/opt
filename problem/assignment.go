@@ -93,7 +93,7 @@ type assignmentCfg struct {
 	maxPerTeam int
 }
 
-// Load assignment problem
+// Load assignment problem test case
 func newAssignment(name string) *assignmentCfg {
 	lines, err := fn.LoadProblem(name)
 	if err != nil || len(lines) < 2 {
