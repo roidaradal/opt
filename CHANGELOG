@@ -1,3 +1,7 @@
+v0.2.25 - Generalized Assignment 
+    x Commit: 2025-12-29 18:30
+    x problem.GeneralizedAssignment 
+    x generalizedAssignmentCfg, newGeneralizedAssignment
 v0.2.24 - Assignment with Teams 
     x Commit: 2025-12-28 22:21
     x Adjust Assignment to include teams

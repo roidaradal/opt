@@ -80,9 +80,7 @@ func Assignment(n int) *discrete.Problem {
 	}
 
 	p.SolutionStringFn = assignmentString
-	if len(cfg.teams) > 1 {
-		p.SolutionCoreFn = assignmentString
-	}
+	p.SolutionCoreFn = assignmentString
 
 	return p
 }
