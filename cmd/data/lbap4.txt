@@ -1,0 +1,10 @@
+# NumWorkers NumTasks
+# TaskNames
+# Cost Matrix 
+5 4
+    M1  M2  M3  M4
+A   4   6   4   x 
+B   5   4   5   2
+C   9   x   8   6
+D   4   4   5   1
+E   5   3   1   2

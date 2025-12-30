@@ -109,3 +109,19 @@ func String_ShopSchedule(tasks []*a.Task, machines []string) discrete.SolutionSt
 		return strings.Join(output, "|")
 	}
 }
+
+// SolutionStringFn: display assignment of {worker = task}
+// Note: Didn't explicitly return SolutionStringFn type so it can be reused as SolutionCoreFn
+func String_Assignment(p *discrete.Problem, cfg *a.AssignmentCfg) func(*discrete.Solution) string {
+	return func(solution *discrete.Solution) string {
+		output := list.Map(p.Variables, func(worker discrete.Variable) string {
+			task := solution.Map[worker]
+			if cfg.Cost[worker][task] == 0 {
+				return "" // skip dummy tasks
+			}
+			return fmt.Sprintf("w%s = t%s", cfg.Workers[worker], cfg.Tasks[task])
+		})
+		output = list.Filter(output, str.NotEmpty)
+		return str.WrapBraces(output)
+	}
+}

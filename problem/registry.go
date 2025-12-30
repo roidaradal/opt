@@ -25,12 +25,14 @@ const (
 	JOBSHOP_SCHED      = "jobshop"
 	KNAPSACK           = "knapsack"
 	LANGFORD_PAIR      = "langford"
+	LBAP               = "lbap"
 	LIS                = "lis"
 	MAGIC_SERIES       = "magicseries"
 	MST                = "mst"
 	NQUEENS            = "nqueens"
 	NUMBER_PARTITION   = "numberpartition"
 	OPENSHOP_SCHED     = "openshop"
+	QBAP               = "qbap"
 	QUAD_ASSIGNMENT    = "quadassignment"
 	RESOURCE_OPT       = "resource"
 	SCENE_ALLOCATION   = "scene"
@@ -59,12 +61,14 @@ var Creator = map[string]func(int) *discrete.Problem{
 	JOBSHOP_SCHED:      JobShopSchedule,
 	KNAPSACK:           Knapsack,
 	LANGFORD_PAIR:      LangfordPair,
+	LBAP:               LinearBottleneckAssignment,
 	LIS:                LongestIncreasingSubsequence,
 	MAGIC_SERIES:       MagicSeries,
 	MST:                MinimumSpanningTree,
 	NQUEENS:            NQueens,
 	NUMBER_PARTITION:   NumberPartition,
 	OPENSHOP_SCHED:     OpenShopSchedule,
+	QBAP:               QuadraticBottleneckAssignment,
 	QUAD_ASSIGNMENT:    QuadraticAssignment,
 	RESOURCE_OPT:       ResourceOptimization,
 	SCENE_ALLOCATION:   SceneAllocation,
