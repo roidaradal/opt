@@ -33,6 +33,7 @@ const (
 	NUMBER_PARTITION   = "numberpartition"
 	OPENSHOP_SCHED     = "openshop"
 	QBAP               = "qbap"
+	QKP                = "qkp"
 	QUAD_ASSIGNMENT    = "quadassignment"
 	RESOURCE_OPT       = "resource"
 	SCENE_ALLOCATION   = "scene"
@@ -69,6 +70,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	NUMBER_PARTITION:   NumberPartition,
 	OPENSHOP_SCHED:     OpenShopSchedule,
 	QBAP:               QuadraticBottleneckAssignment,
+	QKP:                QuadraticKnapsack,
 	QUAD_ASSIGNMENT:    QuadraticAssignment,
 	RESOURCE_OPT:       ResourceOptimization,
 	SCENE_ALLOCATION:   SceneAllocation,

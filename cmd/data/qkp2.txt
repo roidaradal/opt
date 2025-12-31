@@ -1,0 +1,9 @@
+# Capacity, Items, Weight, Value 
+# Pairs Bonus 
+10 
+A   B   C   D
+3   5   2   1 
+10  12  8   2 
+A   B   5 
+B   C   4
+A   D   3

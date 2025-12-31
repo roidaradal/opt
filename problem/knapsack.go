@@ -5,6 +5,7 @@ import (
 
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/fn/number"
+	"github.com/roidaradal/opt/constraint"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/fn"
 )
@@ -27,15 +28,7 @@ func Knapsack(n int) *discrete.Problem {
 		p.Domain[variable] = domain[:]
 	}
 
-	test := func(solution *discrete.Solution) bool {
-		// Check of sum of weighted items does not exceed capacity
-		count, weight := solution.Map, cfg.weight
-		weights := list.Map(p.Variables, func(x discrete.Variable) float64 {
-			return float64(count[x]) * weight[x]
-		})
-		return list.Sum(weights) <= cfg.capacity
-	}
-	p.AddUniversalConstraint(test)
+	p.AddUniversalConstraint(constraint.Knapsack(p, cfg.capacity, cfg.weight))
 
 	p.ObjectiveFn = fn.Score_SumWeightedValues(p.Variables, cfg.value)
 	p.SolutionStringFn = fn.String_Subset(cfg.items)
