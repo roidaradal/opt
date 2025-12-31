@@ -22,6 +22,7 @@ const (
 	GEN_ASSIGNMENT     = "genassignment"
 	GRAPH_COLOR        = "graphcolor"
 	GRAPH_PARTITION    = "graphpartition"
+	HAMILTON_PATH      = "hamiltonpath"
 	INDEPENDENT_SET    = "independentset"
 	JOBSHOP_SCHED      = "jobshop"
 	KNAPSACK           = "knapsack"
@@ -61,6 +62,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	GEN_ASSIGNMENT:     GeneralizedAssignment,
 	GRAPH_COLOR:        GraphColoring,
 	GRAPH_PARTITION:    GraphPartition,
+	HAMILTON_PATH:      HamiltonPath,
 	INDEPENDENT_SET:    IndependentSet,
 	JOBSHOP_SCHED:      JobShopSchedule,
 	KNAPSACK:           Knapsack,
