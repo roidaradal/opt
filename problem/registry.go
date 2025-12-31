@@ -23,6 +23,7 @@ const (
 	GRAPH_COLOR        = "graphcolor"
 	GRAPH_PARTITION    = "graphpartition"
 	HAMILTON_PATH      = "hamiltonpath"
+	HAMILTON_CYCLE     = "hamiltoncycle"
 	INDEPENDENT_SET    = "independentset"
 	JOBSHOP_SCHED      = "jobshop"
 	KNAPSACK           = "knapsack"
@@ -63,6 +64,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	GRAPH_COLOR:        GraphColoring,
 	GRAPH_PARTITION:    GraphPartition,
 	HAMILTON_PATH:      HamiltonPath,
+	HAMILTON_CYCLE:     HamiltonCycle,
 	INDEPENDENT_SET:    IndependentSet,
 	JOBSHOP_SCHED:      JobShopSchedule,
 	KNAPSACK:           Knapsack,

@@ -1,11 +1,9 @@
 package problem
 
 import (
-	"slices"
 	"strings"
 
 	"github.com/roidaradal/fn/list"
-	"github.com/roidaradal/fn/str"
 	"github.com/roidaradal/opt/constraint"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/fn"
@@ -47,17 +45,7 @@ func TravelingSalesman(n int) *discrete.Problem {
 		return totalDistance
 	}
 
-	p.SolutionCoreFn = func(solution *discrete.Solution) string {
-		sequence := list.Map(fn.AsSequence(solution), func(x discrete.Variable) string {
-			return str.Any(cfg.cities[x])
-		})
-		// Find the first element alphabetically, rearrange the sequence so it is the first
-		index := slices.Index(sequence, slices.Min(sequence))
-		sequence2 := append([]string{}, sequence[index:]...)
-		sequence2 = append(sequence2, sequence[:index]...)
-		return strings.Join(sequence2, " ")
-	}
-
+	p.SolutionCoreFn = fn.Core_SortedCycle(cfg.cities)
 	p.SolutionStringFn = fn.String_Sequence(cfg.cities)
 
 	return p

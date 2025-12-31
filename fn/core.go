@@ -75,3 +75,18 @@ func Core_LookupValueOrder(problem *discrete.Problem) discrete.SolutionCoreFn {
 		return strings.Join(core, "")
 	}
 }
+
+// SolutionCoreFn: sorted cycle
+func Core_SortedCycle[T any](variables []T) discrete.SolutionCoreFn {
+	return func(solution *discrete.Solution) string {
+		sequence := list.Map(AsSequence(solution), func(x discrete.Variable) string {
+			return str.Any(variables[x])
+		})
+		// Find first element in sorted order
+		// Rearrange sequence so it becomes first element
+		index := slices.Index(sequence, slices.Min(sequence))
+		sequence2 := append([]string{}, sequence[index:]...)
+		sequence2 = append(sequence2, sequence[:index]...)
+		return strings.Join(sequence2, " ")
+	}
+}

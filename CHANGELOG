@@ -1,3 +1,7 @@
+v0.2.32 - Hamiltonian Cycle 
+    x Commit: 2025-12-31 13:31
+    x problem.HamiltonCycle
+    x fn.Core_SortedCycle
 v0.2.31 - Hamiltonian Path 
     x Commit: 2025-12-31 12:46
     x problem.HamiltonPath
