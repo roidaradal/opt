@@ -17,6 +17,7 @@ const (
 	CLIQUE             = "clique"
 	DOMINATING_SET     = "dominatingset"
 	EDGE_COLOR         = "edgecolor"
+	EULER_PATH         = "eulerpath"
 	EXACT_COVER        = "exactcover"
 	FLOWSHOP_SCHED     = "flowshop"
 	GEN_ASSIGNMENT     = "genassignment"
@@ -58,6 +59,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	CLIQUE:             Clique,
 	DOMINATING_SET:     DominatingSet,
 	EDGE_COLOR:         EdgeColoring,
+	EULER_PATH:         EulerPath,
 	EXACT_COVER:        ExactCover,
 	FLOWSHOP_SCHED:     FlowShopSchedule,
 	GEN_ASSIGNMENT:     GeneralizedAssignment,

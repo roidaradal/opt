@@ -17,7 +17,7 @@ func Core_MirroredSequence[T any](variables []T) discrete.SolutionCoreFn {
 		sequence := list.Map(AsSequence(solution), func(x discrete.Variable) string {
 			return str.Any(variables[x])
 		})
-		first, last := sequence[0], sequence[len(sequence)-1]
+		first, last := sequence[0], list.Last(sequence, 1)
 		if cmp.Compare(first, last) == 1 {
 			slices.Reverse(sequence)
 		}
