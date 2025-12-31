@@ -42,6 +42,7 @@ const (
 	TSP                = "tsp"
 	VERTEX_COVER       = "vertexcover"
 	WAREHOUSE          = "warehouse"
+	WEAPON             = "weapon"
 )
 
 var Creator = map[string]func(int) *discrete.Problem{
@@ -79,6 +80,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	TSP:                TravelingSalesman,
 	VERTEX_COVER:       VertexCover,
 	WAREHOUSE:          WarehouseLocation,
+	WEAPON:             WeaponTarget,
 }
 
 var NoFiles = []string{LANGFORD_PAIR, MAGIC_SERIES, NQUEENS}
