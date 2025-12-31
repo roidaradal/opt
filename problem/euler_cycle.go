@@ -1,7 +1,6 @@
 package problem
 
 import (
-	"cmp"
 	"slices"
 	"strings"
 
@@ -10,9 +9,9 @@ import (
 	"github.com/roidaradal/opt/fn"
 )
 
-// Create new Eulerian Path problem
-func EulerPath(n int) *discrete.Problem {
-	name := newName(EULER_PATH, n)
+// Create new Eulerian Cycle problem
+func EulerCycle(n int) *discrete.Problem {
+	name := newName(EULER_CYCLE, n)
 	graph := fn.NewUnweightedGraph(name)
 	if graph == nil {
 		return nil
@@ -31,10 +30,16 @@ func EulerPath(n int) *discrete.Problem {
 
 	test := func(solution *discrete.Solution) bool {
 		// Check that the path of edge sequence formed by solution
-		// forms an Eulerian path: visits each edge exactly once
+		// forms an Eulerian cycle: visits each edge exactly once
+		// and ends at the vertex where it started
 		edgeSequence := list.MapList(fn.AsSequence(solution), graph.Edges)
-		isEulerianPath, _ := graph.IsEulerianPath(edgeSequence)
-		return isEulerianPath
+		// TODO: Replace with graph.IsEulerianCycle
+		// return graph.IsEulerianCycle(edgeSequence)
+		ok, pair := graph.IsEulerianPath(edgeSequence)
+		if !ok {
+			return false
+		}
+		return pair[0] == pair[1] // check if head == tail
 	}
 	p.AddUniversalConstraint(test)
 
@@ -45,13 +50,12 @@ func EulerPath(n int) *discrete.Problem {
 		if path == fn.InvalidSolution {
 			return path
 		}
-		// Mirrored sequence of Eulerian path
+		// Sorted cycle of Eulerian path
 		sequence := strings.Fields(path)
-		first, last := sequence[0], list.Last(sequence, 1)
-		if cmp.Compare(first, last) == 1 {
-			slices.Reverse(sequence)
-		}
-		return strings.Join(sequence, " ")
+		index := slices.Index(sequence, slices.Min(sequence))
+		sequence2 := append([]string{}, sequence[index:len(sequence)-1]...) // remove duplicate tail
+		sequence2 = append(sequence2, sequence[:index]...)
+		return strings.Join(sequence2, " ")
 	}
 
 	return p

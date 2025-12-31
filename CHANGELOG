@@ -1,3 +1,8 @@
+v0.2.34 - Eulerian Cycle
+    x Commit: 2025-12-31 15:42
+    x problem.EulerCycle
+    x fn.String_EulerianPath
+    x fn.InvalidSolution
 v0.2.33 - Eulerian Path 
     x Commit: 2025-12-31 14:53
     x problem.EulerPath

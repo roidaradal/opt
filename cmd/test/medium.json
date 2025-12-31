@@ -2,6 +2,7 @@
     "binpacking"        : [4,6],
     "carpaint"          : [1,1],
     "carsequence"       : [1,1],
+    "eulercycle"        : [2,2],
     "eulerpath"         : [2,3],
     "genassignment"     : [2,2],
     "graphcolor"        : [7,9],
