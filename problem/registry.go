@@ -28,6 +28,7 @@ const (
 	HAMILTON_CYCLE     = "hamiltoncycle"
 	INDEPENDENT_SET    = "independentset"
 	JOBSHOP_SCHED      = "jobshop"
+	K_CENTER           = "kcenter"
 	KNAPSACK           = "knapsack"
 	LANGFORD_PAIR      = "langford"
 	LBAP               = "lbap"
@@ -73,6 +74,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	HAMILTON_CYCLE:     HamiltonCycle,
 	INDEPENDENT_SET:    IndependentSet,
 	JOBSHOP_SCHED:      JobShopSchedule,
+	K_CENTER:           KCenter,
 	KNAPSACK:           Knapsack,
 	LANGFORD_PAIR:      LangfordPair,
 	LBAP:               LinearBottleneckAssignment,

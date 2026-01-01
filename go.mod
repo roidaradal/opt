@@ -2,7 +2,7 @@ module github.com/roidaradal/opt
 
 go 1.25.4
 
-require github.com/roidaradal/fn v0.5.27
+require github.com/roidaradal/fn v0.5.28
 
 require (
 	golang.org/x/text v0.31.0 // indirect

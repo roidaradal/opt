@@ -26,6 +26,15 @@ func LoadProblem(name string) ([]string, error) {
 	return lines, nil
 }
 
+// Parse float or inf if "x"
+func ParseFloatInf(x string) float64 {
+	if x == "x" {
+		return math.Inf(1)
+	} else {
+		return number.ParseFloat(x)
+	}
+}
+
 // Load new test case containing subsets data
 func NewSubsets(name string) *a.Subsets {
 	lines, err := LoadProblem(name)
@@ -55,11 +64,15 @@ func NewWeightedGraph(name string) (*ds.Graph, []float64) {
 	return graph, edgeWeight
 }
 
-// Parse float or inf if "x"
-func ParseFloatInf(x string) float64 {
-	if x == "x" {
-		return math.Inf(1)
-	} else {
-		return number.ParseFloat(x)
+// Load new test case for bin problem
+func NewBinProblem(name string) *a.BinProblemCfg {
+	lines, err := LoadProblem(name)
+	if err != nil || len(lines) != 3 {
+		return nil
+	}
+	return &a.BinProblemCfg{
+		NumBins:  number.ParseInt(lines[0]),
+		Capacity: number.ParseFloat(lines[1]),
+		Weight:   list.Map(strings.Fields(lines[2]), number.ParseFloat),
 	}
 }

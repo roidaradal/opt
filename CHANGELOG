@@ -1,3 +1,9 @@
+v0.2.37 - K-Center 
+    x Commit: 2026-01-02 07:02
+    x problem.KCenter
+    x kCenterCfg, newKCenter
+    x a.BinProblemCfg 
+    x fn.NewBinProblem
 v0.2.36 - Set Splitting 
     x Commit: 2026-01-01 15:55
     x problem.SetSplitting

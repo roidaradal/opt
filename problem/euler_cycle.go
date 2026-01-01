@@ -33,13 +33,7 @@ func EulerCycle(n int) *discrete.Problem {
 		// forms an Eulerian cycle: visits each edge exactly once
 		// and ends at the vertex where it started
 		edgeSequence := list.MapList(fn.AsSequence(solution), graph.Edges)
-		// TODO: Replace with graph.IsEulerianCycle
-		// return graph.IsEulerianCycle(edgeSequence)
-		ok, pair := graph.IsEulerianPath(edgeSequence)
-		if !ok {
-			return false
-		}
-		return pair[0] == pair[1] // check if head == tail
+		return graph.IsEulerianCycle(edgeSequence)
 	}
 	p.AddUniversalConstraint(test)
 

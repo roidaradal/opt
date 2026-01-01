@@ -16,6 +16,7 @@
     "hamiltoncycle"     : [1,3],
     "hamiltonpath"      : [1,2],
     "independentset"    : [1,2],
+    "kcenter"           : [1,2],
     "knapsack"          : [1,3],
     "langford"          : [3,4],
     "lbap"              : [1,6],
