@@ -43,6 +43,7 @@ const (
 	RESOURCE_OPT       = "resource"
 	SCENE_ALLOCATION   = "scene"
 	SET_COVER          = "setcover"
+	SET_PACKING        = "setpacking"
 	SUBSET_SUM         = "subsetsum"
 	TSP                = "tsp"
 	VERTEX_COVER       = "vertexcover"
@@ -86,6 +87,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	RESOURCE_OPT:       ResourceOptimization,
 	SCENE_ALLOCATION:   SceneAllocation,
 	SET_COVER:          SetCover,
+	SET_PACKING:        SetPacking,
 	SUBSET_SUM:         SubsetSum,
 	TSP:                TravelingSalesman,
 	VERTEX_COVER:       VertexCover,

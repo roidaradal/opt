@@ -1,3 +1,6 @@
+v0.2.35 - Set Packing   
+    x Commit: 2026-01-01 15:12
+    x problem.SetPacking
 v0.2.34 - Eulerian Cycle
     x Commit: 2025-12-31 15:42
     x problem.EulerCycle

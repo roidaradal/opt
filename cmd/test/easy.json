@@ -29,6 +29,7 @@
     "quadassignment"    : [1,1],
     "resource"          : [1,2],
     "setcover"          : [1,3],
+    "setpacking"        : [1,3],
     "subsetsum"         : [1,2],
     "tsp"               : [1,6],
     "vertexcover"       : [1,2],
