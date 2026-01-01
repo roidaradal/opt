@@ -1,3 +1,6 @@
+v0.2.36 - Set Splitting 
+    x Commit: 2026-01-01 15:55
+    x problem.SetSplitting
 v0.2.35 - Set Packing   
     x Commit: 2026-01-01 15:12
     x problem.SetPacking
