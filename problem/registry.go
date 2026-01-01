@@ -10,6 +10,7 @@ import (
 const (
 	ACTIVITY_SELECTION = "activity"
 	ASSIGNMENT         = "assignment"
+	BIN_COVER          = "bincover"
 	BIN_PACKING        = "binpacking"
 	BINARY_PAINTSHOP   = "binarypaint"
 	CAR_PAINT          = "carpaint"
@@ -56,6 +57,7 @@ const (
 var Creator = map[string]func(int) *discrete.Problem{
 	ACTIVITY_SELECTION: ActivitySelection,
 	ASSIGNMENT:         Assignment,
+	BIN_COVER:          BinCover,
 	BIN_PACKING:        BinPacking,
 	BINARY_PAINTSHOP:   BinaryPaintShop,
 	CAR_PAINT:          CarPainting,
