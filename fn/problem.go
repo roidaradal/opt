@@ -64,6 +64,15 @@ func NewWeightedGraph(name string) (*ds.Graph, []float64) {
 	return graph, edgeWeight
 }
 
+// Load new test case containing directed graph
+func NewDirectedGraph(name string) *ds.Graph {
+	lines, err := LoadProblem(name)
+	if err != nil || len(lines) != 2 {
+		return nil
+	}
+	return ds.DirectedGraphFrom(lines[0], lines[1])
+}
+
 // Load new test case for bin problem
 func NewBinProblem(name string) *a.BinProblemCfg {
 	lines, err := LoadProblem(name)
