@@ -1,3 +1,7 @@
+v0.2.40 - Max Cardinality Matching 
+    x Commit: 2026-01-03 08:00
+    x problem.MaxCardinalityMatching
+    x constraint.GraphMatching
 v0.2.39 - Edge Cover 
     x Commit: 2026-01-02 20:02
     x problem.EdgeCover
