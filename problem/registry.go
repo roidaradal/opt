@@ -41,6 +41,7 @@ const (
 	MST                   = "mst"
 	NQUEENS               = "nqueens"
 	NUMBER_PARTITION      = "numberpartition"
+	NURSE_SCHED           = "nurse"
 	OPENSHOP_SCHED        = "openshop"
 	QBAP                  = "qbap"
 	QKP                   = "qkp"
@@ -92,6 +93,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	MST:                   MinimumSpanningTree,
 	NQUEENS:               NQueens,
 	NUMBER_PARTITION:      NumberPartition,
+	NURSE_SCHED:           NurseSchedule,
 	OPENSHOP_SCHED:        OpenShopSchedule,
 	QBAP:                  QuadraticBottleneckAssignment,
 	QKP:                   QuadraticKnapsack,

@@ -1,0 +1,17 @@
+# MaxConsecutiveShift MaxTotalShift DailyLimit
+# Nurses 
+# Days
+# Shifts 
+# MinNurse Per Shift 
+# MaxNurse Per Shift 
+# Nurse Preferences: Shift | Days
+1 4 1
+A B C D 
+D1 D2 D3 
+AM  PM 
+2   2
+2   2 
+A:  AM PM | D1 D2 D3
+B:  AM PM | D1 D2 D3
+C:  AM PM | D1 D2 D3
+D:  AM PM | D1 D2 D3

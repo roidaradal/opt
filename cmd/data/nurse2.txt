@@ -1,0 +1,23 @@
+# MaxConsecutiveShift MaxTotalShift DailyLimit
+# Nurses 
+# Days
+# Shifts 
+# MinNurse Per Shift 
+# MaxNurse Per Shift 
+# Nurse Preferences: Shift | Days
+1 5 1
+L A B C E J M R U T 
+1 2 3 4 5 6 7
+M A N 
+2 2 1
+4 4 2 
+L:  M     | 1 2 3 4 5 6 7
+A:  M A   | 1 2 3 4 5 6 7
+B:      N | 1 2 3 4 5 6 7
+C:    A   | 1 2 3 4 5 6 7
+E:      N | 1 2 3 4 5 6 7
+J:  M A N | 1 2 3 4 5 6 7
+M:    A N | 1 2 3 4 5 6 7
+R:  M A N | 1 2 3 4 5 6 7
+U:    A   | 1 2 3 4 5 6 7
+T:      N | 1 2 3 4 5 6 7

@@ -25,6 +25,30 @@ func NoJobTaskOverlap(cfg *a.ShopSchedCfg) discrete.ConstraintFn {
 	})
 }
 
+// Constraint: max consecutive
+func MaxConsecutive(slots []int, limit int) bool {
+	slices.Sort(slots)
+	if len(slots) == 0 {
+		return true
+	}
+	group := []int{slots[0]}
+	prev := slots[0]
+	for _, slot := range slots[1:] {
+		if prev+1 == slot {
+			// Consecutive: add slot to group
+			group = append(group, slot)
+		} else {
+			// Not consecutive: check group's size and reset group
+			if len(group) > limit {
+				return false
+			}
+			group = []int{slot}
+		}
+		prev = slot
+	}
+	return true
+}
+
 // Utility: check if no overlap
 func noOverlap(cfg *a.ShopSchedCfg, keys []string, keyFn func(*a.Task) string) discrete.ConstraintFn {
 	return func(solution *discrete.Solution) bool {
