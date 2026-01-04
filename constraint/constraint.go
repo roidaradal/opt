@@ -39,3 +39,38 @@ func GraphMatching(graph *ds.Graph) discrete.ConstraintFn {
 		return list.AllEqual(dict.Values(count), 1)
 	}
 }
+
+// Spanning tree: all vertices are spanned
+func AllVerticesSpanned(graph *ds.Graph) discrete.ConstraintFn {
+	return func(solution *discrete.Solution) bool {
+		// Go through all edges formed by the subset solution
+		// 2 vertices of each edge are marked as spanned
+		spanned := dict.Flags(graph.Vertices, false)
+		for _, x := range fn.AsSubset(solution) {
+			v1, v2 := graph.Edges[x].Tuple()
+			spanned[v1] = true
+			spanned[v2] = true
+		}
+		// Check that all vertices are spanned
+		return list.AllTrue(dict.Values(spanned))
+	}
+}
+
+// Spanning tree: solution forms a tree, all vertices reachable from tree traversal
+func SpanningTree(graph *ds.Graph) discrete.ConstraintFn {
+	return func(solution *discrete.Solution) bool {
+		// Get the edges from the subset solution
+		edges := list.MapList(fn.AsSubset(solution), graph.Edges)
+		if len(edges) == 0 {
+			return false
+		}
+		activeEdges := ds.SetFrom(edges)
+		start := edges[0][0] // first edge's first vertex, chosen arbitrarily
+		// Perform a BFS traversal starting from the start vertex
+		// using only edges from the spanning tree
+		reachable := ds.SetFrom(graph.BFSTraversal(start, activeEdges))
+		vertexSet := ds.SetFrom(graph.Vertices)
+		// Check that all vertices are reachable
+		return vertexSet.Difference(reachable).IsEmpty()
+	}
+}

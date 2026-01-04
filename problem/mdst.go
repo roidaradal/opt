@@ -1,6 +1,9 @@
 package problem
 
 import (
+	"slices"
+
+	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/opt/constraint"
@@ -8,11 +11,11 @@ import (
 	"github.com/roidaradal/opt/fn"
 )
 
-// Create new Minimum Spanning Tree problem
-func MinimumSpanningTree(n int) *discrete.Problem {
-	name := newName(MST, n)
-	graph, edgeWeight := fn.NewWeightedGraph(name)
-	if graph == nil || edgeWeight == nil {
+// Create new Min-Degree Spanning Tree problem
+func MinDegreeSpanningTree(n int) *discrete.Problem {
+	name := newName(MDST, n)
+	graph := fn.NewUnweightedGraph(name)
+	if graph == nil {
 		return nil
 	}
 
@@ -33,7 +36,18 @@ func MinimumSpanningTree(n int) *discrete.Problem {
 	// Constraint: solution forms a tree: all vertices reachable from tree traversal
 	p.AddUniversalConstraint(constraint.SpanningTree(graph))
 
-	p.ObjectiveFn = fn.Score_SumWeightedValues(p.Variables, edgeWeight)
+	p.ObjectiveFn = func(solution *discrete.Solution) discrete.Score {
+		// Count the degree of each vertex from the spanning tree
+		count := make(dict.StringCounter)
+		for _, x := range fn.AsSubset(solution) {
+			v1, v2 := graph.Edges[x].Tuple()
+			count[v1] += 1
+			count[v2] += 1
+		}
+		maxDegree := slices.Max(dict.Values(count))
+		return discrete.Score(maxDegree)
+	}
+
 	p.SolutionStringFn = fn.String_Subset(edgeNames)
 
 	return p

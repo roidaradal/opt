@@ -1,3 +1,8 @@
+v0.2.44 - Min-Degree Spanning Tree 
+    x Commit: 2026-01-04 22:40
+    X problem.MinDegreeSpanningTree
+    x constraint.AllVerticesSpanned
+    x constraint.SpanningTree
 v0.2.43 - Nurse Scheduling 
     x Commit: 2026-01-04 02:47
     x problem.NurseSchedule
