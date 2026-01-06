@@ -85,3 +85,14 @@ func NewBinProblem(name string) *a.BinProblemCfg {
 		Weight:   list.Map(strings.Fields(lines[2]), number.ParseFloat),
 	}
 }
+
+// Load new test case for vertex coloring
+func NewVertexColoring(name string) (*ds.Graph, int) {
+	lines, err := LoadProblem(name)
+	if err != nil || len(lines) != 3 {
+		return nil, 0
+	}
+	numColors := number.ParseInt(lines[0])
+	graph := ds.GraphFrom(lines[1], lines[2])
+	return graph, numColors
+}

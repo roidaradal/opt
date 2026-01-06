@@ -1,24 +1,24 @@
 package problem
 
 import (
-	"github.com/roidaradal/fn/comb"
+	"slices"
+
 	"github.com/roidaradal/fn/dict"
-	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/fn"
 )
 
-// Create new Complete Coloring problem
-func CompleteColoring(n int) *discrete.Problem {
-	name := newName(COMPLETE_COLOR, n)
+// Create new Harmonious Coloring problem
+func HarmoniousColoring(n int) *discrete.Problem {
+	name := newName(HARMONIOUS_COLOR, n)
 	graph, numColors := fn.NewVertexColoring(name)
 	if graph == nil || numColors == 0 {
 		return nil
 	}
 
 	p := discrete.NewProblem(name)
-	p.Goal = discrete.Maximize
+	p.Goal = discrete.Minimize
 	p.Type = discrete.Assignment
 
 	p.Variables = discrete.Variables(graph.Vertices)
@@ -28,15 +28,7 @@ func CompleteColoring(n int) *discrete.Problem {
 	}
 
 	test := func(solution *discrete.Solution) bool {
-		colors := ds.SetFrom(solution.Values()).Items()
-		if len(colors) < 2 {
-			return false
-		}
 		count := make(map[[2]int]int) // ColorPair => Count
-		for _, pair := range comb.Combinations(colors, 2) {
-			key := [2]int{pair[0], pair[1]}
-			count[key] = 0
-		}
 		color := solution.Map
 		for _, edge := range graph.Edges {
 			v1, v2 := edge.Tuple()
@@ -47,14 +39,13 @@ func CompleteColoring(n int) *discrete.Problem {
 				// it is not a proper vertex coloring = invalid
 				return false
 			}
-			key := [2]int{c1, c2}
-			if dict.NoKey(count, key) {
-				key = [2]int{c2, c1} // flip if original order not found
-			}
+			colors := []int{c1, c2}
+			slices.Sort(colors)
+			key := [2]int{colors[0], colors[1]}
 			count[key] += 1
 		}
-		// Check all color pairs appears at least once
-		return list.AllGreaterEqual(dict.Values(count), 1)
+		// Check all color pairs appears at most once
+		return list.AllLessEqual(dict.Values(count), 1)
 	}
 	p.AddUniversalConstraint(test)
 

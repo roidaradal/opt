@@ -29,6 +29,7 @@ const (
 	GRAPH_PARTITION       = "graphpartition"
 	HAMILTON_PATH         = "hamiltonpath"
 	HAMILTON_CYCLE        = "hamiltoncycle"
+	HARMONIOUS_COLOR      = "harmoniouscolor"
 	INDEPENDENT_SET       = "independentset"
 	JOBSHOP_SCHED         = "jobshop"
 	K_CENTER              = "kcenter"
@@ -83,6 +84,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	GRAPH_PARTITION:       GraphPartition,
 	HAMILTON_PATH:         HamiltonPath,
 	HAMILTON_CYCLE:        HamiltonCycle,
+	HARMONIOUS_COLOR:      HarmoniousColoring,
 	INDEPENDENT_SET:       IndependentSet,
 	JOBSHOP_SCHED:         JobShopSchedule,
 	K_CENTER:              KCenter,
