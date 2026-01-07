@@ -39,6 +39,7 @@
     "setcover"              : [1,3],
     "setpacking"            : [1,3],
     "setsplit"              : [1,2],
+    "shortestpath"          : [1,2],
     "subsetsum"             : [1,2],
     "topological"           : [1,4],
     "tsp"                   : [1,6],

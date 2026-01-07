@@ -1,0 +1,9 @@
+# 15: ACBDEF
+A F 
+    A   B   C   D   E   F 
+A   0   4   2   x   x   x
+B   4   0   1   5   x   x 
+C   2   1   0   8   10  x
+D   x   5   8   0   2   8
+E   x   x   10  2   0   5
+F   x   x   x   8   5   0

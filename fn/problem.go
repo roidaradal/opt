@@ -3,7 +3,7 @@ package fn
 
 import (
 	"fmt"
-	"math"
+	"slices"
 	"strings"
 
 	"github.com/roidaradal/fn/ds"
@@ -29,7 +29,7 @@ func LoadProblem(name string) ([]string, error) {
 // Parse float or inf if "x"
 func ParseFloatInf(x string) float64 {
 	if x == "x" {
-		return math.Inf(1)
+		return a.Inf
 	} else {
 		return number.ParseFloat(x)
 	}
@@ -95,4 +95,45 @@ func NewVertexColoring(name string) (*ds.Graph, int) {
 	numColors := number.ParseInt(lines[0])
 	graph := ds.GraphFrom(lines[1], lines[2])
 	return graph, numColors
+}
+
+// Load new test case for path problem
+func NewPathProblem(name string) *a.PathCfg {
+	lines, err := LoadProblem(name)
+	if err != nil || len(lines) < 3 {
+		return nil
+	}
+
+	cfg := &a.PathCfg{}
+	parts := strings.Fields(lines[0])
+	if len(parts) != 2 {
+		return nil
+	}
+	start, end := parts[0], parts[1]
+
+	cfg.Vertices = strings.Fields(lines[1])
+	if !slices.Contains(cfg.Vertices, start) || !slices.Contains(cfg.Vertices, end) {
+		return nil
+	}
+	cfg.Start = slices.Index(cfg.Vertices, start)
+	cfg.End = slices.Index(cfg.Vertices, end)
+
+	numVertices := len(cfg.Vertices)
+	cfg.Distance = make([][]float64, numVertices)
+	for i := range numVertices {
+		cfg.Distance[i] = list.Map(strings.Fields(lines[2+i])[1:], ParseFloatInf)
+	}
+
+	cfg.IndexOf = make(map[int]int)
+	cfg.Between = make([]ds.Vertex, 0, numVertices)
+	betweenIdx := 0
+	for i, vertex := range cfg.Vertices {
+		if i == cfg.Start || i == cfg.End {
+			continue
+		}
+		cfg.Between = append(cfg.Between, vertex)
+		cfg.IndexOf[betweenIdx] = i
+		betweenIdx += 1
+	}
+	return cfg
 }

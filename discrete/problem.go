@@ -7,6 +7,7 @@ import (
 	"slices"
 	"strings"
 
+	"github.com/roidaradal/fn/comb"
 	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/fn/number"
@@ -23,6 +24,7 @@ const (
 	Partition  ProblemType = "partition"
 	Sequence   ProblemType = "sequence"
 	Subset     ProblemType = "subset"
+	Path       ProblemType = "path"
 )
 
 type (
@@ -62,7 +64,14 @@ func (p Problem) SolutionSpace() int {
 	switch p.Type {
 	case Sequence:
 		domain := p.Domain[p.Variables[0]]
-		return list.Product(list.NumRange(1, len(domain)+1))
+		return comb.Factorial(len(domain))
+	case Path:
+		domainSize := len(p.Domain[p.Variables[0]]) - 1 // remove -1
+		count := 0
+		for take := range domainSize + 1 {
+			count += comb.NumPermutations(domainSize, take)
+		}
+		return count
 	default:
 		return list.Product(list.Map(dict.Values(p.Domain), list.Length))
 	}

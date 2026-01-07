@@ -54,6 +54,7 @@ const (
 	SET_COVER             = "setcover"
 	SET_PACKING           = "setpacking"
 	SET_SPLITTING         = "setsplit"
+	SHORTEST_PATH         = "shortestpath"
 	SUBSET_SUM            = "subsetsum"
 	TOPOLOGICAL           = "topological"
 	TSP                   = "tsp"
@@ -109,6 +110,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	SET_COVER:             SetCover,
 	SET_PACKING:           SetPacking,
 	SET_SPLITTING:         SetSplitting,
+	SHORTEST_PATH:         ShortestPath,
 	SUBSET_SUM:            SubsetSum,
 	TOPOLOGICAL:           TopologicalSort,
 	TSP:                   TravelingSalesman,

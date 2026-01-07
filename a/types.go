@@ -2,9 +2,16 @@
 package a
 
 import (
+	"math"
 	"strings"
 
+	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/str"
+)
+
+var (
+	Inf    = math.Inf(1)
+	NegInf = math.Inf(-1)
 )
 
 type StrInt struct {
@@ -59,4 +66,14 @@ type BinProblemCfg struct {
 	NumBins  int
 	Capacity float64 // Min / Max Capacity
 	Weight   []float64
+}
+
+// Config for Path problems
+type PathCfg struct {
+	Start    int
+	End      int
+	IndexOf  map[int]int // VariableIndex => OriginalIndex
+	Vertices []ds.Vertex
+	Between  []ds.Vertex
+	Distance [][]float64
 }

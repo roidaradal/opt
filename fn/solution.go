@@ -1,10 +1,13 @@
 package fn
 
 import (
+	"slices"
+
 	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/fn/number"
 	"github.com/roidaradal/fn/str"
+	"github.com/roidaradal/opt/a"
 	"github.com/roidaradal/opt/discrete"
 )
 
@@ -33,6 +36,21 @@ func AsSequence(solution *discrete.Solution) []discrete.Variable {
 		sequence[idx] = variable
 	}
 	return sequence
+}
+
+// Return path formed by  solution values
+func AsPath(solution *discrete.Solution, cfg *a.PathCfg) []int {
+	length := slices.Max(solution.Values()) + 1
+	path := make([]int, length+1)
+	for variable, idx := range solution.Map {
+		if idx < 0 {
+			continue
+		}
+		path[idx] = cfg.IndexOf[variable] // convert to original index
+	}
+	path[length] = cfg.End
+	path = append([]int{cfg.Start}, path...)
+	return path
 }
 
 // Return list of partitions from the solution

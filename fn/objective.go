@@ -39,3 +39,17 @@ func Score_ScheduleMakespan(tasks []*a.Task) discrete.ObjectiveFn {
 		return discrete.Score(makespan)
 	}
 }
+
+// ObjectiveFn: path cost
+func Score_PathCost(cfg *a.PathCfg) discrete.ObjectiveFn {
+	return func(solution *discrete.Solution) discrete.Score {
+		var total discrete.Score = 0
+		path := AsPath(solution, cfg)
+		prev := path[0]
+		for _, curr := range path[1:] {
+			total += cfg.Distance[prev][curr]
+			prev = curr
+		}
+		return total
+	}
+}

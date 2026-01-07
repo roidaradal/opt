@@ -168,3 +168,11 @@ func String_EulerianPath(graph *ds.Graph) discrete.SolutionStringFn {
 		return strings.Join(path, " ")
 	}
 }
+
+// SolutionStringFn: display path sequence of vertices
+func String_Path(cfg *a.PathCfg) discrete.SolutionStringFn {
+	return func(solution *discrete.Solution) string {
+		path := AsPath(solution, cfg)
+		return strings.Join(list.MapList(path, cfg.Vertices), "-")
+	}
+}

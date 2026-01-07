@@ -31,8 +31,14 @@ func (solver *LinearSolver) Solve(logger worker.Logger) {
 	domains := list.Translate(problem.Variables, problem.Domain)
 
 	var valuesIterator iter.Seq2[int, []discrete.Value] = comb.Product(domains...)
-	if problem.Type == discrete.Sequence {
+	switch problem.Type {
+	case discrete.Sequence:
 		valuesIterator = comb.Permutations(domains[0], len(domains[0]))
+	case discrete.Path:
+		domain := list.Filter(domains[0], func(value discrete.Value) bool {
+			return value >= 0 // remove -1
+		})
+		valuesIterator = comb.AllPermutationPositions(domain)
 	}
 
 	for _, values := range valuesIterator {

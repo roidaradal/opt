@@ -1,3 +1,13 @@
+v0.2.47 - Shortest Path 
+    x Commit: 2026-01-07 21:11
+    x problem.ShortestPath
+    x a.PathCfg, fn.NewPathProblem
+    x discrete.Path
+    x fn.AsPath
+    x fn.Score_PathCost 
+    x fn.String_Path
+    x Update brute.LinearSolver to use comb.AllPermutationPositions for Path
+    x Change SolutionSpace computation of Path problems
 v0.2.46 - Harmonious Coloring 
     x Commit: 2026-01-06 21:25
     x problem.HarmoniousColoring 
