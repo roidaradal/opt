@@ -37,6 +37,7 @@ const (
 	LANGFORD_PAIR         = "langford"
 	LBAP                  = "lbap"
 	LIS                   = "lis"
+	LONGEST_PATH          = "longestpath"
 	MAGIC_SERIES          = "magicseries"
 	MAX_CARDINALITY_MATCH = "maxcardinalitymatch"
 	MAX_WEIGHT_MATCH      = "maxweightmatch"
@@ -93,6 +94,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	LANGFORD_PAIR:         LangfordPair,
 	LBAP:                  LinearBottleneckAssignment,
 	LIS:                   LongestIncreasingSubsequence,
+	LONGEST_PATH:          LongestPath,
 	MAGIC_SERIES:          MagicSeries,
 	MAX_CARDINALITY_MATCH: MaxCardinalityMatching,
 	MAX_WEIGHT_MATCH:      MaxWeightMatching,

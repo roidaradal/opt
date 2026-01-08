@@ -6,16 +6,16 @@ import (
 	"github.com/roidaradal/opt/fn"
 )
 
-// Create new Shortest Path problem
-func ShortestPath(n int) *discrete.Problem {
-	name := newName(SHORTEST_PATH, n)
+// Create new Longest Path problem
+func LongestPath(n int) *discrete.Problem {
+	name := newName(LONGEST_PATH, n)
 	cfg := fn.NewPathProblem(name)
 	if cfg == nil {
 		return nil
 	}
 
 	p := discrete.NewProblem(name)
-	p.Goal = discrete.Minimize
+	p.Goal = discrete.Maximize
 	p.Type = discrete.Path
 
 	p.Variables = discrete.Variables(cfg.Between)

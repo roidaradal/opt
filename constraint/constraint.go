@@ -5,6 +5,7 @@ import (
 	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
+	"github.com/roidaradal/opt/a"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/fn"
 )
@@ -72,5 +73,27 @@ func SpanningTree(graph *ds.Graph) discrete.ConstraintFn {
 		vertexSet := ds.SetFrom(graph.Vertices)
 		// Check that all vertices are reachable
 		return vertexSet.Difference(reachable).IsEmpty()
+	}
+}
+
+// Simple path: solution forms a valid simple path (no repeat vertices)
+func SimplePath(cfg *a.PathCfg) discrete.ConstraintFn {
+	return func(solution *discrete.Solution) bool {
+		path := fn.AsPath(solution, cfg)
+		prev := path[0]
+
+		visited := ds.NewSet[int]()
+		visited.Add(prev)
+		for _, curr := range path[1:] {
+			if visited.Has(curr) {
+				return false // not a simple path (repeated vertex)
+			}
+			if cfg.Distance[prev][curr] == a.Inf {
+				return false // no edge from prev => curr
+			}
+			visited.Add(curr)
+			prev = curr
+		}
+		return true
 	}
 }
