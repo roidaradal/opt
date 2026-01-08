@@ -62,6 +62,7 @@ const (
 	VERTEX_COVER          = "vertexcover"
 	WAREHOUSE             = "warehouse"
 	WEAPON                = "weapon"
+	WIDEST_PATH           = "widestpath"
 )
 
 var Creator = map[string]func(int) *discrete.Problem{
@@ -119,6 +120,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	VERTEX_COVER:          VertexCover,
 	WAREHOUSE:             WarehouseLocation,
 	WEAPON:                WeaponTarget,
+	WIDEST_PATH:           WidestPath,
 }
 
 var NoFiles = []string{LANGFORD_PAIR, MAGIC_SERIES, NQUEENS}

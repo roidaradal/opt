@@ -41,6 +41,13 @@ func IndexDomain(numItems int) []Value {
 	return list.NumRange(0, numItems)
 }
 
+// Creates a list of values from [-1, 0, numItems)
+func PathDomain(numItems int) []Value {
+	domain := IndexDomain(numItems)
+	domain = append(domain, -1) // for not included
+	return domain
+}
+
 // Creates a list of values from [first, last]
 func RangeDomain(first, last int) []Value {
 	return list.NumRange(first, last+1)

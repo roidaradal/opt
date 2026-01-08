@@ -1,14 +1,15 @@
 package problem
 
 import (
+	"github.com/roidaradal/opt/a"
 	"github.com/roidaradal/opt/constraint"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/fn"
 )
 
-// Create new Longest Path problem
-func LongestPath(n int) *discrete.Problem {
-	name := newName(LONGEST_PATH, n)
+// Create new Widest Path problem
+func WidestPath(n int) *discrete.Problem {
+	name := newName(WIDEST_PATH, n)
 	cfg := fn.NewPathProblem(name)
 	if cfg == nil {
 		return nil
@@ -26,7 +27,18 @@ func LongestPath(n int) *discrete.Problem {
 
 	p.AddUniversalConstraint(constraint.SimplePath(cfg))
 
-	p.ObjectiveFn = fn.Score_PathCost(cfg)
+	p.ObjectiveFn = func(solution *discrete.Solution) discrete.Score {
+		// Find min-weight edge of path
+		var minWeight discrete.Score = a.Inf
+		path := fn.AsPath(solution, cfg)
+		prev := path[0]
+		for _, curr := range path[1:] {
+			minWeight = min(minWeight, cfg.Distance[prev][curr])
+			prev = curr
+		}
+		return minWeight
+	}
+
 	p.SolutionStringFn = fn.String_Path(cfg)
 
 	return p

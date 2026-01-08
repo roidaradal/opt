@@ -19,8 +19,7 @@ func ShortestPath(n int) *discrete.Problem {
 	p.Type = discrete.Path
 
 	p.Variables = discrete.Variables(cfg.Between)
-	domain := discrete.IndexDomain(len(cfg.Between))
-	domain = append(domain, -1) // for not included
+	domain := discrete.PathDomain(len(cfg.Between))
 	for _, variable := range p.Variables {
 		p.Domain[variable] = domain[:]
 	}
