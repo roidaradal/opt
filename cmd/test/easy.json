@@ -29,6 +29,7 @@
     "magicseries"           : [3,5],
     "maxcardinalitymatch"   : [1,5],
     "maxweightmatch"        : [1,3],
+    "minimaxpath"           : [1,2],
     "mdst"                  : [1,2],
     "mst"                   : [1,4],
     "nqueens"               : [4,8],

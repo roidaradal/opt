@@ -41,6 +41,7 @@ const (
 	MAGIC_SERIES          = "magicseries"
 	MAX_CARDINALITY_MATCH = "maxcardinalitymatch"
 	MAX_WEIGHT_MATCH      = "maxweightmatch"
+	MINIMAX_PATH          = "minimaxpath"
 	MDST                  = "mdst"
 	MST                   = "mst"
 	NQUEENS               = "nqueens"
@@ -99,6 +100,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	MAGIC_SERIES:          MagicSeries,
 	MAX_CARDINALITY_MATCH: MaxCardinalityMatching,
 	MAX_WEIGHT_MATCH:      MaxWeightMatching,
+	MINIMAX_PATH:          MinimaxPath,
 	MDST:                  MinDegreeSpanningTree,
 	MST:                   MinimumSpanningTree,
 	NQUEENS:               NQueens,
