@@ -16,6 +16,7 @@ const (
 	CAR_PAINT             = "carpaint"
 	CAR_SEQUENCE          = "carsequence"
 	CLIQUE                = "clique"
+	CLIQUE_COVER          = "cliquecover"
 	COMPLETE_COLOR        = "completecolor"
 	DOMINATING_SET        = "dominatingset"
 	EDGE_COLOR            = "edgecolor"
@@ -75,6 +76,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	CAR_PAINT:             CarPainting,
 	CAR_SEQUENCE:          CarSequencing,
 	CLIQUE:                Clique,
+	CLIQUE_COVER:          CliqueCover,
 	COMPLETE_COLOR:        CompleteColoring,
 	DOMINATING_SET:        DominatingSet,
 	EDGE_COLOR:            EdgeColoring,

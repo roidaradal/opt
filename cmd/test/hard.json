@@ -1,4 +1,5 @@
 {
+    "cliquecover"       : [3,3],
     "eulercycle"        : [3,3],
     "eulerpath"         : [4,4],
     "magicseries"       : [8,8],

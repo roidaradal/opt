@@ -8,7 +8,7 @@ import (
 	"github.com/roidaradal/opt/fn"
 )
 
-// Note: Max Biparite Match is a special case of Max Cardinality Match
+// Note: Max Bipartite Match is a special case of Max Cardinality Match
 
 // Create new Max Cardinality Matching problem
 func MaxCardinalityMatching(n int) *discrete.Problem {
