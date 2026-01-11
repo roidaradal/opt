@@ -1,0 +1,4 @@
+A B C D
+A-B A-C B-D C-D 
+5 2 20 10 
+A D

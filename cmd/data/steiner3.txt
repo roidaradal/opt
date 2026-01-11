@@ -1,0 +1,4 @@
+A B C D E F G 
+A-B A-C A-D A-E B-D B-F C-E C-G D-E D-F E-F E-G F-G
+6 2 2 3 5 5 4 13 2 2 3 2 4
+A C F G

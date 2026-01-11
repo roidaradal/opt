@@ -28,10 +28,10 @@ func MinimumSpanningTree(n int) *discrete.Problem {
 	}
 
 	// Constraint: all vertices are spanned
-	p.AddUniversalConstraint(constraint.AllVerticesSpanned(graph))
+	p.AddUniversalConstraint(constraint.AllVerticesSpanned(graph, graph.Vertices))
 
 	// Constraint: solution forms a tree: all vertices reachable from tree traversal
-	p.AddUniversalConstraint(constraint.SpanningTree(graph))
+	p.AddUniversalConstraint(constraint.SpanningTree(graph, graph.Vertices))
 
 	p.ObjectiveFn = fn.Score_SumWeightedValues(p.Variables, edgeWeight)
 	p.SolutionStringFn = fn.String_Subset(edgeNames)

@@ -31,10 +31,10 @@ func MinDegreeSpanningTree(n int) *discrete.Problem {
 	}
 
 	// Constraint: all vertices are spanned
-	p.AddUniversalConstraint(constraint.AllVerticesSpanned(graph))
+	p.AddUniversalConstraint(constraint.AllVerticesSpanned(graph, graph.Vertices))
 
 	// Constraint: solution forms a tree: all vertices reachable from tree traversal
-	p.AddUniversalConstraint(constraint.SpanningTree(graph))
+	p.AddUniversalConstraint(constraint.SpanningTree(graph, graph.Vertices))
 
 	p.ObjectiveFn = func(solution *discrete.Solution) discrete.Score {
 		// Count the degree of each vertex from the spanning tree

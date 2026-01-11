@@ -42,11 +42,11 @@ func GraphMatching(graph *ds.Graph) discrete.ConstraintFn {
 }
 
 // Spanning tree: all vertices are spanned
-func AllVerticesSpanned(graph *ds.Graph) discrete.ConstraintFn {
+func AllVerticesSpanned(graph *ds.Graph, vertices []ds.Vertex) discrete.ConstraintFn {
 	return func(solution *discrete.Solution) bool {
 		// Go through all edges formed by the subset solution
 		// 2 vertices of each edge are marked as spanned
-		spanned := dict.Flags(graph.Vertices, false)
+		spanned := dict.Flags(vertices, false)
 		for _, x := range fn.AsSubset(solution) {
 			v1, v2 := graph.Edges[x].Tuple()
 			spanned[v1] = true
@@ -58,7 +58,7 @@ func AllVerticesSpanned(graph *ds.Graph) discrete.ConstraintFn {
 }
 
 // Spanning tree: solution forms a tree, all vertices reachable from tree traversal
-func SpanningTree(graph *ds.Graph) discrete.ConstraintFn {
+func SpanningTree(graph *ds.Graph, vertices []ds.Vertex) discrete.ConstraintFn {
 	return func(solution *discrete.Solution) bool {
 		// Get the edges from the subset solution
 		edges := list.MapList(fn.AsSubset(solution), graph.Edges)
@@ -70,7 +70,7 @@ func SpanningTree(graph *ds.Graph) discrete.ConstraintFn {
 		// Perform a BFS traversal starting from the start vertex
 		// using only edges from the spanning tree
 		reachable := ds.SetFrom(graph.BFSTraversal(start, activeEdges))
-		vertexSet := ds.SetFrom(graph.Vertices)
+		vertexSet := ds.SetFrom(vertices)
 		// Check that all vertices are reachable
 		return vertexSet.Difference(reachable).IsEmpty()
 	}
