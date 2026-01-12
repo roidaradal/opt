@@ -21,6 +21,7 @@ const (
 	DOMINATING_SET        = "dominatingset"
 	EDGE_COLOR            = "edgecolor"
 	EDGE_COVER            = "edgecover"
+	EDGE_DOMINATING_SET   = "edgedominatingset"
 	EULER_CYCLE           = "eulercycle"
 	EULER_PATH            = "eulerpath"
 	EXACT_COVER           = "exactcover"
@@ -82,6 +83,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	DOMINATING_SET:        DominatingSet,
 	EDGE_COLOR:            EdgeColoring,
 	EDGE_COVER:            EdgeCover,
+	EDGE_DOMINATING_SET:   EdgeDominatingSet,
 	EULER_CYCLE:           EulerCycle,
 	EULER_PATH:            EulerPath,
 	EXACT_COVER:           ExactCover,
