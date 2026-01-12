@@ -11,6 +11,7 @@
     "edgecolor"             : [1,2],
     "edgecover"             : [1,2],
     "edgedominatingset"     : [1,1],
+    "efficientdominatingset": [1,1],
     "eulercycle"            : [1,1],
     "eulerpath"             : [1,1],
     "exactcover"            : [1,3],

@@ -1,3 +1,6 @@
+v0.2.54 - Efficient Dominating Set 
+    x Commit: 2026-01-12 21:17
+    x problem.EfficientDominatingSet
 v0.2.53 - Edge Dominating Set 
     x Commit: 2026-01-12 20:58
     x problem.EdgeDominatingSet
