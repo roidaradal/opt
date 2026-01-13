@@ -77,3 +77,9 @@ type PathCfg struct {
 	Between  []ds.Vertex
 	Distance [][]float64
 }
+
+// Config for Traveling Salesman problems
+type TSPCfg struct {
+	Cities   []string
+	Distance [][]float64
+}

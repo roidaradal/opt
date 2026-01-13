@@ -1,3 +1,8 @@
+v0.2.55 - Bottleneck TSP 
+    x Commit: 2026-01-13 19:47
+    x problem.BottleneckTSP
+    x fn.NewTravelingSalesman 
+    x a.TSPCfg
 v0.2.54 - Efficient Dominating Set 
     x Commit: 2026-01-12 21:17
     x problem.EfficientDominatingSet

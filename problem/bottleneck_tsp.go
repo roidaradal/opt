@@ -1,14 +1,15 @@
 package problem
 
 import (
+	"github.com/roidaradal/opt/a"
 	"github.com/roidaradal/opt/constraint"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/fn"
 )
 
-// Create new Traveling Salesman problem
-func TravelingSalesman(n int) *discrete.Problem {
-	name := newName(TSP, n)
+// Create new Bottleneck Traveling Salesman problem
+func BottleneckTravelingSalesman(n int) *discrete.Problem {
+	name := newName(BOTTLENECK_TSP, n)
 	cfg := fn.NewTravelingSalesman(name)
 	if cfg == nil {
 		return nil
@@ -29,17 +30,16 @@ func TravelingSalesman(n int) *discrete.Problem {
 	p.AddUniversalConstraint(constraint.AllUnique)
 
 	p.ObjectiveFn = func(solution *discrete.Solution) discrete.Score {
-		// Treat the solution as a sequence
-		// Add first variable to end of sequence (loop)
+		// Treat solution as sequence, add first variable to end of sequence (loop)
 		sequence := fn.AsSequence(solution)
 		sequence = append(sequence, sequence[0])
-		// Compute total distance between succeeding cities in the sequence
-		var totalDistance discrete.Score = 0
+		// Compute the max distance in the path (bottleneck)
+		var maxDistance discrete.Score = -a.Inf
 		for i := range numCities {
 			curr, next := sequence[i], sequence[i+1]
-			totalDistance += cfg.Distance[curr][next]
+			maxDistance = max(maxDistance, cfg.Distance[curr][next])
 		}
-		return totalDistance
+		return maxDistance
 	}
 
 	p.SolutionCoreFn = fn.Core_SortedCycle(cfg.Cities)

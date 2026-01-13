@@ -137,3 +137,20 @@ func NewPathProblem(name string) *a.PathCfg {
 	}
 	return cfg
 }
+
+// Load new test case for traveling salesman problems
+func NewTravelingSalesman(name string) *a.TSPCfg {
+	lines, err := LoadProblem(name)
+	if err != nil || len(lines) < 2 {
+		return nil
+	}
+	cfg := &a.TSPCfg{
+		Cities:   strings.Fields(lines[0]),
+		Distance: make([][]float64, 0),
+	}
+	for _, line := range lines[1:] {
+		d := list.Map(strings.Fields(line), ParseFloatInf)
+		cfg.Distance = append(cfg.Distance, d)
+	}
+	return cfg
+}

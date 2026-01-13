@@ -13,6 +13,7 @@ const (
 	BIN_COVER                = "bincover"
 	BIN_PACKING              = "binpacking"
 	BINARY_PAINTSHOP         = "binarypaint"
+	BOTTLENECK_TSP           = "btsp"
 	CAR_PAINT                = "carpaint"
 	CAR_SEQUENCE             = "carsequence"
 	CLIQUE                   = "clique"
@@ -76,6 +77,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	BIN_COVER:                BinCover,
 	BIN_PACKING:              BinPacking,
 	BINARY_PAINTSHOP:         BinaryPaintShop,
+	BOTTLENECK_TSP:           BottleneckTravelingSalesman,
 	CAR_PAINT:                CarPainting,
 	CAR_SEQUENCE:             CarSequencing,
 	CLIQUE:                   Clique,
