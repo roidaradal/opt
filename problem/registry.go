@@ -63,6 +63,7 @@ const (
 	SHORTEST_PATH            = "shortestpath"
 	STEINER_TREE             = "steiner"
 	SUBSET_SUM               = "subsetsum"
+	SUM_COLOR                = "sumcolor"
 	TOPOLOGICAL              = "topological"
 	TSP                      = "tsp"
 	VERTEX_COVER             = "vertexcover"
@@ -127,6 +128,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	SHORTEST_PATH:            ShortestPath,
 	STEINER_TREE:             SteinerTree,
 	SUBSET_SUM:               SubsetSum,
+	SUM_COLOR:                SumColoring,
 	TOPOLOGICAL:              TopologicalSort,
 	TSP:                      TravelingSalesman,
 	VERTEX_COVER:             VertexCover,

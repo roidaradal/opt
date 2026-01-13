@@ -10,5 +10,6 @@
     "edgecolor"         : [3,4],
     "magicseries"       : [6,7],
     "nqueens"           : [9,10],
+    "sumcolor"          : [1,1],
     "warehouse"         : [1,1]
 }
