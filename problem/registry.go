@@ -37,6 +37,7 @@ const (
 	INDEPENDENT_SET          = "independentset"
 	JOBSHOP_SCHED            = "jobshop"
 	K_CENTER                 = "kcenter"
+	K_MST                    = "kmst"
 	KNAPSACK                 = "knapsack"
 	LANGFORD_PAIR            = "langford"
 	LBAP                     = "lbap"
@@ -102,6 +103,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	INDEPENDENT_SET:          IndependentSet,
 	JOBSHOP_SCHED:            JobShopSchedule,
 	K_CENTER:                 KCenter,
+	K_MST:                    KMinimumSpanningTree,
 	KNAPSACK:                 Knapsack,
 	LANGFORD_PAIR:            LangfordPair,
 	LBAP:                     LinearBottleneckAssignment,
