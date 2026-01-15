@@ -64,6 +64,18 @@ func NewWeightedGraph(name string) (*ds.Graph, []float64) {
 	return graph, edgeWeight
 }
 
+// Load new test case containing weighted graph and k
+func NewKWeightedGraph(name string) (*ds.Graph, []float64, int) {
+	lines, err := LoadProblem(name)
+	if err != nil || len(lines) != 4 {
+		return nil, nil, 0
+	}
+	graph := ds.GraphFrom(lines[0], lines[1])
+	edgeWeight := list.Map(strings.Fields(lines[2]), number.ParseFloat)
+	k := number.ParseInt(lines[3])
+	return graph, edgeWeight, k
+}
+
 // Load new test case containing directed graph
 func NewDirectedGraph(name string) *ds.Graph {
 	lines, err := LoadProblem(name)

@@ -1,3 +1,7 @@
+v0.2.58 - Minimum K-Cut
+    x Commit: 2026-01-15 22:18
+    x problem.MinimumKCut 
+    x fn.NewKWeightedGraph
 v0.2.57 - K-Minimum Spanning Tree 
     x Commit: 2026-01-14 21:38
     x problem.KMinimumSpanningTree 

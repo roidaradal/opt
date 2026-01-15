@@ -18,7 +18,7 @@ func EdgeColoring(n int) *discrete.Problem {
 		return nil
 	}
 
-	edgeNames := list.Map(graph.Edges, ds.Edge.String)
+	edgeNames := graph.EdgeNames()
 	edgeIndex := make(dict.IntMap)
 	for i, edgeName := range edgeNames {
 		edgeIndex[edgeName] = i

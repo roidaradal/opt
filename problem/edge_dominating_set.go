@@ -1,7 +1,6 @@
 package problem
 
 import (
-	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/fn"
@@ -19,7 +18,7 @@ func EdgeDominatingSet(n int) *discrete.Problem {
 	p.Goal = discrete.Minimize
 	p.Type = discrete.Subset
 
-	edgeNames := list.Map(graph.Edges, ds.Edge.String)
+	edgeNames := graph.EdgeNames()
 	p.Variables = discrete.Variables(edgeNames)
 	domain := discrete.BooleanDomain()
 	for _, variable := range p.Variables {

@@ -1,8 +1,6 @@
 package problem
 
 import (
-	"github.com/roidaradal/fn/ds"
-	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/opt/constraint"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/fn"
@@ -15,7 +13,7 @@ func MaxWeightMatching(n int) *discrete.Problem {
 	if graph == nil || edgeWeight == nil {
 		return nil
 	}
-	edgeNames := list.Map(graph.Edges, ds.Edge.String)
+	edgeNames := graph.EdgeNames()
 
 	p := discrete.NewProblem(name)
 	p.Goal = discrete.Maximize

@@ -23,7 +23,7 @@ func SteinerTree(n int) *discrete.Problem {
 	p.Goal = discrete.Minimize
 	p.Type = discrete.Subset
 
-	edgeNames := list.Map(graph.Edges, ds.Edge.String)
+	edgeNames := graph.EdgeNames()
 	p.Variables = discrete.Variables(edgeNames)
 	domain := discrete.BooleanDomain()
 	for _, variable := range p.Variables {

@@ -7,9 +7,9 @@ import (
 	"github.com/roidaradal/opt/fn"
 )
 
-// Create new K-MST problem
-func KMinimumSpanningTree(n int) *discrete.Problem {
-	name := newName(K_MST, n)
+// Create new Minimum K-Cut problem
+func MinimumKCut(n int) *discrete.Problem {
+	name := newName(MIN_K_CUT, n)
 	graph, edgeWeight, k := fn.NewKWeightedGraph(name)
 	if graph == nil || edgeWeight == nil {
 		return nil
@@ -27,16 +27,15 @@ func KMinimumSpanningTree(n int) *discrete.Problem {
 	}
 
 	test := func(solution *discrete.Solution) bool {
-		// Ensure there are k-1 edges in the tree
-		edges := list.MapList(fn.AsSubset(solution), graph.Edges)
-		if len(edges) != k-1 {
-			return false
+		// Remove selected cut edges from active edges
+		cutEdges := list.MapList(fn.AsSubset(solution), graph.Edges)
+		activeEdges := ds.SetFrom(graph.Edges)
+		for _, cutEdge := range cutEdges {
+			activeEdges.Delete(cutEdge)
 		}
-		// Check that the tree formed by the edges have k vertices
-		activeEdges := ds.SetFrom(edges)
-		start := edges[0][0]
-		reachable := ds.SetFrom(graph.BFSTraversal(start, activeEdges))
-		return reachable.Len() == k
+		// Make sure that the cut produced at least k connected components
+		components := graph.ConnectedComponents(activeEdges)
+		return len(components) >= k
 	}
 	p.AddUniversalConstraint(test)
 

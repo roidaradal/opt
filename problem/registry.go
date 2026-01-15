@@ -47,6 +47,7 @@ const (
 	MAX_CARDINALITY_MATCH    = "maxcardinalitymatch"
 	MAX_WEIGHT_MATCH         = "maxweightmatch"
 	MINIMAX_PATH             = "minimaxpath"
+	MIN_K_CUT                = "minkcut"
 	MDST                     = "mdst"
 	MST                      = "mst"
 	NQUEENS                  = "nqueens"
@@ -113,6 +114,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	MAX_CARDINALITY_MATCH:    MaxCardinalityMatching,
 	MAX_WEIGHT_MATCH:         MaxWeightMatching,
 	MINIMAX_PATH:             MinimaxPath,
+	MIN_K_CUT:                MinimumKCut,
 	MDST:                     MinDegreeSpanningTree,
 	MST:                      MinimumSpanningTree,
 	NQUEENS:                  NQueens,
