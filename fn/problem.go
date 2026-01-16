@@ -8,6 +8,7 @@ import (
 
 	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/io"
+	"github.com/roidaradal/fn/lang"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/fn/number"
 	"github.com/roidaradal/opt/a"
@@ -33,6 +34,18 @@ func ParseFloatInf(x string) float64 {
 	} else {
 		return number.ParseFloat(x)
 	}
+}
+
+// Parse float row
+func ParseFloatRow(parts []string, excludeFirst bool) []float64 {
+	idx := lang.Ternary(excludeFirst, 1, 0)
+	return list.Map(parts[idx:], number.ParseFloat)
+}
+
+// Parse float/inf row
+func ParseFloatInfRow(parts []string, excludeFirst bool) []float64 {
+	idx := lang.Ternary(excludeFirst, 1, 0)
+	return list.Map(parts[idx:], ParseFloatInf)
 }
 
 // Load new test case containing subsets data
@@ -133,7 +146,7 @@ func NewPathProblem(name string) *a.PathCfg {
 	numVertices := len(cfg.Vertices)
 	cfg.Distance = make([][]float64, numVertices)
 	for i := range numVertices {
-		cfg.Distance[i] = list.Map(strings.Fields(lines[2+i])[1:], ParseFloatInf)
+		cfg.Distance[i] = ParseFloatRow(strings.Fields(lines[2+1]), true)
 	}
 
 	cfg.IndexOf = make(map[int]int)

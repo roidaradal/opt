@@ -102,7 +102,7 @@ func newAssignment(name string) *a.AssignmentCfg {
 		idx++
 		parts := strings.Fields(line)
 		name := parts[0]
-		costs := list.Map(parts[1:], fn.ParseFloatInf)
+		costs := fn.ParseFloatInfRow(parts, true)
 		workerCost := make([]float64, numWorkers)
 		copy(workerCost, costs)
 		cfg.Workers[i] = name

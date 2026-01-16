@@ -94,12 +94,12 @@ func loadGeneralizedAssignment(name string) *generalizedAssignmentCfg {
 		parts := strings.Fields(lines[idx])
 		idx++
 		cfg.workers[i] = parts[0]
-		cfg.profit[i] = list.Map(parts[1:], number.ParseFloat)
+		cfg.profit[i] = fn.ParseFloatRow(parts, true)
 	}
 	for i := range numWorkers {
 		parts := strings.Fields(lines[idx])
 		idx++
-		cfg.weight[i] = list.Map(parts[1:], number.ParseFloat)
+		cfg.weight[i] = fn.ParseFloatRow(parts, true)
 	}
 	for i := range numWorkers {
 		parts := strings.Fields(lines[idx])

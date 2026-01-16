@@ -67,6 +67,7 @@ const (
 	SUBSET_SUM               = "subsetsum"
 	SUM_COLOR                = "sumcolor"
 	TOPOLOGICAL              = "topological"
+	TPP                      = "tpp"
 	TSP                      = "tsp"
 	VERTEX_COVER             = "vertexcover"
 	WAREHOUSE                = "warehouse"
@@ -134,6 +135,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	SUBSET_SUM:               SubsetSum,
 	SUM_COLOR:                SumColoring,
 	TOPOLOGICAL:              TopologicalSort,
+	TPP:                      TravelingPurchaser,
 	TSP:                      TravelingSalesman,
 	VERTEX_COVER:             VertexCover,
 	WAREHOUSE:                WarehouseLocation,

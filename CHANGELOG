@@ -1,3 +1,7 @@
+v0.2.59 - Traveling Purchaser Problem 
+    x Commit: 2026-01-16 23:11
+    x problem.TravelingPurchaser 
+    x newTravelingPurchaser, tppCfg 
 v0.2.58 - Minimum K-Cut
     x Commit: 2026-01-15 22:18
     x problem.MinimumKCut 
