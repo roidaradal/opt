@@ -38,7 +38,7 @@ func AsSequence(solution *discrete.Solution) []discrete.Variable {
 	return sequence
 }
 
-// Return path formed by  solution values
+// Return path formed by  solution values (with start, end)
 func AsPath(solution *discrete.Solution, cfg *a.PathCfg) []int {
 	length := slices.Max(solution.Values()) + 1
 	path := make([]int, length+1)
@@ -50,6 +50,19 @@ func AsPath(solution *discrete.Solution, cfg *a.PathCfg) []int {
 	}
 	path[length] = cfg.End
 	path = append([]int{cfg.Start}, path...)
+	return path
+}
+
+// Return path formed by solution values
+func AsPathOrder(solution *discrete.Solution) []int {
+	length := slices.Max(solution.Values()) + 1
+	path := make([]int, length)
+	for idx, order := range solution.Map {
+		if order < 0 {
+			continue
+		}
+		path[order] = idx
+	}
 	return path
 }
 

@@ -33,6 +33,7 @@
     "longestpath"           : [1,3],
     "magicseries"           : [3,5],
     "maxcardinalitymatch"   : [1,5],
+    "maxinducedpath"        : [1,1],
     "maxweightmatch"        : [1,3],
     "minimaxpath"           : [1,2],
     "minkcut"               : [1,2],

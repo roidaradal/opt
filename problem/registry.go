@@ -45,6 +45,7 @@ const (
 	LONGEST_PATH             = "longestpath"
 	MAGIC_SERIES             = "magicseries"
 	MAX_CARDINALITY_MATCH    = "maxcardinalitymatch"
+	MAX_INDUCED_PATH         = "maxinducedpath"
 	MAX_WEIGHT_MATCH         = "maxweightmatch"
 	MINIMAX_PATH             = "minimaxpath"
 	MIN_K_CUT                = "minkcut"
@@ -113,6 +114,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	LONGEST_PATH:             LongestPath,
 	MAGIC_SERIES:             MagicSeries,
 	MAX_CARDINALITY_MATCH:    MaxCardinalityMatching,
+	MAX_INDUCED_PATH:         MaxInducedPath,
 	MAX_WEIGHT_MATCH:         MaxWeightMatching,
 	MINIMAX_PATH:             MinimaxPath,
 	MIN_K_CUT:                MinimumKCut,

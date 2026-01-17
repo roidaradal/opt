@@ -2,7 +2,6 @@ package problem
 
 import (
 	"fmt"
-	"slices"
 	"strings"
 
 	"github.com/roidaradal/fn/dict"
@@ -44,18 +43,6 @@ func TravelingPurchaser(n int) *discrete.Problem {
 		p.Domain[variable] = domain[:]
 	}
 
-	buildPath := func(solution *discrete.Solution) []int {
-		length := slices.Max(solution.Values()) + 1
-		path := make([]int, length)
-		for idx, order := range solution.Map {
-			if order < 0 {
-				continue
-			}
-			path[order] = idx
-		}
-		return path
-	}
-
 	test := func(solution *discrete.Solution) bool {
 		// Check each item is covered once
 		count := dict.NewCounter(cfg.items)
@@ -73,7 +60,7 @@ func TravelingPurchaser(n int) *discrete.Problem {
 	p.ObjectiveFn = func(solution *discrete.Solution) discrete.Score {
 		var totalCost discrete.Score = 0
 		// Build path
-		path := buildPath(solution)
+		path := fn.AsPathOrder(solution)
 		// Compute item prices
 		for _, idx := range path {
 			itemMarket := itemMarkets[idx]
@@ -101,7 +88,7 @@ func TravelingPurchaser(n int) *discrete.Problem {
 	// TODO: Add SolutionCoreFn
 	p.SolutionStringFn = func(solution *discrete.Solution) string {
 		// Build path
-		path := buildPath(solution)
+		path := fn.AsPathOrder(solution)
 		out := list.MapList(path, names)
 		return strings.Join(out, " -> ")
 	}
