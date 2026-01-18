@@ -44,6 +44,7 @@
     "qbap"                  : [1,1],
     "qkp"                   : [1,2],
     "quadassignment"        : [1,1],
+    "rainbowis"             : [1,2],
     "resource"              : [1,2],
     "setcover"              : [1,3],
     "setpacking"            : [1,3],
