@@ -59,6 +59,7 @@ const (
 	QKP                      = "qkp"
 	QUAD_ASSIGNMENT          = "quadassignment"
 	RAINBOW_INDEPENDENT_SET  = "rainbowis"
+	RAINBOW_MATCH            = "rainbowmatch"
 	RESOURCE_OPT             = "resource"
 	SCENE_ALLOCATION         = "scene"
 	SET_COVER                = "setcover"
@@ -129,6 +130,7 @@ var Creator = map[string]func(int) *discrete.Problem{
 	QKP:                      QuadraticKnapsack,
 	QUAD_ASSIGNMENT:          QuadraticAssignment,
 	RAINBOW_INDEPENDENT_SET:  RainbowIndependentSet,
+	RAINBOW_MATCH:            RainbowMatching,
 	RESOURCE_OPT:             ResourceOptimization,
 	SCENE_ALLOCATION:         SceneAllocation,
 	SET_COVER:                SetCover,

@@ -1,0 +1,6 @@
+4
+    R1  R2  R3  R4 
+L1  A   B   C   D
+L2  B   A   D   C 
+L3  C   D   A   B
+L4  D   C   B   A
