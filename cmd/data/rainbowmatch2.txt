@@ -1,5 +1,0 @@
-3
-    B1  B2  B3
-A1  R   B   G
-A2  G   R   B
-A3  B   G   R

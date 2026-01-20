@@ -1,9 +1,0 @@
-# 20: ACEDF
-A F
-    A   B   C   D   E   F 
-A   0   4   2   x   x   x
-B   x   0   5   10  x   x
-C   x   x   0   x   3   x
-D   x   x   x   0   x   11
-E   x   x   x   4   0   x
-F   x   x   x   x   x   0

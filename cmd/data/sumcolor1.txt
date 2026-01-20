@@ -1,3 +1,0 @@
-A B C D E F G H
-A-D B-E C-D D-E D-G E-F E-H
-1 2 3 4 5 6

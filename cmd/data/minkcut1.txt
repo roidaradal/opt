@@ -1,4 +1,0 @@
-A B C D E 
-A-B A-C B-C B-E C-D D-E
-3 5 1 4 7 4
-2

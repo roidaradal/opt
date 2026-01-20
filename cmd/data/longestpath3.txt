@@ -1,8 +1,0 @@
-S F 
-    S   A   B   C   D   F 
-S   0   6   x   7   x   x
-A   x   0   4   3   x   x  
-B   x   x   0   x   3   10
-C   x   x   x   0   4   x
-D   x   x   x   x   0   10
-F   x   x   x   x   x   0

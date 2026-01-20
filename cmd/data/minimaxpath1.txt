@@ -1,9 +1,0 @@
-M D
-    M   F   T   C   B   H   D
-M   0   11  8   40  x   x   x
-F   11  0   3   x   46  x   x 
-T   8   3   0   29  x   31  x
-C   40  x   29  0   x   17  x
-B   x   46  x   x   0   40  15 
-H   x   x   31  17  40  0   53
-D   x   x   x   x   15  53  0

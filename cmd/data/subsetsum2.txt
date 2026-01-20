@@ -1,3 +1,0 @@
-# Lines: Target, Numbers 
-30
-3 34 4 12 5 2

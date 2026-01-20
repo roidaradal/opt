@@ -1,5 +1,0 @@
-{
-    "task"      : "run+sol",
-    "problem"   : "nqueens:8",
-    "solver"    : "ConcurrentBruteForce"
-}

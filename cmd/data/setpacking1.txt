@@ -1,9 +1,0 @@
-# Lines: Universal, Subsets 
-A B C D E 
-W1: A B 
-W2: B C 
-W3: C D 
-W4: D E
-W5: A E 
-W6: B D 
-W7: C E 

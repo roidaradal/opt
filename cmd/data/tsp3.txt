@@ -1,8 +1,0 @@
-# Cities
-# Distance Matrix 
-A   B   C   D   E 
-0   2   x   x   1
-1   0   3   x   x 
-x   x   0   x   5 
-1   7   x   0   x 
-x   x   x   3   0

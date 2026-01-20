@@ -1,5 +1,0 @@
-# Lines: Vertices, Edges, Colors 
-# Solution: 2 colors, GRRG or RGGR
-A B C D 
-A-B A-C B-D C-D
-G R B

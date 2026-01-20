@@ -1,4 +1,0 @@
-# Lines: Bins Capacity Weights 
-5
-10 
-4 8 1 4 2 1

@@ -1,6 +1,0 @@
-A B C D E F G H I 
-A-B A-D B-C B-E B-F B-G C-D C-E C-H D-E D-H D-I E-G F-G G-H H-I
-3 
-B: D E G 
-R: B C H 
-Y: A F I

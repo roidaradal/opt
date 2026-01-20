@@ -1,2 +1,0 @@
-S T U V W 
-S-U S-V S-W T-U T-V U-V U-W V-W
