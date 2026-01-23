@@ -1,7 +1,6 @@
 package fn
 
 import (
-	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/opt/discrete"
 )
 
@@ -14,9 +13,4 @@ func AsSubset(solution *discrete.Solution) []discrete.Variable {
 		}
 	}
 	return subset
-}
-
-// Assumes BooleanDomain {0,1}, return number of selected values in solution
-func SubsetSize(solution *discrete.Solution) int {
-	return list.Sum(solution.Values())
 }

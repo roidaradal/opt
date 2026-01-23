@@ -50,6 +50,10 @@ Discrete Optimization package written in Go
 * `basic`       - Independent Set 
 * `rainbow`     - Rainbow Independent Set 
 
+### <u>interval</u> 
+* `unweighted`  - Activity Selection 
+* `weighted`    - Weighted Activity Selection
+
 ### knapsack 
 * `basic`       - 0-1 Knapsack
 * `quad`        - Quadratic Knapsack
@@ -96,10 +100,12 @@ Discrete Optimization package written in Go
 * `mst`         - Minimum Spanning Tree
 * `steiner`     - Steiner Tree
 
-### subset 
-* `activity`    - Activity Selection 
-* `lis`         - Longest Increasing Subsequence 
-* `sum`         - Subset Sum
+### <u>subsequence</u>
+* `increasing`  - Longest Increasing Subsequence 
+* `alternating` - Longest Alternating Subsequence
+
+### <u>subsetsum</u>
+* `basic`       - Subset Sum
 
 ### tour 
 * `eulercycle`      - Euler Cycle 
