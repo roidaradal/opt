@@ -8,7 +8,7 @@ import (
 	"github.com/roidaradal/opt/fn"
 )
 
-// Create new Subsequence problem
+// Subsequence creates a new Subsequence problem
 func Subsequence(variant string, n int) *discrete.Problem {
 	name := newName(SUBSEQUENCE, variant, n)
 	switch variant {
@@ -35,8 +35,8 @@ func subsequenceProblem(name string) (*discrete.Problem, []int) {
 	p.AddVariableDomains(discrete.BooleanDomain())
 
 	p.Goal = discrete.Maximize
-	p.ObjectiveFn = fn.Score_SubsetSize
-	p.SolutionStringFn = fn.String_Subset(sequence)
+	p.ObjectiveFn = fn.ScoreSubsetSize
+	p.SolutionStringFn = fn.StringSubset(sequence)
 	return p, sequence
 }
 
@@ -56,9 +56,9 @@ func subsequenceIncreasing(name string) *discrete.Problem {
 		}
 
 		slices.Sort(subset) // sort indexes
-		subseq := list.MapList(subset, sequence)
+		subsequence := list.MapList(subset, sequence)
 		for i := range numSelected - 1 {
-			if subseq[i] >= subseq[i+1] {
+			if subsequence[i] >= subsequence[i+1] {
 				return false // invalid if current not less than next
 			}
 		}
@@ -84,12 +84,12 @@ func subsequenceAlternating(name string) *discrete.Problem {
 		}
 
 		slices.Sort(subset) // sort indexes
-		subseq := list.MapList(subset, sequence)
+		subsequence := list.MapList(subset, sequence)
 		down := true
 		for i := range numSelected - 1 {
-			if down && subseq[i] <= subseq[i+1] {
+			if down && subsequence[i] <= subsequence[i+1] {
 				return false // invalid if going down, but current not greater than next
-			} else if !down && subseq[i] >= subseq[i+1] {
+			} else if !down && subsequence[i] >= subsequence[i+1] {
 				return false // invalid if going up, but current not less than next
 			}
 			down = !down // toggle to alternate

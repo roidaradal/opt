@@ -9,14 +9,16 @@ import (
 
 const (
 	INTERVAL    = "interval"
+	SAT         = "sat"
 	SUBSEQUENCE = "subsequence"
-	SUBSET_SUM  = "subsetsum"
+	SUBSETSUM   = "subsetsum"
 )
 
 var Creator = map[string]func(string, int) *discrete.Problem{
 	INTERVAL:    Interval,
+	SAT:         Satisfaction,
 	SUBSEQUENCE: Subsequence,
-	SUBSET_SUM:  SubsetSum,
+	SUBSETSUM:   SubsetSum,
 }
 
 // Create problem test case name

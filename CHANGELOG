@@ -1,3 +1,13 @@
+v0.3.4 - Satisfaction Problems 
+    x Commit: 2026-01-23 23:34
+    x problem.Satisfaction
+        x Langford Pair
+        x Magic Series
+        x N-Queens
+    x fn.AsSequence
+    x fn.ConstraintAllUnique
+    x fn.CoreMirroredSequence, CoreMirroredValues
+    x fn.StringSequence, StringValues
 v0.3.3 - Split Subset Problems 
     x Commit: 2026-01-23 21:41
     x problem.Interval 
@@ -8,7 +18,7 @@ v0.3.3 - Split Subset Problems
         x Longest Alternating 
     x problem.SubsetSum 
         x Basic
-    x fn.Score_SumWeightedValues
+    x fn.ScoreSumWeightedValues
 v0.3.2 - Subset Problems 
     x Commit: 2026-01-22 23:04
     x problem.Subset
@@ -18,7 +28,7 @@ v0.3.2 - Subset Problems
     x fn.LoadLines
     x fn.StringList, IntList, FloatList
     x fn.AsSubset
-    x fn.Score_SubsetSize
+    x fn.ScoreSubsetSize
     x fn.String_Subset
 v0.3.1 - Discrete Package
     x Commit: 2026-01-21 22:08
@@ -411,7 +421,7 @@ v0.1.6 - Langford Pair
     x problem.LangfordPair 
     x constraint.AllUnique
     x fn.AsSequence
-    x fn.Core_MirroredSequence 
+    x fn.CoreMirroredSequence
     x fn.String_Sequence
 v0.1.5 - Knapsack 
     x Commit: 2025-12-03 22:17
@@ -428,7 +438,7 @@ v0.1.2 - Resource Optimization
     x Commit: 2025-12-03 21:13
     x problem.ResourceOptimization
     x resourceOptCfg, newResourceOptimziation
-    x fn.Score_SumWeightedValues
+    x fn.ScoreSumWeightedValues
     x fn.String_Values
 v0.1.1 - Activity Selection
     x Commit: 2025-12-02 22:41
@@ -436,7 +446,7 @@ v0.1.1 - Activity Selection
     x activitySelectionCfg, newActivitySelection
     x fn.LoadProblem
     x fn.AsSubset 
-    x fn.SubsetSize, Score_SubsetSize
+    x fn.SubsetSize, ScoreSubsetSize
     x fn.String_Subset
 v0.1.0 - Discrete Optimization 
     x Commit: 2025-12-01 21:08

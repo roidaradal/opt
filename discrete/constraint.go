@@ -7,9 +7,8 @@ import (
 )
 
 var (
-	Inf         float64 = math.Inf(1)
-	NegInf      float64 = math.Inf(-1)
-	HardPenalty Penalty = Inf
+	Inf         = math.Inf(1)
+	HardPenalty = Inf
 )
 
 type Penalty = float64
@@ -21,7 +20,7 @@ type Constraint interface {
 	ComputePenalty(*Solution) Penalty
 }
 
-// Base Constraint type
+// BaseConstraint type
 type BaseConstraint struct {
 	Penalty
 	Variables []Variable
@@ -29,22 +28,22 @@ type BaseConstraint struct {
 	// TODO: Add PartialTest for solvers with PartialSolution
 }
 
-// Check if soluton satisfies the constraint test
+// IsSatisfied checks if solution satisfies the constraint test
 func (c BaseConstraint) IsSatisfied(solution *Solution) bool {
 	return c.Test(solution)
 }
 
-// Compute penalty of given solution
+// ComputePenalty computes the penalty of given solution
 func (c BaseConstraint) ComputePenalty(solution *Solution) Penalty {
 	return lang.Ternary(c.IsSatisfied(solution), 0, c.Penalty)
 }
 
-// Constraint with more than 2 variables
+// GlobalConstraint is a constraint with more than 2 variables
 type GlobalConstraint struct {
 	BaseConstraint
 }
 
-// Add Universal constraint to problem (all problem variables are involved)
+// AddUniversalConstraint adds a GlobalConstraint to the problem (all problem variables are involved)
 func (p *Problem) AddUniversalConstraint(test ConstraintFn) {
 	constraint := GlobalConstraint{}
 	constraint.Variables = p.Variables
@@ -53,7 +52,7 @@ func (p *Problem) AddUniversalConstraint(test ConstraintFn) {
 	p.AddConstraint(constraint)
 }
 
-// Add Global constraint to problem, with given penalty and variables
+// AddGlobalConstraint adds a GlobalConstraint to the problem, with given penalty and variables
 func (p *Problem) AddGlobalConstraint(test ConstraintFn, penalty Penalty, variables ...Variable) {
 	constraint := GlobalConstraint{}
 	constraint.Variables = variables

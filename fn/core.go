@@ -10,27 +10,22 @@ import (
 	"github.com/roidaradal/opt/discrete"
 )
 
-// StringSubset displays the solution as subset
-func StringSubset[T cmp.Ordered](items []T) discrete.SolutionStringFn {
-	return func(solution *discrete.Solution) string {
-		subset := list.MapList(AsSubset(solution), items)
-		slices.Sort(subset)
-		return str.WrapBraces(list.Map(subset, str.Any))
-	}
-}
-
-// StringSequence displays the solution as sequence of variables
-func StringSequence[T any](items []T) discrete.SolutionStringFn {
+// CoreMirroredSequence groups the normal and the reversed sequence as one
+func CoreMirroredSequence[T any](items []T) discrete.SolutionCoreFn {
 	return func(solution *discrete.Solution) string {
 		sequence := list.Map(AsSequence(solution), func(x discrete.Variable) string {
 			return str.Any(items[x])
 		})
+		first, last := sequence[0], list.Last(sequence, 1)
+		if cmp.Compare(first, last) == 1 {
+			slices.Reverse(sequence)
+		}
 		return strings.Join(sequence, " ")
 	}
 }
 
-// StringValues displays the solution mapped to given values
-func StringValues[T any](p *discrete.Problem, items []T) discrete.SolutionStringFn {
+// CoreMirroredValues groups the normal and reversed list of values as one
+func CoreMirroredValues[T any](p *discrete.Problem, items []T) discrete.SolutionCoreFn {
 	return func(solution *discrete.Solution) string {
 		output := list.Map(p.Variables, func(x discrete.Variable) string {
 			value := solution.Map[x]
@@ -39,6 +34,10 @@ func StringValues[T any](p *discrete.Problem, items []T) discrete.SolutionString
 			}
 			return str.Any(items[value])
 		})
+		first, last := output[0], list.Last(output, 1)
+		if cmp.Compare(first, last) == 1 {
+			slices.Reverse(output)
+		}
 		return strings.Join(output, " ")
 	}
 }

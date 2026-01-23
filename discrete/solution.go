@@ -20,7 +20,7 @@ type Solution struct {
 	IsPartial     bool
 }
 
-// Create new blank solution
+// NewSolution creates a new blank solution
 func NewSolution() *Solution {
 	return &Solution{
 		IsPartial:     true,
@@ -29,7 +29,7 @@ func NewSolution() *Solution {
 	}
 }
 
-// Create new solution by zipping variables, values
+// ZipSolution creates a new solution by zipping variables, values
 func ZipSolution(variables []Variable, values []Value) *Solution {
 	return &Solution{
 		IsPartial:     false,
@@ -38,23 +38,23 @@ func ZipSolution(variables []Variable, values []Value) *Solution {
 	}
 }
 
-// Assign variable=value in solution
+// Assign assigns variable=value in solution
 func (s *Solution) Assign(variable Variable, value Value) {
 	s.Map[variable] = value
 	s.VariableOrder = append(s.VariableOrder, variable)
 }
 
-// Get values of solution in arbitrary order
-func (s Solution) Values() []Value {
+// Values gets values of solution in arbitrary order
+func (s *Solution) Values() []Value {
 	return dict.Values(s.Map)
 }
 
-// Get values of solution, ordered by problem variable order
-func (s Solution) Tuple(p *Problem) []Value {
+// Tuple gets values of solution, ordered by problem variable order
+func (s *Solution) Tuple(p *Problem) []Value {
 	return list.Translate(p.Variables, s.Map)
 }
 
-// Get solution length
-func (s Solution) Length() int {
+// Length gets solution length
+func (s *Solution) Length() int {
 	return len(s.Map)
 }

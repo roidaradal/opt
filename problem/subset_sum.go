@@ -7,9 +7,9 @@ import (
 	"github.com/roidaradal/opt/fn"
 )
 
-// Create new Subset Sum problem
+// SubsetSum creates a new Subset Sum problem
 func SubsetSum(variant string, n int) *discrete.Problem {
-	name := newName(SUBSET_SUM, variant, n)
+	name := newName(SUBSETSUM, variant, n)
 	switch variant {
 	case "basic":
 		return subsetSumBasic(name)
@@ -34,12 +34,11 @@ func subsetSumBasic(name string) *discrete.Problem {
 		// Get solution subset sum
 		total := list.Sum(list.MapList(fn.AsSubset(solution), numbers))
 		if p.IsSatisfaction() {
-			// Check if subset sum == target sum
+			// Satisfaction: check if subset sum == target sum
 			return total == target
-		} else {
-			// Check if subset sum does not exceed target
-			return total <= target
 		}
+		// Optimization: check if subset sum does not exceed target
+		return total <= target
 	})
 
 	p.Goal = discrete.Minimize
@@ -53,7 +52,7 @@ func subsetSumBasic(name string) *discrete.Problem {
 		return discrete.Score(target - total)
 	}
 
-	p.SolutionStringFn = fn.String_Subset(numbers)
+	p.SolutionStringFn = fn.StringSubset(numbers)
 	return p
 }
 

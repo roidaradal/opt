@@ -8,7 +8,7 @@ import (
 	"github.com/roidaradal/opt/fn"
 )
 
-// Create new Interval problem
+// Interval creates a new Interval problem
 func Interval(variant string, n int) *discrete.Problem {
 	name := newName(INTERVAL, variant, n)
 	switch variant {
@@ -31,7 +31,7 @@ func intervalProblem(name string, cfg *intervalCfg) *discrete.Problem {
 	p.AddUniversalConstraint(intervalTest(cfg))
 
 	p.Goal = discrete.Maximize
-	p.SolutionStringFn = fn.String_Subset(cfg.activities)
+	p.SolutionStringFn = fn.StringSubset(cfg.activities)
 	return p
 }
 
@@ -43,7 +43,7 @@ func intervalUnweighted(name string) *discrete.Problem {
 	}
 
 	p := intervalProblem(name, cfg)
-	p.ObjectiveFn = fn.Score_SubsetSize
+	p.ObjectiveFn = fn.ScoreSubsetSize
 	return p
 }
 
@@ -55,7 +55,7 @@ func intervalWeighted(name string) *discrete.Problem {
 	}
 
 	p := intervalProblem(name, cfg)
-	p.ObjectiveFn = fn.Score_SumWeightedValues(p.Variables, cfg.weight)
+	p.ObjectiveFn = fn.ScoreSumWeightedValues(p.Variables, cfg.weight)
 	return p
 }
 

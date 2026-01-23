@@ -13,7 +13,7 @@ const separator string = "-----"
 
 var cacheLines = make(map[[2]string][]string)
 
-// Load problem test case
+// LoadLines loads a problem test case
 func LoadLines(name string) ([]string, error) {
 	parts := strings.SplitN(name, ".", 2)
 	problem, testcase := parts[0], parts[1]
