@@ -1,4 +1,9 @@
-v0.3.4 - Satisfaction Problems 
+v0.3.5 - Knapsack Problems
+    x Commit: 2026-01-24 11:44
+    x problem.Knapsack
+        x Basic
+        x Quadratic
+v0.3.4 - Satisfaction Problems
     x Commit: 2026-01-23 23:34
     x problem.Satisfaction
         x Langford Pair

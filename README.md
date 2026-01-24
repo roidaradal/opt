@@ -4,35 +4,35 @@ Discrete Optimization package written in Go
 
 ## Problems
 
-### assignment
+### assign
 * `basic`       - Assignment problem
-* `bottle`      - Bottleneck Assignment problem
+* `bot`         - Bottleneck Assignment problem
 * `gen`         - Generalized Assignment problem
 * `quad`        - Quadratic Assignment problem
-* `quadbottle`  - Quadratic Bottleneck Assignment problem
+* `quadbot`     - Quadratic Bottleneck Assignment problem
 * `weapon`      - Weapon Target Assignment problem
 
 ### car 
-* `binarypaint` - Binary Paint Shop 
+* `binpaint`    - Binary Paint Shop 
 * `paint`       - Car Painting 
-* `sequence`    - Car Sequencing
+* `seq`         - Car Sequencing
 
 ### cover 
 * `bin`         - Bin Cover 
 * `exact`       - Exact Cover
 * `set`         - Set Cover 
 
-### dominatingset 
+### domset 
 * `basic`       - Dominating Set 
 * `edge`        - Edge Dominating Set
-* `efficient`   - Efficient Dominating Set
+* `eff`         - Efficient Dominating Set
 
 ### graph
 * `clique`      - Clique 
-* `inducedpath` - Max Induced Path 
+* `induced`     - Max Induced Path 
 * `kcenter`     - K-Center 
 * `kcut`        - Min K-Cut 
-* `topological` - Topological Sort
+* `topsort`     - Topological Sort
 
 ### graphcolor 
 * `complete`    - Complete Coloring 
@@ -46,22 +46,22 @@ Discrete Optimization package written in Go
 * `edge`        - Edge Cover 
 * `vertex`      - Vertex Cover
 
-### independentset
+### indepset
 * `basic`       - Independent Set 
 * `rainbow`     - Rainbow Independent Set 
 
 ### <u>interval</u> 
-* `unweighted`  - Activity Selection 
-* `weighted`    - Weighted Activity Selection
+* `basic`       - Activity Selection 
+* `weight`      - Weighted Activity Selection
 
 ### knapsack 
 * `basic`       - 0-1 Knapsack
 * `quad`        - Quadratic Knapsack
 
 ### matching
-* `maxcardinality`  - Max Cardinality Matching
-* `maxweight`       - Max Weight Matching
-* `rainbow`         - Rainbow Matching
+* `cardinal`     - Max Cardinality Matching
+* `weight`       - Max Weight Matching
+* `rainbow`      - Rainbow Matching
 
 ### opt 
 * `nurse`       - Nurse Scheduling 
@@ -79,12 +79,12 @@ Discrete Optimization package written in Go
 * `setsplit`    - Set Splitting
 
 ### path 
-* `longest`     - Longest Path 
+* `long`        - Longest Path 
 * `minimax`     - Minimax Path
-* `shortest`    - Shortest Path 
-* `widest`      - Widest Path
+* `short`       - Shortest Path 
+* `wide`        - Widest Path
 
-### sat 
+### <u>sat</u>
 * `langford`    - Langford Pair 
 * `magicseries` - Magic Series
 * `nqueens`     - N-Queens
@@ -100,20 +100,20 @@ Discrete Optimization package written in Go
 * `mst`         - Minimum Spanning Tree
 * `steiner`     - Steiner Tree
 
-### <u>subsequence</u>
-* `increasing`  - Longest Increasing Subsequence 
-* `alternating` - Longest Alternating Subsequence
+### <u>subseq</u>
+* `inc`     - Longest Increasing Subsequence 
+* `alt`     - Longest Alternating Subsequence
 
 ### <u>subsetsum</u>
 * `basic`       - Subset Sum
 
 ### tour 
-* `eulercycle`      - Euler Cycle 
-* `eulerpath`       - Euler Path 
-* `hamiltoncycle`   - Hamiltonian Cycle
-* `hamiltonpath`    - Hamiltonian Path 
+* `eulcycle`      - Euler Cycle 
+* `eulpath`       - Euler Path 
+* `hamcycle`      - Hamiltonian Cycle
+* `hampath`       - Hamiltonian Path 
 
 ### tsp 
 * `basic`       - Traveling Salesman problem 
-* `bottle`      - Bottleneck Traveling Salesman problem 
+* `bot`         - Bottleneck Traveling Salesman problem 
 * `tpp`         - Traveling Purchaser problem

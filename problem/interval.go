@@ -4,6 +4,7 @@ import (
 	"cmp"
 	"slices"
 
+	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/fn"
 )
@@ -12,9 +13,9 @@ import (
 func Interval(variant string, n int) *discrete.Problem {
 	name := newName(INTERVAL, variant, n)
 	switch variant {
-	case "unweighted":
-		return intervalUnweighted(name)
-	case "weighted":
+	case "basic":
+		return intervalBasic(name)
+	case "weight":
 		return intervalWeighted(name)
 	default:
 		return nil
@@ -22,46 +23,19 @@ func Interval(variant string, n int) *discrete.Problem {
 }
 
 // Common create steps of Activity Selection problem
-func intervalProblem(name string, cfg *intervalCfg) *discrete.Problem {
+func intervalProblem(name string) (*discrete.Problem, *intervalCfg) {
+	cfg := newInterval(name)
+	if cfg == nil {
+		return nil, nil
+	}
+
 	p := discrete.NewProblem(name)
 	p.Type = discrete.Subset
 
 	p.Variables = discrete.Variables(cfg.activities)
 	p.AddVariableDomains(discrete.BooleanDomain())
-	p.AddUniversalConstraint(intervalTest(cfg))
 
-	p.Goal = discrete.Maximize
-	p.SolutionStringFn = fn.StringSubset(cfg.activities)
-	return p
-}
-
-// Unweighted Activity Selection problem
-func intervalUnweighted(name string) *discrete.Problem {
-	cfg := newUnweightedInterval(name)
-	if cfg == nil {
-		return nil
-	}
-
-	p := intervalProblem(name, cfg)
-	p.ObjectiveFn = fn.ScoreSubsetSize
-	return p
-}
-
-// Weighted Activity Selection problem
-func intervalWeighted(name string) *discrete.Problem {
-	cfg := newWeightedInterval(name)
-	if cfg == nil {
-		return nil
-	}
-
-	p := intervalProblem(name, cfg)
-	p.ObjectiveFn = fn.ScoreSumWeightedValues(p.Variables, cfg.weight)
-	return p
-}
-
-// Interval (Activity Selection) constraint
-func intervalTest(cfg *intervalCfg) discrete.ConstraintFn {
-	return func(solution *discrete.Solution) bool {
+	p.AddUniversalConstraint(func(solution *discrete.Solution) bool {
 		// Get selected activities
 		selected := fn.AsSubset(solution)
 		numSelected := len(selected)
@@ -83,7 +57,31 @@ func intervalTest(cfg *intervalCfg) discrete.ConstraintFn {
 			}
 		}
 		return true
+	})
+
+	p.Goal = discrete.Maximize
+	p.SolutionStringFn = fn.StringSubset(cfg.activities)
+	return p, cfg
+}
+
+// Activity Selection problem
+func intervalBasic(name string) *discrete.Problem {
+	p, _ := intervalProblem(name)
+	if p == nil {
+		return nil
 	}
+	p.ObjectiveFn = fn.ScoreSubsetSize
+	return p
+}
+
+// Weighted Activity Selection problem
+func intervalWeighted(name string) *discrete.Problem {
+	p, cfg := intervalProblem(name)
+	if p == nil || cfg == nil {
+		return nil
+	}
+	p.ObjectiveFn = fn.ScoreSumWeightedValues(p.Variables, cfg.weight)
+	return p
 }
 
 type intervalCfg struct {
@@ -93,29 +91,21 @@ type intervalCfg struct {
 	weight     []float64
 }
 
-// Load 'interval.unweighted' test case
-func newUnweightedInterval(name string) *intervalCfg {
+// Load interval test case (basic, weight)
+func newInterval(name string) *intervalCfg {
 	lines, err := fn.LoadLines(name)
-	if err != nil || len(lines) != 3 {
+	if err != nil || len(lines) < 3 {
 		return nil
 	}
-	return &intervalCfg{
+	cfg := &intervalCfg{
 		activities: fn.StringList(lines[0]),
 		start:      fn.FloatList(lines[1]),
 		end:        fn.FloatList(lines[2]),
 	}
-}
-
-// Load 'interval.weighted' test case
-func newWeightedInterval(name string) *intervalCfg {
-	lines, err := fn.LoadLines(name)
-	if err != nil || len(lines) != 4 {
-		return nil
+	if len(lines) == 4 {
+		cfg.weight = fn.FloatList(lines[3])
+	} else {
+		cfg.weight = list.Repeated(1.0, len(cfg.activities))
 	}
-	return &intervalCfg{
-		activities: fn.StringList(lines[0]),
-		start:      fn.FloatList(lines[1]),
-		end:        fn.FloatList(lines[2]),
-		weight:     fn.FloatList(lines[3]),
-	}
+	return cfg
 }

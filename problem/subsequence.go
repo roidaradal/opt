@@ -12,9 +12,9 @@ import (
 func Subsequence(variant string, n int) *discrete.Problem {
 	name := newName(SUBSEQUENCE, variant, n)
 	switch variant {
-	case "increasing":
+	case "inc":
 		return subsequenceIncreasing(name)
-	case "alternating":
+	case "alt":
 		return subsequenceAlternating(name)
 	default:
 		return nil
@@ -88,9 +88,11 @@ func subsequenceAlternating(name string) *discrete.Problem {
 		down := true
 		for i := range numSelected - 1 {
 			if down && subsequence[i] <= subsequence[i+1] {
-				return false // invalid if going down, but current not greater than next
+				// invalid if going down, but current not greater than next
+				return false
 			} else if !down && subsequence[i] >= subsequence[i+1] {
-				return false // invalid if going up, but current not less than next
+				// invalid if going up, but current not less than next
+				return false
 			}
 			down = !down // toggle to alternate
 		}

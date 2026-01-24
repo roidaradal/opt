@@ -9,13 +9,15 @@ import (
 
 const (
 	INTERVAL    = "interval"
+	KNAPSACK    = "knapsack"
 	SAT         = "sat"
-	SUBSEQUENCE = "subsequence"
+	SUBSEQUENCE = "subseq"
 	SUBSETSUM   = "subsetsum"
 )
 
 var Creator = map[string]func(string, int) *discrete.Problem{
 	INTERVAL:    Interval,
+	KNAPSACK:    Knapsack,
 	SAT:         Satisfaction,
 	SUBSEQUENCE: Subsequence,
 	SUBSETSUM:   SubsetSum,
