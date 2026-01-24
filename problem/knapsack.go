@@ -21,7 +21,7 @@ func Knapsack(variant string, n int) *discrete.Problem {
 	}
 }
 
-// Common create steps of Knapsack problem
+// Common steps of creating Knapsack problem
 func knapsackProblem(name string) (*discrete.Problem, *knapsackCfg) {
 	cfg := newKnapsack(name)
 	if cfg == nil {
@@ -71,22 +71,13 @@ func knapsackQuadratic(name string) *discrete.Problem {
 		items := ds.SetFrom(fn.AsSubset(solution))
 		var bonusValue discrete.Score = 0
 		for pair, bonus := range cfg.pairBonus {
-			item1, item2 := pair[0], pair[1]
-			if items.Has(item1) && items.Has(item2) {
+			if items.Has(pair[0]) && items.Has(pair[1]) {
 				bonusValue += bonus
 			}
 		}
 		return baseValue + bonusValue
 	}
 	return p
-}
-
-type knapsackCfg struct {
-	capacity  float64
-	items     []string
-	weight    []float64
-	value     []float64
-	pairBonus map[[2]int]float64
 }
 
 // Load knapsack test case (basic, quad)

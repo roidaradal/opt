@@ -22,7 +22,7 @@ func Interval(variant string, n int) *discrete.Problem {
 	}
 }
 
-// Common create steps of Activity Selection problem
+// Common steps of creating Activity Selection problem
 func intervalProblem(name string) (*discrete.Problem, *intervalCfg) {
 	cfg := newInterval(name)
 	if cfg == nil {
@@ -82,13 +82,6 @@ func intervalWeighted(name string) *discrete.Problem {
 	}
 	p.ObjectiveFn = fn.ScoreSumWeightedValues(p.Variables, cfg.weight)
 	return p
-}
-
-type intervalCfg struct {
-	activities []string
-	start      []float64
-	end        []float64
-	weight     []float64
 }
 
 // Load interval test case (basic, weight)

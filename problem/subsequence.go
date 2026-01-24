@@ -21,7 +21,7 @@ func Subsequence(variant string, n int) *discrete.Problem {
 	}
 }
 
-// Common create steps of Longest Subsequence problem
+// Common steps of creating Longest Subsequence problem
 func subsequenceProblem(name string) (*discrete.Problem, []int) {
 	sequence := newSequence(name)
 	if sequence == nil {

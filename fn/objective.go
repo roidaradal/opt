@@ -1,6 +1,7 @@
 package fn
 
 import (
+	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/opt/discrete"
 )
@@ -18,4 +19,10 @@ func ScoreSumWeightedValues(variables []discrete.Variable, weight []float64) dis
 			return float64(count[x]) * weight[x]
 		}))
 	}
+}
+
+// ScoreCountUniqueValues counts the number of unique values
+func ScoreCountUniqueValues(solution *discrete.Solution) discrete.Score {
+	uniqueValues := ds.SetFrom(solution.Values())
+	return discrete.Score(uniqueValues.Len())
 }

@@ -22,9 +22,7 @@ func StringSubset[T cmp.Ordered](items []T) discrete.SolutionStringFn {
 // StringSequence displays the solution as sequence of variables
 func StringSequence[T any](items []T) discrete.SolutionStringFn {
 	return func(solution *discrete.Solution) string {
-		sequence := list.Map(AsSequence(solution), func(x discrete.Variable) string {
-			return str.Any(items[x])
-		})
+		sequence := sequenceStrings(solution, items)
 		return strings.Join(sequence, " ")
 	}
 }
@@ -32,13 +30,16 @@ func StringSequence[T any](items []T) discrete.SolutionStringFn {
 // StringValues displays the solution mapped to given values
 func StringValues[T any](p *discrete.Problem, items []T) discrete.SolutionStringFn {
 	return func(solution *discrete.Solution) string {
-		output := list.Map(p.Variables, func(x discrete.Variable) string {
-			value := solution.Map[x]
-			if items == nil {
-				return str.Int(value)
-			}
-			return str.Any(items[value])
-		})
+		output := valueStrings(p, solution, items)
 		return strings.Join(output, " ")
+	}
+}
+
+// StringPartition displays the solution as a partition
+func StringPartition[T any](values []discrete.Value, items []T) discrete.SolutionStringFn {
+	return func(solution *discrete.Solution) string {
+		groups := PartitionStrings(solution, values, items)
+		partition := sortedPartitionGroups(groups)
+		return strings.Join(partition, " ")
 	}
 }
