@@ -1,5 +1,10 @@
+## v0.3.8 - Cover Problems
+  * **Commit**: 2026-01-25 21:23
+  * problem.Cover 
+    * Exact Cover 
+    * Max Coverage
 ## v0.3.7 - Set Problems 
-* **Commit**: 2026-01-25 20:23 
+  * **Commit**: 2026-01-25 20:23 
   * problem.Set 
     * Set Cover
     * Set Packing 

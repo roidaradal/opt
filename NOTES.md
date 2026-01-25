@@ -1,6 +1,9 @@
 ## Bin 
     [x] Bin Cover 
     [x] Bin Packing
+# Cover 
+    [x] Exact Cover 
+    [x] Max Coverage
 ## Interval
     [x] Basic Activity Selection
     [x] Weighted Activity Selection

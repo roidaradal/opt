@@ -9,6 +9,7 @@ import (
 
 const (
 	BIN         = "bin"
+	COVER       = "cover"
 	INTERVAL    = "interval"
 	KNAPSACK    = "knapsack"
 	SAT         = "sat"
@@ -19,6 +20,7 @@ const (
 
 var Creator = map[string]func(string, int) *discrete.Problem{
 	BIN:         Bin,
+	COVER:       Cover,
 	INTERVAL:    Interval,
 	KNAPSACK:    Knapsack,
 	SAT:         Satisfaction,

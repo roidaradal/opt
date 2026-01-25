@@ -26,7 +26,7 @@ func Set(variant string, n int) *discrete.Problem {
 
 // Common steps of creating Set problem
 func setProblem(name string) (*discrete.Problem, *subsetsCfg) {
-	cfg := newSubsets(name)
+	cfg, _ := newSubsets(name, 0)
 	if cfg == nil {
 		return nil, nil
 	}
@@ -79,9 +79,7 @@ func setPacking(name string) *discrete.Problem {
 		covered := make(dict.StringCounter)
 		for _, x := range fn.AsSubset(solution) {
 			// Increment counter for each item in selected subset
-			for _, item := range cfg.subsets[x] {
-				covered[item] += 1
-			}
+			dict.UpdateCounter(covered, cfg.subsets[x])
 		}
 		// Make sure all covered items are only covered once (no overlap)
 		return list.AllEqual(dict.Values(covered), 1)
@@ -92,7 +90,7 @@ func setPacking(name string) *discrete.Problem {
 
 // Set Splitting problem
 func setSplitting(name string) *discrete.Problem {
-	cfg := newSubsets(name)
+	cfg, _ := newSubsets(name, 0)
 	if cfg == nil {
 		return nil
 	}
@@ -129,19 +127,19 @@ func setSplitting(name string) *discrete.Problem {
 	return p
 }
 
-// Load set test case
-func newSubsets(name string) *subsetsCfg {
+// Load set test case, return subsetsCfg and extra lines (offeset)
+func newSubsets(name string, offset int) (*subsetsCfg, []string) {
 	lines, err := fn.LoadLines(name)
-	if err != nil || len(lines) < 2 {
-		return nil
+	if err != nil || len(lines) < offset+2 {
+		return nil, nil
 	}
-	numSubsets := len(lines[1:])
+	numSubsets := len(lines[offset+1:])
 	cfg := &subsetsCfg{
-		universal: fn.StringList(lines[0]),
+		universal: fn.StringList(lines[offset]),
 		names:     make([]string, 0, numSubsets),
 		subsets:   make([][]string, 0, numSubsets),
 	}
-	for _, line := range lines[1:] {
+	for _, line := range lines[offset+1:] {
 		parts := str.CleanSplitN(line, ":", 2)
 		if len(parts) != 2 {
 			continue
@@ -149,5 +147,5 @@ func newSubsets(name string) *subsetsCfg {
 		cfg.names = append(cfg.names, parts[0])
 		cfg.subsets = append(cfg.subsets, fn.StringList(parts[1]))
 	}
-	return cfg
+	return cfg, lines[:offset]
 }

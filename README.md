@@ -8,6 +8,10 @@ Discrete Optimization package written in Go
 * `cover`       - Bin Cover
 * `pack`        - Bin Packing
 
+### cover
+* `exact`       - Exact Cover 
+* `max`         - Max Coverage
+
 ### interval
 * `basic`       - Activity Selection
 * `weight`      - Weighted Activity Selection
