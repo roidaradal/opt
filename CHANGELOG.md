@@ -1,3 +1,9 @@
+## v0.3.7 - Set Problems 
+* **Commit**: 2026-01-25 20:23 
+  * problem.Set 
+    * Set Cover
+    * Set Packing 
+    * Set Splitting 
 ## v0.3.6 - Bin Problems
   * **Commit**: 2026-01-24 19:00
   * problem.Bin

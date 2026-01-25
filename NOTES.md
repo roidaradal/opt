@@ -1,6 +1,6 @@
 ## Bin 
-    [ ] Bin Cover 
-    [ ] Bin Packing
+    [x] Bin Cover 
+    [x] Bin Packing
 ## Interval
     [x] Basic Activity Selection
     [x] Weighted Activity Selection
@@ -15,6 +15,10 @@
     [x] Langford Pair 
     [x] Magic Series 
     [x] N-Queens
+## Set 
+    [x] Set Cover 
+    [x] Set Packing 
+    [x] Set Splitting
 ## Subsequence
     [x] Longest Increasing 
     [x] Longest Alternating 

@@ -12,6 +12,7 @@ const (
 	INTERVAL    = "interval"
 	KNAPSACK    = "knapsack"
 	SAT         = "sat"
+	SET         = "set"
 	SUBSEQUENCE = "subseq"
 	SUBSETSUM   = "subsetsum"
 )
@@ -21,6 +22,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	INTERVAL:    Interval,
 	KNAPSACK:    Knapsack,
 	SAT:         Satisfaction,
+	SET:         Set,
 	SUBSEQUENCE: Subsequence,
 	SUBSETSUM:   SubsetSum,
 }

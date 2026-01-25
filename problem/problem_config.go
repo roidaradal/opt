@@ -20,3 +20,9 @@ type knapsackCfg struct {
 	value     []float64
 	pairBonus map[[2]int]float64
 }
+
+type subsetsCfg struct {
+	universal []string
+	names     []string
+	subsets   [][]string
+}

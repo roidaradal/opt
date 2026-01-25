@@ -4,26 +4,31 @@ Discrete Optimization package written in Go
 
 ## Problems
 
-### <u>bin</u>
+### bin
 * `cover`       - Bin Cover
 * `pack`        - Bin Packing
 
-### <u>interval</u>
+### interval
 * `basic`       - Activity Selection
 * `weight`      - Weighted Activity Selection
 
-### <u>knapsack</u>
+### knapsack
 * `basic`       - 0-1 Knapsack
 * `quad`        - Quadratic Knapsack
 
-### <u>sat</u>
+### sat
 * `langford`    - Langford Pair
 * `magicseries` - Magic Series
 * `nqueens`     - N-Queens
 
-### <u>subseq</u>
+### set 
+* `cover`       - Set Cover 
+* `pack`        - Set Packing
+* `split`       - Set Splitting
+
+### subseq
 * `inc`     - Longest Increasing Subsequence
 * `alt`     - Longest Alternating Subsequence
 
-### <u>subsetsum</u>
+### subsetsum
 * `basic`       - Subset Sum
