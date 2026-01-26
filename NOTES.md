@@ -4,6 +4,9 @@
 # Cover 
     [x] Exact Cover 
     [x] Max Coverage
+    [ ] Weighted Max Coverage 
+    [ ] Budgeted Max Coverage 
+    [ ] Generalized Max Coverage
 ## Interval
     [x] Basic Activity Selection
     [x] Weighted Activity Selection
@@ -14,6 +17,9 @@
     [ ] Bounded Knapsack 
     [ ] Unbounded Knapsack 
     [ ] Multiple Knapsack
+## Partition 
+    [x] Graph Partition 
+    [x] Number Partition
 ## Satisfaction
     [x] Langford Pair 
     [x] Magic Series 

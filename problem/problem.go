@@ -12,6 +12,7 @@ const (
 	COVER       = "cover"
 	INTERVAL    = "interval"
 	KNAPSACK    = "knapsack"
+	PARTITION   = "partition"
 	SAT         = "sat"
 	SET         = "set"
 	SUBSEQUENCE = "subseq"
@@ -23,6 +24,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	COVER:       Cover,
 	INTERVAL:    Interval,
 	KNAPSACK:    Knapsack,
+	PARTITION:   Partition,
 	SAT:         Satisfaction,
 	SET:         Set,
 	SUBSEQUENCE: Subsequence,

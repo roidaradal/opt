@@ -13,6 +13,12 @@ type intervalCfg struct {
 	weight     []float64
 }
 
+type graphPartitionCfg struct {
+	numPartitions    int
+	minPartitionSize int
+	edgeWeight       []float64
+}
+
 type knapsackCfg struct {
 	capacity  float64
 	items     []string

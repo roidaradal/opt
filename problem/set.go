@@ -127,7 +127,7 @@ func setSplitting(name string) *discrete.Problem {
 	return p
 }
 
-// Load set test case, return subsetsCfg and extra lines (offeset)
+// Load set test case, return subsetsCfg and extra lines (offset)
 func newSubsets(name string, offset int) (*subsetsCfg, []string) {
 	lines, err := fn.LoadLines(name)
 	if err != nil || len(lines) < offset+2 {

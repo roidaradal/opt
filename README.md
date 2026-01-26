@@ -20,6 +20,10 @@ Discrete Optimization package written in Go
 * `basic`       - 0-1 Knapsack
 * `quad`        - Quadratic Knapsack
 
+### partition 
+* `graph`       - Graph Partition 
+* `number`      - Number Partition
+
 ### sat
 * `langford`    - Langford Pair
 * `magicseries` - Magic Series

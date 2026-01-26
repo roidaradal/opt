@@ -1,3 +1,9 @@
+## v0.3.9 - Partition Problems
+  * **Commit**: 2026-01-26 22:32
+  * problem.Partition
+    * Graph Partition
+    * Number Partition 
+  * Add PROBLEMS.md
 ## v0.3.8 - Cover Problems
   * **Commit**: 2026-01-25 21:23
   * problem.Cover 
