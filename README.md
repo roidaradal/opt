@@ -12,6 +12,10 @@ Discrete Optimization package written in Go
 * `exact`       - Exact Cover 
 * `max`         - Max Coverage
 
+### indepset 
+* `basic`       - Independent Set 
+* `rainbow`     - Rainbow Independent Set
+
 ### interval
 * `basic`       - Activity Selection
 * `weight`      - Weighted Activity Selection

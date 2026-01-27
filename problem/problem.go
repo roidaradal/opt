@@ -10,6 +10,7 @@ import (
 const (
 	BIN         = "bin"
 	COVER       = "cover"
+	INDEPSET    = "indepset"
 	INTERVAL    = "interval"
 	KNAPSACK    = "knapsack"
 	PARTITION   = "partition"
@@ -22,6 +23,7 @@ const (
 var Creator = map[string]func(string, int) *discrete.Problem{
 	BIN:         Bin,
 	COVER:       Cover,
+	INDEPSET:    IndependentSet,
 	INTERVAL:    Interval,
 	KNAPSACK:    Knapsack,
 	PARTITION:   Partition,

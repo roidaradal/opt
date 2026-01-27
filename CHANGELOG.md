@@ -1,3 +1,8 @@
+## v0.3.10 - Independent Set Problems
+  * **Commit**: 2026-01-27 22:12
+  * problem.IndependentSet 
+    * Independent Set
+    * Rainbow Independent Set
 ## v0.3.9 - Partition Problems
   * **Commit**: 2026-01-26 22:32
   * problem.Partition

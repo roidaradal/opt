@@ -1,0 +1,18 @@
+basic.1
+B C CM G IM S SCM
+IM-SCM G-S G-C S-C S-SCM C-CM C-SCM SCM-B CM-B SCM-CM
+-------------------------------------------------
+basic.2
+A B C D E
+A-B B-C B-D B-E C-E D-E
+-------------------------------------------------
+rainbow.1
+Y R R B B Y B R Y
+A B C D E F G H I
+A-B A-D B-C B-E B-F B-G C-D C-E C-H D-E D-H D-I E-G F-G G-H H-I
+-------------------------------------------------
+rainbow.2
+R R B B G G
+A B C D E F
+B-C D-E
+-------------------------------------------------
