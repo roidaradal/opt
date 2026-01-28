@@ -24,7 +24,7 @@ func Cover(variant string, n int) *discrete.Problem {
 
 // Exact Cover problem
 func coverExact(name string) *discrete.Problem {
-	cfg, _ := newSubsets(name, 0)
+	cfg, _ := newSubsets(name)
 	if cfg == nil {
 		return nil
 	}
@@ -55,8 +55,8 @@ func coverExact(name string) *discrete.Problem {
 
 // Max Coverage problem
 func coverMax(name string) *discrete.Problem {
-	cfg, lines := newSubsets(name, 1)
-	if cfg == nil || lines == nil {
+	cfg, lines := newSubsets(name)
+	if cfg == nil || len(lines) == 1 {
 		return nil
 	}
 	limit := number.ParseInt(lines[0])

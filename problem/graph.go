@@ -6,11 +6,16 @@ import (
 )
 
 // Load new unweighted graph and return offset lines
-func newUnweightedGraph(name string, offset int) (*ds.Graph, []string) {
+func newUnweightedGraph(name string) (*ds.Graph, []string) {
 	lines, err := fn.LoadLines(name)
-	if err != nil || len(lines) != offset+2 {
+	numLines := len(lines)
+	if err != nil || numLines < 2 {
 		return nil, nil
 	}
-	graph := ds.GraphFrom(lines[offset], lines[offset+1])
-	return graph, lines[:offset]
+	graph := ds.GraphFrom(lines[0], lines[1])
+	var extra []string
+	if numLines > 2 {
+		extra = lines[2:]
+	}
+	return graph, extra
 }

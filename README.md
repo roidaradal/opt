@@ -12,6 +12,11 @@ Discrete Optimization package written in Go
 * `exact`       - Exact Cover 
 * `max`         - Max Coverage
 
+### domset 
+* `basic`       - Dominating Set
+* `edge`        - Edge Dominating Set
+* `eff`         - Efficient Dominating Set
+
 ### indepset 
 * `basic`       - Independent Set 
 * `rainbow`     - Rainbow Independent Set

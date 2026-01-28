@@ -4,6 +4,7 @@ import (
 	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
+	"github.com/roidaradal/fn/number"
 	"github.com/roidaradal/fn/str"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/fn"
@@ -26,7 +27,7 @@ func Set(variant string, n int) *discrete.Problem {
 
 // Common steps of creating Set problem
 func setProblem(name string) (*discrete.Problem, *subsetsCfg) {
-	cfg, _ := newSubsets(name, 0)
+	cfg, _ := newSubsets(name)
 	if cfg == nil {
 		return nil, nil
 	}
@@ -90,7 +91,7 @@ func setPacking(name string) *discrete.Problem {
 
 // Set Splitting problem
 func setSplitting(name string) *discrete.Problem {
-	cfg, _ := newSubsets(name, 0)
+	cfg, _ := newSubsets(name)
 	if cfg == nil {
 		return nil
 	}
@@ -128,18 +129,23 @@ func setSplitting(name string) *discrete.Problem {
 }
 
 // Load set test case, return subsetsCfg and extra lines (offset)
-func newSubsets(name string, offset int) (*subsetsCfg, []string) {
+func newSubsets(name string) (*subsetsCfg, []string) {
 	lines, err := fn.LoadLines(name)
-	if err != nil || len(lines) < offset+2 {
+	numLines := len(lines)
+	if err != nil || numLines < 1 {
 		return nil, nil
 	}
-	numSubsets := len(lines[offset+1:])
+	numSubsets := number.ParseInt(lines[0])
+	limit := numSubsets + 2 // subset lines + numSubsets line + universal line
+	if numLines < limit {
+		return nil, nil
+	}
 	cfg := &subsetsCfg{
-		universal: fn.StringList(lines[offset]),
+		universal: fn.StringList(lines[1]),
 		names:     make([]string, 0, numSubsets),
 		subsets:   make([][]string, 0, numSubsets),
 	}
-	for _, line := range lines[offset+1:] {
+	for _, line := range lines[2:limit] {
 		parts := str.CleanSplitN(line, ":", 2)
 		if len(parts) != 2 {
 			continue
@@ -147,5 +153,9 @@ func newSubsets(name string, offset int) (*subsetsCfg, []string) {
 		cfg.names = append(cfg.names, parts[0])
 		cfg.subsets = append(cfg.subsets, fn.StringList(parts[1]))
 	}
-	return cfg, lines[:offset]
+	var extra []string
+	if numLines > limit {
+		extra = lines[limit:]
+	}
+	return cfg, extra
 }

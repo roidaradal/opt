@@ -33,16 +33,33 @@
 * Task: **Select a combination** of up to N subsets
 * Goal: **Maximize** the number of universal items covered by the selected subsets
 
+## Dominating Set Problems
+
+### Dominating Set 
+* Input: undirected graph
+* Task: **Select a subset** of vertices such that _all vertices are either in the set or has neighbor in the set_
+* Goal: **Minimize** the number of selected vertices
+
+### Edge Dominating Set
+* Input: undirected graph
+* Task: **Select a subset** of edges such that _all edges have at least one endpoint covered by an edge in the set_
+* Goal: **Minimize** the number of selected edges
+
+### Efficient Dominating Set
+* Input: undirected graph
+* Task: **Select a subset** of vertices such that _all vertices are dominated exactly once_
+* Goal: **Minimize** the number of selected vertices
+
 ## Independent Set Problems
 
 ### Independent Set 
 * Input: undirected graph 
-* Task: **Select a subset** of vertices, such that none are connected to each other
+* Task: **Select a subset** of vertices, such that _none are connected to each other_
 * Goal: **Maximize** the number of selected vertices
 
 ### Rainbow Independent Set
 * Input: undirected graph, where each vertex has an associated color
-* Task: **Select a subset** of vertices, such that none are connected to each other, and each selected vertex has a different color
+* Task: **Select a subset** of vertices, such that _none are connected to each other_, and _each selected vertex has a different color_
 * Goal: **Maximize** the number of selected vertices
 
 ## Interval Problems

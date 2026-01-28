@@ -10,6 +10,15 @@
     [ ] Weighted Max Coverage 
     [ ] Budgeted Max Coverage 
     [ ] Generalized Max Coverage
+## Dominating Set 
+    [x] Dominating Set 
+    [x] Edge Dominating Set 
+    [x] Efficient Dominating Set
+    [ ] Independent Dominating Set
+    [ ] Total Dominating Set
+    [ ] K-Dominating Set
+    [ ] Efficient Edge Dominating Set
+    [ ] Strong Efficient Dominating Set
 ## Independent Set 
     [x] Independent Set
     [x] Rainbow  Independent Set

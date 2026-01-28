@@ -1,3 +1,9 @@
+## v0.3.11 - Dominating Set Problems 
+  * **Commit**: 2026-01-28 21:44
+  * problem.DominatingSet 
+    * Dominating Set 
+    * Edge Dominating Set 
+    * Efficient Dominating Set
 ## v0.3.10 - Independent Set Problems
   * **Commit**: 2026-01-27 22:12
   * problem.IndependentSet 

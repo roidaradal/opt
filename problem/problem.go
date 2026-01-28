@@ -10,6 +10,7 @@ import (
 const (
 	BIN         = "bin"
 	COVER       = "cover"
+	DOMSET      = "domset"
 	INDEPSET    = "indepset"
 	INTERVAL    = "interval"
 	KNAPSACK    = "knapsack"
@@ -23,6 +24,7 @@ const (
 var Creator = map[string]func(string, int) *discrete.Problem{
 	BIN:         Bin,
 	COVER:       Cover,
+	DOMSET:      DominatingSet,
 	INDEPSET:    IndependentSet,
 	INTERVAL:    Interval,
 	KNAPSACK:    Knapsack,

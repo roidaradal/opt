@@ -44,7 +44,7 @@ func independentSetProblem(name string, graph *ds.Graph) *discrete.Problem {
 
 // Independent Set problem
 func independentSetBasic(name string) *discrete.Problem {
-	graph, _ := newUnweightedGraph(name, 0)
+	graph, _ := newUnweightedGraph(name)
 	if graph == nil {
 		return nil
 	}
@@ -53,8 +53,8 @@ func independentSetBasic(name string) *discrete.Problem {
 
 // Rainbow Independent Set problem
 func independentSetRainbow(name string) *discrete.Problem {
-	graph, lines := newUnweightedGraph(name, 1)
-	if graph == nil || lines == nil {
+	graph, lines := newUnweightedGraph(name)
+	if graph == nil || len(lines) != 1 {
 		return nil
 	}
 	colorOf := fn.StringList(lines[0])
