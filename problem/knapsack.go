@@ -83,19 +83,20 @@ func knapsackQuadratic(name string) *discrete.Problem {
 // Load knapsack test case (basic, quad)
 func newKnapsack(name string) *knapsackCfg {
 	lines, err := fn.LoadLines(name)
-	if err != nil || len(lines) < 4 {
+	numLines := len(lines)
+	if err != nil || numLines < 4 {
 		return nil
 	}
 	cfg := &knapsackCfg{
-		capacity:  number.ParseFloat(lines[0]),
-		items:     fn.StringList(lines[1]),
-		weight:    fn.FloatList(lines[2]),
-		value:     fn.FloatList(lines[3]),
+		capacity:  number.ParseFloat(lines[0][0]),
+		items:     fn.StringList(lines[1][0]),
+		weight:    fn.FloatList(lines[2][0]),
+		value:     fn.FloatList(lines[3][0]),
 		pairBonus: make(map[[2]int]float64),
 	}
-	if len(lines) > 4 {
+	if numLines > 4 {
 		indexOf := list.IndexMap(cfg.items)
-		for _, line := range lines[4:] {
+		for _, line := range lines[4] {
 			parts := fn.StringList(line)
 			if len(parts) != 3 {
 				continue

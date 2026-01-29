@@ -11,10 +11,10 @@ import (
 
 const separator string = "-----"
 
-var cacheLines = make(map[[2]string][]string)
+var cacheLines = make(map[[2]string][][]string)
 
 // LoadLines loads a problem test case
-func LoadLines(name string) ([]string, error) {
+func LoadLines(name string) ([][]string, error) {
 	parts := strings.SplitN(name, ".", 2)
 	problem, testcase := parts[0], parts[1]
 	mainKey := [2]string{problem, testcase}
@@ -39,17 +39,41 @@ func LoadLines(name string) ([]string, error) {
 	for _, line := range lines {
 		if strings.HasPrefix(line, separator) {
 			key := [2]string{problem, group[0]}
-			cacheLines[key] = group[1:]
+			cacheLines[key] = groupLines(group[1:])
 			group = []string{}
 		} else {
 			group = append(group, line)
 		}
 	}
 
-	lines, ok := cacheLines[mainKey]
+	chunks, ok := cacheLines[mainKey]
 	if !ok {
 		return nil, fmt.Errorf("unknown testcase: %s", name)
 	}
 
-	return lines, nil
+	return chunks, nil
+}
+
+// Group lines based on first row counts
+func groupLines(lines []string) [][]string {
+	numLines := len(lines)
+	if numLines == 0 {
+		return nil
+	}
+
+	counts := IntList(lines[0])
+	groups := make([][]string, len(counts))
+	idx := 1
+	for i, count := range counts {
+		group := make([]string, count)
+		for j := range count {
+			if idx >= numLines {
+				return nil
+			}
+			group[j] = lines[i]
+			idx += 1
+		}
+		groups[i] = group
+	}
+	return groups
 }

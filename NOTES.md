@@ -1,9 +1,16 @@
 ## Bin 
     [x] Bin Cover 
     [x] Bin Packing
+    [ ] Lazy Bin Cover
+    [ ] Variable-Size Bin Cover
+    [ ] Min Cardinality Bin Cover
+    [ ] Near Exact Bin Cover
+    [ ] Class-Constrained Bin Cover
     [ ] Vector Bin Packing
     [ ] Max Resource Bin Packing
     [ ] Virtual Machine Packing
+    [ ] Max Open-End Bin Packing
+    [ ] Min Open-End Bin Packing
 ## Cover
     [x] Exact Cover 
     [x] Max Coverage
@@ -47,10 +54,13 @@
     [x] Set Splitting
     [ ] Capacitated Set Cover
     [ ] Weighted Set Cover 
+    [ ] Weighted Set Packing
     [ ] Weighted Set Splitting
 ## Subsequence
     [x] Longest Increasing 
     [x] Longest Alternating 
+    [ ] Longest Decreasing
+    [ ] Max Sum Increasing Subsequence
 ## Subset Sum 
     [x] Subset Sum
     [ ] Multiple Subset Sum

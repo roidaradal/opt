@@ -1,7 +1,6 @@
 package problem
 
 import (
-	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/fn"
@@ -25,8 +24,8 @@ func DominatingSet(variant string, n int) *discrete.Problem {
 }
 
 // Common steps for creating Dominating Set problem
-func dominatingSetProblem(name string, getVariables func(*ds.Graph) []string) (*discrete.Problem, *ds.Graph) {
-	graph, _ := newUnweightedGraph(name)
+func dominatingSetProblem(name string, getVariables func(*graphCfg) []string) (*discrete.Problem, *graphCfg) {
+	graph := newUnweightedGraph(name)
 	if graph == nil {
 		return nil, nil
 	}
@@ -63,7 +62,7 @@ func dominatingSetBasic(name string) *discrete.Problem {
 
 // Edge Dominating Set
 func dominatingSetEdge(name string) *discrete.Problem {
-	p, graph := dominatingSetProblem(name, (*ds.Graph).EdgeNames)
+	p, graph := dominatingSetProblem(name, graphEdges)
 	if p == nil || graph == nil {
 		return nil
 	}
@@ -91,10 +90,4 @@ func dominatingSetEfficient(name string) *discrete.Problem {
 		return graph.IsEfficientDominatingSet(vertices)
 	})
 	return p
-}
-
-// Temporary: get graph vertices
-// TODO: transfer this to ds.Graph in fn package
-func graphVertices(graph *ds.Graph) []string {
-	return graph.Vertices
 }

@@ -59,8 +59,8 @@ func subsetSumBasic(name string) *discrete.Problem {
 // Load 'subsetsum.basic' test case
 func newBasicSubsetSum(name string) (int, []int) {
 	lines, err := fn.LoadLines(name)
-	if err != nil || len(lines) != 2 {
+	if err != nil || len(lines) < 2 {
 		return 0, nil
 	}
-	return number.ParseInt(lines[0]), fn.IntList(lines[1])
+	return number.ParseInt(lines[0][0]), fn.IntList(lines[1][0])
 }

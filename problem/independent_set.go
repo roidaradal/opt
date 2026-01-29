@@ -1,7 +1,6 @@
 package problem
 
 import (
-	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/fn"
@@ -21,7 +20,7 @@ func IndependentSet(variant string, n int) *discrete.Problem {
 }
 
 // Common steps of creating IndependentSet problem
-func independentSetProblem(name string, graph *ds.Graph) *discrete.Problem {
+func independentSetProblem(name string, graph *graphCfg) *discrete.Problem {
 	p := discrete.NewProblem(name)
 	p.Type = discrete.Subset
 
@@ -44,7 +43,7 @@ func independentSetProblem(name string, graph *ds.Graph) *discrete.Problem {
 
 // Independent Set problem
 func independentSetBasic(name string) *discrete.Problem {
-	graph, _ := newUnweightedGraph(name)
+	graph := newUnweightedGraph(name)
 	if graph == nil {
 		return nil
 	}
@@ -53,11 +52,11 @@ func independentSetBasic(name string) *discrete.Problem {
 
 // Rainbow Independent Set problem
 func independentSetRainbow(name string) *discrete.Problem {
-	graph, lines := newUnweightedGraph(name)
-	if graph == nil || len(lines) != 1 {
+	graph := newUnweightedGraph(name)
+	if graph == nil || len(graph.extra) < 1 {
 		return nil
 	}
-	colorOf := fn.StringList(lines[0])
+	colorOf := fn.StringList(graph.extra[0][0])
 
 	p := independentSetProblem(name, graph)
 	if p == nil {

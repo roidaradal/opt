@@ -87,16 +87,17 @@ func intervalWeighted(name string) *discrete.Problem {
 // Load interval test case (basic, weight)
 func newInterval(name string) *intervalCfg {
 	lines, err := fn.LoadLines(name)
-	if err != nil || len(lines) < 3 {
+	numLines := len(lines)
+	if err != nil || numLines < 3 {
 		return nil
 	}
 	cfg := &intervalCfg{
-		activities: fn.StringList(lines[0]),
-		start:      fn.FloatList(lines[1]),
-		end:        fn.FloatList(lines[2]),
+		activities: fn.StringList(lines[0][0]),
+		start:      fn.FloatList(lines[1][0]),
+		end:        fn.FloatList(lines[2][0]),
 	}
-	if len(lines) == 4 {
-		cfg.weight = fn.FloatList(lines[3])
+	if numLines > 3 {
+		cfg.weight = fn.FloatList(lines[3][0])
 	} else {
 		cfg.weight = list.Repeated(1.0, len(cfg.activities))
 	}

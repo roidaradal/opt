@@ -1,5 +1,7 @@
 package problem
 
+import "github.com/roidaradal/fn/ds"
+
 type binCfg struct {
 	numBins  int
 	capacity float64
@@ -13,7 +15,13 @@ type intervalCfg struct {
 	weight     []float64
 }
 
+type graphCfg struct {
+	*ds.Graph
+	extra [][]string
+}
+
 type graphPartitionCfg struct {
+	*ds.Graph
 	numPartitions    int
 	minPartitionSize int
 	edgeWeight       []float64
@@ -31,4 +39,5 @@ type subsetsCfg struct {
 	universal []string
 	names     []string
 	subsets   [][]string
+	extra     [][]string
 }

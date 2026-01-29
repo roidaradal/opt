@@ -1,3 +1,8 @@
+## v0.3.12 - Test Case Data Shape
+  * **Commit**: 2026-01-29 21:54
+  * Update fn.LoadLines to read 2nd line of test case as data shape
+  * Add fn.groupLines to group the lines according to the data shape
+  * Adjust all functions that load test case to use the new line grouping
 ## v0.3.11 - Dominating Set Problems 
   * **Commit**: 2026-01-28 21:44
   * problem.DominatingSet 

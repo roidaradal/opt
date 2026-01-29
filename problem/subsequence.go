@@ -105,8 +105,8 @@ func subsequenceAlternating(name string) *discrete.Problem {
 // Load int sequence test case
 func newSequence(name string) []int {
 	lines, err := fn.LoadLines(name)
-	if err != nil || len(lines) != 1 {
+	if err != nil || len(lines) < 1 {
 		return nil
 	}
-	return fn.IntList(lines[0])
+	return fn.IntList(lines[0][0])
 }

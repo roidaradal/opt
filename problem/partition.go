@@ -24,10 +24,11 @@ func Partition(variant string, n int) *discrete.Problem {
 
 // Graph Partition problem
 func partitionGraph(name string) *discrete.Problem {
-	graph, cfg := newGraphPartition(name)
-	if graph == nil || cfg == nil {
+	cfg := newGraphPartition(name)
+	if cfg == nil {
 		return nil
 	}
+	graph := cfg.Graph
 
 	p := discrete.NewProblem(name)
 	p.Type = discrete.Partition
@@ -102,16 +103,16 @@ func partitionNumber(name string) *discrete.Problem {
 }
 
 // Load graph partition test case
-func newGraphPartition(name string) (*ds.Graph, *graphPartitionCfg) {
+func newGraphPartition(name string) *graphPartitionCfg {
 	lines, err := fn.LoadLines(name)
-	if err != nil || len(lines) != 5 {
-		return nil, nil
+	if err != nil || len(lines) < 5 {
+		return nil
 	}
 	cfg := &graphPartitionCfg{
-		numPartitions:    number.ParseInt(lines[0]),
-		minPartitionSize: number.ParseInt(lines[1]),
-		edgeWeight:       fn.FloatList(lines[4]),
+		numPartitions:    number.ParseInt(lines[0][0]),
+		minPartitionSize: number.ParseInt(lines[1][0]),
+		Graph:            ds.GraphFrom(lines[2][0], lines[3][0]),
+		edgeWeight:       fn.FloatList(lines[4][0]),
 	}
-	graph := ds.GraphFrom(lines[2], lines[3])
-	return graph, cfg
+	return cfg
 }

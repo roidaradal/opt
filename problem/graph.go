@@ -5,17 +5,30 @@ import (
 	"github.com/roidaradal/opt/fn"
 )
 
-// Load new unweighted graph and return offset lines
-func newUnweightedGraph(name string) (*ds.Graph, []string) {
+// Load new unweighted graph
+func newUnweightedGraph(name string) *graphCfg {
 	lines, err := fn.LoadLines(name)
 	numLines := len(lines)
 	if err != nil || numLines < 2 {
-		return nil, nil
+		return nil
 	}
-	graph := ds.GraphFrom(lines[0], lines[1])
-	var extra []string
+	cfg := &graphCfg{
+		Graph: ds.GraphFrom(lines[0][0], lines[1][0]),
+		extra: make([][]string, 0),
+	}
 	if numLines > 2 {
-		extra = lines[2:]
+		cfg.extra = lines[2:]
 	}
-	return graph, extra
+	return cfg
+}
+
+// Temporary: get graph vertices
+// TODO: transfer this to ds.Graph in fn package
+func graphVertices(graph *graphCfg) []string {
+	return graph.Vertices
+}
+
+// Get edge names of graph
+func graphEdges(graph *graphCfg) []string {
+	return graph.EdgeNames()
 }

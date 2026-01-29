@@ -87,12 +87,12 @@ func binPacking(name string) *discrete.Problem {
 // Load bin test case
 func newBin(name string) *binCfg {
 	lines, err := fn.LoadLines(name)
-	if err != nil || len(lines) != 3 {
+	if err != nil || len(lines) < 3 {
 		return nil
 	}
 	return &binCfg{
-		numBins:  number.ParseInt(lines[0]),
-		capacity: number.ParseFloat(lines[1]),
-		weight:   fn.FloatList(lines[2]),
+		numBins:  number.ParseInt(lines[0][0]),
+		capacity: number.ParseFloat(lines[1][0]),
+		weight:   fn.FloatList(lines[2][0]),
 	}
 }

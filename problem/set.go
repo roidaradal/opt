@@ -4,7 +4,6 @@ import (
 	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
-	"github.com/roidaradal/fn/number"
 	"github.com/roidaradal/fn/str"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/fn"
@@ -27,7 +26,7 @@ func Set(variant string, n int) *discrete.Problem {
 
 // Common steps of creating Set problem
 func setProblem(name string) (*discrete.Problem, *subsetsCfg) {
-	cfg, _ := newSubsets(name)
+	cfg := newSubsets(name)
 	if cfg == nil {
 		return nil, nil
 	}
@@ -91,7 +90,7 @@ func setPacking(name string) *discrete.Problem {
 
 // Set Splitting problem
 func setSplitting(name string) *discrete.Problem {
-	cfg, _ := newSubsets(name)
+	cfg := newSubsets(name)
 	if cfg == nil {
 		return nil
 	}
@@ -128,24 +127,22 @@ func setSplitting(name string) *discrete.Problem {
 	return p
 }
 
-// Load set test case, return subsetsCfg and extra lines (offset)
-func newSubsets(name string) (*subsetsCfg, []string) {
+// Load set test case, return subsetsCfg
+func newSubsets(name string) *subsetsCfg {
 	lines, err := fn.LoadLines(name)
 	numLines := len(lines)
-	if err != nil || numLines < 1 {
-		return nil, nil
+	if err != nil || len(lines) < 2 {
+		return nil
 	}
-	numSubsets := number.ParseInt(lines[0])
-	limit := numSubsets + 2 // subset lines + numSubsets line + universal line
-	if numLines < limit {
-		return nil, nil
-	}
+
+	numSubsets := len(lines[1])
 	cfg := &subsetsCfg{
-		universal: fn.StringList(lines[1]),
+		universal: fn.StringList(lines[0][0]),
 		names:     make([]string, 0, numSubsets),
 		subsets:   make([][]string, 0, numSubsets),
+		extra:     make([][]string, 0),
 	}
-	for _, line := range lines[2:limit] {
+	for _, line := range lines[1] {
 		parts := str.CleanSplitN(line, ":", 2)
 		if len(parts) != 2 {
 			continue
@@ -153,9 +150,8 @@ func newSubsets(name string) (*subsetsCfg, []string) {
 		cfg.names = append(cfg.names, parts[0])
 		cfg.subsets = append(cfg.subsets, fn.StringList(parts[1]))
 	}
-	var extra []string
-	if numLines > limit {
-		extra = lines[limit:]
+	if numLines > 2 {
+		cfg.extra = lines[2:]
 	}
-	return cfg, extra
+	return cfg
 }
