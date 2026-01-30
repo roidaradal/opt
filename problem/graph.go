@@ -5,8 +5,8 @@ import (
 	"github.com/roidaradal/opt/fn"
 )
 
-// Load new unweighted graph
-func newUnweightedGraph(name string) *graphCfg {
+// Load new undirected graph
+func newUndirectedGraph(name string) *graphCfg {
 	lines, err := fn.LoadLines(name)
 	numLines := len(lines)
 	if err != nil || numLines < 2 {

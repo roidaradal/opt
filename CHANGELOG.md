@@ -1,3 +1,10 @@
+## v0.3.13 - Graph Cover Problems 
+  * **Commit**: 2026-01-30 19:53
+  * problem.GraphCover
+    * Vertex Cover 
+    * Edge Cover 
+    * Clique Cover
+  * Merged dominatingSetProblem into graphCoverProblem (duplicate code)
 ## v0.3.12 - Test Case Data Shape
   * **Commit**: 2026-01-29 21:54
   * Update fn.LoadLines to read 2nd line of test case as data shape

@@ -17,6 +17,11 @@ Discrete Optimization package written in Go
 * `edge`        - Edge Dominating Set
 * `eff`         - Efficient Dominating Set
 
+### graphcover 
+* `vertex`      - Vertex Cover 
+* `edge`        - Edge Cover 
+* `clique`      - Clique Cover
+
 ### indepset 
 * `basic`       - Independent Set 
 * `rainbow`     - Rainbow Independent Set

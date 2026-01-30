@@ -43,7 +43,7 @@ func independentSetProblem(name string, graph *graphCfg) *discrete.Problem {
 
 // Independent Set problem
 func independentSetBasic(name string) *discrete.Problem {
-	graph := newUnweightedGraph(name)
+	graph := newUndirectedGraph(name)
 	if graph == nil {
 		return nil
 	}
@@ -52,7 +52,7 @@ func independentSetBasic(name string) *discrete.Problem {
 
 // Rainbow Independent Set problem
 func independentSetRainbow(name string) *discrete.Problem {
-	graph := newUnweightedGraph(name)
+	graph := newUndirectedGraph(name)
 	if graph == nil || len(graph.extra) < 1 {
 		return nil
 	}

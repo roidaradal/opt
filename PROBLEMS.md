@@ -50,6 +50,23 @@
 * Task: **Select a subset** of vertices such that _all vertices are dominated exactly once_
 * Goal: **Minimize** the number of selected vertices
 
+## Graph Cover Problems 
+
+### Vertex Cover
+* Input: undirected graph
+* Task: **Select a subset** of vertices, such that _for all edges, at least one endpoint is covered by the subset_
+* Goal: **Minimize** the number of selected vertices
+
+### Edge Cover
+* Input: undirected graph
+* Task: **Select a subset** of edges, such that _all vertices are covered by at least one selected edge endpoint_
+* Goal: **Minimize** the number of selected edges
+
+### Clique Cover
+* Input: undirected graph
+* Task: **Partition the vertices** into groups, such that _each group is a clique_
+* Goal: **Minimize** the number of cliques
+
 ## Independent Set Problems
 
 ### Independent Set 

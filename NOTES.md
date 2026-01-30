@@ -26,6 +26,15 @@
     [ ] K-Dominating Set
     [ ] Efficient Edge Dominating Set
     [ ] Strong Efficient Dominating Set
+## Graph Cover 
+    [x] Vertex Cover 
+    [x] Edge Cover 
+    [x] Clique Cover
+    [ ] Weighted Vertex Cover
+    [ ] Connected Vertex Cover 
+    [ ] Capacitated Vertex Cover
+    [ ] Weighted Edge Cover
+    [ ] Clique Edge Cover
 ## Independent Set 
     [x] Independent Set
     [x] Rainbow  Independent Set

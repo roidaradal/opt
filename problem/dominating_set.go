@@ -23,30 +23,9 @@ func DominatingSet(variant string, n int) *discrete.Problem {
 	}
 }
 
-// Common steps for creating Dominating Set problem
-func dominatingSetProblem(name string, getVariables func(*graphCfg) []string) (*discrete.Problem, *graphCfg) {
-	graph := newUnweightedGraph(name)
-	if graph == nil {
-		return nil, nil
-	}
-
-	p := discrete.NewProblem(name)
-	p.Type = discrete.Subset
-
-	variables := getVariables(graph)
-	p.Variables = discrete.Variables(variables)
-	p.AddVariableDomains(discrete.BooleanDomain())
-
-	p.Goal = discrete.Minimize
-	p.ObjectiveFn = fn.ScoreSubsetSize
-	p.SolutionStringFn = fn.StringSubset(variables)
-
-	return p, graph
-}
-
 // Basic Dominating Set
 func dominatingSetBasic(name string) *discrete.Problem {
-	p, graph := dominatingSetProblem(name, graphVertices)
+	p, graph := graphCoverProblem(name, graphVertices)
 	if p == nil || graph == nil {
 		return nil
 	}
@@ -62,7 +41,7 @@ func dominatingSetBasic(name string) *discrete.Problem {
 
 // Edge Dominating Set
 func dominatingSetEdge(name string) *discrete.Problem {
-	p, graph := dominatingSetProblem(name, graphEdges)
+	p, graph := graphCoverProblem(name, graphEdges)
 	if p == nil || graph == nil {
 		return nil
 	}
@@ -78,7 +57,7 @@ func dominatingSetEdge(name string) *discrete.Problem {
 
 // Efficient Dominating Set
 func dominatingSetEfficient(name string) *discrete.Problem {
-	p, graph := dominatingSetProblem(name, graphVertices)
+	p, graph := graphCoverProblem(name, graphVertices)
 	if p == nil || graph == nil {
 		return nil
 	}
