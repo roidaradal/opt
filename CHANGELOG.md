@@ -1,3 +1,7 @@
+## v0.3.20 - Partition Problems 
+  * **Commit**: 2026-01-31 19:05
+  * problem.NewGraphPartition
+  * problem.NewNumberPartition
 ## v0.3.19 - Dominating Set Problems 
   * **Commit**: 2026-01-31 18:44
   * problem.NewDominatingSet 
