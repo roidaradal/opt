@@ -13,6 +13,7 @@ const (
 	DominatingSet   = "dominating_set"
 	EdgeCover       = "edge_cover"
 	GraphPartition  = "graph_partition"
+	IndependentSet  = "independent_set"
 	NumberPartition = "number_partition"
 	VertexCover     = "vertex_cover"
 )
@@ -24,6 +25,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	DominatingSet:   NewDominatingSet,
 	EdgeCover:       NewEdgeCover,
 	GraphPartition:  NewGraphPartition,
+	IndependentSet:  NewIndependentSet,
 	NumberPartition: NewNumberPartition,
 	VertexCover:     NewVertexCover,
 }

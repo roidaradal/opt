@@ -1,3 +1,6 @@
+## v0.3.21 - Independent Set Problems
+  * **Commit**: 2026-01-31 19:39
+  * problem.NewIndependentSet
 ## v0.3.20 - Partition Problems 
   * **Commit**: 2026-01-31 19:05
   * problem.NewGraphPartition
