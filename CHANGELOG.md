@@ -1,3 +1,7 @@
+## v0.3.22 - Interval Problems 
+  * **Commit**: 2026-01-31 19:55
+  * problem.NewInterval
+  * fn.ScoreSumWeightedValues
 ## v0.3.21 - Independent Set Problems
   * **Commit**: 2026-01-31 19:39
   * problem.NewIndependentSet

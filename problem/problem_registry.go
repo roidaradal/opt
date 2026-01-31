@@ -14,6 +14,7 @@ const (
 	EdgeCover       = "edge_cover"
 	GraphPartition  = "graph_partition"
 	IndependentSet  = "independent_set"
+	Interval        = "interval"
 	NumberPartition = "number_partition"
 	VertexCover     = "vertex_cover"
 )
@@ -26,6 +27,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	EdgeCover:       NewEdgeCover,
 	GraphPartition:  NewGraphPartition,
 	IndependentSet:  NewIndependentSet,
+	Interval:        NewInterval,
 	NumberPartition: NewNumberPartition,
 	VertexCover:     NewVertexCover,
 }
