@@ -17,6 +17,7 @@ const (
 	Interval        = "interval"
 	Knapsack        = "knapsack"
 	NumberPartition = "number_partition"
+	Satisfaction    = "satisfaction"
 	VertexCover     = "vertex_cover"
 )
 
@@ -31,6 +32,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	Interval:        NewInterval,
 	Knapsack:        NewKnapsack,
 	NumberPartition: NewNumberPartition,
+	Satisfaction:    NewSatisfaction,
 	VertexCover:     NewVertexCover,
 }
 

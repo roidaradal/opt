@@ -23,6 +23,15 @@ func AsPartition(solution *discrete.Solution, values []discrete.Value) [][]discr
 	return partition
 }
 
+// AsSequence returns list of variables sequenced by solution values
+func AsSequence(solution *discrete.Solution) []discrete.Variable {
+	sequence := make([]discrete.Variable, solution.Length())
+	for variable, idx := range solution.Map {
+		sequence[idx] = variable
+	}
+	return sequence
+}
+
 // AsSubset assumes BooleanDomain {0,1} and returns list of variables with value=1 in solution
 func AsSubset(solution *discrete.Solution) []discrete.Variable {
 	subset := make([]discrete.Variable, 0, solution.Length())

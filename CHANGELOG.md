@@ -1,10 +1,12 @@
+## v0.3.24 - Satisfaction Problems 
+  * **Commit**: 2026-01-31 20:55
+  * problem.NewSatisfaction 
 ## v0.3.23 - Knapsack Problems
   * **Commit**: 2026-01-31 20:20
   * problem.NewKnapsack
 ## v0.3.22 - Interval Problems 
   * **Commit**: 2026-01-31 19:55
   * problem.NewInterval
-  * fn.ScoreSumWeightedValues
 ## v0.3.21 - Independent Set Problems
   * **Commit**: 2026-01-31 19:39
   * problem.NewIndependentSet

@@ -27,3 +27,19 @@ func StringSubset[T cmp.Ordered](items []T) discrete.SolutionStringFn {
 		return str.WrapBraces(list.Map(subset, str.Any))
 	}
 }
+
+// StringSequence displays the solution as sequence of variables
+func StringSequence[T any](items []T) discrete.SolutionStringFn {
+	return func(solution *discrete.Solution) string {
+		sequence := sequenceStrings(solution, items)
+		return strings.Join(sequence, " ")
+	}
+}
+
+// StringValues displays the solution mapped to given values
+func StringValues[T any](p *discrete.Problem, items []T) discrete.SolutionStringFn {
+	return func(solution *discrete.Solution) string {
+		output := valueStrings(p, solution, items)
+		return strings.Join(output, " ")
+	}
+}
