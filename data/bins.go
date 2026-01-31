@@ -1,9 +1,12 @@
 package data
 
-import "github.com/roidaradal/fn/number"
+import (
+	"github.com/roidaradal/fn/list"
+	"github.com/roidaradal/fn/number"
+)
 
 type Bins struct {
-	NumBins  int
+	Bins     []int
 	Capacity float64
 	Weight   []float64
 }
@@ -14,8 +17,9 @@ func NewBins(name string) *Bins {
 	if err != nil {
 		return nil
 	}
+	numBins := number.ParseInt(data["numBins"])
 	return &Bins{
-		NumBins:  number.ParseInt(data["numBins"]),
+		Bins:     list.NumRange(1, numBins+1),
 		Capacity: number.ParseFloat(data["capacity"]),
 		Weight:   floatList(data["weight"]),
 	}

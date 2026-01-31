@@ -1,3 +1,7 @@
+## v0.3.17 - Bin Problems
+  * **Commit**: 2026-01-31 17:45
+  * problem.NewBinCover
+  * problem.NewBinPacking
 ## v0.3.16 - Problem Data Loaders 
   * **Commit**: 2026-01-31 17:00
   * data.Bins, NewBins 

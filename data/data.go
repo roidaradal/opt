@@ -1,3 +1,4 @@
+// Package data contains functions for loading problem test cases
 package data
 
 import (
