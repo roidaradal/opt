@@ -10,7 +10,6 @@ rainbow.1 {
     vertices        : A B C D E F G H I
     vertexColor     : Y R R B B Y B R Y
     edges           : A-B A-D B-C B-E B-F B-G C-D C-E C-H D-E D-H D-I E-G F-G G-H H-I
-
 }
 rainbow.2 {
     vertices        : A B C D E F

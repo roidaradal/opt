@@ -1,3 +1,7 @@
+## v0.3.15 - Object Format Loader 
+  * **Commit**: 2026-01-31 14:59
+  * data.Load - loads the given data file and returns the StringMap of given test case
+  * Includes normal string values, list values, and map values
 ## v0.3.14 - Reformat Dataset
   * **Commit**: 2026-01-31 10:07 
   * Changed existing datasets to object format
