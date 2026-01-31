@@ -15,6 +15,7 @@ const (
 	GraphPartition  = "graph_partition"
 	IndependentSet  = "independent_set"
 	Interval        = "interval"
+	Knapsack        = "knapsack"
 	NumberPartition = "number_partition"
 	VertexCover     = "vertex_cover"
 )
@@ -28,6 +29,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	GraphPartition:  NewGraphPartition,
 	IndependentSet:  NewIndependentSet,
 	Interval:        NewInterval,
+	Knapsack:        NewKnapsack,
 	NumberPartition: NewNumberPartition,
 	VertexCover:     NewVertexCover,
 }

@@ -1,3 +1,6 @@
+## v0.3.23 - Knapsack Problems
+  * **Commit**: 2026-01-31 20:20
+  * problem.NewKnapsack
 ## v0.3.22 - Interval Problems 
   * **Commit**: 2026-01-31 19:55
   * problem.NewInterval
