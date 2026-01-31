@@ -1,0 +1,30 @@
+basic.1 {
+    universal   : 1 2 3 4 5
+    subsets     : {
+        S1 : 1 2 3
+        S2 : 2 4
+        S3 : 3 4
+        S4 : 4 5
+    }
+}
+basic.2 {
+    universal   : A B C D E F G H I J K L M N
+    subsets     : {
+        VIO : A H
+        GRN : B C I J
+        BLU : D E F G K L M N
+        RED : A B C D E F G
+        ORN : H I J K L M N
+    }
+}
+basic.3 {
+    universal   : 1 2 3 4 5 6 7 8 9
+    subsets     : {
+        S1 : 1 4
+        S2 : 1 2 3 6 7 9
+        S3 : 2 3 6 7 9
+        S4 : 7 8 9
+        S5 : 1 4 5 6 7
+        S6 : 2 3 8 9
+    }
+}

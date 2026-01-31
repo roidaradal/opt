@@ -1,3 +1,6 @@
+## v0.3.14 - Reformat Dataset
+  * **Commit**: 2026-01-31 10:07 
+  * Changed existing datasets to object format
 ## v0.3.13 - Graph Cover Problems 
   * **Commit**: 2026-01-30 19:53
   * problem.GraphCover

@@ -1,0 +1,76 @@
+exact_cover.1 {
+    universal   : A B C D E F G H I J K L
+    subsets     : {
+        S1 : A D
+        S2 : B E
+        S3 : C F
+        S4 : D E G H
+        S5 : G H I J K L
+        S6 : A B C D F G I
+        S7 : F K
+    }
+}
+exact_cover.2 {
+    universal   : 1 2 3 4
+    subsets     : {
+        O : 1 3
+        P : 1 2 3
+        E : 2 4
+    }
+}
+exact_cover.3 {
+    universal   : 1 2 3 4 5 6 7
+    subsets     : {
+        A : 1 4 7
+        B : 1 4
+        C : 4 5 7
+        D : 3 5 6
+        E : 2 3 6 7
+        F : 2 7
+    }
+}
+langford.3 {
+    n : 3
+}
+langford.4 {
+    n : 4
+}
+magic_series.3 {
+    n : 3
+}
+magic_series.4 {
+    n : 4
+}
+magic_series.5 {
+    n : 5
+}
+magic_series.6 {
+    n : 6
+}
+magic_series.7 {
+    n : 7
+}
+magic_series.8 {
+    n : 8
+}
+n_queens.4 {
+    n : 4
+}
+n_queens.5 {
+    n : 5
+}
+n_queens.6 {
+    n : 6
+}
+n_queens.7 {
+    n : 7
+}
+n_queens.8 {
+    n : 8
+}
+n_queens.9 {
+    n : 9
+}
+n_queens.10 {
+    n : 10
+}

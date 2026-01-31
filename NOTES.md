@@ -1,22 +1,20 @@
-## Bin 
+## Bin  Cover
     [x] Bin Cover 
-    [x] Bin Packing
     [ ] Lazy Bin Cover
     [ ] Variable-Size Bin Cover
     [ ] Min Cardinality Bin Cover
     [ ] Near Exact Bin Cover
     [ ] Class-Constrained Bin Cover
+## Bin Packing
+    [x] Bin Packing
     [ ] Vector Bin Packing
     [ ] Max Resource Bin Packing
     [ ] Virtual Machine Packing
     [ ] Max Open-End Bin Packing
     [ ] Min Open-End Bin Packing
-## Cover
-    [x] Exact Cover 
-    [x] Max Coverage
-    [ ] Weighted Max Coverage 
-    [ ] Budgeted Max Coverage 
-    [ ] Generalized Max Coverage
+## Clique Cover
+    [x] Clique Cover
+    [ ] Clique Edge Cover
 ## Dominating Set 
     [x] Dominating Set 
     [x] Edge Dominating Set 
@@ -26,15 +24,14 @@
     [ ] K-Dominating Set
     [ ] Efficient Edge Dominating Set
     [ ] Strong Efficient Dominating Set
-## Graph Cover 
-    [x] Vertex Cover 
+## Edge Cover 
     [x] Edge Cover 
-    [x] Clique Cover
-    [ ] Weighted Vertex Cover
-    [ ] Connected Vertex Cover 
-    [ ] Capacitated Vertex Cover
     [ ] Weighted Edge Cover
-    [ ] Clique Edge Cover
+## Graph Partition
+    [x] Graph Partition 
+    [ ] Balanced Graph Partition
+    [ ] Min Cut
+    [ ] Max Cut
 ## Independent Set 
     [x] Independent Set
     [x] Rainbow  Independent Set
@@ -49,21 +46,28 @@
     [ ] Bounded Knapsack 
     [ ] Unbounded Knapsack 
     [ ] Multiple Knapsack
-## Partition 
-    [x] Graph Partition 
+## Max Coverage
+    [x] Max Coverage
+    [ ] Weighted Max Coverage 
+    [ ] Budgeted Max Coverage 
+    [ ] Generalized Max Coverage
+## Number Partition 
     [x] Number Partition
     [ ] Multiway Number Partition
 ## Satisfaction
+    [x] Exact Cover 
     [x] Langford Pair 
     [x] Magic Series 
     [x] N-Queens
-## Set 
+## Set Cover
     [x] Set Cover 
-    [x] Set Packing 
-    [x] Set Splitting
     [ ] Capacitated Set Cover
-    [ ] Weighted Set Cover 
+    [ ] Weighted Set Cover
+## Set Packing
+    [x] Set Packing 
     [ ] Weighted Set Packing
+## Set Splitting
+    [x] Set Splitting
     [ ] Weighted Set Splitting
 ## Subsequence
     [x] Longest Increasing 
@@ -73,3 +77,8 @@
 ## Subset Sum 
     [x] Subset Sum
     [ ] Multiple Subset Sum
+## Vertex Cover
+    [x] Vertex Cover 
+    [ ] Weighted Vertex Cover
+    [ ] Connected Vertex Cover 
+    [ ] Capacitated Vertex Cover

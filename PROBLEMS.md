@@ -1,4 +1,4 @@
-## Bin Problems
+## Bin Cover Problems
 
 ### Bin Cover
 * Input: 
@@ -8,6 +8,7 @@
 * Task: **Distribute** the items to the bins such that each used bin has _at least minimum capacity_
 * Goal: **Maximize** the number of bins used
 
+## Bin Packing Problems 
 
 ### Bin Packing
 * Input: 
@@ -17,21 +18,12 @@
 * Task: **Distribute** the items to the bins such that each bin _does not exceed maximum capacity_
 * Goal: **Minimize** the number of bins used
 
-## Cover Problems
+## Clique Cover Problems
 
-### Exact Cover 
-* Input: 
-    * Universal set of items
-    * List of subsets
-* Task: **Select a combination** of the subsets such that each item in the universal set is _covered exactly once_ by one of the selected subsets
-
-### Max Coverage
-* Input: 
-    * Universal set of items
-    * List of subsets
-    * Limit number N
-* Task: **Select a combination** of up to N subsets
-* Goal: **Maximize** the number of universal items covered by the selected subsets
+### Clique Cover
+* Input: undirected graph
+* Task: **Partition the vertices** into groups, such that _each group is a clique_
+* Goal: **Minimize** the number of cliques
 
 ## Dominating Set Problems
 
@@ -50,22 +42,22 @@
 * Task: **Select a subset** of vertices such that _all vertices are dominated exactly once_
 * Goal: **Minimize** the number of selected vertices
 
-## Graph Cover Problems 
-
-### Vertex Cover
-* Input: undirected graph
-* Task: **Select a subset** of vertices, such that _for all edges, at least one endpoint is covered by the subset_
-* Goal: **Minimize** the number of selected vertices
+## Edge Cover Problems 
 
 ### Edge Cover
 * Input: undirected graph
 * Task: **Select a subset** of edges, such that _all vertices are covered by at least one selected edge endpoint_
 * Goal: **Minimize** the number of selected edges
 
-### Clique Cover
-* Input: undirected graph
-* Task: **Partition the vertices** into groups, such that _each group is a clique_
-* Goal: **Minimize** the number of cliques
+## Graph Partition Problems
+
+### Graph Partition
+* Input:
+  * Number of partitions N
+  * Min partition size
+  * Weighted, undirected graph
+* Task: **Partition** the vertices up to _N groups_, such that each _group size is at least the minimum partition size_
+* Goal: **Minimize** the sum of the weights of _crossing edges_ (v1 and v2 of edge belong in different groups)
 
 ## Independent Set Problems
 
@@ -121,15 +113,17 @@
     * Sum of the selected item's values
     * SUm of the bonus values for item pairs
 
-## Partition Problems
+## Max Coverage Problems
 
-### Graph Partition
-* Input: 
-  * Number of partitions N 
-  * Min partition size 
-  * Weighted, undirected graph
-* Task: **Partition** the vertices up to _N groups_, such that each _group size is at least the minimum partition size_
-* Goal: **Minimize** the sum of the weights of _crossing edges_ (v1 and v2 of edge belong in different groups)
+### Max Coverage
+* Input:
+  * Universal set of items
+  * List of subsets
+  * Limit number N
+* Task: **Select a combination** of up to N subsets
+* Goal: **Maximize** the number of universal items covered by the selected subsets
+
+## Number Partition Problems
 
 ### Number Partition
 * Input: list of numbers
@@ -137,6 +131,12 @@
 * Goal: If optimization, **minimize** the difference between the 2 partition sums
 
 ## Satisfaction Problems
+
+### Exact Cover
+* Input:
+  * Universal set of items
+  * List of subsets
+* Task: **Select a combination** of the subsets such that each item in the universal set is _covered exactly once_ by one of the selected subsets
 
 ### Langford Pair
 * Input: N
@@ -150,7 +150,7 @@
 * Input: N 
 * Task: **Arrange** the N queens in the NxN board such that _no queens attack each other_ (horizontal, vertical, diagonal) 
 
-## Set Problems 
+## Set Cover Problems 
 
 ### Set Cover 
 * Input: 
@@ -159,12 +159,16 @@
 * Task: **Select a combination** of the subsets such that _each universal item is covered at least once_ by the selected subsets
 * Goal: **Minimize** the number of selected subsets
 
+## Set Packing Problems
+
 ### Set Packing
 * Input: 
     * Universal set of items
     * List of subsets
 * Task: **Select a combination** of the subsets such that _each covered item is only covered once_ (no overlap)
 * Goal: **Maximize** the number of selected subsets
+
+## Set Splitting Problems
 
 ### Set Splitting
 * Input: 
@@ -193,3 +197,10 @@
     * List of numbers
 * Task: **Select a subset** of the numbers such that their sum == N (satisfaction) or does not exceed N (optimization)
 * Goal: If optimization, **minimize** the difference between N and the sum of the selected numbers
+
+## Vertex Cover Problems
+
+### Vertex Cover
+* Input: undirected graph
+* Task: **Select a subset** of vertices, such that _for all edges, at least one endpoint is covered by the subset_
+* Goal: **Minimize** the number of selected vertices

@@ -1,0 +1,20 @@
+basic.1 {
+    universal   : 1 2 3 4 5
+    subsets     : {
+        A : 1 2
+        B : 2 3 4
+        C : 4 5
+        D : 1 5
+    }
+}
+basic.2 {
+    universal   : 1A 1B 1C 2A 2B 2C 3A 3B 3C 3D 4A 4B 5A 5B 5C
+    subsets     : {
+        V1 : 1A  2A
+        V2 : 1B      3A
+        V3 : 1C      3B      5A
+        V4 :     2B  3C  4A
+        V5 :     2C  3D      5B
+        V6 :             4B  5C
+    }
+}

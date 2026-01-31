@@ -4,53 +4,65 @@ Discrete Optimization package written in Go
 
 ## Problems
 
-### bin
-* `cover`       - Bin Cover
-* `pack`        - Bin Packing
+### bin_cover
+  * `basic`   - Bin Cover
 
-### cover
-* `exact`       - Exact Cover 
-* `max`         - Max Coverage
+### bin_packing
+  * `basic`   - Bin Packing
 
-### domset 
-* `basic`       - Dominating Set
-* `edge`        - Edge Dominating Set
-* `eff`         - Efficient Dominating Set
+### clique_cover
+  * `basic`   - Clique Cover
 
-### graphcover 
-* `vertex`      - Vertex Cover 
-* `edge`        - Edge Cover 
-* `clique`      - Clique Cover
+### dominating_set 
+  * `basic`       - Dominating Set
+  * `edge`        - Edge Dominating Set
+  * `efficient`   - Efficient Dominating Set
 
-### indepset 
-* `basic`       - Independent Set 
-* `rainbow`     - Rainbow Independent Set
+### edge_cover
+  * `basic`   - Edge Cover
+
+### graph_partition 
+  * `basic`   - Graph Partition
+
+### independent_set 
+  * `basic`       - Independent Set 
+  * `rainbow`     - Rainbow Independent Set
 
 ### interval
-* `basic`       - Activity Selection
-* `weight`      - Weighted Activity Selection
+  * `basic`       - Activity Selection
+  * `weighted`    - Weighted Activity Selection
 
 ### knapsack
-* `basic`       - 0-1 Knapsack
-* `quad`        - Quadratic Knapsack
+  * `basic`       - 0-1 Knapsack
+  * `quadratic`   - Quadratic Knapsack
 
-### partition 
-* `graph`       - Graph Partition 
-* `number`      - Number Partition
+### max_coverage
+  * `basic`   - Max Coverage
 
-### sat
-* `langford`    - Langford Pair
-* `magicseries` - Magic Series
-* `nqueens`     - N-Queens
+### number_partition 
+  * `basic`   - Number Partition
 
-### set 
-* `cover`       - Set Cover 
-* `pack`        - Set Packing
-* `split`       - Set Splitting
+### satisfaction
+  * `exact_cover`     - Exact Cover
+  * `langford`        - Langford Pair
+  * `magic_series`    - Magic Series
+  * `n_queens`        - N-Queens
 
-### subseq
-* `inc`     - Longest Increasing Subsequence
-* `alt`     - Longest Alternating Subsequence
+### set_cover
+  * `basic`   - Set Cover 
 
-### subsetsum
-* `basic`       - Subset Sum
+### set_packing
+  * `basic`   - Set Packing
+
+### set_splitting
+  * `basic`   - Set Splitting
+
+### subsequence
+  * `increasing`  - Longest Increasing Subsequence
+  * `alternating` - Longest Alternating Subsequence
+
+### subset_sum
+  * `basic`       - Subset Sum
+
+### vertex_cover
+  * `basic`      - Vertex Cover 

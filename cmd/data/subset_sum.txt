@@ -1,0 +1,8 @@
+basic.1 {
+    target  : 9
+    numbers : 3 34 4 12 5 2
+}
+basic.2 {
+    target  : 30
+    numbers : 3 34 4 12 5 2
+}

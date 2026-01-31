@@ -1,0 +1,34 @@
+basic.1 {
+    universal   : A B C D E
+    subsets     : {
+        W1 : A B
+        W2 : B C
+        W3 : C D
+        W4 : D E
+        W5 : A E
+        W6 : B D
+        W7 : C E
+    }
+}
+basic.2 {
+    universal   : 1 2 3 4 5 6 7 8 9
+    subsets     : {
+        T0 : 1 2 3 6 9
+        T1 : 1 2 5 8
+        T2 : 4 7
+        T3 : 4 5
+        T4 : 6 9
+    }
+}
+basic.3 {
+    universal   : 1 2 3 4 5 6 7 8 9 A B C
+    subsets     : {
+        R : 1 4
+        O : 2 5
+        Y : 3 6
+        G : 1 4 7 2 3 6 9
+        B : 4 5 7 8
+        N : 6 B
+        V : 7 8 9 A B C
+    }
+}

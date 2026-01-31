@@ -1,0 +1,8 @@
+basic.1 {
+    vertices    : A B C D E F
+    edges       : A-B A-C B-C B-D B-E B-F
+}
+basic.2 {
+    vertices    : A B C D E F
+    edges       : A-B A-C B-C B-D C-E D-E D-F
+}

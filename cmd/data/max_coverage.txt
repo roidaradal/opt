@@ -1,0 +1,20 @@
+basic.1 {
+    limit       : 2
+    universal   : A B C D E F
+    subsets     : {
+        1 : A B C
+        2 : A D
+        3 : B E
+        4 : C D F
+    }
+}
+basic.2 {
+    limit       : 3
+    universal   : V1 V2 V3 V4 V5 V6 V7 V8
+    subsets     : {
+        1 : V1 V2 V3 V4
+        2 : V2 V3 V5
+        3 : V4 V7 V8
+        4 : V5 V6
+    }
+}
