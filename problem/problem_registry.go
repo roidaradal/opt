@@ -19,6 +19,9 @@ const (
 	MaxCoverage     = "max_coverage"
 	NumberPartition = "number_partition"
 	Satisfaction    = "satisfaction"
+	SetCover        = "set_cover"
+	SetPacking      = "set_packing"
+	SetSplitting    = "set_splitting"
 	VertexCover     = "vertex_cover"
 )
 
@@ -35,6 +38,9 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	MaxCoverage:     NewMaxCoverage,
 	NumberPartition: NewNumberPartition,
 	Satisfaction:    NewSatisfaction,
+	SetCover:        NewSetCover,
+	SetPacking:      NewSetPacking,
+	SetSplitting:    NewSetSplitting,
 	VertexCover:     NewVertexCover,
 }
 

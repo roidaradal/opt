@@ -1,3 +1,8 @@
+## v0.3.26 - Set Problems
+  * **Commit**: 2026-01-31 21:33
+  * problem.NewSetCover
+  * problem.NewSetPacking
+  * problem.NewSetSplitting
 ## v0.3.25 - Cover Problems
   * **Commit**: 2026-01-31 21:17
   * problem.NewMaxCoverage
