@@ -43,6 +43,8 @@ func NewGraphPartition(name string) *GraphPartition {
 	}
 }
 
+type GraphVariablesFn = func(*Graph) []string
+
 // GraphVertices returns graph vertices
 func GraphVertices(graph *Graph) []string {
 	return graph.Vertices

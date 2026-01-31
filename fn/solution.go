@@ -23,6 +23,17 @@ func AsPartition(solution *discrete.Solution, values []discrete.Value) [][]discr
 	return partition
 }
 
+// AsSubset assumes BooleanDomain {0,1} and returns list of variables with value=1 in solution
+func AsSubset(solution *discrete.Solution) []discrete.Variable {
+	subset := make([]discrete.Variable, 0, solution.Length())
+	for variable, value := range solution.Map {
+		if value == 1 {
+			subset = append(subset, variable)
+		}
+	}
+	return subset
+}
+
 // PartitionStrings returns the partition as a list of strings
 func PartitionStrings[T any](solution *discrete.Solution, values []discrete.Value, items []T) [][]string {
 	return list.Map(AsPartition(solution, values), func(group []discrete.Variable) []string {
