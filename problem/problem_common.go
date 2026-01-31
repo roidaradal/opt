@@ -72,3 +72,20 @@ func newSubsetsProblem(name string) (*discrete.Problem, *data.Subsets) {
 	p.SolutionStringFn = fn.StringSubset(cfg.Names)
 	return p, cfg
 }
+
+// Common steps for creating a Numbers subset problem
+func newNumbersSubsetProblem(name string) (*discrete.Problem, *data.Numbers) {
+	cfg := data.NewNumbers(name)
+	if cfg == nil {
+		return nil, nil
+	}
+
+	p := discrete.NewProblem(name)
+	p.Type = discrete.Subset
+
+	p.Variables = discrete.Variables(cfg.Numbers)
+	p.AddVariableDomains(discrete.BooleanDomain())
+
+	p.SolutionStringFn = fn.StringSubset(cfg.Numbers)
+	return p, cfg
+}

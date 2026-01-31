@@ -1,3 +1,7 @@
+## v0.3.27 - Sequence Problems 
+  * **Commit**: 2026-01-31 22:00
+  * problem.NewSubsequence 
+  * problem.NewSubsetSum
 ## v0.3.26 - Set Problems
   * **Commit**: 2026-01-31 21:33
   * problem.NewSetCover

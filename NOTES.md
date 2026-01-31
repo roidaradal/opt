@@ -73,7 +73,7 @@
     [x] Longest Increasing 
     [x] Longest Alternating 
     [ ] Longest Decreasing
-    [ ] Max Sum Increasing Subsequence
+    [ ] Max Sum Increasing
 ## Subset Sum 
     [x] Subset Sum
     [ ] Multiple Subset Sum

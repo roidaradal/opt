@@ -22,6 +22,8 @@ const (
 	SetCover        = "set_cover"
 	SetPacking      = "set_packing"
 	SetSplitting    = "set_splitting"
+	Subsequence     = "subsequence"
+	SubsetSum       = "subset_sum"
 	VertexCover     = "vertex_cover"
 )
 
@@ -41,6 +43,8 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	SetCover:        NewSetCover,
 	SetPacking:      NewSetPacking,
 	SetSplitting:    NewSetSplitting,
+	Subsequence:     NewSubsequence,
+	SubsetSum:       NewSubsetSum,
 	VertexCover:     NewVertexCover,
 }
 
