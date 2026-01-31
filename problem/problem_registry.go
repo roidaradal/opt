@@ -7,19 +7,21 @@ import (
 )
 
 const (
-	BinCover    = "bin_cover"
-	BinPacking  = "bin_packing"
-	CliqueCover = "clique_cover"
-	EdgeCover   = "edge_cover"
-	VertexCover = "vertex_cover"
+	BinCover      = "bin_cover"
+	BinPacking    = "bin_packing"
+	CliqueCover   = "clique_cover"
+	DominatingSet = "dominating_set"
+	EdgeCover     = "edge_cover"
+	VertexCover   = "vertex_cover"
 )
 
 var Creator = map[string]func(string, int) *discrete.Problem{
-	BinCover:    NewBinCover,
-	BinPacking:  NewBinPacking,
-	CliqueCover: NewCliqueCover,
-	EdgeCover:   NewEdgeCover,
-	VertexCover: NewVertexCover,
+	BinCover:      NewBinCover,
+	BinPacking:    NewBinPacking,
+	CliqueCover:   NewCliqueCover,
+	DominatingSet: NewDominatingSet,
+	EdgeCover:     NewEdgeCover,
+	VertexCover:   NewVertexCover,
 }
 
 // Create problem test case name
