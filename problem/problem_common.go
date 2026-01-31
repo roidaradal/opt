@@ -54,3 +54,21 @@ func newGraphCoverProblem(name string, variablesFn data.GraphVariablesFn) (*disc
 	p.Goal = discrete.Minimize
 	return p, graph
 }
+
+// Common steps for creating Subsets problem
+func newSubsetsProblem(name string) (*discrete.Problem, *data.Subsets) {
+	cfg := data.NewSubsets(name)
+	if cfg == nil {
+		return nil, nil
+	}
+
+	p := discrete.NewProblem(name)
+	p.Type = discrete.Subset
+
+	p.Variables = discrete.Variables(cfg.Names)
+	p.AddVariableDomains(discrete.BooleanDomain())
+
+	p.ObjectiveFn = fn.ScoreSubsetSize
+	p.SolutionStringFn = fn.StringSubset(cfg.Names)
+	return p, cfg
+}

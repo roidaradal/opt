@@ -16,6 +16,7 @@ const (
 	IndependentSet  = "independent_set"
 	Interval        = "interval"
 	Knapsack        = "knapsack"
+	MaxCoverage     = "max_coverage"
 	NumberPartition = "number_partition"
 	Satisfaction    = "satisfaction"
 	VertexCover     = "vertex_cover"
@@ -31,6 +32,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	IndependentSet:  NewIndependentSet,
 	Interval:        NewInterval,
 	Knapsack:        NewKnapsack,
+	MaxCoverage:     NewMaxCoverage,
 	NumberPartition: NewNumberPartition,
 	Satisfaction:    NewSatisfaction,
 	VertexCover:     NewVertexCover,

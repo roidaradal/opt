@@ -5,6 +5,7 @@ import (
 	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/fn/number"
+	"github.com/roidaradal/opt/data"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/fn"
 )
@@ -13,6 +14,8 @@ import (
 func NewSatisfaction(variant string, n int) *discrete.Problem {
 	name := newName(Satisfaction, variant, n)
 	switch variant {
+	case "exact_cover":
+		return exactCover(name)
 	case "langford":
 		return langfordPair(name, n)
 	case "magic_series":
@@ -22,6 +25,36 @@ func NewSatisfaction(variant string, n int) *discrete.Problem {
 	default:
 		return nil
 	}
+}
+
+// Exact Cover
+func exactCover(name string) *discrete.Problem {
+	cfg := data.NewSubsets(name)
+	if cfg == nil {
+		return nil
+	}
+
+	p := discrete.NewProblem(name)
+	p.Type = discrete.Subset
+	p.Goal = discrete.Satisfy
+
+	p.Variables = discrete.Variables(cfg.Names)
+	p.AddVariableDomains(discrete.BooleanDomain())
+
+	p.AddUniversalConstraint(func(solution *discrete.Solution) bool {
+		count := dict.NewCounter(cfg.Universal)
+		// Check each seleected subset
+		for _, x := range fn.AsSubset(solution) {
+			// Update counter for each subset item
+			dict.UpdateCounter(count, cfg.Subsets[x])
+		}
+		// Check all counts are 1 = each universal item is
+		// covered exactly once by selected subsets
+		return list.AllEqual(dict.Values(count), 1)
+	})
+
+	p.SolutionStringFn = fn.StringSubset(cfg.Names)
+	return p
 }
 
 // Langford Pair

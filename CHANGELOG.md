@@ -1,3 +1,7 @@
+## v0.3.25 - Cover Problems
+  * **Commit**: 2026-01-31 21:17
+  * problem.NewMaxCoverage
+  * Add `exact_cover` to Satisfaction
 ## v0.3.24 - Satisfaction Problems 
   * **Commit**: 2026-01-31 20:55
   * problem.NewSatisfaction 
