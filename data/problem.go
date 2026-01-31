@@ -8,6 +8,7 @@ import (
 	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/io"
 	"github.com/roidaradal/fn/list"
+	"github.com/roidaradal/fn/number"
 	"github.com/roidaradal/fn/str"
 )
 
@@ -28,7 +29,7 @@ const (
 )
 
 // Load the problem test case
-func Load(name string) (dict.StringMap, error) {
+func load(name string) (dict.StringMap, error) {
 	parts := strings.SplitN(name, ".", 2)
 	problemName, mainTestCase := parts[0], parts[1]
 	mainKey := [2]string{problemName, mainTestCase}
@@ -95,4 +96,34 @@ func Load(name string) (dict.StringMap, error) {
 		return nil, fmt.Errorf("unknown test case: %s", name)
 	}
 	return problemData, nil
+}
+
+// Transform line into list of strings, separated by space
+func stringList(line string) []string {
+	return strings.Fields(line)
+}
+
+// Transform line into list of ints, separated by space
+func intList(line string) []int {
+	return list.Map(strings.Fields(line), number.ParseInt)
+}
+
+// Transform line into list of floats, separated by space
+func floatList(line string) []float64 {
+	return list.Map(strings.Fields(line), number.ParseFloat)
+}
+
+// Parse the list value into list of strings
+func parseList(value string) []string {
+	return str.CleanSplit(value, listSeparator)
+}
+
+// Parse the map value into StringMap
+func parseMap(value string) dict.StringMap {
+	data := make(dict.StringMap)
+	for _, entry := range parseList(value) {
+		parts := str.CleanSplitN(entry, entrySeparator, 2)
+		data[parts[0]] = parts[1]
+	}
+	return data
 }

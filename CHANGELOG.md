@@ -1,3 +1,13 @@
+## v0.3.16 - Problem Data Loaders 
+  * **Commit**: 2026-01-31 17:00
+  * data.Bins, NewBins 
+  * data.Graph, NewUndirectedGraph
+  * data.GraphPartition, NewGraphPartition
+  * data.GraphVertices, GraphEdges
+  * data.Intervals, NewIntervals
+  * data.Knapsack, NewKnapsack
+  * data.Sequence, NewSequence
+  * data.Subsets, NewSubsets
 ## v0.3.15 - Object Format Loader 
   * **Commit**: 2026-01-31 14:59
   * data.Load - loads the given data file and returns the StringMap of given test case
