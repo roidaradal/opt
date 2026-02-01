@@ -35,6 +35,7 @@ type Problem struct {
 	SolutionCoreFn
 	SolutionStringFn
 	SolutionDisplayFn
+	uniformDomain []Value // only set if AddVariableDomains is called
 }
 
 // NewProblem creates a new Problem
@@ -74,4 +75,9 @@ func (p *Problem) ComputeScore(solution *Solution) {
 	if p.ObjectiveFn != nil {
 		solution.Score = p.ObjectiveFn(solution)
 	}
+}
+
+// UniformDomain gets the uniform domain set to all variables
+func (p *Problem) UniformDomain() []Value {
+	return p.uniformDomain
 }

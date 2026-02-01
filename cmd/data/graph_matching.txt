@@ -1,0 +1,45 @@
+cardinal.1 {
+    vertices    : A1 A2 A3 A4 A5 A6 J1 J2 J3 J4 J5 J6
+    edges       : A1-J2 A1-J3 A3-J1 A3-J4 A4-J3 A5-J3 A5-J4 A6-J6
+}
+cardinal.2 {
+    vertices    : A1 A2 A3 A4 A5 A6 J1 J2 J3 J4 J5 J6
+    edges       : A1-J1 A1-J2 A1-J3 A2-J1 A3-J2 A4-J5 A5-J4 A5-J5 A6-J6
+}
+cardinal.3 {
+    vertices    : A1 A2 A3 A4 A5 A6 A7 A8 J1 J2 J3 J4 J5 J6
+    edges       : A1-J1 A1-J2 A1-J3 A2-J1 A2-J2 A3-J1 A4-J2 A4-J4 A5-J3 A5-J4 A5-J5 A5-J6 A6-J4 A7-J6 A8-J5 A8-J6
+}
+cardinal.4 {
+    vertices    : A1 A2 A3 A4 A5 B1 B2 B3 B4 B5
+    edges       : A1-A2 A1-A3 A1-B1 A2-A4 A2-B2 A3-A5 A3-B3 A4-A5 A4-B4 A5-B5 B1-B2 B1-B3 B2-B4 B3-B5 B4-B5
+}
+cardinal.5 {
+    vertices    : A B C D E F G H I X
+    edges       : A-B A-C B-C D-E D-F E-F G-H G-I H-I C-X E-X G-X
+}
+weighted.1 {
+    vertices    : A B C D E F
+    edges       : A-B A-E B-C B-F C-D C-F D-E D-F
+    edgeWeight  : 2   3   7   1   9   4   8   4
+}
+weighted.2 {
+    vertices    : 1 2 3 4 5 6 7 8 9
+    edges       : 1-2 1-4 2-3 2-4 2-5 2-6 3-6 4-5 4-7 4-8 5-6 5-8 6-8 6-9 7-8 8-9
+    edgeWeight  : 0   1   -2  8   3   4   -1  -2  -2  -3  3   5   1   9   9   -3
+}
+weighted.3 {
+    vertices    : L1 L2 L3 L4 L5 M1 M2 M3 M4 M5 M6 M7 M8 R1 R2 R3 R4 R5
+    edges       : L1-L2 L2-L3 L3-L4 L4-L5 L2-M3 R1-R2 R2-R3 R3-R4 R4-R5 R2-M4 R3-M6 M1-M2 M1-M3 M2-M4 M3-M5 M4-M6 M5-M7 M6-M8 M7-M8
+    edgeWeight  : 1     2     4     2     7     4     5     6     5     5     4     5     4     1     5     6     3     7     6
+}
+rainbow.1 {
+    vertices    : L1 L2 L3 L4 R1 R2 R3 R4
+    edges       : L1-R1 L1-R2 L1-R3 L1-R4 L2-R1 L2-R2 L2-R3 L2-R4 L3-R1 L3-R2 L3-R3 L3-R4 L4-R1 L4-R2 L4-R3 L4-R4
+    edgeColor   : A     B     C     D     B     A     D     C     C     D     A     B     D     C     B     A
+}
+rainbow.2 {
+    vertices    : A1 A2 A3 B1 B2 B3
+    edges       : A1-B1 A1-B2 A1-B3 A2-B1 A2-B2 A2-B3 A3-B1 A3-B2 A3-B3
+    edgeColor   : R     B     G     G     R     B     B     G     R
+}

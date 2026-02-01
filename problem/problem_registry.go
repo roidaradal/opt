@@ -12,6 +12,7 @@ const (
 	CliqueCover     = "clique_cover"
 	DominatingSet   = "dominating_set"
 	EdgeCover       = "edge_cover"
+	GraphMatching   = "graph_matching"
 	GraphPartition  = "graph_partition"
 	IndependentSet  = "independent_set"
 	Interval        = "interval"
@@ -33,6 +34,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	CliqueCover:     NewCliqueCover,
 	DominatingSet:   NewDominatingSet,
 	EdgeCover:       NewEdgeCover,
+	GraphMatching:   NewGraphMatching,
 	GraphPartition:  NewGraphPartition,
 	IndependentSet:  NewIndependentSet,
 	Interval:        NewInterval,

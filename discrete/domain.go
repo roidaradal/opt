@@ -12,6 +12,7 @@ func (p *Problem) AddVariableDomains(domain []Value) {
 	for _, variable := range p.Variables {
 		p.Domain[variable] = domain[:]
 	}
+	p.uniformDomain = domain
 }
 
 //////////////// VARIABLE FUNCTIONS ///////////////////

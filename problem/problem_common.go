@@ -1,13 +1,14 @@
 package problem
 
 import (
+	"github.com/roidaradal/fn/lang"
 	"github.com/roidaradal/opt/data"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/fn"
 )
 
-// Common steps for creating Bin problems
-func newBinProblem(name string) (*discrete.Problem, *data.Bins) {
+// Common steps for creating Bins partition problems
+func newBinPartitionProblem(name string) (*discrete.Problem, *data.Bins) {
 	cfg := data.NewBins(name)
 	if cfg == nil {
 		return nil, nil
@@ -22,6 +23,29 @@ func newBinProblem(name string) (*discrete.Problem, *data.Bins) {
 	p.ObjectiveFn = fn.ScoreCountUniqueValues
 	p.SolutionCoreFn = fn.CoreSortedPartition(cfg.Bins, cfg.Weight)
 	p.SolutionStringFn = fn.StringPartition(cfg.Bins, cfg.Weight)
+	return p, cfg
+}
+
+// Common steps for creating Graph Partition problems (Clique Cover, Graph Partition)
+func newGraphPartitionProblem(name string) (*discrete.Problem, *data.GraphPartition) {
+	cfg := data.NewGraphPartition(name)
+	if cfg == nil || cfg.Graph == nil {
+		return nil, nil
+	}
+	graph := cfg.Graph
+
+	p := discrete.NewProblem(name)
+	p.Type = discrete.Partition
+
+	// If numPartitions is not set, defaults to number of vertices
+	numPartitions := lang.Ternary(cfg.NumPartitions == 0, len(graph.Vertices), cfg.NumPartitions)
+	domain := discrete.RangeDomain(1, numPartitions)
+	p.Variables = discrete.Variables(graph.Vertices)
+	p.AddVariableDomains(domain)
+
+	p.ObjectiveFn = fn.ScoreCountUniqueValues
+	p.SolutionCoreFn = fn.CoreSortedPartition(domain, graph.Vertices)
+	p.SolutionStringFn = fn.StringPartition(domain, graph.Vertices)
 	return p, cfg
 }
 

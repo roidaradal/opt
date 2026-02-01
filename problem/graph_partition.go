@@ -3,9 +3,7 @@ package problem
 import (
 	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/list"
-	"github.com/roidaradal/opt/data"
 	"github.com/roidaradal/opt/discrete"
-	"github.com/roidaradal/opt/fn"
 )
 
 // NewGraphPartition creates a new Graph Partition problem
@@ -21,25 +19,15 @@ func NewGraphPartition(variant string, n int) *discrete.Problem {
 
 // Graph Partition
 func graphPartition(name string) *discrete.Problem {
-	cfg := data.NewGraphPartition(name)
-	if cfg == nil {
+	p, cfg := newGraphPartitionProblem(name)
+	if p == nil || cfg == nil {
 		return nil
 	}
 	graph := cfg.Graph
-	if graph == nil {
-		return nil
-	}
-
-	p := discrete.NewProblem(name)
-	p.Type = discrete.Partition
-
-	domain := discrete.RangeDomain(1, cfg.NumPartitions)
-	p.Variables = discrete.Variables(graph.Vertices)
-	p.AddVariableDomains(domain)
 
 	p.AddUniversalConstraint(func(solution *discrete.Solution) bool {
 		// Check all partition sizes are not less that minimum
-		partitionSizes := dict.TallyValues(solution.Map, domain)
+		partitionSizes := dict.TallyValues(solution.Map, p.UniformDomain())
 		return list.All(dict.Values(partitionSizes), func(size int) bool {
 			return size >= cfg.MinSize
 		})
@@ -59,8 +47,5 @@ func graphPartition(name string) *discrete.Problem {
 		}
 		return score
 	}
-
-	p.SolutionCoreFn = fn.CoreSortedPartition(domain, graph.Vertices)
-	p.SolutionStringFn = fn.StringPartition(domain, graph.Vertices)
 	return p
 }

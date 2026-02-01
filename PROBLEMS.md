@@ -49,6 +49,23 @@
 * Task: **Select a subset** of edges, such that _all vertices are covered by at least one selected edge endpoint_
 * Goal: **Minimize** the number of selected edges
 
+## Graph Matching Problems
+
+### Max Cardinality Matching
+* Input: undirected graph
+* Task: **Select a subset** of edges to produce a **matching**: vertices used by the edges are only covered once
+* Goal: **Maximize** the number of selected edges
+
+### Max Weight Matching
+* Input: undirected graph, with edge weights
+* Task: **Select a subset** of edges to produce a **matching**: vertices used by the edges are only covered once
+* Goal: **Maximize** the sum of selected edge weights
+
+### Rainbow Matching
+* Input: undirected graph, with colored edges
+* Task: **Select a subset** of edges to produce a **rainbow matching**: a matching where all edges have different colors
+* Goal: **Maximize** the number of selected edges
+
 ## Graph Partition Problems
 
 ### Graph Partition

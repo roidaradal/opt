@@ -21,6 +21,11 @@ Discrete Optimization package written in Go
 ### edge_cover
   * `basic`   - Edge Cover
 
+### graph_matching
+  * `cardinal`     - Max Cardinality Matching
+  * `weighted`     - Max Weight Matching
+  * `rainbow`      - Rainbow Matching
+
 ### graph_partition 
   * `basic`   - Graph Partition
 

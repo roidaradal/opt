@@ -7,6 +7,8 @@ import (
 
 type Graph struct {
 	*ds.Graph
+	EdgeWeight  []float64
+	EdgeColor   []string
 	VertexColor []string
 }
 
@@ -25,6 +27,8 @@ func NewUndirectedGraph(name string) *Graph {
 	}
 	return &Graph{
 		Graph:       ds.GraphFrom(data["vertices"], data["edges"]),
+		EdgeWeight:  floatList(data["edgeWeight"]),
+		EdgeColor:   stringList(data["edgeColor"]),
 		VertexColor: stringList(data["vertexColor"]),
 	}
 }

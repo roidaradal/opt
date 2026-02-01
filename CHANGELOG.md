@@ -1,3 +1,8 @@
+## v0.3.28 - Matching Problems
+  * **Commit**: 2026-02-01 12:59
+  * problem.NewGraphMatching
+  * Convert Clique Cover into a Graph Partition problem
+  * Add discrete.Problem.UniformDomain()
 ## v0.3.27 - Sequence Problems 
   * **Commit**: 2026-01-31 22:00
   * problem.NewSubsequence 

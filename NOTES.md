@@ -27,6 +27,13 @@
 ## Edge Cover 
     [x] Edge Cover 
     [ ] Weighted Edge Cover
+## Graph Matching 
+    [x] Max Cardinality Matching
+    [x] Max Weight Matching 
+    [x] Rainbow Matching
+    [ ] Max Cardinality Min/Max Weight Matching (Tie-breaker)
+    [ ] Max Cardinality Perfect Matching 
+    [ ] Max Weight Perfect Matching
 ## Graph Partition
     [x] Graph Partition 
     [ ] Balanced Graph Partition

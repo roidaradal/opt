@@ -19,7 +19,7 @@ func NewBinCover(variant string, n int) *discrete.Problem {
 
 // Bin Cover
 func binCover(name string) *discrete.Problem {
-	p, cfg := newBinProblem(name)
+	p, cfg := newBinPartitionProblem(name)
 	if p == nil || cfg == nil {
 		return nil
 	}
