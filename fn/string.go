@@ -5,6 +5,7 @@ import (
 	"slices"
 	"strings"
 
+	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/fn/str"
 	"github.com/roidaradal/opt/discrete"
@@ -41,5 +42,46 @@ func StringValues[T any](p *discrete.Problem, items []T) discrete.SolutionString
 	return func(solution *discrete.Solution) string {
 		output := valueStrings(p, solution, items)
 		return strings.Join(output, " ")
+	}
+}
+
+// StringEulerianPath displays the Eulerian path sequence of vertices
+func StringEulerianPath(graph *ds.Graph) discrete.SolutionStringFn {
+	return func(solution *discrete.Solution) string {
+		path := make([]string, 0, len(graph.Edges))
+		edgeSequence := list.MapList(AsSequence(solution), graph.Edges)
+		a1, b1 := edgeSequence[0].Tuple()
+		a2, b2 := edgeSequence[1].Tuple()
+		var tail ds.Vertex
+		switch {
+		case a1 == a2:
+			path = append(path, b1, a1)
+			tail = b2
+		case a1 == b2:
+			path = append(path, b1, a1)
+			tail = a2
+		case b1 == a2:
+			path = append(path, a1, b1)
+			tail = b2
+		case b1 == b2:
+			path = append(path, a1, b1)
+			tail = a2
+		default:
+			return InvalidSolution
+		}
+		for _, edge := range edgeSequence[2:] {
+			a, b := edge.Tuple()
+			path = append(path, tail)
+			switch tail {
+			case a:
+				tail = b
+			case b:
+				tail = a
+			default:
+				return InvalidSolution
+			}
+		}
+		path = append(path, tail)
+		return strings.Join(path, " ")
 	}
 }

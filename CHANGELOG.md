@@ -1,3 +1,11 @@
+## v0.3.29 - Graph Tour Problems 
+  * **Commit**: 2026-02-02 22:52
+  * problem.NewGraphTour
+  * fn.IsEulerianPath
+  * fn.IsHamiltonianPath
+  * fn.StringEulerianPath
+  * fn.CoreSortedCycle
+  * fn.MirroredSequence, SortedCycle
 ## v0.3.28 - Matching Problems
   * **Commit**: 2026-02-01 12:59
   * problem.NewGraphMatching

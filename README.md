@@ -29,6 +29,12 @@ Discrete Optimization package written in Go
 ### graph_partition 
   * `basic`   - Graph Partition
 
+### graph_tour
+  * `euler_path`        - Eulerian Path
+  * `euler_cycle`       - Eulerian Cycle 
+  * `hamilton_path`     - Hamiltonian Path 
+  * `hamilton_cycle`    - Hamiltonian Cycle
+
 ### independent_set 
   * `basic`       - Independent Set 
   * `rainbow`     - Rainbow Independent Set

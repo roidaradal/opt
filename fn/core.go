@@ -5,6 +5,7 @@ import (
 	"slices"
 	"strings"
 
+	"github.com/roidaradal/fn/lang"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/opt/discrete"
 )
@@ -24,12 +25,17 @@ func CoreSortedPartition[T any](values []discrete.Value, items []T) discrete.Sol
 func CoreMirroredSequence[T any](items []T) discrete.SolutionCoreFn {
 	return func(solution *discrete.Solution) string {
 		sequence := sequenceStrings(solution, items)
-		first, last := sequence[0], list.Last(sequence, 1)
-		if cmp.Compare(first, last) == 1 {
-			slices.Reverse(sequence)
-		}
-		return strings.Join(sequence, " ")
+		return MirroredSequence(sequence)
 	}
+}
+
+// MirroredSequence checks the first and last items if in order; if not, mirrors the sequence
+func MirroredSequence(sequence []string) string {
+	first, last := sequence[0], list.Last(sequence, 1)
+	if cmp.Compare(first, last) == 1 {
+		slices.Reverse(sequence)
+	}
+	return strings.Join(sequence, " ")
 }
 
 // CoreMirroredValues groups the normal and reversed list of values as one
@@ -42,4 +48,22 @@ func CoreMirroredValues[T any](p *discrete.Problem, items []T) discrete.Solution
 		}
 		return strings.Join(output, " ")
 	}
+}
+
+// CoreSortedCycle groups the normal and sorted cycles as one
+func CoreSortedCycle[T any](items []T) discrete.SolutionCoreFn {
+	return func(solution *discrete.Solution) string {
+		sequence := sequenceStrings(solution, items)
+		return SortedCycle(sequence, false)
+	}
+}
+
+// SortedCycle finds the first element in sorted order,
+// Rearrange the sequence so it becomes the first element
+func SortedCycle(sequence []string, removeTail bool) string {
+	limit := lang.Ternary(removeTail, len(sequence)-1, len(sequence))
+	index := slices.Index(sequence, slices.Min(sequence))
+	sequence2 := append([]string{}, sequence[index:limit]...)
+	sequence2 = append(sequence2, sequence[:index]...)
+	return strings.Join(sequence2, " ")
 }

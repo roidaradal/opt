@@ -76,6 +76,24 @@
 * Task: **Partition** the vertices up to _N groups_, such that each _group size is at least the minimum partition size_
 * Goal: **Minimize** the sum of the weights of _crossing edges_ (v1 and v2 of edge belong in different groups)
 
+## Graph Tour Problems 
+
+### Eulerian Path 
+* Input: undirected graph
+* Task: **Create a sequence** of edges that forms a Eulerian path: _visits each edge exactly once_
+
+### Eulerian Cycle
+* Input: undirected graph
+* Task: **Create a sequence** of edges that forms a Eulerian cycle: _visits each edge exactly once_, and _ends where it started_
+
+### Hamiltonian Path
+* Input: undirected grap
+* Task: **Create a sequence** of vertices that forms a Hamiltonian path: _visits each vertex exactly once_
+
+### Hamiltonian Cycle
+* Input: undirected graph
+* Task: **Create a sequence** of vertices that forms a Hamiltonian cycle: _visits each vertex exactly once_, and _ends where it started_
+
 ## Independent Set Problems
 
 ### Independent Set 

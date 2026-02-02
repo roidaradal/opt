@@ -7,6 +7,8 @@ import (
 	"github.com/roidaradal/opt/discrete"
 )
 
+const InvalidSolution string = "Invalid solution"
+
 // AsPartition returns the partition from the solution
 func AsPartition(solution *discrete.Solution, values []discrete.Value) [][]discrete.Variable {
 	groups := make(map[discrete.Value][]discrete.Variable)

@@ -14,6 +14,7 @@ const (
 	EdgeCover       = "edge_cover"
 	GraphMatching   = "graph_matching"
 	GraphPartition  = "graph_partition"
+	GraphTour       = "graph_tour"
 	IndependentSet  = "independent_set"
 	Interval        = "interval"
 	Knapsack        = "knapsack"
@@ -36,6 +37,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	EdgeCover:       NewEdgeCover,
 	GraphMatching:   NewGraphMatching,
 	GraphPartition:  NewGraphPartition,
+	GraphTour:       NewGraphTour,
 	IndependentSet:  NewIndependentSet,
 	Interval:        NewInterval,
 	Knapsack:        NewKnapsack,

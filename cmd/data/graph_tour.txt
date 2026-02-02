@@ -1,0 +1,48 @@
+euler_path.1 {
+    vertices    : A B C D E
+    edges       : A-B A-C B-C C-D D-E
+}
+euler_path.2 {
+    vertices    : A B C D E F
+    edges       : A-B A-C B-C B-D B-E C-D C-F D-E D-F E-F
+}
+euler_path.3 {
+    vertices    : A B C D E F
+    edges       : A-B A-C A-E A-F B-C B-D B-E C-D C-E D-E D-F
+}
+euler_path.4 {
+    vertices    : A B C D E F G
+    edges       : A-B A-C B-C B-D B-E C-D C-F D-E D-F E-F E-G F-G
+}
+euler_cycle.1 {
+    vertices    : A B C D E
+    edges       : A-B A-C B-C C-D C-E D-E
+}
+euler_cycle.2 {
+    vertices    : A B C D E F
+    edges       : A-B A-C A-E A-F B-C B-D B-E C-D C-E D-E D-F
+}
+euler_cycle.3 {
+    vertices    : A B C D E F G
+    edges       : A-B A-C B-C B-D B-E C-D C-F D-E D-F E-F E-G F-G
+}
+hamilton_path.1 {
+    vertices    : S T U V W
+    edges       : S-U S-V S-W T-U T-V U-V U-W V-W
+}
+hamilton_path.2 {
+    vertices    : A B C D E
+    edges       : A-B A-C B-C C-D C-E D-E
+}
+hamilton_cycle.1 {
+    vertices    : A B C D E F
+    edges       : A-B A-D A-E B-C B-D B-F C-F D-E D-F E-F
+}
+hamilton_cycle.2 {
+    vertices    : A B C D E F G H
+    edges       : A-B A-C A-G B-D B-H C-D C-E D-F E-F E-G F-H G-H
+}
+hamilton_cycle.3 {
+    vertices    : A B C D E F G H
+    edges       : A-B A-C A-E B-D B-F C-D C-G D-H E-F E-G F-H G-H
+}
