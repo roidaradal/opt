@@ -19,6 +19,12 @@ type GraphPartition struct {
 	MinSize       int
 }
 
+type GraphColoring struct {
+	*ds.Graph
+	Colors  []string
+	Numbers []int
+}
+
 // NewUndirectedGraph loads a Graph config
 func NewUndirectedGraph(name string) *Graph {
 	data, err := load(name)
@@ -47,14 +53,39 @@ func NewGraphPartition(name string) *GraphPartition {
 	}
 }
 
-type GraphVariablesFn = func(*Graph) []string
+// NewGraphColoring loads a GraphColoring config
+func NewGraphColoring(name string) *GraphColoring {
+	data, err := load(name)
+	if err != nil {
+		return nil
+	}
+	return &GraphColoring{
+		Graph:   ds.GraphFrom(data["vertices"], data["edges"]),
+		Colors:  stringList(data["colors"]),
+		Numbers: intList(data["numbers"]),
+	}
+}
+
+type GraphVariablesFn = func(*ds.Graph) []string
+
+type GraphColorsFn[T any] = func(*GraphColoring) []T
 
 // GraphVertices returns graph vertices
-func GraphVertices(graph *Graph) []string {
+func GraphVertices(graph *ds.Graph) []string {
 	return graph.Vertices
 }
 
 // GraphEdges returns graph edge names
-func GraphEdges(graph *Graph) []string {
+func GraphEdges(graph *ds.Graph) []string {
 	return graph.EdgeNames()
+}
+
+// GraphColors returns graph colors
+func GraphColors(cfg *GraphColoring) []string {
+	return cfg.Colors
+}
+
+// GraphNumbers returns numbers as graph colors
+func GraphNumbers(cfg *GraphColoring) []int {
+	return cfg.Numbers
 }

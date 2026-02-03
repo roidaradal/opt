@@ -1,0 +1,5 @@
+sum.1 {
+    vertices    : A B C D E F G H
+    edges       : A-D B-E C-D D-E D-G E-F E-HA-D B-E C-D D-E D-G E-F E-H
+    numbers     : 1 2 3 4 5 6
+}

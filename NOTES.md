@@ -24,7 +24,10 @@
     [ ] K-Dominating Set
     [ ] Efficient Edge Dominating Set
     [ ] Strong Efficient Dominating Set
-## Edge Cover 
+## Edge Coloring
+    [x] Edge Coloring 
+    [ ] Strong Edge Coloring
+## Edge Cover
     [x] Edge Cover 
     [ ] Weighted Edge Cover
 ## Graph Matching 
@@ -64,6 +67,9 @@
     [ ] Weighted Max Coverage 
     [ ] Budgeted Max Coverage 
     [ ] Generalized Max Coverage
+## Number Coloring
+    [x] Sum Coloring
+    [ ] Packing Coloring 
 ## Number Partition 
     [x] Number Partition
     [ ] Multiway Number Partition
@@ -90,6 +96,13 @@
 ## Subset Sum 
     [x] Subset Sum
     [ ] Multiple Subset Sum
+## Vertex Coloring
+    [ ] Vertex Coloring 
+    [ ] Complete Coloring 
+    [ ] Harmonious Coloring
+    [ ] Strong Vertex Coloring
+    [ ] Equitable Coloring 
+    [ ] Exact Coloring
 ## Vertex Cover
     [x] Vertex Cover 
     [ ] Weighted Vertex Cover

@@ -1,0 +1,20 @@
+basic.1 {
+    vertices    : A B C D
+    edges       : A-B A-C B-D C-D
+    colors      : G R B
+}
+basic.2 {
+    vertices    : A B C D E F
+    edges       : A-B A-C A-F B-D B-E C-D C-E D-F E-F
+    colors      : T V R O
+}
+basic.3 {
+    vertices    : A B C D E F G
+    edges       : A-B A-C B-D B-G C-E C-G D-F D-G E-F E-G
+    colors      : 1 2 3 4 5 6
+}
+basic.4 {
+    vertices    : 1 2 3 4 5 6
+    edges       : 1-2 1-4 1-6 3-2 3-4 3-6 5-2 5-4 5-6
+    colors      : A B C D E F G
+}

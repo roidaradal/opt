@@ -36,7 +36,7 @@ func newGraphTourProblem(name string, variablesFn data.GraphVariablesFn) (*discr
 	p.Type = discrete.Sequence
 	p.Goal = discrete.Satisfy
 
-	variables := variablesFn(graph)
+	variables := variablesFn(graph.Graph)
 	p.Variables = discrete.Variables(variables)
 	p.AddVariableDomains(discrete.IndexDomain(len(variables)))
 	return p, graph

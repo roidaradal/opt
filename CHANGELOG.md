@@ -1,3 +1,10 @@
+## v0.3.30 - Graph Coloring Problems
+  * **Commit**: 2026-02-03 22:13
+  * data.GraphColoring
+  * problem.NewEdgeColoring
+  * problem.NewNumberColoring
+  * fn.ConstraintProperVertexColoring
+  * fn.CoreLookupValueOrder
 ## v0.3.29 - Graph Tour Problems 
   * **Commit**: 2026-02-02 22:52
   * problem.NewGraphTour

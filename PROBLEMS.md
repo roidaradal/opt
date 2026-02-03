@@ -42,6 +42,13 @@
 * Task: **Select a subset** of vertices such that _all vertices are dominated exactly once_
 * Goal: **Minimize** the number of selected vertices
 
+## Edge Coloring Problems
+
+### Edge Coloring 
+* Input: undirected graph and list of colors
+* Task: **Assign colors to edges**, such that _for each vertex, all edges connected to it have different colors_
+* Goal: **Minimize** the number of colors used
+
 ## Edge Cover Problems 
 
 ### Edge Cover
@@ -157,6 +164,13 @@
   * Limit number N
 * Task: **Select a combination** of up to N subsets
 * Goal: **Maximize** the number of universal items covered by the selected subsets
+
+## Number Coloring Problems 
+
+### Sum Coloring 
+* Input: undirected graph and list of numbers 
+* Task: **Assign numbers to vertices**, such that _all adjacent vertices in the graph have different numbers_
+* Goal: **Minimize** the sum of numbers used in the assignment
 
 ## Number Partition Problems
 

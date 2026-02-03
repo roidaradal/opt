@@ -18,6 +18,9 @@ Discrete Optimization package written in Go
   * `edge`        - Edge Dominating Set
   * `efficient`   - Efficient Dominating Set
 
+### edge_coloring
+* `basic`          - Edge Coloring
+* 
 ### edge_cover
   * `basic`   - Edge Cover
 
@@ -49,6 +52,9 @@ Discrete Optimization package written in Go
 
 ### max_coverage
   * `basic`   - Max Coverage
+
+### number_coloring 
+  * `sum`   - Sum Coloring
 
 ### number_partition 
   * `basic`   - Number Partition

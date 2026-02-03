@@ -5,8 +5,10 @@ import (
 	"slices"
 	"strings"
 
+	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/lang"
 	"github.com/roidaradal/fn/list"
+	"github.com/roidaradal/fn/str"
 	"github.com/roidaradal/opt/discrete"
 )
 
@@ -66,4 +68,22 @@ func SortedCycle(sequence []string, removeTail bool) string {
 	sequence2 := append([]string{}, sequence[index:limit]...)
 	sequence2 = append(sequence2, sequence[:index]...)
 	return strings.Join(sequence2, " ")
+}
+
+// CoreLookupValueOrder groups solutions based on the relative order of the solution values
+func CoreLookupValueOrder(problem *discrete.Problem) discrete.SolutionCoreFn {
+	return func(solution *discrete.Solution) string {
+		values := solution.Tuple(problem)
+		core := make([]string, len(values))
+		lookup := make(map[discrete.Value]string)
+		order := 0
+		for i, value := range values {
+			if dict.NoKey(lookup, value) {
+				lookup[value] = str.Int(order)
+				order += 1
+			}
+			core[i] = lookup[value]
+		}
+		return strings.Join(core, "")
+	}
 }

@@ -11,6 +11,7 @@ const (
 	BinPacking      = "bin_packing"
 	CliqueCover     = "clique_cover"
 	DominatingSet   = "dominating_set"
+	EdgeColoring    = "edge_coloring"
 	EdgeCover       = "edge_cover"
 	GraphMatching   = "graph_matching"
 	GraphPartition  = "graph_partition"
@@ -19,6 +20,7 @@ const (
 	Interval        = "interval"
 	Knapsack        = "knapsack"
 	MaxCoverage     = "max_coverage"
+	NumberColoring  = "number_coloring"
 	NumberPartition = "number_partition"
 	Satisfaction    = "satisfaction"
 	SetCover        = "set_cover"
@@ -34,6 +36,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	BinPacking:      NewBinPacking,
 	CliqueCover:     NewCliqueCover,
 	DominatingSet:   NewDominatingSet,
+	EdgeColoring:    NewEdgeColoring,
 	EdgeCover:       NewEdgeCover,
 	GraphMatching:   NewGraphMatching,
 	GraphPartition:  NewGraphPartition,
@@ -42,6 +45,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	Interval:        NewInterval,
 	Knapsack:        NewKnapsack,
 	MaxCoverage:     NewMaxCoverage,
+	NumberColoring:  NewNumberColoring,
 	NumberPartition: NewNumberPartition,
 	Satisfaction:    NewSatisfaction,
 	SetCover:        NewSetCover,

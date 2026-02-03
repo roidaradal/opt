@@ -59,7 +59,7 @@ func newGraphSubsetProblem(name string, variablesFn data.GraphVariablesFn) (*dis
 	p := discrete.NewProblem(name)
 	p.Type = discrete.Subset
 
-	variables := variablesFn(graph)
+	variables := variablesFn(graph.Graph)
 	p.Variables = discrete.Variables(variables)
 	p.AddVariableDomains(discrete.BooleanDomain())
 
@@ -77,6 +77,25 @@ func newGraphCoverProblem(name string, variablesFn data.GraphVariablesFn) (*disc
 
 	p.Goal = discrete.Minimize
 	return p, graph
+}
+
+// Common steps for creating Graph Coloring problems
+func newGraphColoringProblem[T any](name string, variablesFn data.GraphVariablesFn, domainFn data.GraphColorsFn[T]) (*discrete.Problem, *data.GraphColoring) {
+	cfg := data.NewGraphColoring(name)
+	if cfg == nil {
+		return nil, nil
+	}
+
+	p := discrete.NewProblem(name)
+	p.Type = discrete.Assignment
+	p.Goal = discrete.Minimize
+
+	domain := domainFn(cfg)
+	p.Variables = discrete.Variables(variablesFn(cfg.Graph))
+	p.AddVariableDomains(discrete.Domain(domain))
+
+	p.SolutionStringFn = fn.StringValues(p, domain)
+	return p, cfg
 }
 
 // Common steps for creating Subsets problem
