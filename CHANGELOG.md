@@ -1,3 +1,6 @@
+## v0.3.31 - Vertex Coloring Problems
+  * **Commit**: 2026-02-04 23:03
+  * problem.NewVertexColoring
 ## v0.3.30 - Graph Coloring Problems
   * **Commit**: 2026-02-03 22:13
   * data.GraphColoring

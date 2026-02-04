@@ -1,0 +1,70 @@
+basic.1 {
+    vertices    : WA NT SA Q NSW V T
+    edges       : WA-NT WA-SA NT-Q NT-SA SA-Q SA-NSW SA-V Q-NSW NSW-V
+    colors      : R G B
+}
+basic.2 {
+    vertices    : 0 1 2 3
+    edges       : 0-1 0-2 0-3 1-2 2-3
+    colors      : R G B
+}
+basic.3 {
+    vertices    : 1 2 3
+    edges       : 1-2 1-3 2-3
+    colors      : R P B
+}
+basic.4 {
+    vertices    : 1 2 3 4
+    edges       : 1-2 1-3 2-4 3-4
+    colors      : R O B
+}
+basic.5 {
+    vertices    : 1 2 3 4 5
+    edges       : 1-2 1-3 2-4 3-5 4-5
+    colors      : V G O
+}
+basic.6 {
+    vertices    : 1 2 3 4 5 6
+    edges       : 1-2 1-3 2-4 3-5 4-6 5-6
+    colors      : B G R
+}
+basic.7 {
+    vertices    : 0 1 2 3 4 5 6 7
+    edges       : 1-2 1-3 2-4 3-5 4-6 5-7 6-7 0-1 0-2 0-3 0-4 0-5 0-6 0-7
+    colors      : R A Y G B C V
+}
+basic.8 {
+    vertices    : 0 1 2 3 4 5 6 7 8 9
+    edges       : 1-2 1-3 1-6 2-4 2-7 3-5 3-8 4-5 4-9 5-0 6-9 6-0 7-8 7-0 8-9
+    colors      : A B C D E
+}
+basic.9 {
+    vertices    : 0 1 2 3 4 5 6 7 8 9
+    edges       : 1-2 1-3 1-6 1-7 2-5 3-4 3-6 3-7 4-5 4-6 5-7 5-8 5-0 6-7 6-9 7-9 8-0 9-0
+    colors      : A B C D E F
+}
+complete.1 {
+    vertices    : A B C D
+    edges       : A-B A-C A-D B-C B-D C-D
+    colors      : 1 2 3 4
+}
+complete.2 {
+    vertices    : A B C D E F
+    edges       : A-D A-E A-F B-D B-E B-F C-D C-E C-F
+    colors      : 1 2 3 4 5 6
+}
+harmonious.1 {
+    vertices    : 1 2 3 4 5
+    edges       : 1-2 1-3 1-4 1-5 2-3 2-4 2-5 3-4 3-5 4-5
+    colors      : 1 2 3 4 5
+}
+harmonious.2 {
+    vertices    : A B C D
+    edges       : A-B A-C A-D B-C B-D C-D
+    colors      : 1 2 3 4
+}
+harmonious.3 {
+    vertices    : 1 2 3 4 5 6 7 8
+    edges       : 1-2 1-5 1-6 2-3 2-5 2-6 2-7 3-4 3-6 3-7 3-8 4-7 4-8 5-6 6-7 7-8
+    colors      : 1 2 3 4 5 6 7 8
+}

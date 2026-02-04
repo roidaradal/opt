@@ -97,9 +97,9 @@
     [x] Subset Sum
     [ ] Multiple Subset Sum
 ## Vertex Coloring
-    [ ] Vertex Coloring 
-    [ ] Complete Coloring 
-    [ ] Harmonious Coloring
+    [x] Vertex Coloring 
+    [x] Complete Coloring 
+    [x] Harmonious Coloring
     [ ] Strong Vertex Coloring
     [ ] Equitable Coloring 
     [ ] Exact Coloring

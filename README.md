@@ -81,5 +81,10 @@ Discrete Optimization package written in Go
 ### subset_sum
   * `basic`       - Subset Sum
 
+### vertex_coloring
+  * `basic`       - Vertex Coloring
+  * `complete`    - Complete Coloring
+  * `harmonious`  - Harmonious Coloring
+
 ### vertex_cover
   * `basic`      - Vertex Cover 

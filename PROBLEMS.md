@@ -247,6 +247,23 @@
 * Task: **Select a subset** of the numbers such that their sum == N (satisfaction) or does not exceed N (optimization)
 * Goal: If optimization, **minimize** the difference between N and the sum of the selected numbers
 
+## Vertex Coloring Problems
+
+### Vertex Coloring 
+* Input: undirected graph and list of colors
+* Task: **Assign colors to vertices**, such that _all adjacent vertices in the graph have different colors_
+* Goal: **Minimize** the number of colors used
+
+### Complete Coloring
+* Input: undirected graph and list of colors
+* Task: **Assign colors to vertices**, such that it is a _proper vertex coloring_, and _all color pairs appear at least once_
+* Goal: **Maximize** the number of colors used
+
+### Harmonious Coloring
+* Input: undirected graph and list of colors
+* Task: **Assign colors to vertices**, such that it is a _proper vertex coloring_, and _all color pairs appear at most once_
+* Goal: **Minimize** the number of colors used
+
 ## Vertex Cover Problems
 
 ### Vertex Cover
