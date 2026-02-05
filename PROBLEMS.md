@@ -18,6 +18,17 @@
 * Task: **Distribute** the items to the bins such that each bin _does not exceed maximum capacity_
 * Goal: **Minimize** the number of bins used
 
+## Clique Problems
+
+## Clique 
+* Input: undirected graph
+* Task: **Select a subset** of vertices such that the _selected vertices are all connected to each other_
+* Goal: **Maximize** the number of selected vertices
+
+## K-Clique
+* Input: undirected graph and integer K
+* Task: **Select a subset** of vertices of size K, such that the _selected vertices are all connected to each other_
+
 ## Clique Cover Problems
 
 ### Clique Cover

@@ -1,3 +1,6 @@
+## v0.3.32 - Clique Problems 
+  * **Commit**: 2026-02-05 21:39
+  * problem.NewClique
 ## v0.3.31 - Vertex Coloring Problems
   * **Commit**: 2026-02-04 23:03
   * problem.NewVertexColoring

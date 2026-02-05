@@ -1,0 +1,22 @@
+basic.1 {
+    vertices    : A B C D E F G H I
+    edges       : A-B A-C B-C B-E B-G B-H C-D C-E C-G D-H D-I E-F E-G F-G G-H G-I H-I
+}
+basic.2 {
+    vertices    : 1 2 3 4 5 6
+    edges       : 1-2 1-5 2-3 2-5 3-4 4-5 4-6
+}
+basic.3 {
+    vertices    : A B C D E F G H I J
+    edges       : A-B A-G A-I B-H B-I B-J C-D C-F C-J D-G D-J E-F E-G E-I E-J F-G F-I F-J G-H G-I G-J H-J I-J
+}
+k.1 {
+    vertices    : 1 2 3 4 5
+    edges       : 1-2 2-3 3-1 4-3 4-5 5-3
+    k           : 3
+}
+k.2 {
+    vertices    : A B C D E F G H
+    edges       : A-B A-C A-D A-E B-C B-D B-E C-D C-E D-E
+    k           : 5
+}

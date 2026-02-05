@@ -10,6 +10,10 @@ Discrete Optimization package written in Go
 ### bin_packing
   * `basic`   - Bin Packing
 
+### clique
+  * `basic` - Clique 
+  * `k`     - K-Clique
+
 ### clique_cover
   * `basic`   - Clique Cover
 

@@ -12,6 +12,12 @@
     [ ] Virtual Machine Packing
     [ ] Max Open-End Bin Packing
     [ ] Min Open-End Bin Packing
+## Clique 
+    [x] Clique 
+    [x] K-Clique
+    [ ] Vertex Weight Clique
+    [ ] Edge Weight Clique 
+    [ ] Total Weight Clique
 ## Clique Cover
     [x] Clique Cover
     [ ] Clique Edge Cover

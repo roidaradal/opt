@@ -7,6 +7,7 @@ import (
 
 type Graph struct {
 	*ds.Graph
+	K           int
 	EdgeWeight  []float64
 	EdgeColor   []string
 	VertexColor []string
@@ -33,6 +34,7 @@ func NewUndirectedGraph(name string) *Graph {
 	}
 	return &Graph{
 		Graph:       ds.GraphFrom(data["vertices"], data["edges"]),
+		K:           number.ParseInt(data["k"]),
 		EdgeWeight:  floatList(data["edgeWeight"]),
 		EdgeColor:   stringList(data["edgeColor"]),
 		VertexColor: stringList(data["vertexColor"]),

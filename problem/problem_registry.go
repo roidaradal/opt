@@ -9,6 +9,7 @@ import (
 const (
 	BinCover        = "bin_cover"
 	BinPacking      = "bin_packing"
+	Clique          = "clique"
 	CliqueCover     = "clique_cover"
 	DominatingSet   = "dominating_set"
 	EdgeColoring    = "edge_coloring"
@@ -35,6 +36,7 @@ const (
 var Creator = map[string]func(string, int) *discrete.Problem{
 	BinCover:        NewBinCover,
 	BinPacking:      NewBinPacking,
+	Clique:          NewClique,
 	CliqueCover:     NewCliqueCover,
 	DominatingSet:   NewDominatingSet,
 	EdgeColoring:    NewEdgeColoring,
