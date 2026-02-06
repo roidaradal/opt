@@ -20,12 +20,12 @@
 
 ## Clique Problems
 
-## Clique 
+### Clique 
 * Input: undirected graph
 * Task: **Select a subset** of vertices such that the _selected vertices are all connected to each other_
 * Goal: **Maximize** the number of selected vertices
 
-## K-Clique
+### K-Clique
 * Input: undirected graph and integer K
 * Task: **Select a subset** of vertices of size K, such that the _selected vertices are all connected to each other_
 
@@ -143,6 +143,18 @@
 * Task: **Select a subset** of _non-overlapping_ activities
 * Goal: **Maximize** the sum of weights of selected activities
 
+## K-Cut Problems
+
+### Min K-Cut
+* Input: undirected graph, with edge weights, and integer K
+* Task: **Select a subset** of edges to cut to _produce at least K connected components_
+* Goal: **Minimize** the sum of selected edge weights 
+
+### Max K-Cut
+* Input: undirected graph, with edge weights, and integer K
+* Task: **Select a subset** of edges to cut to _produce exactly K connected components_
+* Goal: **Maximize** the sum of selected edge weights
+
 ## Knapsack Problems
 
 ### 0-1 Knapsack 
@@ -209,6 +221,10 @@
 ### N-Queens
 * Input: N 
 * Task: **Arrange** the N queens in the NxN board such that _no queens attack each other_ (horizontal, vertical, diagonal) 
+
+### Topological Sort 
+* Input: directed graph
+* Task: **Arrange** the vertices in topological order: _all directed edges should be pointing forward_
 
 ## Set Cover Problems 
 

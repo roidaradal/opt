@@ -50,6 +50,10 @@ Discrete Optimization package written in Go
   * `basic`       - Activity Selection
   * `weighted`    - Weighted Activity Selection
 
+### k_cut
+  * `min`       - Min K-Cut
+  * `max`       - Max K-Cut
+
 ### knapsack
   * `basic`       - 0-1 Knapsack
   * `quadratic`   - Quadratic Knapsack
@@ -64,11 +68,11 @@ Discrete Optimization package written in Go
   * `basic`   - Number Partition
 
 ### satisfaction
-  * `exact_cover`     - Exact Cover
-  * `langford`        - Langford Pair
-  * `magic_series`    - Magic Series
-  * `n_queens`        - N-Queens
-
+  * `exact_cover`         - Exact Cover
+  * `langford`            - Langford Pair
+  * `magic_series`        - Magic Series
+  * `n_queens`            - N-Queens
+  * `topological_sort`    - Topological Sort
 ### set_cover
   * `basic`   - Set Cover 
 

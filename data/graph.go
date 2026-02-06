@@ -26,14 +26,30 @@ type GraphColoring struct {
 	Numbers []int
 }
 
-// NewUndirectedGraph loads a Graph config
+// NewUndirectedGraph loads an undirected Graph config
 func NewUndirectedGraph(name string) *Graph {
+	return newGraph(name, false)
+}
+
+// NewDirectedGraph loads a directed Graph config
+func NewDirectedGraph(name string) *Graph {
+	return newGraph(name, true)
+}
+
+// Common steps for creating a Graph config
+func newGraph(name string, isDirected bool) *Graph {
 	data, err := load(name)
 	if err != nil {
 		return nil
 	}
+	var graph *ds.Graph
+	if isDirected {
+		graph = ds.DirectedGraphFrom(data["vertices"], data["edges"])
+	} else {
+		graph = ds.GraphFrom(data["vertices"], data["edges"])
+	}
 	return &Graph{
-		Graph:       ds.GraphFrom(data["vertices"], data["edges"]),
+		Graph:       graph,
 		K:           number.ParseInt(data["k"]),
 		EdgeWeight:  floatList(data["edgeWeight"]),
 		EdgeColor:   stringList(data["edgeColor"]),

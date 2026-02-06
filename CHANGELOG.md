@@ -1,3 +1,9 @@
+## v0.3.33 - K-Cut Problems 
+  * **Commit**: 2026-02-06 18:25
+  * problem.NewKCut
+  * fn.ConnectedComponents
+  * data.NewDirectedGraph
+  * Add `topological_sort` to Satisfaction problems
 ## v0.3.32 - Clique Problems 
   * **Commit**: 2026-02-05 21:39
   * problem.NewClique

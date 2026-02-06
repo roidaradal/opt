@@ -22,6 +22,8 @@ func NewSatisfaction(variant string, n int) *discrete.Problem {
 		return magicSeries(name, n)
 	case "n_queens":
 		return nQueens(name, n)
+	case "topological_sort":
+		return topologicalSort(name)
 	default:
 		return nil
 	}
@@ -183,4 +185,36 @@ func hasDiagonalConflict(coords ds.Coords, occupied *ds.Set[ds.Coords], n int) b
 		y, x = y+1, x+1
 	}
 	return false
+}
+
+// Topological Sort
+func topologicalSort(name string) *discrete.Problem {
+	graph := data.NewDirectedGraph(name)
+	if graph == nil {
+		return nil
+	}
+
+	p := discrete.NewProblem(name)
+	p.Type = discrete.Sequence
+	p.Goal = discrete.Satisfy
+
+	p.Variables = discrete.Variables(graph.Vertices)
+	p.AddVariableDomains(discrete.IndexDomain(len(graph.Vertices)))
+
+	p.AddUniversalConstraint(func(solution *discrete.Solution) bool {
+		past := ds.NewSet[ds.Vertex]()
+		for _, x := range fn.AsSequence(solution) {
+			vertex := graph.Vertices[x]
+			forward, hasNeighbors := graph.NeighborsOf[vertex]
+			// Fails if vertex has a forward neighbor that was already encountered previously
+			if hasNeighbors && forward.Intersection(past).NotEmpty() {
+				return false
+			}
+			past.Add(vertex)
+		}
+		return true
+	})
+
+	p.SolutionStringFn = fn.StringSequence(graph.Vertices)
+	return p
 }

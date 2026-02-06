@@ -19,6 +19,24 @@ func IsClique(graph *ds.Graph, vertices []ds.Vertex) bool {
 	return true
 }
 
+// ConnectedComponents performs BFS traversal multiple times to discover the connected components
+// of the graph, considering the active edge set, and returns the list of components
+func ConnectedComponents(graph *ds.Graph, activeEdges ds.EdgeSet) [][]ds.Vertex {
+	covered := dict.Flags(graph.Vertices, false)
+	components := make([][]ds.Vertex, 0)
+	for _, vertex := range graph.Vertices {
+		if covered[vertex] {
+			continue // skip if already covered
+		}
+		component := graph.BFSTraversal(vertex, activeEdges)
+		components = append(components, component)
+		for _, v := range component {
+			covered[v] = true
+		}
+	}
+	return components
+}
+
 // IsEulerianPath checks if edge sequence is a valid Eulerian path (visit each edge exactly once)
 // Also returns the head/tail of the sequence
 func IsEulerianPath(graph *ds.Graph, edges []ds.Edge) (bool, [2]ds.Vertex) {

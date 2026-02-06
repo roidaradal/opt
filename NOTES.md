@@ -62,6 +62,10 @@
     [x] Activity Selection
     [x] Weighted Activity Selection
     [ ] Group Interval Scheduling
+## K-Cut 
+    [x] Min K-Cut 
+    [x] Max K-Cut 
+    [ ] Vertex K-Cut
 ## Knapsack
     [x] 0-1 Knapsack
     [x] Quadratic Knapsack
@@ -84,6 +88,7 @@
     [x] Langford Pair 
     [x] Magic Series 
     [x] N-Queens
+    [x] Topological Sort
 ## Set Cover
     [x] Set Cover 
     [ ] Capacitated Set Cover

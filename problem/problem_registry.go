@@ -19,6 +19,7 @@ const (
 	GraphTour       = "graph_tour"
 	IndependentSet  = "independent_set"
 	Interval        = "interval"
+	KCut            = "k_cut"
 	Knapsack        = "knapsack"
 	MaxCoverage     = "max_coverage"
 	NumberColoring  = "number_coloring"
@@ -46,6 +47,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	GraphTour:       NewGraphTour,
 	IndependentSet:  NewIndependentSet,
 	Interval:        NewInterval,
+	KCut:            NewKCut,
 	Knapsack:        NewKnapsack,
 	MaxCoverage:     NewMaxCoverage,
 	NumberColoring:  NewNumberColoring,
