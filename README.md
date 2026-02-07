@@ -23,8 +23,8 @@ Discrete Optimization package written in Go
   * `efficient`   - Efficient Dominating Set
 
 ### edge_coloring
-* `basic`          - Edge Coloring
-* 
+  * `basic`          - Edge Coloring
+
 ### edge_cover
   * `basic`   - Edge Cover
 
@@ -45,6 +45,9 @@ Discrete Optimization package written in Go
 ### independent_set 
   * `basic`       - Independent Set 
   * `rainbow`     - Rainbow Independent Set
+
+### induced_path 
+  * `basic`     - Max Induced Path 
 
 ### interval
   * `basic`       - Activity Selection
@@ -73,6 +76,7 @@ Discrete Optimization package written in Go
   * `magic_series`        - Magic Series
   * `n_queens`            - N-Queens
   * `topological_sort`    - Topological Sort
+
 ### set_cover
   * `basic`   - Set Cover 
 

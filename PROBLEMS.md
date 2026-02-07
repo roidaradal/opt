@@ -124,6 +124,14 @@
 * Task: **Select a subset** of vertices, such that _none are connected to each other_, and _each selected vertex has a different color_
 * Goal: **Maximize** the number of selected vertices
 
+## Induced Path Problems 
+
+### Max Induced Path 
+* Input: undirected graph
+* Task: **Select a sequence** of vertices to form an induced path: _adjacent vertices in the path have an edge in the graph,
+   while non-adjacent vertices are not connected by an edge in the graph_
+* Goal: **Maximize** the length of the induced path
+
 ## Interval Problems
 
 ### Activity Selection

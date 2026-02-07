@@ -33,22 +33,26 @@ func CoreMirroredSequence[T any](items []T) discrete.SolutionCoreFn {
 
 // MirroredSequence checks the first and last items if in order; if not, mirrors the sequence
 func MirroredSequence(sequence []string) string {
+	return MirroredList(sequence, " ")
+}
+
+// MirroredList checks the first and last items if in order; if not, mirrors the list
+func MirroredList(sequence []string, separator string) string {
+	if len(sequence) == 0 {
+		return ""
+	}
 	first, last := sequence[0], list.Last(sequence, 1)
 	if cmp.Compare(first, last) == 1 {
 		slices.Reverse(sequence)
 	}
-	return strings.Join(sequence, " ")
+	return strings.Join(sequence, separator)
 }
 
 // CoreMirroredValues groups the normal and reversed list of values as one
 func CoreMirroredValues[T any](p *discrete.Problem, items []T) discrete.SolutionCoreFn {
 	return func(solution *discrete.Solution) string {
 		output := valueStrings(p, solution, items)
-		first, last := output[0], list.Last(output, 1)
-		if cmp.Compare(first, last) == 1 {
-			slices.Reverse(output)
-		}
-		return strings.Join(output, " ")
+		return MirroredList(output, " ")
 	}
 }
 

@@ -1,3 +1,7 @@
+## v0.3.34 - Induced Path Problems
+  * **Commit**: 2026-02-07 19:39
+  * problem.NewInducedPath
+  * fn.AsPathOrder
 ## v0.3.33 - K-Cut Problems 
   * **Commit**: 2026-02-06 18:25
   * problem.NewKCut

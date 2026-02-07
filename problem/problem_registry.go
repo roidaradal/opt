@@ -18,6 +18,7 @@ const (
 	GraphPartition  = "graph_partition"
 	GraphTour       = "graph_tour"
 	IndependentSet  = "independent_set"
+	InducedPath     = "induced_path"
 	Interval        = "interval"
 	KCut            = "k_cut"
 	Knapsack        = "knapsack"
@@ -46,6 +47,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	GraphPartition:  NewGraphPartition,
 	GraphTour:       NewGraphTour,
 	IndependentSet:  NewIndependentSet,
+	InducedPath:     NewInducedPath,
 	Interval:        NewInterval,
 	KCut:            NewKCut,
 	Knapsack:        NewKnapsack,

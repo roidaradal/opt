@@ -55,10 +55,6 @@ func completeColoring(name string) *discrete.Problem {
 
 	p.Goal = discrete.Maximize
 	p.AddUniversalConstraint(func(solution *discrete.Solution) bool {
-		//colors := ds.SetFrom(solution.Values()).Items()
-		//if len(colors) < 2 {
-		//	return false
-		//}
 		color := solution.Map
 		count := make(map[[2]int]int) // ColorPair => Count
 		for _, pair := range comb.Combinations(p.UniformDomain(), 2) {

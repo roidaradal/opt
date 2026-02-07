@@ -58,6 +58,10 @@
     [x] Independent Set
     [x] Rainbow  Independent Set
     [ ] Weighted Independent Set
+## Induced Path 
+    [x] Max Induced Path 
+    [ ] Max Weight Induced Path 
+    [ ] K-Induced Path
 ## Interval
     [x] Activity Selection
     [x] Weighted Activity Selection

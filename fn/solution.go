@@ -1,6 +1,8 @@
 package fn
 
 import (
+	"slices"
+
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/fn/number"
 	"github.com/roidaradal/fn/str"
@@ -43,6 +45,19 @@ func AsSubset(solution *discrete.Solution) []discrete.Variable {
 		}
 	}
 	return subset
+}
+
+// AsPathOrder returns path index order formed by solution values
+func AsPathOrder(solution *discrete.Solution) []discrete.Variable {
+	length := slices.Max(solution.Values()) + 1
+	path := make([]discrete.Variable, length)
+	for idx, order := range solution.Map {
+		if order < 0 {
+			continue
+		}
+		path[order] = idx
+	}
+	return path
 }
 
 // PartitionStrings returns the partition as a list of strings
