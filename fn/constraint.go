@@ -3,6 +3,7 @@ package fn
 import (
 	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
+	"github.com/roidaradal/opt/data"
 	"github.com/roidaradal/opt/discrete"
 )
 
@@ -27,5 +28,27 @@ func ConstraintProperVertexColoring(graph *ds.Graph) discrete.ConstraintFn {
 func ConstraintRainbowColoring(colors []string) discrete.ConstraintFn {
 	return func(solution *discrete.Solution) bool {
 		return list.AllUnique(list.MapList(AsSubset(solution), colors))
+	}
+}
+
+// ConstraintSimplePath makes sure solution forms a valid simple path (no repeated vertices)
+func ConstraintSimplePath(cfg *data.GraphPath) discrete.ConstraintFn {
+	return func(solution *discrete.Solution) bool {
+		path := AsGraphPath(solution, cfg)
+		prev := path[0]
+
+		visited := ds.NewSet[int]()
+		visited.Add(prev)
+		for _, curr := range path[1:] {
+			if visited.Has(curr) {
+				return false // repeated vertex = not simple path
+			}
+			if cfg.Distance[prev][curr] == discrete.Inf {
+				return false // no edge from prev -> curr
+			}
+			visited.Add(curr)
+			prev = curr
+		}
+		return true
 	}
 }

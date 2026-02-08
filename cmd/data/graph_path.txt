@@ -1,0 +1,119 @@
+longest.1 {
+    start       : A
+    end         : F
+    vertices    :   A   B   C   D   E   F
+    distance    : [
+            A       0   4   2   x   x   x
+            B       x   0   5   10  x   x
+            C       x   x   0   x   3   x
+            D       x   x   x   0   x   11
+            E       x   x   x   4   0   x
+            F       x   x   x   x   x   0
+    ]
+}
+longest.2 {
+    start       : A
+    end         : F
+    vertices    :   A   B   C   D   E   F
+    distance    : [
+            A       0   4   2   x   x   x
+            B       4   0   1   5   x   x
+            C       2   1   0   8   10  x
+            D       x   5   8   0   2   8
+            E       x   x   10  2   0   5
+            F       x   x   x   8   5   0
+    ]
+}
+longest.3 {
+    start       : S
+    end         : F
+    vertices    :   S   A   B   C   D   F
+    distance    : [
+            S       0   6   x   7   x   x
+            A       x   0   4   3   x   x
+            B       x   x   0   x   3   10
+            C       x   x   x   0   4   x
+            D       x   x   x   x   0   10
+            F       x   x   x   x   x   0
+    ]
+}
+minimax.1 {
+    start       : M
+    end         : D
+    vertices    :   M   F   T   C   B   H   D
+    distance    : [
+            M       0   11  8   40  x   x   x
+            F       11  0   3   x   46  x   x
+            T       8   3   0   29  x   31  x
+            C       40  x   29  0   x   17  x
+            B       x   46  x   x   0   40  15
+            H       x   x   31  17  40  0   53
+            D       x   x   x   x   15  53  0
+    ]
+}
+minimax.2 {
+    start       : 1
+    end         : 6
+    vertices    :   1   2   3   4   5   6
+    distance    : [
+            1       0   10  26  x   x   x
+            2       10  0   40  25  x   x
+            3       26  40  0   16  30  x
+            4       x   25  16  0   24  12
+            5       x   x   30  24  0   35
+            6       x   x   x   12  35  0
+    ]
+}
+shortest.1 {
+    start       : A
+    end         : F
+    vertices    :   A   B   C   D   E   F
+    distance    : [
+            A       0   4   2   x   x   x
+            B       x   0   5   10  x   x
+            C       x   x   0   x   3   x
+            D       x   x   x   0   x   11
+            E       x   x   x   4   0   x
+            F       x   x   x   x   x   0
+    ]
+}
+shortest.2 {
+    start       : A
+    end         : F
+    vertices    :   A   B   C   D   E   F
+    distance    : [
+            A       0   4   2   x   x   x
+            B       4   0   1   5   x   x
+            C       2   1   0   8   10  x
+            D       x   5   8   0   2   8
+            E       x   x   10  2   0   5
+            F       x   x   x   8   5   0
+    ]
+}
+widest.1 {
+    start       : M
+    end         : F
+    vertices    :   M   F   T   C   B   H   D
+    distance    : [
+            M       0   11  8   40  x   x   x
+            F       11  0   3   x   46  x   x
+            T       8   3   0   29  x   31  x
+            C       40  x   29  0   x   17  x
+            B       x   46  x   x   0   40  15
+            H       x   x   31  17  40  0   53
+            D       x   x   x   x   15  53  0
+    ]
+}
+widest.2 {
+    start       : 1
+    end         : 6
+    vertices    :   1   2   3   4   5   6
+    distance    : [
+            1       0   10  26  x   x   x
+            2       10  0   40  25  x   x
+            3       26  40  0   16  30  x
+            4       x   25  16  0   24  12
+            5       x   x   30  24  0   35
+            6       x   x   x   12  35  0
+    ]
+}

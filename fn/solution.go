@@ -6,6 +6,7 @@ import (
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/fn/number"
 	"github.com/roidaradal/fn/str"
+	"github.com/roidaradal/opt/data"
 	"github.com/roidaradal/opt/discrete"
 )
 
@@ -45,6 +46,21 @@ func AsSubset(solution *discrete.Solution) []discrete.Variable {
 		}
 	}
 	return subset
+}
+
+// AsGraphPath returns path formed by solution values (with start, end)
+func AsGraphPath(solution *discrete.Solution, cfg *data.GraphPath) []int {
+	length := slices.Max(solution.Values()) + 1
+	path := make([]int, length+1) // add 1 space for end vertex
+	for variable, idx := range solution.Map {
+		if idx < 0 {
+			continue
+		}
+		path[idx] = cfg.OriginalIndex[variable]
+	}
+	path[length] = cfg.End
+	path = append([]int{cfg.Start}, path...)
+	return path
 }
 
 // AsPathOrder returns path index order formed by solution values

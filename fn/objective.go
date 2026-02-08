@@ -3,6 +3,7 @@ package fn
 import (
 	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
+	"github.com/roidaradal/opt/data"
 	"github.com/roidaradal/opt/discrete"
 )
 
@@ -24,5 +25,12 @@ func ScoreSumWeightedValues(variables []discrete.Variable, weight []float64) dis
 		return list.Sum(list.Map(variables, func(x discrete.Variable) discrete.Score {
 			return float64(count[x]) * weight[x]
 		}))
+	}
+}
+
+// ScorePathCost sums up the path cost
+func ScorePathCost(cfg *data.GraphPath) discrete.ObjectiveFn {
+	return func(solution *discrete.Solution) discrete.Score {
+		return list.Sum(PathDistances(solution, cfg))
 	}
 }

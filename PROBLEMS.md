@@ -94,6 +94,28 @@
 * Task: **Partition** the vertices up to _N groups_, such that each _group size is at least the minimum partition size_
 * Goal: **Minimize** the sum of the weights of _crossing edges_ (v1 and v2 of edge belong in different groups)
 
+## Graph Path Problems 
+
+### Longest Path 
+* Input: list of vertices, start and end vertex, and vertex distance matrix
+* Task: **Create a path** from start to end vertex, where no vertex is visited twice
+* Goal: **Maximize** the sum of edge distances in the path
+
+### Shortest Path
+* Input: list of vertices, start and end vertex, and vertex distance matrix
+* Task: **Create a path** from start to end vertex, where no vertex is visited twice
+* Goal: **Minimize** the sum of edge distances in the path
+
+### Minimax Path
+* Input: list of vertices, start and end vertex, and vertex distance matrix
+* Task: **Create a path** from start to end vertex, where no vertex is visited twice
+* Goal: **Minimize** the max-weight edge in the path
+
+### Widest Path
+* Input: list of vertices, start and end vertex, and vertex distance matrix
+* Task: **Create a path** from start to end vertex, where no vertex is visited twice
+* Goal: **Maximize** the min-weight edge in the path
+
 ## Graph Tour Problems 
 
 ### Eulerian Path 

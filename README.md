@@ -36,6 +36,12 @@ Discrete Optimization package written in Go
 ### graph_partition 
   * `basic`   - Graph Partition
 
+### graph_path
+  * `longest`   - Longest Path 
+  * `minimax`   - Minimax Path 
+  * `shortest`  - Shortest Path 
+  * `widest`    - Widest Path
+
 ### graph_tour
   * `euler_path`        - Eulerian Path
   * `euler_cycle`       - Eulerian Cycle 
@@ -53,7 +59,7 @@ Discrete Optimization package written in Go
   * `basic`       - Activity Selection
   * `weighted`    - Weighted Activity Selection
 
-## k_center 
+### k_center 
   * `basic`     - K-Center
 
 ### k_cut

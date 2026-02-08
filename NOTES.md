@@ -43,17 +43,22 @@
     [ ] Max Cardinality Min/Max Weight Matching (Tie-breaker)
     [ ] Max Cardinality Perfect Matching 
     [ ] Max Weight Perfect Matching
+## Graph Partition
+    [x] Graph Partition 
+    [ ] Balanced Graph Partition
+    [ ] Min Cut
+    [ ] Max Cut
+## Graph Path 
+    [x] Longest Path 
+    [x] Minimax Path 
+    [x] Shortest Path 
+    [x] Widest Path
 ## Graph Tour
     [x] Eulerian Path 
     [x] Eulerian Cycle 
     [x] Hamiltonian Path 
     [x] Hamiltonian Cycle 
     [ ] Chinese Postman
-## Graph Partition
-    [x] Graph Partition 
-    [ ] Balanced Graph Partition
-    [ ] Min Cut
-    [ ] Max Cut
 ## Independent Set 
     [x] Independent Set
     [x] Rainbow  Independent Set

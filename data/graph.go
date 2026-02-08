@@ -1,6 +1,8 @@
 package data
 
 import (
+	"slices"
+
 	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/number"
 )
@@ -24,6 +26,15 @@ type GraphColoring struct {
 	*ds.Graph
 	Colors  []string
 	Numbers []int
+}
+
+type GraphPath struct {
+	Start         int         // index of start vertex in vertices list
+	End           int         // index of end vertex in vertices list
+	OriginalIndex map[int]int // map VariableIndex => OriginalIndex
+	Vertices      []ds.Vertex
+	Between       []ds.Vertex // list of vertices that are not start, end
+	Distance      [][]float64
 }
 
 // NewUndirectedGraph loads an undirected Graph config
@@ -82,6 +93,40 @@ func NewGraphColoring(name string) *GraphColoring {
 		Colors:  stringList(data["colors"]),
 		Numbers: intList(data["numbers"]),
 	}
+}
+
+// NewGraphPath loads a GraphPath config
+func NewGraphPath(name string) *GraphPath {
+	data, err := load(name)
+	if err != nil {
+		return nil
+	}
+	cfg := &GraphPath{
+		Vertices:      stringList(data["vertices"]),
+		OriginalIndex: make(map[int]int),
+	}
+	numVertices := len(cfg.Vertices)
+	start, end := data["start"], data["end"]
+	if !slices.Contains(cfg.Vertices, start) || !slices.Contains(cfg.Vertices, end) {
+		return nil
+	}
+	cfg.Start = slices.Index(cfg.Vertices, start)
+	cfg.End = slices.Index(cfg.Vertices, end)
+	cfg.Distance = make([][]float64, numVertices)
+	for i, line := range parseList(data["distance"]) {
+		cfg.Distance[i] = matrixRow(line, true)
+	}
+	cfg.Between = make([]ds.Vertex, 0, numVertices-2)
+	betweenIdx := 0
+	for i, vertex := range cfg.Vertices {
+		if i == cfg.Start || i == cfg.End {
+			continue
+		}
+		cfg.Between = append(cfg.Between, vertex)
+		cfg.OriginalIndex[betweenIdx] = i
+		betweenIdx += 1
+	}
+	return cfg
 }
 
 type GraphVariablesFn = func(*ds.Graph) []string

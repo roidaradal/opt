@@ -8,9 +8,11 @@ import (
 
 	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/io"
+	"github.com/roidaradal/fn/lang"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/fn/number"
 	"github.com/roidaradal/fn/str"
+	"github.com/roidaradal/opt/discrete"
 )
 
 // Keeps the read test cases in cache
@@ -112,6 +114,20 @@ func intList(line string) []int {
 // Transform line into list of floats, separated by space
 func floatList(line string) []float64 {
 	return list.Map(strings.Fields(line), number.ParseFloat)
+}
+
+// Transform line into list of floats, separated by space, optionally removing the first part
+func matrixRow(line string, removeFirst bool) []float64 {
+	start := lang.Ternary(removeFirst, 1, 0)
+	return list.Map(strings.Fields(line)[start:], parseFloatInf)
+}
+
+// Parse the float value or inf (if 'x')
+func parseFloatInf(x string) float64 {
+	if strings.ToLower(x) == "x" {
+		return discrete.Inf
+	}
+	return number.ParseFloat(x)
 }
 
 // Parse the list value into list of strings

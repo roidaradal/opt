@@ -4,6 +4,8 @@ import (
 	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
+	"github.com/roidaradal/opt/data"
+	"github.com/roidaradal/opt/discrete"
 )
 
 // IsClique checks if a list of vertices forms a clique in the graph
@@ -97,4 +99,16 @@ func IsHamiltonianPath(graph *ds.Graph, vertices []ds.Vertex) bool {
 	}
 	// Check all vertices visited exactly once
 	return list.AllEqual(dict.Values(visitCount), 1)
+}
+
+// PathDistances returns the distance values of the edges in the path
+func PathDistances(solution *discrete.Solution, cfg *data.GraphPath) []float64 {
+	distances := make([]float64, 0)
+	path := AsGraphPath(solution, cfg)
+	prev := path[0]
+	for _, curr := range path[1:] {
+		distances = append(distances, cfg.Distance[prev][curr])
+		prev = curr
+	}
+	return distances
 }

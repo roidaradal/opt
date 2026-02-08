@@ -8,6 +8,7 @@ import (
 	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/fn/str"
+	"github.com/roidaradal/opt/data"
 	"github.com/roidaradal/opt/discrete"
 )
 
@@ -42,6 +43,14 @@ func StringValues[T any](p *discrete.Problem, items []T) discrete.SolutionString
 	return func(solution *discrete.Solution) string {
 		output := valueStrings(p, solution, items)
 		return strings.Join(output, " ")
+	}
+}
+
+// StringGraphPath displays the path sequence of vertices
+func StringGraphPath(cfg *data.GraphPath) discrete.SolutionStringFn {
+	return func(solution *discrete.Solution) string {
+		path := AsGraphPath(solution, cfg)
+		return strings.Join(list.MapList(path, cfg.Vertices), "-")
 	}
 }
 

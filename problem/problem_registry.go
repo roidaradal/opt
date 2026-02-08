@@ -16,6 +16,7 @@ const (
 	EdgeCover       = "edge_cover"
 	GraphMatching   = "graph_matching"
 	GraphPartition  = "graph_partition"
+	GraphPath       = "graph_path"
 	GraphTour       = "graph_tour"
 	IndependentSet  = "independent_set"
 	InducedPath     = "induced_path"
@@ -46,6 +47,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	EdgeCover:       NewEdgeCover,
 	GraphMatching:   NewGraphMatching,
 	GraphPartition:  NewGraphPartition,
+	GraphPath:       NewGraphPath,
 	GraphTour:       NewGraphTour,
 	IndependentSet:  NewIndependentSet,
 	InducedPath:     NewInducedPath,
