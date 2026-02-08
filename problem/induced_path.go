@@ -71,8 +71,8 @@ func newInducedPathProblem(name string) (*discrete.Problem, *data.Graph) {
 
 // Max Induced Path
 func maxInducedPath(name string) *discrete.Problem {
-	p, graph := newInducedPathProblem(name)
-	if p == nil || graph == nil {
+	p, _ := newInducedPathProblem(name)
+	if p == nil {
 		return nil
 	}
 

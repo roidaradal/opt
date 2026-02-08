@@ -20,6 +20,7 @@ const (
 	IndependentSet  = "independent_set"
 	InducedPath     = "induced_path"
 	Interval        = "interval"
+	KCenter         = "k_center"
 	KCut            = "k_cut"
 	Knapsack        = "knapsack"
 	MaxCoverage     = "max_coverage"
@@ -49,6 +50,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	IndependentSet:  NewIndependentSet,
 	InducedPath:     NewInducedPath,
 	Interval:        NewInterval,
+	KCenter:         NewKCenter,
 	KCut:            NewKCut,
 	Knapsack:        NewKnapsack,
 	MaxCoverage:     NewMaxCoverage,

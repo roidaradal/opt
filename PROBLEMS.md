@@ -151,6 +151,13 @@
 * Task: **Select a subset** of _non-overlapping_ activities
 * Goal: **Maximize** the sum of weights of selected activities
 
+## K-Center Problems 
+
+### K-Center 
+* Input: undirected graph, with edge weights, and integer K
+* Task: **Select a subset** of vertices that will act as the _centers_
+* Goal: **Minimize** the maximum shortest distance of any vertex to the selected centers
+
 ## K-Cut Problems
 
 ### Min K-Cut

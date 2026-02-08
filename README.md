@@ -53,6 +53,9 @@ Discrete Optimization package written in Go
   * `basic`       - Activity Selection
   * `weighted`    - Weighted Activity Selection
 
+## k_center 
+  * `basic`     - K-Center
+
 ### k_cut
   * `min`       - Min K-Cut
   * `max`       - Max K-Cut

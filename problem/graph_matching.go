@@ -87,10 +87,8 @@ func rainbowMatching(name string) *discrete.Problem {
 		return nil
 	}
 
-	p.AddUniversalConstraint(func(solution *discrete.Solution) bool {
-		// Check that selected edges have different colors
-		return list.AllUnique(list.MapList(fn.AsSubset(solution), graph.EdgeColor))
-	})
+	// Check that selected edges have different colors
+	p.AddUniversalConstraint(fn.ConstraintRainbowColoring(graph.EdgeColor))
 	p.ObjectiveFn = fn.ScoreSubsetSize
 	return p
 }

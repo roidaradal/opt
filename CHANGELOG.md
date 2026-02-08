@@ -1,3 +1,6 @@
+## v0.3.35 - K-Center Problems 
+  * **Commit**: 2026-02-08 16:04
+  * problem.NewKCenter
 ## v0.3.34 - Induced Path Problems
   * **Commit**: 2026-02-07 19:39
   * problem.NewInducedPath

@@ -22,3 +22,10 @@ func ConstraintProperVertexColoring(graph *ds.Graph) discrete.ConstraintFn {
 		})
 	}
 }
+
+// ConstraintRainbowColoring makes sure all chosen items have different colors
+func ConstraintRainbowColoring(colors []string) discrete.ConstraintFn {
+	return func(solution *discrete.Solution) bool {
+		return list.AllUnique(list.MapList(AsSubset(solution), colors))
+	}
+}

@@ -66,6 +66,12 @@
     [x] Activity Selection
     [x] Weighted Activity Selection
     [ ] Group Interval Scheduling
+## K-Center 
+    [x] K-Center 
+    [ ] Weighted K-Center 
+    [ ] Capacitated K-Center 
+    [ ] Fault Tolerant K-Center 
+    [ ] Lower-Bounded K-Center
 ## K-Cut 
     [x] Min K-Cut 
     [x] Max K-Cut 

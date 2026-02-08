@@ -63,10 +63,7 @@ func rainbowIndependentSet(name string) *discrete.Problem {
 		return nil
 	}
 
-	p.AddUniversalConstraint(func(solution *discrete.Solution) bool {
-		// Check that vertices have different colors
-		colors := list.MapList(fn.AsSubset(solution), graph.VertexColor)
-		return list.AllUnique(colors)
-	})
+	// Check vertices have different colors
+	p.AddUniversalConstraint(fn.ConstraintRainbowColoring(graph.VertexColor))
 	return p
 }

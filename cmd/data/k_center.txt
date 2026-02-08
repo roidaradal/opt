@@ -1,0 +1,12 @@
+basic.1 {
+    k           : 2
+    vertices    : 0 1 2 3
+    edges       : 0-1 0-2 0-3 1-2 1-3 2-3
+    edgeWeight  : 12  7   6   10  7   9
+}
+basic.2 {
+    k           : 2
+    vertices    : 0 1 2 3
+    edges       : 0-1 0-2 0-3 1-2 1-3 2-3
+    edgeWeight  : 10  30  50  20  40  20
+}
