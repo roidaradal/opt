@@ -13,6 +13,7 @@ type Graph struct {
 	EdgeWeight  []float64
 	EdgeColor   []string
 	VertexColor []string
+	Terminals   []string
 }
 
 type GraphPartition struct {
@@ -65,6 +66,7 @@ func newGraph(name string, isDirected bool) *Graph {
 		EdgeWeight:  floatList(data["edgeWeight"]),
 		EdgeColor:   stringList(data["edgeColor"]),
 		VertexColor: stringList(data["vertexColor"]),
+		Terminals:   stringList(data["terminals"]),
 	}
 }
 
@@ -131,6 +133,8 @@ func NewGraphPath(name string) *GraphPath {
 
 type GraphVariablesFn = func(*ds.Graph) []string
 
+type GraphSpanFn = func(*Graph) []string
+
 type GraphColorsFn[T any] = func(*GraphColoring) []T
 
 // GraphVertices returns graph vertices
@@ -151,4 +155,14 @@ func GraphColors(cfg *GraphColoring) []string {
 // GraphNumbers returns numbers as graph colors
 func GraphNumbers(cfg *GraphColoring) []int {
 	return cfg.Numbers
+}
+
+// SpanVertices returns graph vertices
+func SpanVertices(graph *Graph) []string {
+	return graph.Vertices
+}
+
+// SpanTerminals returns graph terminals
+func SpanTerminals(graph *Graph) []string {
+	return graph.Terminals
 }

@@ -132,3 +132,20 @@ func newNumbersSubsetProblem(name string) (*discrete.Problem, *data.Numbers) {
 	p.SolutionStringFn = fn.StringSubset(cfg.Numbers)
 	return p, cfg
 }
+
+// Common steps for creating Spanning Tree problem
+func newSpanningTreeProblem(name string, spanFn data.GraphSpanFn) (*discrete.Problem, *data.Graph) {
+	p, graph := newGraphSubsetProblem(name, data.GraphEdges)
+	if p == nil || graph == nil {
+		return nil, nil
+	}
+
+	vertices := spanFn(graph)
+	// Constraint: all vertices are spanned
+	p.AddUniversalConstraint(fn.ConstraintAllVerticesCovered(graph.Graph, vertices))
+	// Constraint: solution forms tree and all vertices are reachable from tree traversal
+	p.AddUniversalConstraint(fn.ConstraintSpanningTree(graph.Graph, vertices))
+
+	p.Goal = discrete.Minimize
+	return p, graph
+}

@@ -307,6 +307,13 @@
 * Task: **Select a subset** of edges to form a k-spanning tree: _k vertices are reachable and the tree is connected_
 * Goal: **Minimize** the sum of edge weights
 
+## Steiner Tree Problems 
+
+### Steiner Tree 
+* Input: undirected graph, with edge weights, and list of terminal vertices 
+* Task: **Select a susbet** of edges to form a steiner tree: _all terminal vertices are reachable and the tree is connected_
+* Goal: **Minimize** the sum of edge weights
+
 ## Subsequence Problems
 
 ### Longest Increasing Subsequence 

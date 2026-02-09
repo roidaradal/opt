@@ -25,25 +25,9 @@ func NewSpanningTree(variant string, n int) *discrete.Problem {
 	}
 }
 
-// Common steps for creating Spanning Tree problem
-func newSpanningTreeProblem(name string) (*discrete.Problem, *data.Graph) {
-	p, graph := newGraphSubsetProblem(name, data.GraphEdges)
-	if p == nil || graph == nil {
-		return nil, nil
-	}
-
-	// Constraint: all vertices are spanned
-	p.AddUniversalConstraint(fn.ConstraintAllVerticesCovered(graph.Graph, graph.Vertices))
-	// Constraint: solution forms tree and all vertices are reachable from tree traversal
-	p.AddUniversalConstraint(fn.ConstraintSpanningTree(graph.Graph, graph.Vertices))
-
-	p.Goal = discrete.Minimize
-	return p, graph
-}
-
 // Minimum Spanning Tree
 func minimumSpanningTree(name string) *discrete.Problem {
-	p, graph := newSpanningTreeProblem(name)
+	p, graph := newSpanningTreeProblem(name, data.SpanVertices)
 	if p == nil || graph == nil {
 		return nil
 	}
@@ -56,7 +40,7 @@ func minimumSpanningTree(name string) *discrete.Problem {
 
 // Min-Degree Spanning Tree
 func minDegreeSpanningTree(name string) *discrete.Problem {
-	p, graph := newSpanningTreeProblem(name)
+	p, graph := newSpanningTreeProblem(name, data.SpanVertices)
 	if p == nil || graph == nil {
 		return nil
 	}
@@ -76,7 +60,7 @@ func minDegreeSpanningTree(name string) *discrete.Problem {
 
 // K-Minimum Spanning Tree
 func kMinimumSpanningTree(name string) *discrete.Problem {
-	p, graph := newSpanningTreeProblem(name)
+	p, graph := newSpanningTreeProblem(name, data.SpanVertices)
 	if p == nil || graph == nil || graph.K == 0 {
 		return nil
 	}

@@ -1,3 +1,6 @@
+## v0.3.38 - Steiner Tree Problems
+  * **Commit**: 2026-02-09 22:09
+  * problem.NewSteinerTree
 ## v0.3.37 - Spanning Tree Problems 
   * **Commit**: 2026-02-09 21:08
   * problem.NewSpanningTree

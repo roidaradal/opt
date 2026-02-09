@@ -100,6 +100,9 @@ Discrete Optimization package written in Go
   * `mdst` - Min-Degree Spanning Tree
   * `kmst` - K-Minimum Spanning Tree
 
+### steiner_tree
+  * `basic` - Steiner Tree
+
 ### subsequence
   * `increasing`  - Longest Increasing Subsequence
   * `alternating` - Longest Alternating Subsequence

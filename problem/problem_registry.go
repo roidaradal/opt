@@ -32,6 +32,7 @@ const (
 	SetPacking      = "set_packing"
 	SetSplitting    = "set_splitting"
 	SpanningTree    = "spanning_tree"
+	SteinerTree     = "steiner_tree"
 	Subsequence     = "subsequence"
 	SubsetSum       = "subset_sum"
 	VertexColoring  = "verttex_coloring"
@@ -64,6 +65,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	SetPacking:      NewSetPacking,
 	SetSplitting:    NewSetSplitting,
 	SpanningTree:    NewSpanningTree,
+	SteinerTree:     NewSteinerTree,
 	Subsequence:     NewSubsequence,
 	SubsetSum:       NewSubsetSum,
 	VertexColoring:  NewVertexColoring,
