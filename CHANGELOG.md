@@ -1,3 +1,8 @@
+## v0.3.37 - Spanning Tree Problems 
+  * **Commit**: 2026-02-09 21:08
+  * problem.NewSpanningTree
+  * fn.ConstraintSpanningTree
+  * fn.SpannedVertices
 ## v0.3.36 - Graph Path Problems 
   * **Commit**: 2026-02-08 20:55
   * problem.NewGraphPath

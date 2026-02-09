@@ -1,0 +1,40 @@
+mst.1 {
+    vertices    : A B C D E F G H
+    edges       : A-B A-C A-E A-H B-C C-D C-F E-H F-G F-H
+    edgeWeight  : 6   5   14  8   12  9   7   3   15  10
+}
+mst.2 {
+    vertices    : A B C D
+    edges       : A-B A-C A-D B-D C-D
+    edgeWeight  : 1   4   3   2   5
+}
+mst.3 {
+    vertices    : A B C D E F
+    edges       : A-B A-C A-D B-C B-D C-D C-F D-F E-F
+    edgeWeight  : 4   1   3   4   4   2   4   6   5
+}
+mst.4 {
+    vertices    : A B C D E
+    edges       : A-B A-C B-C B-D B-E C-E D-E
+    edgeWeight  : 1   7   5   4   3   6   2
+}
+mdst.1 {
+    vertices    : A B C D E F G H I J K
+    edges       : A-B A-C A-E B-C B-D C-D C-F D-E E-F E-I F-G F-H G-H H-I I-J I-K J-K
+}
+mdst.2 {
+    vertices    : A B C D E F G H I J X
+    edges       : A-B A-X B-X C-D C-X D-X E-F E-X F-X G-H G-X H-X I-J I-X J-X
+}
+kmst.1 {
+    vertices    : A B C D E F G H I
+    edges       : A-B A-E A-F B-C B-F C-D C-F C-H D-I E-G F-G G-H H-I
+    edgeWeight  : 5   3   1   7   4   3   1   2   2   3   3   4   2
+    k           : 4
+}
+kmst.2 {
+    vertices    : A B C D E F G H I
+    edges       : A-B A-E A-F B-C B-F C-D C-F C-H D-I E-G F-G G-H H-I
+    edgeWeight  : 5   3   1   7   4   3   1   2   2   3   3   4   2
+    k           : 6
+}

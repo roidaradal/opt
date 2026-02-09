@@ -1,6 +1,7 @@
 package fn
 
 import (
+	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/opt/data"
@@ -21,6 +22,34 @@ func ConstraintProperVertexColoring(graph *ds.Graph) discrete.ConstraintFn {
 			x1, x2 := graph.IndexOf[edge[0]], graph.IndexOf[edge[1]]
 			return color[x1] != color[x2]
 		})
+	}
+}
+
+// ConstraintAllVerticesCovered makes sure all vertices are covered at least once
+func ConstraintAllVerticesCovered(graph *ds.Graph, vertices []ds.Vertex) discrete.ConstraintFn {
+	return func(solution *discrete.Solution) bool {
+		// Go through all edges formed by the subset solution
+		// Mark the 2 vertices as covered
+		covered := dict.Flags(vertices, false)
+		for _, x := range AsSubset(solution) {
+			v1, v2 := graph.Edges[x].Tuple()
+			covered[v1] = true
+			covered[v2] = true
+		}
+		return list.AllTrue(dict.Values(covered))
+	}
+}
+
+// ConstraintSpanningTree checks if the solution forms a tree, and all vertices are reachable from tree traversal
+func ConstraintSpanningTree(graph *ds.Graph, vertices []ds.Vertex) discrete.ConstraintFn {
+	return func(solution *discrete.Solution) bool {
+		reachable := SpannedVertices(solution, graph)
+		if reachable == nil {
+			return false
+		}
+		vertexSet := ds.SetFrom(vertices)
+		// Check all vertices are reachable
+		return vertexSet.Difference(reachable).IsEmpty()
 	}
 }
 

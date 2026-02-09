@@ -95,6 +95,11 @@ Discrete Optimization package written in Go
 ### set_splitting
   * `basic`   - Set Splitting
 
+### spanning_tree
+  * `mst`  - Minimum Spanning Tree
+  * `mdst` - Min-Degree Spanning Tree
+  * `kmst` - K-Minimum Spanning Tree
+
 ### subsequence
   * `increasing`  - Longest Increasing Subsequence
   * `alternating` - Longest Alternating Subsequence

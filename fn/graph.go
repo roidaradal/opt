@@ -112,3 +112,17 @@ func PathDistances(solution *discrete.Solution, cfg *data.GraphPath) []float64 {
 	}
 	return distances
 }
+
+// SpannedVertices returns the vertices spanned by the tree formed by the given edges
+func SpannedVertices(solution *discrete.Solution, graph *ds.Graph) *ds.Set[ds.Vertex] {
+	// Get edges from subset solution
+	edges := list.MapList(AsSubset(solution), graph.Edges)
+	if len(edges) == 0 {
+		return nil
+	}
+	activeEdges := ds.SetFrom(edges)
+	start := edges[0][0] // first vertex from first edge
+	// Perform BFS traversal starting from start vertex
+	// using only edges from the spanning tree
+	return ds.SetFrom(graph.BFSTraversal(start, activeEdges))
+}

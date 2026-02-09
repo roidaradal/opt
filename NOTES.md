@@ -114,6 +114,10 @@
 ## Set Splitting
     [x] Set Splitting
     [ ] Weighted Set Splitting
+## Spanning Tree
+    [x] Minimum Spanning Tree 
+    [x] Min-Degree Spanning Tree
+    [x] K-Minimum Spanning Tree
 ## Subsequence
     [x] Longest Increasing 
     [x] Longest Alternating 

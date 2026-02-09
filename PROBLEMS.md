@@ -290,6 +290,23 @@
 * Task: **Split** the items into _two groups_
 * Goal: **Maximize** the number of subsets that are split by the partition (subset has items in both groups)
 
+## Spanning Tree Problems
+
+### Minimum Spanning Tree
+* Input: undirected graph, with edge weights
+* Task: **Select a subset** of edges to form a spanning tree: _all vertices are reachable and the tree is connected_
+* Goal: **Minimize** the sum of edge weights
+
+### Min-Degree Spanning Tree
+* Input: undirected graph
+* Task: **Select a subset** of edges to form a spanning tree: _all vertices are reachable and the tree is connected_
+* Goal: **Minimize** the max-degree vertex from the spanning tree
+
+### K-Minimum Spanning Tree
+* Input: undirected graph, with edge weights, and integer K
+* Task: **Select a subset** of edges to form a k-spanning tree: _k vertices are reachable and the tree is connected_
+* Goal: **Minimize** the sum of edge weights
+
 ## Subsequence Problems
 
 ### Longest Increasing Subsequence 
