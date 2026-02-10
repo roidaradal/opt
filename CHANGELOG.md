@@ -1,3 +1,7 @@
+## v0.3.39 - Traveling Salesman Problems 
+  * **Commit**: 2026-02-10 21:07
+  * problem.NewTravelingSalesman
+  * data.NewGraphTour 
 ## v0.3.38 - Steiner Tree Problems
   * **Commit**: 2026-02-09 22:09
   * problem.NewSteinerTree

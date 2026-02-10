@@ -131,6 +131,22 @@ func NewGraphPath(name string) *GraphPath {
 	return cfg
 }
 
+// NewGraphTour loads a GraphPath config with only vertices and distance matrix
+func NewGraphTour(name string) *GraphPath {
+	data, err := load(name)
+	if err != nil {
+		return nil
+	}
+	cfg := &GraphPath{
+		Vertices: stringList(data["vertices"]),
+	}
+	cfg.Distance = make([][]float64, len(cfg.Vertices))
+	for i, line := range parseList(data["distance"]) {
+		cfg.Distance[i] = matrixRow(line, true)
+	}
+	return cfg
+}
+
 type GraphVariablesFn = func(*ds.Graph) []string
 
 type GraphSpanFn = func(*Graph) []string

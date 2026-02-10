@@ -335,6 +335,18 @@
 * Task: **Select a subset** of the numbers such that their sum == N (satisfaction) or does not exceed N (optimization)
 * Goal: If optimization, **minimize** the difference between N and the sum of the selected numbers
 
+## Traveling Salesman Problems
+
+### Traveling Salesman
+* Input: graph with a distance matrix
+* Task: **Create a sequence** for the vertices: a _path that visits all vertices and returns to where it started_
+* Goal: **Minimize** the total path weight
+
+### Bottleneck Traveling Salesman 
+* Input: graph with a distance matrix
+* Task: **Create a sequence** for the vertices: a _path that visits all vertices and returns to where it started_
+* Goal: **Minimize** the maximum edge weight in the path 
+
 ## Vertex Coloring Problems
 
 ### Vertex Coloring 

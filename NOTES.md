@@ -130,6 +130,13 @@
 ## Subset Sum 
     [x] Subset Sum
     [ ] Multiple Subset Sum
+## Traveling Salesman 
+    [x] Traveling Salesman 
+    [x] Bottleneck Traveling Salesman 
+    [ ] Generalized Traveling Salesman
+    [ ] Time Windows Traveling Salesman
+    [ ] Max Scatter Traveling Salesman
+    [ ] Traveling Repairman
 ## Vertex Coloring
     [x] Vertex Coloring 
     [x] Complete Coloring 

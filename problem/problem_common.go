@@ -149,3 +149,15 @@ func newSpanningTreeProblem(name string, spanFn data.GraphSpanFn) (*discrete.Pro
 	p.Goal = discrete.Minimize
 	return p, graph
 }
+
+// Common steps for edge-weighted problems
+func edgeWeightedProblem(p *discrete.Problem, graph *data.Graph) *discrete.Problem {
+	if p == nil || graph == nil {
+		return nil
+	}
+	if len(graph.Edges) != len(graph.EdgeWeight) {
+		return nil
+	}
+	p.ObjectiveFn = fn.ScoreSumWeightedValues(p.Variables, graph.EdgeWeight)
+	return p
+}

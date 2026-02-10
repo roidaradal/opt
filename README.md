@@ -110,6 +110,10 @@ Discrete Optimization package written in Go
 ### subset_sum
   * `basic`       - Subset Sum
 
+### traveling_salesman 
+  * `basic`      - Traveling Salesman 
+  * `bottleneck` - Bottleneck Traveling Salesman
+
 ### vertex_coloring
   * `basic`       - Vertex Coloring
   * `complete`    - Complete Coloring

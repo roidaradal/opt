@@ -28,14 +28,7 @@ func NewSpanningTree(variant string, n int) *discrete.Problem {
 // Minimum Spanning Tree
 func minimumSpanningTree(name string) *discrete.Problem {
 	p, graph := newSpanningTreeProblem(name, data.SpanVertices)
-	if p == nil || graph == nil {
-		return nil
-	}
-	if len(graph.Edges) != len(graph.EdgeWeight) {
-		return nil
-	}
-	p.ObjectiveFn = fn.ScoreSumWeightedValues(p.Variables, graph.EdgeWeight)
-	return p
+	return edgeWeightedProblem(p, graph)
 }
 
 // Min-Degree Spanning Tree
@@ -61,10 +54,8 @@ func minDegreeSpanningTree(name string) *discrete.Problem {
 // K-Minimum Spanning Tree
 func kMinimumSpanningTree(name string) *discrete.Problem {
 	p, graph := newSpanningTreeProblem(name, data.SpanVertices)
+	p = edgeWeightedProblem(p, graph)
 	if p == nil || graph == nil || graph.K == 0 {
-		return nil
-	}
-	if len(graph.Edges) != len(graph.EdgeWeight) {
 		return nil
 	}
 
@@ -78,7 +69,5 @@ func kMinimumSpanningTree(name string) *discrete.Problem {
 		reachable := fn.SpannedVertices(solution, graph.Graph)
 		return reachable.Len() == graph.K
 	})
-
-	p.ObjectiveFn = fn.ScoreSumWeightedValues(p.Variables, graph.EdgeWeight)
 	return p
 }
