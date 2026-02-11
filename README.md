@@ -110,6 +110,9 @@ Discrete Optimization package written in Go
 ### subset_sum
   * `basic`       - Subset Sum
 
+### traveling_purchaser
+  * `basic`     - Traveling Purchaser
+
 ### traveling_salesman 
   * `basic`      - Traveling Salesman 
   * `bottleneck` - Bottleneck Traveling Salesman

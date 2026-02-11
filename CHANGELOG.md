@@ -1,3 +1,6 @@
+## v0.3.40 - Traveling Purchaser Problems 
+  * **Commit**: 2026-02-11 20:45
+  * problem.NewTravelingPurchaser
 ## v0.3.39 - Traveling Salesman Problems 
   * **Commit**: 2026-02-10 21:07
   * problem.NewTravelingSalesman

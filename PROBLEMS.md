@@ -335,6 +335,17 @@
 * Task: **Select a subset** of the numbers such that their sum == N (satisfaction) or does not exceed N (optimization)
 * Goal: If optimization, **minimize** the difference between N and the sum of the selected numbers
 
+## Traveling Purchaser Problems
+
+### Traveling Purchaser 
+* Input:
+  * list of items 
+  * list of markets (vertices), with distance matrix
+  * distance matrix of markets to / from origin
+  * cost matrix of buying item at market
+* Task: **Create a sequence** for buying all items at available markets
+* Goal: **Minimize** the total cost: travel cost to/from origin, traveling between markets, and the prices of items at market it was purchased
+
 ## Traveling Salesman Problems
 
 ### Traveling Salesman

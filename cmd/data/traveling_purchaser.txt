@@ -1,0 +1,33 @@
+basic.1 {
+    items       : F S P
+    vertices    :   A   B   C
+    distance    : [
+            A       0   3   5
+            B       3   0   2
+            C       5   2   0
+    ]
+    cost        : [
+            F       5   7   6
+            S       10  8   11
+            P       x   15  12
+    ]
+    fromOrigin  :   4   6   5
+    toOrigin    :   4   6   5
+}
+basic.2 {
+    items       : M T S F
+    vertices    :   A   B   C
+    distance    : [
+            A       0   10  25
+            B       10  0   15
+            C       25  15  0
+    ]
+    cost        : [
+            M       50  55  x
+            T       30  x   25
+            S       x   20  25
+            F       100 120 90
+    ]
+    fromOrigin  :   10  15  20
+    toOrigin    :   10  15  20
+}

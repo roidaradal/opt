@@ -130,6 +130,13 @@
 ## Subset Sum 
     [x] Subset Sum
     [ ] Multiple Subset Sum
+## Traveling Purchaser 
+    [x] Traveling Purchaser 
+    [ ] Capacitated Traveling Purchaser
+    [ ] Multi-Vehicle Traveling Purchaser
+    [ ] Mult-Depot Traveling Purchaser
+    [ ] Bi-Objective Traveling Purchaser
+    [ ] Fast-Service Option Traveling Purchaser
 ## Traveling Salesman 
     [x] Traveling Salesman 
     [x] Bottleneck Traveling Salesman 

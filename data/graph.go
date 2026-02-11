@@ -36,6 +36,10 @@ type GraphPath struct {
 	Vertices      []ds.Vertex
 	Between       []ds.Vertex // list of vertices that are not start, end
 	Distance      [][]float64
+	Items         []string
+	Cost          [][]float64
+	FromOrigin    []float64
+	ToOrigin      []float64
 }
 
 // NewUndirectedGraph loads an undirected Graph config
@@ -139,11 +143,18 @@ func NewGraphTour(name string) *GraphPath {
 	}
 	cfg := &GraphPath{
 		Vertices: stringList(data["vertices"]),
+		Items:    stringList(data["items"]),
 	}
 	cfg.Distance = make([][]float64, len(cfg.Vertices))
 	for i, line := range parseList(data["distance"]) {
 		cfg.Distance[i] = matrixRow(line, true)
 	}
+	cfg.Cost = make([][]float64, len(cfg.Items))
+	for i, line := range parseList(data["cost"]) {
+		cfg.Cost[i] = matrixRow(line, true)
+	}
+	cfg.FromOrigin = floatList(data["fromOrigin"])
+	cfg.ToOrigin = floatList(data["toOrigin"])
 	return cfg
 }
 
