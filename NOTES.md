@@ -15,6 +15,10 @@
 ## Car Painting 
     [x] Car Painting
     [x] Binary Paint Shop
+## Car Sequencing 
+    [x] Car Sequencing
+    [ ] Max-Length Car Sequencing 
+    [ ] Min-Empty Car Sequencing
 ## Clique 
     [x] Clique 
     [x] K-Clique

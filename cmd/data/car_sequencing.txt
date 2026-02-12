@@ -1,0 +1,15 @@
+basic.1 {
+    options         :   A B C D E
+    optionMax       :   1 2 1 2 1
+    optionWindow    :   2 3 3 5 5
+    cars            :   1 2 3 4 5 6
+    carCount        :   1 1 2 2 2 2
+    carOptions      : {
+                1   : A C D
+                2   : D
+                3   : B E
+                4   : B D
+                5   : A C
+                6   : A B
+    }
+}

@@ -14,6 +14,9 @@ Discrete Optimization package written in Go
   * `basic`  - Car Painting
   * `binary` - Binary Paint Shop
 
+### car_sequencing
+  * `basic`  - Car Sequencing
+
 ### clique
   * `basic` - Clique 
   * `k`     - K-Clique

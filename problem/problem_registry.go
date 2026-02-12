@@ -10,6 +10,7 @@ const (
 	BinCover           = "bin_cover"
 	BinPacking         = "bin_packing"
 	CarPainting        = "car_painting"
+	CarSequencing      = "car_sequencing"
 	Clique             = "clique"
 	CliqueCover        = "clique_cover"
 	DominatingSet      = "dominating_set"
@@ -46,6 +47,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	BinCover:           NewBinCover,
 	BinPacking:         NewBinPacking,
 	CarPainting:        NewCarPainting,
+	CarSequencing:      NewCarSequencing,
 	Clique:             NewClique,
 	CliqueCover:        NewCliqueCover,
 	DominatingSet:      NewDominatingSet,

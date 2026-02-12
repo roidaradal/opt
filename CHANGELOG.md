@@ -1,3 +1,7 @@
+## v0.3.42 - Car Sequencing Problems
+  * **Commit**: 2026-02-13 06:24
+  * problem.NewCarSequencing
+  * data.NewCarSequence
 ## v0.3.41 - Car Painting Problems
   * **Commit**: 2026-02-12 20:30
   * problem.NewCarPainting

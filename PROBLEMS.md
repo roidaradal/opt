@@ -31,6 +31,15 @@
   the second car of this type will be colored the opposite.
 * Goal: **Minimize** the number of color changes in the full color sequence of all cars
 
+## Car Sequencing Problems 
+
+### Car Sequencing 
+* Input: 
+  * List of car types, with counts for each type 
+  * List of car options, each with a maximum count of cars for a specified window size
+  * For each car type, list of car options needed
+* Task: **Create a sequence** of all the cars, such that _each car option's window maximum count is not violated_
+
 ## Clique Problems
 
 ### Clique 
