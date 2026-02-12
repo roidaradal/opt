@@ -1,3 +1,8 @@
+## v0.3.41 - Car Painting Problems
+  * **Commit**: 2026-02-12 20:30
+  * problem.NewCarPainting
+  * data.NewCars
+  * fn.CountColorChanges
 ## v0.3.40 - Traveling Purchaser Problems 
   * **Commit**: 2026-02-11 20:45
   * problem.NewTravelingPurchaser

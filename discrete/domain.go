@@ -23,9 +23,9 @@ func Variables[T any](items []T) []Variable {
 }
 
 // IndexVariables creates a list of variables from [0, numItems)
-func IndexVariables(numItems int) []Variable {
-	return list.NumRange(0, numItems)
-}
+//func IndexVariables(numItems int) []Variable {
+//	return list.NumRange(0, numItems)
+//}
 
 // RangeVariables creates a list of variables from [first, last]
 func RangeVariables(first, last int) []Variable {

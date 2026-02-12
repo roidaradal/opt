@@ -20,10 +20,10 @@ func NewNumbers(name string) *Numbers {
 }
 
 // NewN loads the N value
-func NewN(name string) int {
-	data, err := load(name)
-	if err != nil {
-		return 0
-	}
-	return number.ParseInt(data["n"])
-}
+//func NewN(name string) int {
+//	data, err := load(name)
+//	if err != nil {
+//		return 0
+//	}
+//	return number.ParseInt(data["n"])
+//}

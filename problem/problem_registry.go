@@ -9,6 +9,7 @@ import (
 const (
 	BinCover           = "bin_cover"
 	BinPacking         = "bin_packing"
+	CarPainting        = "car_painting"
 	Clique             = "clique"
 	CliqueCover        = "clique_cover"
 	DominatingSet      = "dominating_set"
@@ -44,6 +45,7 @@ const (
 var Creator = map[string]func(string, int) *discrete.Problem{
 	BinCover:           NewBinCover,
 	BinPacking:         NewBinPacking,
+	CarPainting:        NewCarPainting,
 	Clique:             NewClique,
 	CliqueCover:        NewCliqueCover,
 	DominatingSet:      NewDominatingSet,

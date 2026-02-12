@@ -18,6 +18,19 @@
 * Task: **Distribute** the items to the bins such that each bin _does not exceed maximum capacity_
 * Goal: **Minimize** the number of bins used
 
+## Car Painting Problems
+
+### Car Painting 
+* Input: sequence of cars with colors, and integer maxShift
+* Task: **Arrange the cars in a sequence**, such that _each car is within <maxShift> distance from its original order_
+* Goal: **Minimize** the number of color changes in the sequence
+
+### Binary Paint Shop
+* Input: a sequence of 2N cars, from N types of cars
+* Task: **Assign a binary color** to each type of car - this will be the color of the first car of this type in the sequence;
+  the second car of this type will be colored the opposite.
+* Goal: **Minimize** the number of color changes in the full color sequence of all cars
+
 ## Clique Problems
 
 ### Clique 

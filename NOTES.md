@@ -12,6 +12,9 @@
     [ ] Virtual Machine Packing
     [ ] Max Open-End Bin Packing
     [ ] Min Open-End Bin Packing
+## Car Painting 
+    [x] Car Painting
+    [x] Binary Paint Shop
 ## Clique 
     [x] Clique 
     [x] K-Clique

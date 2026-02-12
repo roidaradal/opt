@@ -34,3 +34,16 @@ func ScorePathCost(cfg *data.GraphPath) discrete.ObjectiveFn {
 		return list.Sum(PathDistances(solution, cfg))
 	}
 }
+
+// CountColorChanges counts the number of color changes in the sequence
+func CountColorChanges[T comparable](colorSequence []T) int {
+	var prevColor T
+	changes := 0
+	for i, currColor := range colorSequence {
+		if i > 0 && prevColor != currColor {
+			changes += 1
+		}
+		prevColor = currColor
+	}
+	return changes
+}
