@@ -131,3 +131,6 @@ Discrete Optimization package written in Go
 
 ### vertex_cover
   * `basic`      - Vertex Cover 
+
+### warehouse_location 
+  * `basic`     - Warehouse Location

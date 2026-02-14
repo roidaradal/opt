@@ -163,3 +163,7 @@
     [ ] Weighted Vertex Cover
     [ ] Connected Vertex Cover 
     [ ] Capacitated Vertex Cover
+## Warehouse Location 
+    [x] Warehouse Location 
+    [ ] Minimax Warehouse Location 
+    [ ] Maxmin Warehouse Location

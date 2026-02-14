@@ -1,3 +1,7 @@
+## v0.3.43 - Warehouse Location Problems
+  * **Commit**: 2026-02-14 08:13
+  * problem.NewWarehouseLocation
+  * data.NewWarehouse
 ## v0.3.42 - Car Sequencing Problems
   * **Commit**: 2026-02-13 06:24
   * problem.NewCarSequencing

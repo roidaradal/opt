@@ -89,17 +89,17 @@ func carPainting(name string) *discrete.Problem {
 		// Go through sequence of colors, display car and color
 		// Detect color changes from previous to current color: add separator |
 		var prevColor string
-		output := make([]string, 0)
+		output := str.NewBuilder()
 		for i, x := range fn.AsSequence(solution) {
 			currColor := cfg.CarColors[x]
 			if i > 0 && prevColor != currColor {
-				output = append(output, "|")
+				output.Add("|")
 			}
-			output = append(output, fmt.Sprintf("%d:%s", x, currColor))
+			output.Add(fmt.Sprintf("%d:%s", x, currColor))
 			prevColor = currColor
 		}
 
-		return strings.Join(output, " ")
+		return output.Build(" ")
 	}
 
 	return p

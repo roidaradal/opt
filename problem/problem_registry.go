@@ -41,6 +41,7 @@ const (
 	TravelingSalesman  = "traveling_salesman"
 	VertexColoring     = "verttex_coloring"
 	VertexCover        = "vertex_cover"
+	WarehouseLocation  = "warehouse_location"
 )
 
 var Creator = map[string]func(string, int) *discrete.Problem{
@@ -78,6 +79,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	TravelingSalesman:  NewTravelingSalesman,
 	VertexColoring:     NewVertexColoring,
 	VertexCover:        NewVertexCover,
+	WarehouseLocation:  NewWarehouseLocation,
 }
 
 // Create problem test case name

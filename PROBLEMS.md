@@ -403,3 +403,13 @@
 * Input: undirected graph
 * Task: **Select a subset** of vertices, such that _for all edges, at least one endpoint is covered by the subset_
 * Goal: **Minimize** the number of selected vertices
+
+## Warehouse Location Problems 
+
+## Warehouse Location 
+* Input: 
+  * List of warehouses, each with capacity and cost 
+  * List of stores, with cost matrix for store x warehouse
+* Task: **Assign stores to warehouses**, such that _each warehouse's capacity is not exceeded_
+* Goal: **Minimize** the total cost of the assignment: warehouse cost for each time the warehouse is used and the cost of assigning store to warehouse
+
