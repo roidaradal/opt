@@ -1,0 +1,21 @@
+resource.1 {
+    budget  : 18
+    items   : S  F  M
+    count   : 5  5  5
+    cost    : 8  5  3
+    value   : 29 19 8
+}
+resource.2 {
+    budget  : 70
+    items   : A  B  C  D  E
+    count   : 10 10 10 10 10
+    cost    : 12 10 9  8  4
+    value   : 18 16 14 13 6
+}
+resource.3 {
+    budget  :   10000
+    items   :   F   L   Z   J
+    count   :   100 400 150 70
+    cost    :   13  21  17  100
+    value   :   6   10  8   40
+}

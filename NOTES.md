@@ -1,3 +1,7 @@
+## Allocation 
+    [x] Resource Allocation 
+    [ ] Fair Item Allocation 
+    [ ] House Allocation
 ## Bin  Cover
     [x] Bin Cover 
     [ ] Lazy Bin Cover

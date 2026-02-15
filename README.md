@@ -4,6 +4,9 @@ Discrete Optimization package written in Go
 
 ## Problems
 
+### allocation 
+  * `resource` - Resource Allocation
+
 ### bin_cover
   * `basic`   - Bin Cover
 

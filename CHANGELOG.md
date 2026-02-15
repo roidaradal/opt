@@ -1,3 +1,7 @@
+## v0.3.44 - Allocation Problems 
+  * **Commit**: 2026-02-15 11:11
+  * problem.NewAllocation 
+  * data.NewResource
 ## v0.3.43 - Warehouse Location Problems
   * **Commit**: 2026-02-14 08:13
   * problem.NewWarehouseLocation

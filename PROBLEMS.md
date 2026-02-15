@@ -1,3 +1,10 @@
+## Allocation Problems 
+
+### Resource Allocation 
+* Input: 
+* Task: 
+* Goal: 
+
 ## Bin Cover Problems
 
 ### Bin Cover
