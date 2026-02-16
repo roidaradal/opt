@@ -1,4 +1,7 @@
-## v0.3.44 - Allocation Problems 
+## v0.3.45 - Scene Allocation 
+  * **Commit**: 2026-02-16 19:57
+  * Add `scene` to Allocation problems
+## v0.3.44 - Allocation Problems
   * **Commit**: 2026-02-15 11:11
   * problem.NewAllocation 
   * data.NewResource

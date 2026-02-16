@@ -6,6 +6,7 @@ Discrete Optimization package written in Go
 
 ### allocation 
   * `resource` - Resource Allocation
+  * `scene`    - Scene Allocation
 
 ### bin_cover
   * `basic`   - Bin Cover
@@ -88,6 +89,9 @@ Discrete Optimization package written in Go
 
 ### number_partition 
   * `basic`   - Number Partition
+
+### nurse_scheduling 
+  * `basic`   - Nurse Scheduling
 
 ### satisfaction
   * `exact_cover`         - Exact Cover

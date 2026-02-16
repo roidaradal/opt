@@ -1,5 +1,6 @@
 ## Allocation 
     [x] Resource Allocation 
+    [x] Scene Allocation
     [ ] Fair Item Allocation 
     [ ] House Allocation
 ## Bin  Cover
@@ -109,6 +110,8 @@
 ## Number Partition 
     [x] Number Partition
     [ ] Multiway Number Partition
+## Nurse Scheduling
+    [x] Nurse Scheduling
 ## Satisfaction
     [x] Exact Cover 
     [x] Langford Pair 

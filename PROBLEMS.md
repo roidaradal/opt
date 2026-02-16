@@ -2,8 +2,18 @@
 
 ### Resource Allocation 
 * Input: 
-* Task: 
-* Goal: 
+  * List of items, each with count, cost, and value assigned to it 
+  * Budget limit
+* Task: **Assign a number** for each item, that does not exceed its count, such that the _total cost of all items does not exceed the budget_
+* Goal: **Maximize** the total value of selected items 
+
+### Scene Allocation 
+* Input:
+  * Number of days, with each day having a min/max number of scenes to shoot
+  * List of actors, each with their daily cost 
+  * List of scenes, each with list of actors involved in the scene
+* Task: **Assign scenes to days** such that _number of daily scenes do not violate the min/max limits_
+* Goal: **Minimize** the total cost of production: sum of total actors' fees for each day
 
 ## Bin Cover Problems
 

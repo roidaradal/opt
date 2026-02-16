@@ -19,3 +19,42 @@ resource.3 {
     cost    :   13  21  17  100
     value   :   6   10  8   40
 }
+scene.1 {
+    numDays     : 4
+    dayMin      : 4 4 4 4
+    dayMax      : 5 5 5 5
+    actors      : {
+        pat     : 26481
+        cas     : 25043
+        sco     : 30310
+        mur     : 4085
+        bro     : 7562
+        hac     : 9381
+        and     : 8770
+        mcd     : 5788
+        mer     : 7423
+        spr     : 3303
+        tho     : 9593
+    }
+    scenes      : {
+        01      : hac
+        02      : pat mur bro hac
+        03      : sco bro mcd mer
+        04      : cas mer
+        05      : pat and mcd mer spr
+        06      : sco and mcd spr tho
+        07      : pat cas
+        08      : mur mer
+        09      : cas sco mcd mer tho
+        10      : pat cas sco mcd
+        11      : pat
+        12      : mur bro hac mcd tho
+        13      : pat cas mur hac
+        14      : sco and
+        15      : pat mur mcd tho
+        16      : cas sco mcd mer
+        17      : pat bro
+        18      : hac mcd tho
+        19      : cas sco
+    }
+}
