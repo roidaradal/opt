@@ -1,0 +1,95 @@
+basic.1 {
+    maxConsecutiveShift     : 1
+    maxTotalShift           : 4
+    dailyLimit              : 1
+    nurses                  : A B C D
+    days                    : D1 D2 D3
+    shifts                  : AM    PM
+    shiftMin                : 2     2
+    shiftMax                : 2     2
+    preferShifts            : {
+                        A   : AM PM
+                        B   : AM PM
+                        C   : AM PM
+                        D   : AM PM
+    }
+    preferDays              : {
+                        A   : D1 D2 D3
+                        B   : D1 D2 D3
+                        C   : D1 D2 D3
+                        D   : D1 D2 D3
+    }
+}
+basic.2 {
+    maxConsecutiveShift     : 1
+    maxTotalShift           : 5
+    dailyLimit              : 1
+    nurses                  : L A B C E J M R U T
+    days                    : 1 2 3 4 5 6 7
+    shifts                  : M A N
+    shiftMin                : 2 2 1
+    shiftMax                : 4 4 2
+    preferShifts            : {
+                        L   : M
+                        A   : M A
+                        B   :     N
+                        C   :   A
+                        E   :     N
+                        J   : M A N
+                        M   :   A N
+                        R   : M A N
+                        U   :   A
+                        T   :     N
+    }
+    preferDays              : {
+                        L   : 1 2 3 4 5 6 7
+                        A   : 1 2 3 4 5 6 7
+                        B   : 1 2 3 4 5 6 7
+                        C   : 1 2 3 4 5 6 7
+                        E   : 1 2 3 4 5 6 7
+                        J   : 1 2 3 4 5 6 7
+                        M   : 1 2 3 4 5 6 7
+                        R   : 1 2 3 4 5 6 7
+                        U   : 1 2 3 4 5 6 7
+                        T   : 1 2 3 4 5 6 7
+    }
+}
+basic.3 {
+    maxConsecutiveShift     : 1
+    maxTotalShift           : 5
+    dailyLimit              : 2
+    nurses                  : A B C D E F G H I J K L
+    days                    : 1 2 3 4 5 6 7
+    shifts                  : M   A   N
+    shiftMin                : 3   3   2
+    shiftMax                : 4   4   3
+    preferShifts            : {
+                        A   : M   N
+                        B   :   A
+                        C   :   A
+                        D   : M A N
+                        E   :   A N
+                        F   : M   N
+                        G   : M A N
+                        H   :     N
+                        I   :   A
+                        J   : M A
+                        K   :   A N
+                        L   : M
+    }
+    preferDays              : {
+
+                        A   : 1 2 3 4 5 6 7
+                        B   : 1 2 3 4 5 6 7
+                        C   : 1 2 3 4 5 6 7
+                        D   : 1 2 3 4 5 6 7
+                        E   : 1 2 3 4 5 6 7
+                        F   : 1 2 3 4 5 6 7
+                        G   : 1 2 3 4 5 6 7
+                        H   : 1 2 3 4 5 6 7
+                        I   : 1 2 3 4 5 6 7
+                        J   : 1 2 3 4 5 6 7
+                        K   : 1 2 3 4 5 6 7
+                        L   : 1 2 3 4 5 6 7
+    }
+}

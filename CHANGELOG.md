@@ -1,3 +1,8 @@
+## v0.3.46 - Nurse Scheduling Problems
+  * **Commit**: 2026-02-17 20:49
+  * problem.NewNurseScheduling
+  * data.NewNurseSchedule
+  * fn.MaxConsecutive
 ## v0.3.45 - Scene Allocation 
   * **Commit**: 2026-02-16 19:57
   * Add `scene` to Allocation problems

@@ -278,6 +278,21 @@
 * Task: **Split** the numbers into 2 groups such that the _sum of the 2 groups are equal_
 * Goal: If optimization, **minimize** the difference between the 2 partition sums
 
+## Nurse Scheduling Problems
+
+### Nurse Scheduling 
+* Input: 
+  * List of days
+  * List of shifts, each shift having min/max limits
+  * List of nurses, each nurse having preferred days and shifts
+  * Global limits: MaxConsecutive, MaxTotal, MaxDaily
+* Task: **Assign nurses to shifts** such that:
+  * the number of assigned nurses per shift fall within min/max limit
+  * all nurse shift counts do not exceed the MaxTotal 
+  * all nurse daily shifts do not exceed the MaxDaily 
+  * all nurse schedules do not exceed the MaxConsecutive
+* Goal: **Minimize** the penalty incurred by not following the nurses' preferred days and shifts
+
 ## Satisfaction Problems
 
 ### Exact Cover
