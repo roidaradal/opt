@@ -106,6 +106,17 @@
 * Task: **Select a subset** of edges, such that _all vertices are covered by at least one selected edge endpoint_
 * Goal: **Minimize** the number of selected edges
 
+## Flow Shop Scheduling Problems 
+
+### Flow Shop Scheduling 
+* Input:
+  * List of machines
+  * List of jobs, with each job having list of tasks that have associated durations at given machines
+* Task: **Arrange the sequence** of jobs to do, subject to the ff:
+  * Each job can only process one task at a time 
+  * Each machine can only process one task at a time
+* Goal: **Minimize** the total makespan of the schedule
+
 ## Graph Matching Problems
 
 ### Max Cardinality Matching

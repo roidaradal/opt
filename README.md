@@ -39,6 +39,9 @@ Discrete Optimization package written in Go
 ### edge_cover
   * `basic`   - Edge Cover
 
+### flow_shop 
+  * `basic`   - Flow Shop Scheduling
+
 ### graph_matching
   * `cardinal`     - Max Cardinality Matching
   * `weighted`     - Max Weight Matching

@@ -1,3 +1,7 @@
+## v0.3.47 - Flow Shop Scheduling Problems
+  * **Commit**: 2026-02-18 20:43
+  * problem.NewFlowShopScheduling
+  * data.NewFlowShop 
 ## v0.3.46 - Nurse Scheduling Problems
   * **Commit**: 2026-02-17 20:49
   * problem.NewNurseScheduling

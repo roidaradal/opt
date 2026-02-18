@@ -48,7 +48,7 @@ func nurseScheduling(name string) *discrete.Problem {
 			}
 		}
 	}
-	p.Variables = discrete.IndexDomain(slotIdx)
+	p.Variables = discrete.IndexVariables(slotIdx)
 	domain := discrete.Domain(cfg.Nurses)
 	p.AddVariableDomains(domain)
 

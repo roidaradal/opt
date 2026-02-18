@@ -48,6 +48,8 @@
 ## Edge Cover
     [x] Edge Cover 
     [ ] Weighted Edge Cover
+## Flow Shop Scheduling 
+    [x] Flow Shop Scheduling
 ## Graph Matching 
     [x] Max Cardinality Matching
     [x] Max Weight Matching 

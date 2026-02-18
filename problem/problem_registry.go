@@ -17,6 +17,7 @@ const (
 	DominatingSet      = "dominating_set"
 	EdgeColoring       = "edge_coloring"
 	EdgeCover          = "edge_cover"
+	FlowShopScheduling = "flow_shop"
 	GraphMatching      = "graph_matching"
 	GraphPartition     = "graph_partition"
 	GraphPath          = "graph_path"
@@ -57,6 +58,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	DominatingSet:      NewDominatingSet,
 	EdgeColoring:       NewEdgeColoring,
 	EdgeCover:          NewEdgeCover,
+	FlowShopScheduling: NewFlowShopScheduling,
 	GraphMatching:      NewGraphMatching,
 	GraphPartition:     NewGraphPartition,
 	GraphPath:          NewGraphPath,

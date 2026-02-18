@@ -1,0 +1,33 @@
+basic.1 {
+    jobs        : 0 1 2 3
+    machines    :   A   B   C
+    taskTimes   : {
+            0   :   4   2   1
+            1   :   3   6   2
+            2   :   7   2   3
+            3   :   1   5   8
+    }
+}
+basic.2 {
+    jobs        : 0 1 2 3 4
+    machines    :   A   B   C   D
+    taskTimes   : {
+            0   :   5   4   4   3
+            1   :   5   4   4   6
+            2   :   3   2   3   3
+            3   :   6   4   4   2
+            4   :   3   4   1   5
+    }
+}
+basic.3 {
+    jobs        : 0 1 2 3 4 5
+    machines    :   A   B
+    taskTimes   : {
+            0   :   1   5
+            1   :   3   6
+            2   :   8   3
+            3   :   5   2
+            4   :   6   2
+            5   :   3   10
+    }
+}
