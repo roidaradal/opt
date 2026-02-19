@@ -3,6 +3,13 @@
     [x] Scene Allocation
     [ ] Fair Item Allocation 
     [ ] House Allocation
+## Assignment 
+    [x] Assignment 
+    [x] Bottleneck Assignment 
+    [ ] Generalized Assignment 
+    [ ] Quadratic Assignment 
+    [ ] Quadratic Bottleneck Assignment 
+    [ ] Weapon Target Assignment
 ## Bin  Cover
     [x] Bin Cover 
     [ ] Lazy Bin Cover

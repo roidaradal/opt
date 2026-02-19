@@ -8,6 +8,7 @@ import (
 
 const (
 	Allocation         = "allocation"
+	Assignment         = "assignment"
 	BinCover           = "bin_cover"
 	BinPacking         = "bin_packing"
 	CarPainting        = "car_painting"
@@ -49,6 +50,7 @@ const (
 
 var Creator = map[string]func(string, int) *discrete.Problem{
 	Allocation:         NewAllocation,
+	Assignment:         NewAssignment,
 	BinCover:           NewBinCover,
 	BinPacking:         NewBinPacking,
 	CarPainting:        NewCarPainting,

@@ -8,6 +8,10 @@ Discrete Optimization package written in Go
   * `resource` - Resource Allocation
   * `scene`    - Scene Allocation
 
+### assignment 
+  * `basic` - Assignment 
+  * `bottleneck` - Bottleneck Assignment
+
 ### bin_cover
   * `basic`   - Bin Cover
 

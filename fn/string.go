@@ -2,6 +2,7 @@ package fn
 
 import (
 	"cmp"
+	"fmt"
 	"slices"
 	"strings"
 
@@ -43,6 +44,22 @@ func StringValues[T any](p *discrete.Problem, items []T) discrete.SolutionString
 	return func(solution *discrete.Solution) string {
 		output := valueStrings(p, solution, items)
 		return strings.Join(output, " ")
+	}
+}
+
+// StringAssignment displays assignment of {worker = task}
+// Note: didn't explicitly return as SolutionStringFn so it can be reused as SolutionCoreFn
+func StringAssignment(p *discrete.Problem, cfg *data.AssignmentCfg) func(*discrete.Solution) string {
+	return func(solution *discrete.Solution) string {
+		output := list.Map(p.Variables, func(worker discrete.Variable) string {
+			task := solution.Map[worker]
+			if cfg.Cost[worker][task] == 0 {
+				return "" // skip dummy tasks
+			}
+			return fmt.Sprintf("w%s = t%s", cfg.Workers[worker], cfg.Tasks[task])
+		})
+		output = list.Filter(output, str.NotEmpty)
+		return str.WrapBraces(output)
 	}
 }
 

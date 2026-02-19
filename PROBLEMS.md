@@ -15,6 +15,26 @@
 * Task: **Assign scenes to days** such that _number of daily scenes do not violate the min/max limits_
 * Goal: **Minimize** the total cost of production: sum of total actors' fees for each day
 
+## Assignment Problems
+
+### Assignment
+* Input:
+  * List of tasks
+  * List of workers, each with associated cost for doing task
+  * Optional: Teams of workers, with a maximum limit of working team members
+* Preprocess: Ensure there are equal number of workers to tasks by adding 0-cost tasks
+* Task: **Assign** workers to tasks; if there are teams, ensure that each team's number of working
+        team members do not exceed the maximum limit
+* Goal: **Minimize** the total cost of assigning workers to task
+
+### Bottleneck Assignment
+* Input:
+  * List of tasks
+  * List of workers, each with associated cost for doing task
+* Preprocess: Ensure there are equal number of workers to tasks by adding 0-cost tasks
+* Task: **Assign** workers to tasks
+* Goal: **Minimize** the maximum cost of assigning workers to task (bottleneck)
+
 ## Bin Cover Problems
 
 ### Bin Cover
