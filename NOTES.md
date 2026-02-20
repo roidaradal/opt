@@ -7,8 +7,8 @@
     [x] Assignment 
     [x] Bottleneck Assignment 
     [ ] Generalized Assignment 
-    [ ] Quadratic Assignment 
-    [ ] Quadratic Bottleneck Assignment 
+    [x] Quadratic Assignment 
+    [x] Quadratic Bottleneck Assignment 
     [ ] Weapon Target Assignment
 ## Bin  Cover
     [x] Bin Cover 

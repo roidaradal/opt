@@ -35,6 +35,22 @@
 * Task: **Assign** workers to tasks
 * Goal: **Minimize** the maximum cost of assigning workers to task (bottleneck)
 
+### Quadratic Assignment 
+* Input: 
+  * Integer N = number of facilities and locations
+  * Distance matrix for locations
+  * Flow matrix for facilities
+* Task: **Assign** the facilities to locations
+* Goal: **Minimize** the total cost: for each pair of facility, compute the flow between them multiplied by the distance of the facilities assigned to them
+
+### Quadratic Bottleneck Assignment
+* Input:
+  * Integer N = number of facilities and locations
+  * Distance matrix for locations
+  * Flow matrix for facilities
+* Task: **Assign** the facilities to locations
+* Goal: **Minimize** the maximum cost from each pair of facilities: compute flow between facility pair multiplied by distance of facilities assigned to them
+
 ## Bin Cover Problems
 
 ### Bin Cover
