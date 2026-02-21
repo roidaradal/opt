@@ -6,10 +6,10 @@
 ## Assignment 
     [x] Assignment 
     [x] Bottleneck Assignment 
-    [ ] Generalized Assignment 
+    [x] Generalized Assignment 
     [x] Quadratic Assignment 
     [x] Quadratic Bottleneck Assignment 
-    [ ] Weapon Target Assignment
+    [x] Weapon Target Assignment
 ## Bin  Cover
     [x] Bin Cover 
     [ ] Lazy Bin Cover

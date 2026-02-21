@@ -11,8 +11,10 @@ Discrete Optimization package written in Go
 ### assignment 
   * `basic` - Assignment 
   * `bottleneck` - Bottleneck Assignment
+  * `general` - Generalized Assignment
   * `quadratic` - Quadratic Assignment 
   * `quadratic_bottleneck` - Quadratic Bottleneck Assignment
+  * `weapon` - Weapon Target Assignment
 
 ### bin_cover
   * `basic`   - Bin Cover

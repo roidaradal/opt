@@ -35,6 +35,15 @@
 * Task: **Assign** workers to tasks
 * Goal: **Minimize** the maximum cost of assigning workers to task (bottleneck)
 
+### Generalized Assignment
+* Input: 
+  * List of tasks
+  * List of workers, each having a capacity 
+  * Cost matrix of making worker work on specific task 
+  * Value matrix of making worker work on specific task
+* Task: **Assign** tasks to workers, such that the total cost of worker tasks do not exceed their capacity
+* Goal: **Maximize** the total value of assigning tasks to workers
+
 ### Quadratic Assignment 
 * Input: 
   * Integer N = number of facilities and locations
@@ -50,6 +59,14 @@
   * Flow matrix for facilities
 * Task: **Assign** the facilities to locations
 * Goal: **Minimize** the maximum cost from each pair of facilities: compute flow between facility pair multiplied by distance of facilities assigned to them
+
+### Weapon Target Assignment
+* Input:
+  * List of weapons, each with count 
+  * List of targets, each with value 
+  * Chance matrix of using weapon on target
+* Task: **Assign** weapons to targets
+* Goal: **Minimize** the total estimated value of surviving targets, computed by taking into account the chance of using weapons on the target
 
 ## Bin Cover Problems
 

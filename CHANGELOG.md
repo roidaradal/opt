@@ -1,3 +1,7 @@
+## v0.3.50 - Generalized Assignment Problems
+  * **Commit**: 2026-02-21 16:32
+  * Add `general`, `weapon` to Assignment
+  * data.NewWeapons
 ## v0.3.49 - Quadratic Assignment Problems 
   * **Commit**: 2026-02-20 20:44
   * Add `quadratic`, `quadratic_bottleneck` to Assignment 
