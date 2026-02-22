@@ -5,8 +5,10 @@ Discrete Optimization package written in Go
 ## Problems
 
 ### allocation 
-  * `resource` - Resource Allocation
-  * `scene`    - Scene Allocation
+  * `resource`  - Resource Allocation
+  * `scene`     - Scene Allocation
+  * `fair_item` - Fair Item Allocation 
+  * `house`     - House Allocation
 
 ### assignment 
   * `basic` - Assignment 

@@ -20,7 +20,7 @@ func NewFlowShopScheduling(variant string, n int) *discrete.Problem {
 
 // Flow Shop Scheduling
 func flowShopScheduling(name string) *discrete.Problem {
-	cfg := data.NewFlowShop(name)
+	cfg := data.NewShopSchedule(name)
 	if cfg == nil {
 		return nil
 	}

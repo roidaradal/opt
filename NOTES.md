@@ -1,8 +1,8 @@
 ## Allocation 
     [x] Resource Allocation 
     [x] Scene Allocation
-    [ ] Fair Item Allocation 
-    [ ] House Allocation
+    [x] Fair Item Allocation 
+    [x] House Allocation
 ## Assignment 
     [x] Assignment 
     [x] Bottleneck Assignment 

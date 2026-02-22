@@ -47,6 +47,24 @@ func StringValues[T any](p *discrete.Problem, items []T) discrete.SolutionString
 	}
 }
 
+// StringMap displays solution as {variable = value}
+func StringMap[T any, V any](p *discrete.Problem, variables []T, values []V) discrete.SolutionStringFn {
+	return func(solution *discrete.Solution) string {
+		output := list.Map(p.Variables, func(x discrete.Variable) string {
+			value := solution.Map[x]
+			k, v := str.Int(x), str.Int(value)
+			if variables != nil {
+				k = str.Any(variables[x])
+			}
+			if values != nil {
+				v = str.Any(values[value])
+			}
+			return fmt.Sprintf("%s = %s", k, v)
+		})
+		return str.WrapBraces(output)
+	}
+}
+
 // StringAssignment displays assignment of {worker = task}
 // Note: didn't explicitly return as SolutionStringFn so it can be reused as SolutionCoreFn
 func StringAssignment(p *discrete.Problem, cfg *data.AssignmentCfg) func(*discrete.Solution) string {

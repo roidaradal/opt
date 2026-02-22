@@ -1,13 +1,13 @@
 package data
 
-type FlowShop struct {
+type ShopSchedule struct {
 	Machines  []string
 	Jobs      []string
 	TaskTimes map[string][]int
 }
 
-// NewFlowShop creates a new FlowShop config
-func NewFlowShop(name string) *FlowShop {
+// NewShopSchedule creates a new ShopSchedule config
+func NewShopSchedule(name string) *ShopSchedule {
 	data, err := load(name)
 	if err != nil {
 		return nil
@@ -16,7 +16,7 @@ func NewFlowShop(name string) *FlowShop {
 	for task, value := range parseMap(data["taskTimes"]) {
 		taskTimes[task] = intList(value)
 	}
-	return &FlowShop{
+	return &ShopSchedule{
 		Machines:  stringList(data["machines"]),
 		Jobs:      stringList(data["jobs"]),
 		TaskTimes: taskTimes,

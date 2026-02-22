@@ -1,3 +1,8 @@
+## v0.3.51 - Additional Allocation Problems
+  * **Commit**: 2026-02-22 22:02
+  * Add `fair_item`, `house` to Allocation
+  * data.NewItemAllocation
+  * fn.StringMap
 ## v0.3.50 - Generalized Assignment Problems
   * **Commit**: 2026-02-21 16:32
   * Add `general`, `weapon` to Assignment

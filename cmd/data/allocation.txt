@@ -58,3 +58,38 @@ scene.1 {
         19      : cas sco
     }
 }
+fair_item.1 {
+    persons     : A B C
+    items       :   H   C   P
+    value       : {
+            A   :   50  30  20
+            B   :   40  40  20
+            C   :   20  30  50
+    }
+}
+fair_item.2 {
+    persons     : A B 
+    items       :   I   C   B
+    value       : {
+            A   :   30  0   10
+            B   :   2   20  18
+    }
+}
+fair_item.3 {
+    persons     : C D E 
+    items       :   W   L   V   B 
+    value       : {
+            C   :   50  10  20  20
+            D   :   10  60  20  10
+            E   :   30  20  40  10
+    }
+}
+house.1 {
+    persons     : A B C 
+    items       :   A   B   C 
+    value       : {
+            A   :   2   3   1
+            B   :   1   3   2
+            C   :   3   2   1
+    }
+}

@@ -15,6 +15,16 @@
 * Task: **Assign scenes to days** such that _number of daily scenes do not violate the min/max limits_
 * Goal: **Minimize** the total cost of production: sum of total actors' fees for each day
 
+### Fair Item Allocation 
+* Input:
+* Task: 
+* Goal: 
+
+### House Allocation 
+* Input: 
+* Task: 
+* Goal: 
+
 ## Assignment Problems
 
 ### Assignment

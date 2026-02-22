@@ -23,6 +23,12 @@ type Scene struct {
 	SceneActors map[string][]string
 }
 
+type ItemAllocation struct {
+	Persons []string
+	Items   []string
+	Value   map[string][]float64
+}
+
 // NewResource creates a new Resource config
 func NewResource(name string) *Resource {
 	data, err := load(name)
@@ -62,5 +68,22 @@ func NewScene(name string) *Scene {
 		DailyCost:   dailyCost,
 		Scenes:      scenes,
 		SceneActors: sceneActors,
+	}
+}
+
+// NewItemAllocation creates a new ItemAllocation config
+func NewItemAllocation(name string) *ItemAllocation {
+	data, err := load(name)
+	if err != nil {
+		return nil
+	}
+	value := make(map[string][]float64)
+	for person, line := range parseMap(data["value"]) {
+		value[person] = floatList(line)
+	}
+	return &ItemAllocation{
+		Persons: stringList(data["persons"]),
+		Items:   stringList(data["items"]),
+		Value:   value,
 	}
 }
