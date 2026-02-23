@@ -133,6 +133,9 @@ Discrete Optimization package written in Go
 ### subsequence
   * `increasing`  - Longest Increasing Subsequence
   * `alternating` - Longest Alternating Subsequence
+  * `decreasing`  - Longest Decreasing Subsequence 
+  * `max_sum_increasing` - Max Sum Increasing Subseqeuence 
+  * `max_weight_increasing` - Max Weight Increasing Subsequence
 
 ### subset_sum
   * `basic`       - Subset Sum

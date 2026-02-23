@@ -115,8 +115,7 @@ func newItemAllocationProblem(name string) (*discrete.Problem, *data.ItemAllocat
 	p.Goal = discrete.Minimize
 
 	p.Variables = discrete.Variables(cfg.Items)
-	domain := discrete.Domain(cfg.Persons)
-	p.AddVariableDomains(domain)
+	p.AddVariableDomains(discrete.Domain(cfg.Persons))
 
 	return p, cfg
 }

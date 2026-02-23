@@ -4,6 +4,7 @@ import "github.com/roidaradal/fn/number"
 
 type Numbers struct {
 	Numbers []int
+	Weight  []float64
 	Target  int
 }
 
@@ -15,6 +16,7 @@ func NewNumbers(name string) *Numbers {
 	}
 	return &Numbers{
 		Numbers: intList(data["numbers"]),
+		Weight:  floatList(data["weight"]),
 		Target:  number.ParseInt(data["target"]),
 	}
 }

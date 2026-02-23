@@ -1,3 +1,7 @@
+## v0.3.52 - Additional Subsequence Problems 
+  * **Commit**: 2026-02-23 21:44
+  * Add `decreasing`, `max_sum_increasing`, `max_weight_increasing` to Subsequence
+  * fn.ConstraintIncreasingSubsequence
 ## v0.3.51 - Additional Allocation Problems
   * **Commit**: 2026-02-22 22:02
   * Add `fair_item`, `house` to Allocation

@@ -17,13 +17,15 @@
 
 ### Fair Item Allocation 
 * Input:
-* Task: 
-* Goal: 
+  * List of items
+  * List of persons, each with assigned value to each item
+* Task: **Assign** items to persons, such that either all people receive at least one or at least _numItems_ people receive an item (if less items than people)
+* Goal: **Minimize** the envy among the group; for each pair of person, if the bundle value of the other person is more than his bundle value, then that person is envious
 
 ### House Allocation 
-* Input: 
-* Task: 
-* Goal: 
+* Input: equal number of houses and persons, with each person having value to each house
+* Task: **Assign** each house to a person, such that each person receives a house 
+* Goal: **Minimize** the envy among the people; for each pair of person, if the house that the other person received is more valuable to him that the house he received, then that person is envious
 
 ## Assignment Problems
 
@@ -453,6 +455,21 @@
 * Input: List of numbers
 * Task: **Select a subsequence** of numbers such that the subsequence is _alterating (down-up)_
 * Goal: **Maximize** the length of the subsequence
+
+### Longest Decreasing Subsequence 
+* Input: List of numbers 
+* Task: **Select a subsequence** of numbers such that the subsequence is _decreasing_
+* Goal: **Maximize** the length of the subsequence 
+
+### Max Sum Increasing Subsequence 
+* Input: List of numbers
+* Task: **Select a subsequence** of numbers such that the subsequence is _increasing_
+* Goal: **Maximize** the sum of the subsequence
+
+### Max Weight Increasing Subsequence 
+* Input: List of numbers, each with associated weight
+* Task: **Select a subsequence** of numbers such that the subsequence is _increasing_
+* Goal: **Maximize** the sum of associated weights of the numbers in the subsequence
 
 ## Subset Sum Problems 
 

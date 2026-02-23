@@ -1,6 +1,8 @@
 package fn
 
 import (
+	"slices"
+
 	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
@@ -77,6 +79,25 @@ func ConstraintSimplePath(cfg *data.GraphPath) discrete.ConstraintFn {
 			}
 			visited.Add(curr)
 			prev = curr
+		}
+		return true
+	}
+}
+
+// ConstraintIncreasingSubsequence makes sure that the subsequence is increasing
+func ConstraintIncreasingSubsequence(cfg *data.Numbers) discrete.ConstraintFn {
+	return func(solution *discrete.Solution) bool {
+		subset := AsSubset(solution)
+		numSelected := len(subset)
+		if numSelected <= 1 {
+			return true // no need to check if 0 or 1 item in sequence
+		}
+		slices.Sort(subset) // sort indexes
+		subsequence := list.MapList(subset, cfg.Numbers)
+		for i := range numSelected - 1 {
+			if subsequence[i] >= subsequence[i+1] {
+				return false // invalid if current not less than next
+			}
 		}
 		return true
 	}

@@ -148,8 +148,11 @@
 ## Subsequence
     [x] Longest Increasing 
     [x] Longest Alternating 
-    [ ] Longest Decreasing
-    [ ] Max Sum Increasing
+    [x] Longest Decreasing
+    [x] Max Sum Increasing
+    [x] Max Weight Increasing
+    [ ] Max Width Increasing 
+    [ ] Min Width Increasing
 ## Subset Sum 
     [x] Subset Sum
     [ ] Multiple Subset Sum
