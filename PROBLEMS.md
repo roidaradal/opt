@@ -529,10 +529,25 @@
 
 ## Warehouse Location Problems 
 
-## Warehouse Location 
+### Warehouse Location 
 * Input: 
   * List of warehouses, each with capacity and cost 
   * List of stores, with cost matrix for store x warehouse
 * Task: **Assign stores to warehouses**, such that _each warehouse's capacity is not exceeded_
 * Goal: **Minimize** the total cost of the assignment: warehouse cost for each time the warehouse is used and the cost of assigning store to warehouse
 
+### Minimax Warehouse Location 
+* Input:
+  * List of stores
+  * List of warehouse locations, each with distance to store
+  * Number of warehouses locations to select
+* Task: **Select a subset** of warehouse locations, with size equal to number of warehouses needed
+* Goal: **Minimize** the maximum distance of any store to a chosen warehouse location
+
+### Maxmin Warehouse Location
+* Input:
+  * List of stores
+  * List of warehouse locations, each with distance to store
+  * Number of warehouses locations to select
+* Task: **Select a subset** of warehouse locations, with size equal to number of warehouses needed
+* Goal: **Maximize** the minimum distance of any store to a chosen warehouse location

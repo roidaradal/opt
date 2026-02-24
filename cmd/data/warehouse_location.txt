@@ -16,3 +16,27 @@ basic.1 {
                 10      47  65  55  71  95
     ]
 }
+minimax.1 {
+    count           : 3
+    warehouses      :   A   B   C   D   E
+    stores          :   S1  S2  S3  S4  S5  S6  S7
+    distance        : [
+                A       5   71  53  57  85  117 40
+                B       80  10  57  57  113 85  40
+                C       60  50  7   0   57  60  40
+                D       85  106 57  57  0   80  89
+                E       120 81  64  57  80  5   89
+    ]
+}
+maxmin.1 {
+    count           : 2
+    warehouses      :   A   B   C   D   E
+    stores          :   Z1  Z2  Z3  Z4
+    distance        : [
+                A       3   8   15  20
+                B       12  4   9   18
+                C       15  14  12  11
+                D       22  19  16  13
+                E       10  11  5   7
+    ]
+}

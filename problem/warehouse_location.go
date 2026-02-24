@@ -14,6 +14,10 @@ func NewWarehouseLocation(variant string, n int) *discrete.Problem {
 	switch variant {
 	case "basic":
 		return warehouseLocation(name)
+	case "minimax":
+		return minimaxWarehouseLocation(name)
+	case "maxmin":
+		return maxminWarehouseLocation(name)
 	default:
 		return nil
 	}
@@ -59,5 +63,71 @@ func warehouseLocation(name string) *discrete.Problem {
 	}
 
 	p.SolutionStringFn = fn.StringPartition(domain, cfg.Stores)
+	return p
+}
+
+// Common steps for creating Warehouse Subset problems
+func newWarehouseSubsetProblem(name string) (*discrete.Problem, *data.Warehouse) {
+	cfg := data.NewWarehouse(name)
+	if cfg == nil {
+		return nil, nil
+	}
+
+	p := discrete.NewProblem(name)
+	p.Type = discrete.Subset
+
+	p.Variables = discrete.Variables(cfg.Warehouses)
+	p.AddVariableDomains(discrete.BooleanDomain())
+
+	p.AddUniversalConstraint(func(solution *discrete.Solution) bool {
+		// Check subset size is equal to warehouse count
+		return len(fn.AsSubset(solution)) == cfg.Count
+	})
+
+	p.SolutionStringFn = fn.StringSubset(cfg.Warehouses)
+	return p, cfg
+}
+
+// Minimax Warehouse Location
+func minimaxWarehouseLocation(name string) *discrete.Problem {
+	p, cfg := newWarehouseSubsetProblem(name)
+	if p == nil || cfg == nil {
+		return nil
+	}
+
+	p.Goal = discrete.Minimize
+	p.ObjectiveFn = func(solution *discrete.Solution) discrete.Score {
+		// Find maximum distance of any store to any selected warehouse
+		var maxDistance discrete.Score = 0
+		warehouses := fn.AsSubset(solution)
+		for store := range cfg.Stores {
+			for _, warehouse := range warehouses {
+				maxDistance = max(maxDistance, cfg.Distance[warehouse][store])
+			}
+		}
+		return maxDistance
+	}
+	return p
+}
+
+// Maxmin Warehouse Location
+func maxminWarehouseLocation(name string) *discrete.Problem {
+	p, cfg := newWarehouseSubsetProblem(name)
+	if p == nil || cfg == nil {
+		return nil
+	}
+
+	p.Goal = discrete.Maximize
+	p.ObjectiveFn = func(solution *discrete.Solution) discrete.Score {
+		// Find minimum distance of any store to any selected warehouse
+		var minDistance = discrete.Inf
+		warehouses := fn.AsSubset(solution)
+		for store := range cfg.Stores {
+			for _, warehouse := range warehouses {
+				minDistance = min(minDistance, cfg.Distance[warehouse][store])
+			}
+		}
+		return minDistance
+	}
 	return p
 }

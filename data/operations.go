@@ -8,6 +8,8 @@ type Warehouse struct {
 	Capacity      []int
 	WarehouseCost []float64
 	StoreCost     [][]float64
+	Count         int
+	Distance      [][]float64
 }
 
 type NurseSchedule struct {
@@ -34,10 +36,15 @@ func NewWarehouse(name string) *Warehouse {
 		Warehouses:    stringList(data["warehouses"]),
 		Capacity:      intList(data["capacity"]),
 		WarehouseCost: floatList(data["warehouseCost"]),
+		Count:         number.ParseInt(data["count"]),
 	}
 	cfg.StoreCost = make([][]float64, len(cfg.Stores))
 	for i, line := range parseList(data["storeCost"]) {
 		cfg.StoreCost[i] = matrixRow(line, true)
+	}
+	cfg.Distance = make([][]float64, len(cfg.Warehouses))
+	for i, line := range parseList(data["distance"]) {
+		cfg.Distance[i] = matrixRow(line, true)
 	}
 	return cfg
 }

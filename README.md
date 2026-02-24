@@ -157,3 +157,5 @@ Discrete Optimization package written in Go
 
 ### warehouse_location 
   * `basic`     - Warehouse Location
+  * `minimax`   - Minimax Warehouse Location 
+  * `maxmin`    - MaxMin Warehouse Location

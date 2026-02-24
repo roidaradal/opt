@@ -184,5 +184,5 @@
     [ ] Capacitated Vertex Cover
 ## Warehouse Location 
     [x] Warehouse Location 
-    [ ] Minimax Warehouse Location 
-    [ ] Maxmin Warehouse Location
+    [x] Minimax Warehouse Location 
+    [x] Maxmin Warehouse Location
