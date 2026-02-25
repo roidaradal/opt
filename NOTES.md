@@ -83,7 +83,7 @@
 ## Independent Set 
     [x] Independent Set
     [x] Rainbow  Independent Set
-    [ ] Weighted Independent Set
+    [x] Weighted Independent Set
 ## Induced Path 
     [x] Max Induced Path 
     [ ] Max Weight Induced Path 
@@ -151,8 +151,6 @@
     [x] Longest Decreasing
     [x] Max Sum Increasing
     [x] Max Weight Increasing
-    [ ] Max Width Increasing 
-    [ ] Min Width Increasing
 ## Subset Sum 
     [x] Subset Sum
     [ ] Multiple Subset Sum

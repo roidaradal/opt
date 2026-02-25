@@ -16,6 +16,8 @@ func NewIndependentSet(variant string, n int) *discrete.Problem {
 		return independentSet(name)
 	case "rainbow":
 		return rainbowIndependentSet(name)
+	case "weighted":
+		return weightedIndependentSet(name)
 	default:
 		return nil
 	}
@@ -65,5 +67,19 @@ func rainbowIndependentSet(name string) *discrete.Problem {
 
 	// Check vertices have different colors
 	p.AddUniversalConstraint(fn.ConstraintRainbowColoring(graph.VertexColor))
+	return p
+}
+
+// Weighted Independent Set
+func weightedIndependentSet(name string) *discrete.Problem {
+	p, graph := newIndependentSetProblem(name)
+	if p == nil || graph == nil {
+		return nil
+	}
+	if len(graph.Vertices) != len(graph.VertexWeight) {
+		return nil
+	}
+
+	p.ObjectiveFn = fn.ScoreSumWeightedValues(p.Variables, graph.VertexWeight)
 	return p
 }

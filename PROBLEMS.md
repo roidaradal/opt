@@ -261,6 +261,11 @@
 * Task: **Select a subset** of vertices, such that _none are connected to each other_, and _each selected vertex has a different color_
 * Goal: **Maximize** the number of selected vertices
 
+### Weighted Independent Set 
+* Input: undirected graph, where each vertex has an associated weight 
+* Task: **Select a subset** of vertices, such that _none are connected to each other_
+* Goal: **Maximize** the sum of selected vertex weights
+
 ## Induced Path Problems 
 
 ### Max Induced Path 

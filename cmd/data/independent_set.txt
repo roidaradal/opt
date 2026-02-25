@@ -16,3 +16,13 @@ rainbow.2 {
     vertexColor     : R R B B G G
     edges           : B-C D-E
 }
+weighted.1 {
+    vertices        :   A   B   C   D   E   F 
+    vertexWeight    :   10  20  15  5   25  30
+    edges           :   A-B B-C C-D D-E E-F F-A
+}
+weighted.2 {
+    vertices        :   A   B   C   D   E 
+    vertexWeight    :   50  20  20  20  20 
+    edges           :   A-B A-C A-D B-E
+}

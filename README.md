@@ -75,6 +75,7 @@ Discrete Optimization package written in Go
 ### independent_set 
   * `basic`       - Independent Set 
   * `rainbow`     - Rainbow Independent Set
+  * `weighted`    - Weighted Independent Set
 
 ### induced_path 
   * `basic`     - Max Induced Path 

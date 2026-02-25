@@ -9,11 +9,12 @@ import (
 
 type Graph struct {
 	*ds.Graph
-	K           int
-	EdgeWeight  []float64
-	EdgeColor   []string
-	VertexColor []string
-	Terminals   []string
+	K            int
+	EdgeWeight   []float64
+	EdgeColor    []string
+	VertexWeight []float64
+	VertexColor  []string
+	Terminals    []string
 }
 
 type GraphPartition struct {
@@ -65,12 +66,13 @@ func newGraph(name string, isDirected bool) *Graph {
 		graph = ds.GraphFrom(data["vertices"], data["edges"])
 	}
 	return &Graph{
-		Graph:       graph,
-		K:           number.ParseInt(data["k"]),
-		EdgeWeight:  floatList(data["edgeWeight"]),
-		EdgeColor:   stringList(data["edgeColor"]),
-		VertexColor: stringList(data["vertexColor"]),
-		Terminals:   stringList(data["terminals"]),
+		Graph:        graph,
+		K:            number.ParseInt(data["k"]),
+		EdgeWeight:   floatList(data["edgeWeight"]),
+		EdgeColor:    stringList(data["edgeColor"]),
+		VertexWeight: floatList(data["vertexWeight"]),
+		VertexColor:  stringList(data["vertexColor"]),
+		Terminals:    stringList(data["terminals"]),
 	}
 }
 
