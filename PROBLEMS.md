@@ -420,10 +420,17 @@
 
 ### Set Splitting
 * Input: 
-    * Universal set of items
-    * List of subsets
+  * Universal set of items
+  * List of subsets
 * Task: **Split** the items into _two groups_
 * Goal: **Maximize** the number of subsets that are split by the partition (subset has items in both groups)
+
+### Weighted Set Splitting 
+* Input: 
+  * Universal set of items 
+  * List of subsets, each with associated weight 
+* Task: **Split** the items into _two groups_
+* Goal: **Maximize** the sum of weights of subsets that are split by the partition (subset has items in both groups)
 
 ## Spanning Tree Problems
 

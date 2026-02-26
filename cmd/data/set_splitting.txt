@@ -18,3 +18,16 @@ basic.2 {
         V6 :             4B  5C
     }
 }
+weighted.1 {
+    universal   : 1 2 3 4 
+    subsets     : {
+        A : 1 2 
+        B : 2 3 4 
+        C : 1 4
+    }
+    weight      : {
+        A : 10
+        B : 5 
+        C : 2
+    }
+}

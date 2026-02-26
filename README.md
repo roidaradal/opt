@@ -122,6 +122,7 @@ Discrete Optimization package written in Go
 
 ### set_splitting
   * `basic`   - Set Splitting
+  * `weighted` - Weighted Set Splitting
 
 ### spanning_tree
   * `mst`  - Minimum Spanning Tree

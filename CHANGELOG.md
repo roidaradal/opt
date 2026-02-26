@@ -1,3 +1,6 @@
+## v0.3.55 - Additional Set Splitting Problems 
+  * **Commit**: 2026-02-26 20:24
+  * Add `weighted` to Set Splitting 
 ## v0.3.54 - Additional Independent Set Problems
   * **Commit**: 2026-02-25 20:36
   * Add `weighted` to Independent Set

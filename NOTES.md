@@ -136,7 +136,7 @@
     [ ] Weighted Set Packing
 ## Set Splitting
     [x] Set Splitting
-    [ ] Weighted Set Splitting
+    [x] Weighted Set Splitting
 ## Spanning Tree
     [x] Minimum Spanning Tree 
     [x] Min-Degree Spanning Tree
