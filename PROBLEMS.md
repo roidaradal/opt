@@ -416,6 +416,13 @@
 * Task: **Select a combination** of the subsets such that _each covered item is only covered once_ (no overlap)
 * Goal: **Maximize** the number of selected subsets
 
+### Weighted Set Packing 
+* Input: 
+    * Universal set of items 
+    * List of subsets, each with associated weight
+* Task: **Select a combination** of the subsets such that _each covered item is only covered once_ (no overlap)
+* Goal: **Maximize** the sum of selected subset weights
+
 ## Set Splitting Problems
 
 ### Set Splitting

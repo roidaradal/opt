@@ -133,7 +133,7 @@
     [ ] Weighted Set Cover
 ## Set Packing
     [x] Set Packing 
-    [ ] Weighted Set Packing
+    [x] Weighted Set Packing
 ## Set Splitting
     [x] Set Splitting
     [x] Weighted Set Splitting
@@ -153,7 +153,8 @@
     [x] Max Weight Increasing
 ## Subset Sum 
     [x] Subset Sum
-    [ ] Multiple Subset Sum
+    [ ] Max-Sum Multiple Subset Sum
+    [ ] Max-Min Multiple Subset Sum
 ## Traveling Purchaser 
     [x] Traveling Purchaser 
     [ ] Capacitated Traveling Purchaser

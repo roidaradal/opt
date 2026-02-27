@@ -119,6 +119,7 @@ Discrete Optimization package written in Go
 
 ### set_packing
   * `basic`   - Set Packing
+  * `weighted` - Weighted Set Packing
 
 ### set_splitting
   * `basic`   - Set Splitting

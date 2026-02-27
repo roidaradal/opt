@@ -3,6 +3,7 @@ package problem
 import (
 	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/list"
+	"github.com/roidaradal/opt/data"
 	"github.com/roidaradal/opt/discrete"
 	"github.com/roidaradal/opt/fn"
 )
@@ -13,16 +14,18 @@ func NewSetPacking(variant string, n int) *discrete.Problem {
 	switch variant {
 	case "basic":
 		return setPacking(name)
+	case "weighted":
+		return weightedSetPacking(name)
 	default:
 		return nil
 	}
 }
 
-// Set Packing
-func setPacking(name string) *discrete.Problem {
+// Create new Set Packing problem
+func newSetPackingProblem(name string) (*discrete.Problem, *data.Subsets) {
 	p, cfg := newSubsetsProblem(name)
 	if p == nil || cfg == nil {
-		return nil
+		return nil, nil
 	}
 
 	p.Goal = discrete.Maximize
@@ -36,5 +39,28 @@ func setPacking(name string) *discrete.Problem {
 		// Make sure all covered items are only covered once (no overlap)
 		return list.AllEqual(dict.Values(covered), 1)
 	})
+	return p, cfg
+}
+
+// Set Packing
+func setPacking(name string) *discrete.Problem {
+	p, _ := newSetPackingProblem(name)
+	return p
+}
+
+// Weighted Set Packing
+func weightedSetPacking(name string) *discrete.Problem {
+	p, cfg := newSetPackingProblem(name)
+	if p == nil || cfg == nil {
+		return nil
+	}
+	if len(cfg.Weight) != len(cfg.Names) {
+		return nil
+	}
+
+	p.ObjectiveFn = func(solution *discrete.Solution) discrete.Score {
+		subsets := list.MapList(fn.AsSubset(solution), cfg.Names)
+		return list.Sum(list.Translate(subsets, cfg.Weight))
+	}
 	return p
 }
