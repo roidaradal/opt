@@ -1,3 +1,7 @@
+## v0.3.57 - Additional Set Cover Problems 
+  * **Commit**: 2026-02-28 18:58
+  * Add `weighted` to Set Cover
+  * fn.SumWeightedSubset
 ## v0.3.56 - Additional Set Packing Problems 
   * **Commit**: 2026-02-27 21:14
   * Add `weighted` to Set Packing

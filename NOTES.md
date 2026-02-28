@@ -129,8 +129,8 @@
     [x] Topological Sort
 ## Set Cover
     [x] Set Cover 
+    [x] Weighted Set Cover
     [ ] Capacitated Set Cover
-    [ ] Weighted Set Cover
 ## Set Packing
     [x] Set Packing 
     [x] Weighted Set Packing

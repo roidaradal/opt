@@ -58,9 +58,6 @@ func weightedSetPacking(name string) *discrete.Problem {
 		return nil
 	}
 
-	p.ObjectiveFn = func(solution *discrete.Solution) discrete.Score {
-		subsets := list.MapList(fn.AsSubset(solution), cfg.Names)
-		return list.Sum(list.Translate(subsets, cfg.Weight))
-	}
+	p.ObjectiveFn = fn.ScoreSumWeightedSubset(cfg.Names, cfg.Weight)
 	return p
 }

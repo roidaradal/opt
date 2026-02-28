@@ -116,6 +116,7 @@ Discrete Optimization package written in Go
 
 ### set_cover
   * `basic`   - Set Cover 
+  * `weighted` - Weighted Set Cover
 
 ### set_packing
   * `basic`   - Set Packing

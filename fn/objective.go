@@ -28,6 +28,14 @@ func ScoreSumWeightedValues(variables []discrete.Variable, weight []float64) dis
 	}
 }
 
+// ScoreSumWeightedSubset sums up the weight of the solution subset
+func ScoreSumWeightedSubset(keys []string, weight map[string]float64) discrete.ObjectiveFn {
+	return func(solution *discrete.Solution) discrete.Score {
+		subsetKeys := list.MapList(AsSubset(solution), keys)
+		return list.Sum(list.Translate(subsetKeys, weight))
+	}
+}
+
 // ScorePathCost sums up the path cost
 func ScorePathCost(cfg *data.GraphPath) discrete.ObjectiveFn {
 	return func(solution *discrete.Solution) discrete.Score {

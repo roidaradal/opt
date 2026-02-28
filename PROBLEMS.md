@@ -407,6 +407,13 @@
 * Task: **Select a combination** of the subsets such that _each universal item is covered at least once_ by the selected subsets
 * Goal: **Minimize** the number of selected subsets
 
+### Weighted Set Cover
+* Input:
+  * Universal set of items
+  * List of subsets, each with associated weight
+* Task: **Select a combination** of the subsets such that _each universal item is covered at least once_ by the selected subsets
+* Goal: **Minimize** the sum of the selected subset weights
+
 ## Set Packing Problems
 
 ### Set Packing
