@@ -171,6 +171,11 @@
 * Task: **Select a subset** of edges, such that _all vertices are covered by at least one selected edge endpoint_
 * Goal: **Minimize** the number of selected edges
 
+### Weighted Edge Cover 
+* Input: undirected graph, with edge weights
+* Task: **Select a subset** of edges, such that _all vertices are covered by at least one selected edge endpoint_
+* Goal: **Minimize** the sum of selected edge weights
+
 ## Flow Shop Scheduling Problems 
 
 ### Flow Shop Scheduling 

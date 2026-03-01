@@ -48,6 +48,7 @@ Discrete Optimization package written in Go
 
 ### edge_cover
   * `basic`   - Edge Cover
+  * `weighted` - Weighted Edge Cover
 
 ### flow_shop 
   * `basic`   - Flow Shop Scheduling

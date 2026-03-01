@@ -1,3 +1,6 @@
+## v0.3.58 - Additional Edge Cover Problems 
+  * **Commit**: 2026-03-01 18:58
+  * Add `weighted` to Edge Cover
 ## v0.3.57 - Additional Set Cover Problems 
   * **Commit**: 2026-02-28 18:58
   * Add `weighted` to Set Cover
