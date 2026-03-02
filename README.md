@@ -80,6 +80,8 @@ Discrete Optimization package written in Go
 
 ### induced_path 
   * `basic`     - Max Induced Path 
+  * `weighted`  - Max Weighted Induced Path 
+  * `k`         - K-Induced Path
 
 ### interval
   * `basic`       - Activity Selection

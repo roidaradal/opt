@@ -49,6 +49,11 @@ func (s *Solution) Values() []Value {
 	return dict.Values(s.Map)
 }
 
+// Entries gets entries of solution in arbitrary order
+func (s *Solution) Entries() []dict.Entry[Variable, Value] {
+	return dict.Entries(s.Map)
+}
+
 // Tuple gets values of solution, ordered by problem variable order
 func (s *Solution) Tuple(p *Problem) []Value {
 	return list.Translate(p.Variables, s.Map)

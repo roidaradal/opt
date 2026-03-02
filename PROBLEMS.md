@@ -279,6 +279,17 @@
    while non-adjacent vertices are not connected by an edge in the graph_
 * Goal: **Maximize** the length of the induced path
 
+### Max Weighted Induced Path 
+* Input: undirected graph, with vertex weights
+* Task: **Select a sequence** of vertices to form an induced path: _adjacent vertices in the path have an edge in the graph,
+  while non-adjacent vertices are not connected by an edge in the graph_
+* Goal: **Maximize** the sum of vertex weights in the sequence
+
+### K-Induced Path
+* Input: undirected graph, and integer K
+* Task: **Select a sequence** of vertices to form an induced path of **length K**: _adjacent vertices in the path have an edge in the graph,
+  while non-adjacent vertices are not connected by an edge in the graph_
+
 ## Interval Problems
 
 ### Activity Selection

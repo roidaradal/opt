@@ -1,3 +1,7 @@
+## v0.3.59 - Additional Induced Path Problems 
+  * **Commit**: 2026-03-02 21:26
+  * Add `weighted`, `k` to Induced Path
+  * Solution.Entries
 ## v0.3.58 - Additional Edge Cover Problems 
   * **Commit**: 2026-03-01 18:58
   * Add `weighted` to Edge Cover
