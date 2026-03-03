@@ -146,6 +146,8 @@ Discrete Optimization package written in Go
 
 ### subset_sum
   * `basic`       - Subset Sum
+  * `max_sum`     - Max-Sum Multiple Subset Sum 
+  * `max_min`     - Max-Min Multiple Subset Sum
 
 ### traveling_purchaser
   * `basic`     - Traveling Purchaser

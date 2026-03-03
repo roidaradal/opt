@@ -1,3 +1,6 @@
+## v0.3.60 - Additional Subset Sum Problems
+  * **Commit**: 2026-03-03 20:33
+  * Add `max_sum`, `max_min` to Subset Sum
 ## v0.3.59 - Additional Induced Path Problems 
   * **Commit**: 2026-03-02 21:26
   * Add `weighted`, `k` to Induced Path

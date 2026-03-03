@@ -6,6 +6,7 @@ type Numbers struct {
 	Numbers []int
 	Weight  []float64
 	Target  int
+	NumBins int
 }
 
 // NewNumbers creates a new Sequence config
@@ -18,6 +19,7 @@ func NewNumbers(name string) *Numbers {
 		Numbers: intList(data["numbers"]),
 		Weight:  floatList(data["weight"]),
 		Target:  number.ParseInt(data["target"]),
+		NumBins: number.ParseInt(data["numBins"]),
 	}
 }
 

@@ -522,6 +522,22 @@
 * Task: **Select a subset** of the numbers such that their sum == N (satisfaction) or does not exceed N (optimization)
 * Goal: If optimization, **minimize** the difference between N and the sum of the selected numbers
 
+### Max-Sum Multiple Subset Sum 
+* Input: 
+  * List of numbers
+  * Number of bins
+  * Bin capacity
+* Task: **Distribute the numbers** to bins (some numbers may not be in a bin), such that the sum of numbers in each bin does not exceed capacity 
+* Goal: **Maximize** the sum of numbers across all bins
+
+### Max-Min Multiple Subset Sum
+* Input:
+  * List of numbers
+  * Number of bins
+  * Bin capacity
+* Task: **Distribute the numbers** to bins (some numbers may not be in a bin), such that the sum of numbers in each bin does not exceed capacity
+* Goal: **Maximize** the minimum sum of numbers across bins (bottleneck)
+
 ## Traveling Purchaser Problems
 
 ### Traveling Purchaser 

@@ -153,8 +153,8 @@
     [x] Max Weight Increasing
 ## Subset Sum 
     [x] Subset Sum
-    [ ] Max-Sum Multiple Subset Sum
-    [ ] Max-Min Multiple Subset Sum
+    [x] Max-Sum Multiple Subset Sum
+    [x] Max-Min Multiple Subset Sum
 ## Traveling Purchaser 
     [x] Traveling Purchaser 
     [ ] Capacitated Traveling Purchaser

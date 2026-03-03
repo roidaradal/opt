@@ -6,3 +6,13 @@ basic.2 {
     target  : 30
     numbers : 3 34 4 12 5 2
 }
+max_sum.1 {
+    target  : 20
+    numbers : 12 10 8 7 3
+    numBins : 2
+}
+max_min.1 {
+    target  : 38
+    numbers : 10 8 7 6 5 2
+    numBins : 2
+}
