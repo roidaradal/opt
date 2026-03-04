@@ -6,6 +6,7 @@ import (
 	"slices"
 	"strings"
 
+	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/fn/str"
@@ -127,5 +128,37 @@ func StringEulerianPath(graph *ds.Graph) discrete.SolutionStringFn {
 		}
 		path = append(path, tail)
 		return strings.Join(path, " ")
+	}
+}
+
+// StringShopSchedule displays solution as shop schedule (task and machine schedules)
+func StringShopSchedule(taskLookup map[discrete.Variable]data.Task, machines []string) discrete.SolutionStringFn {
+	return func(solution *discrete.Solution) string {
+		out := str.NewBuilder()
+		machineSched := make(map[string][]data.SlotSched)
+		// Display each task's schedule
+		variables := dict.Keys(taskLookup)
+		slices.Sort(variables)
+		for _, variable := range variables {
+			task := taskLookup[variable]
+			start := solution.Map[variable]
+			end := start + task.Duration
+			out.Add(fmt.Sprintf("%s - %s - [%d,%d]", task.Name, task.Machine, start, end))
+			slot := data.SlotSched{Start: start, End: end, Name: task.Name}
+			machineSched[task.Machine] = append(machineSched[task.Machine], slot)
+		}
+		// Display each machine's schedule
+		for _, machine := range machines {
+			slots := machineSched[machine]
+			if len(slots) == 0 {
+				out.Add(fmt.Sprintf("%s - NONE", machine))
+			} else {
+				slices.SortFunc(slots, data.SortBySchedStart)
+				for _, slot := range slots {
+					out.Add(fmt.Sprintf("%s - [%d,%d] - %s", machine, slot.Start, slot.End, slot.Name))
+				}
+			}
+		}
+		return out.Build("|")
 	}
 }

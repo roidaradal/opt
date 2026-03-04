@@ -309,6 +309,16 @@
 * Task: **Select a subset** of _non-overlapping_ activities
 * Goal: **Maximize** the sum of weights of selected activities
 
+## Job Shop Scheduling Problems 
+
+### Job Shop Scheduling 
+* Input: 
+  * List of machines
+  * List of jobs
+  * Each job has a list of ordered tasks, to be done on specific machines, with given durations
+* Task: **Schedule when each task would start**, such that for each job, the tasks are done in order with no overlap, and the machines have no overlap too
+* Goal: **Minimize** the total makespan of the schedule (total length)
+
 ## K-Center Problems 
 
 ### K-Center 

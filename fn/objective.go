@@ -43,6 +43,18 @@ func ScorePathCost(cfg *data.GraphPath) discrete.ObjectiveFn {
 	}
 }
 
+// ScoreScheduleMakespan computes the makespan (total length) of the schedule
+func ScoreScheduleMakespan(taskLookup map[discrete.Variable]data.Task) discrete.ObjectiveFn {
+	return func(solution *discrete.Solution) discrete.Score {
+		makespan := 0
+		for x, start := range solution.Map {
+			end := start + taskLookup[x].Duration
+			makespan = max(makespan, end)
+		}
+		return discrete.Score(makespan)
+	}
+}
+
 // CountColorChanges counts the number of color changes in the sequence
 func CountColorChanges[T comparable](colorSequence []T) int {
 	var prevColor T

@@ -87,6 +87,9 @@ Discrete Optimization package written in Go
   * `basic`       - Activity Selection
   * `weighted`    - Weighted Activity Selection
 
+### job_shop 
+  * `basic`     - Job Shop Scheduling
+
 ### k_center 
   * `basic`     - K-Center
 

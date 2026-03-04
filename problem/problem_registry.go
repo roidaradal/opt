@@ -26,6 +26,7 @@ const (
 	IndependentSet     = "independent_set"
 	InducedPath        = "induced_path"
 	Interval           = "interval"
+	JobShopScheduling  = "job_shop"
 	KCenter            = "k_center"
 	KCut               = "k_cut"
 	Knapsack           = "knapsack"
@@ -68,6 +69,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	IndependentSet:     NewIndependentSet,
 	InducedPath:        NewInducedPath,
 	Interval:           NewInterval,
+	JobShopScheduling:  NewJobShopScheduling,
 	KCenter:            NewKCenter,
 	KCut:               NewKCut,
 	Knapsack:           NewKnapsack,

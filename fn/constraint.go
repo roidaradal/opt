@@ -102,3 +102,41 @@ func ConstraintIncreasingSubsequence(cfg *data.Numbers) discrete.ConstraintFn {
 		return true
 	}
 }
+
+// ConstraintNoMachineOverlap checks that the schedule has no machine overlap
+func ConstraintNoMachineOverlap(cfg *data.ShopSchedule, taskLookup map[discrete.Variable]data.Task) discrete.ConstraintFn {
+	return noOverlap(taskLookup, cfg.Machines, func(task data.Task) string {
+		return task.Machine
+	})
+}
+
+// Common: check that schedule has no overlap
+func noOverlap(taskLookup map[discrete.Variable]data.Task, keys []string, keyFn func(data.Task) string) discrete.ConstraintFn {
+	return func(solution *discrete.Solution) bool {
+		// Initialize all key's schedules
+		groupSched := make(map[string][]data.TimeRange)
+		for _, key := range keys {
+			groupSched[key] = make([]data.TimeRange, 0)
+		}
+		// For each task in solution, add schedule TimeRange to its group schedule
+		for x, start := range solution.Map {
+			task := taskLookup[x]
+			sched := data.TimeRange{start, start + task.Duration}
+			key := keyFn(task)
+			groupSched[key] = append(groupSched[key], sched)
+		}
+		// Sort schedules for each group, check if there is overlap
+		for _, scheds := range groupSched {
+			slices.SortFunc(scheds, data.SortByStartTime)
+			for i := range len(scheds) - 1 {
+				curr, next := scheds[i], scheds[i+1]
+				start1, end1 := curr.Tuple()
+				start2 := next[0]
+				if start2 <= start1 || start2 < end1 {
+					return false
+				}
+			}
+		}
+		return true
+	}
+}

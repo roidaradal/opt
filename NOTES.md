@@ -92,6 +92,8 @@
     [x] Activity Selection
     [x] Weighted Activity Selection
     [ ] Group Interval Scheduling
+## Job Shop Scheduling 
+    [x] Job Shop Scheduling
 ## K-Center 
     [x] K-Center 
     [ ] Weighted K-Center 
