@@ -34,6 +34,7 @@ const (
 	NumberColoring     = "number_coloring"
 	NumberPartition    = "number_partition"
 	NurseScheduling    = "nurse_scheduling"
+	OpenShopScheduling = "open_shop"
 	Satisfaction       = "satisfaction"
 	SetCover           = "set_cover"
 	SetPacking         = "set_packing"
@@ -77,6 +78,7 @@ var Creator = map[string]func(string, int) *discrete.Problem{
 	NumberColoring:     NewNumberColoring,
 	NumberPartition:    NewNumberPartition,
 	NurseScheduling:    NewNurseScheduling,
+	OpenShopScheduling: NewOpenShopScheduling,
 	Satisfaction:       NewSatisfaction,
 	SetCover:           NewSetCover,
 	SetPacking:         NewSetPacking,

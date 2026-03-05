@@ -123,6 +123,8 @@
     [ ] Multiway Number Partition
 ## Nurse Scheduling
     [x] Nurse Scheduling
+## Open Shop Scheduling
+    [x] Open Shop Scheduling
 ## Satisfaction
     [x] Exact Cover 
     [x] Langford Pair 

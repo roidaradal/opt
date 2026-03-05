@@ -30,7 +30,7 @@ func jobShopScheduling(name string) *discrete.Problem {
 
 	variable := 0
 	jobTasks := make(map[int][]discrete.Variable)
-	taskLookup := make(map[discrete.Variable]data.Task)
+	tasks := cfg.GetTasks()
 	for jobID, job := range cfg.Jobs {
 		jobTasks[jobID] = make([]discrete.Variable, 0)
 		for taskID, task := range cfg.JobTasks[job] {
@@ -41,7 +41,6 @@ func jobShopScheduling(name string) *discrete.Problem {
 			p.Variables = append(p.Variables, variable)
 			p.Domain[variable] = discrete.RangeDomain(first, last)
 			jobTasks[jobID] = append(jobTasks[jobID], variable)
-			taskLookup[variable] = task
 			variable += 1
 		}
 	}
@@ -52,7 +51,7 @@ func jobShopScheduling(name string) *discrete.Problem {
 			for i := range len(variables) - 1 {
 				curr, next := variables[i], variables[i+1]
 				start1, start2 := solution.Map[curr], solution.Map[next]
-				end1 := start1 + taskLookup[curr].Duration
+				end1 := start1 + tasks[curr].Duration
 				// Not in order or has overlap
 				if start2 <= start1 || start2 < end1 {
 					return false
@@ -63,11 +62,11 @@ func jobShopScheduling(name string) *discrete.Problem {
 	})
 
 	// Constraint: no machine overlap
-	p.AddUniversalConstraint(fn.ConstraintNoMachineOverlap(cfg, taskLookup))
+	p.AddUniversalConstraint(fn.ConstraintNoMachineOverlap(cfg, tasks))
 
 	p.Goal = discrete.Minimize
-	p.ObjectiveFn = fn.ScoreScheduleMakespan(taskLookup)
-	p.SolutionStringFn = fn.StringShopSchedule(taskLookup, cfg.Machines)
+	p.ObjectiveFn = fn.ScoreScheduleMakespan(tasks)
+	p.SolutionStringFn = fn.StringShopSchedule(tasks, cfg.Machines)
 
 	return p
 }

@@ -315,7 +315,7 @@
 * Input: 
   * List of machines
   * List of jobs
-  * Each job has a list of ordered tasks, to be done on specific machines, with given durations
+  * Each job has a list of **ordered tasks**, to be done on specific machines, with given durations
 * Task: **Schedule when each task would start**, such that for each job, the tasks are done in order with no overlap, and the machines have no overlap too
 * Goal: **Minimize** the total makespan of the schedule (total length)
 
@@ -399,6 +399,16 @@
   * all nurse daily shifts do not exceed the MaxDaily 
   * all nurse schedules do not exceed the MaxConsecutive
 * Goal: **Minimize** the penalty incurred by not following the nurses' preferred days and shifts
+
+## Open Shop Scheduling Problems
+
+### Open Shop Scheduling
+* Input:
+  * List of machines
+  * List of jobs 
+  * Each job has a list of **unordered tasks**, to be done on specific machines, with given durations
+* Task: **Schedule when each task would start**, such that for each job, there are no task overlaps, and the machines have no overlap too
+* Goal: **Minimize** the total makespan of the schedule (total length)
 
 ## Satisfaction Problems
 

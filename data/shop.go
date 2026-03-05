@@ -20,6 +20,7 @@ type ShopSchedule struct {
 }
 
 type Task struct {
+	Job      string
 	Name     string
 	Machine  string
 	Duration int
@@ -63,6 +64,7 @@ func NewShopSchedule(name string) *ShopSchedule {
 		jobTasks[job] = list.IndexedMap(stringList(value), func(i int, text string) Task {
 			parts := strings.Split(text, ":")
 			return Task{
+				Job:      job,
 				Name:     fmt.Sprintf("J%s_T%d", job, i),
 				Machine:  parts[0],
 				Duration: number.ParseInt(parts[1]),
@@ -79,4 +81,14 @@ func NewShopSchedule(name string) *ShopSchedule {
 		JobTasks:    jobTasks,
 		MaxMakespan: totalDuration,
 	}
+}
+
+func (s *ShopSchedule) GetTasks() []Task {
+	tasks := make([]Task, 0)
+	for _, job := range s.Jobs {
+		for _, task := range s.JobTasks[job] {
+			tasks = append(tasks, task)
+		}
+	}
+	return tasks
 }

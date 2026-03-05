@@ -113,6 +113,9 @@ Discrete Optimization package written in Go
 ### nurse_scheduling 
   * `basic`   - Nurse Scheduling
 
+### open_shop
+  * `basic`  - Open Shop Scheduling
+
 ### satisfaction
   * `exact_cover`         - Exact Cover
   * `langford`            - Langford Pair

@@ -104,14 +104,14 @@ func ConstraintIncreasingSubsequence(cfg *data.Numbers) discrete.ConstraintFn {
 }
 
 // ConstraintNoMachineOverlap checks that the schedule has no machine overlap
-func ConstraintNoMachineOverlap(cfg *data.ShopSchedule, taskLookup map[discrete.Variable]data.Task) discrete.ConstraintFn {
-	return noOverlap(taskLookup, cfg.Machines, func(task data.Task) string {
+func ConstraintNoMachineOverlap(cfg *data.ShopSchedule, tasks []data.Task) discrete.ConstraintFn {
+	return NoOverlap(tasks, cfg.Machines, func(task data.Task) string {
 		return task.Machine
 	})
 }
 
-// Common: check that schedule has no overlap
-func noOverlap(taskLookup map[discrete.Variable]data.Task, keys []string, keyFn func(data.Task) string) discrete.ConstraintFn {
+// NoOverlap checks that the schedule has no overlaps
+func NoOverlap(tasks []data.Task, keys []string, keyFn func(data.Task) string) discrete.ConstraintFn {
 	return func(solution *discrete.Solution) bool {
 		// Initialize all key's schedules
 		groupSched := make(map[string][]data.TimeRange)
@@ -120,7 +120,7 @@ func noOverlap(taskLookup map[discrete.Variable]data.Task, keys []string, keyFn 
 		}
 		// For each task in solution, add schedule TimeRange to its group schedule
 		for x, start := range solution.Map {
-			task := taskLookup[x]
+			task := tasks[x]
 			sched := data.TimeRange{start, start + task.Duration}
 			key := keyFn(task)
 			groupSched[key] = append(groupSched[key], sched)

@@ -6,7 +6,6 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/roidaradal/fn/dict"
 	"github.com/roidaradal/fn/ds"
 	"github.com/roidaradal/fn/list"
 	"github.com/roidaradal/fn/str"
@@ -132,15 +131,12 @@ func StringEulerianPath(graph *ds.Graph) discrete.SolutionStringFn {
 }
 
 // StringShopSchedule displays solution as shop schedule (task and machine schedules)
-func StringShopSchedule(taskLookup map[discrete.Variable]data.Task, machines []string) discrete.SolutionStringFn {
+func StringShopSchedule(tasks []data.Task, machines []string) discrete.SolutionStringFn {
 	return func(solution *discrete.Solution) string {
 		out := str.NewBuilder()
 		machineSched := make(map[string][]data.SlotSched)
 		// Display each task's schedule
-		variables := dict.Keys(taskLookup)
-		slices.Sort(variables)
-		for _, variable := range variables {
-			task := taskLookup[variable]
+		for variable, task := range tasks {
 			start := solution.Map[variable]
 			end := start + task.Duration
 			out.Add(fmt.Sprintf("%s - %s - [%d,%d]", task.Name, task.Machine, start, end))

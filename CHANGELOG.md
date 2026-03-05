@@ -1,3 +1,7 @@
+## v0.3.62 - Open Shop Scheduling Problems
+  * **Commit**: 2026-03-05 21:24
+  * problem.NewOpenShopScheduling 
+  * fn.ConstraintNoJobTaskO
 ## v0.3.61 - Job Shop Scheduling Problems 
   * **Commit**: 2026-03-04 20:52
   * problem.NewJobShopScheduling 

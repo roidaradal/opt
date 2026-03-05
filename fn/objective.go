@@ -44,11 +44,11 @@ func ScorePathCost(cfg *data.GraphPath) discrete.ObjectiveFn {
 }
 
 // ScoreScheduleMakespan computes the makespan (total length) of the schedule
-func ScoreScheduleMakespan(taskLookup map[discrete.Variable]data.Task) discrete.ObjectiveFn {
+func ScoreScheduleMakespan(tasks []data.Task) discrete.ObjectiveFn {
 	return func(solution *discrete.Solution) discrete.Score {
 		makespan := 0
 		for x, start := range solution.Map {
-			end := start + taskLookup[x].Duration
+			end := start + tasks[x].Duration
 			makespan = max(makespan, end)
 		}
 		return discrete.Score(makespan)
