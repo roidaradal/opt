@@ -182,7 +182,7 @@
     [ ] Exact Coloring
 ## Vertex Cover
     [x] Vertex Cover 
-    [ ] Weighted Vertex Cover
+    [x] Weighted Vertex Cover
     [ ] Connected Vertex Cover 
     [ ] Capacitated Vertex Cover
 ## Warehouse Location 

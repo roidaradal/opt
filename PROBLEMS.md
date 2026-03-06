@@ -605,6 +605,11 @@
 * Task: **Select a subset** of vertices, such that _for all edges, at least one endpoint is covered by the subset_
 * Goal: **Minimize** the number of selected vertices
 
+### Weighted Vertex Cover 
+* Input: undirected graph, with weighted vertices 
+* Task: **Select a subset** of vertices, such that _for all edges, at least one endpoint is covered by the subset_
+* Goal: **Minimize** the sum of weights of selected vertices
+
 ## Warehouse Location Problems 
 
 ### Warehouse Location 
