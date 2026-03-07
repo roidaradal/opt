@@ -15,6 +15,7 @@ type Graph struct {
 	VertexWeight []float64
 	VertexColor  []string
 	Terminals    []string
+	Groups       [][]string
 }
 
 type GraphPartition struct {
@@ -65,6 +66,10 @@ func newGraph(name string, isDirected bool) *Graph {
 	} else {
 		graph = ds.GraphFrom(data["vertices"], data["edges"])
 	}
+	groups := make([][]string, 0)
+	for _, line := range parseList(data["groups"]) {
+		groups = append(groups, stringList(line))
+	}
 	return &Graph{
 		Graph:        graph,
 		K:            number.ParseInt(data["k"]),
@@ -73,6 +78,7 @@ func newGraph(name string, isDirected bool) *Graph {
 		VertexWeight: floatList(data["vertexWeight"]),
 		VertexColor:  stringList(data["vertexColor"]),
 		Terminals:    stringList(data["terminals"]),
+		Groups:       groups,
 	}
 }
 

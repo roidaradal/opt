@@ -142,6 +142,8 @@ Discrete Optimization package written in Go
 
 ### steiner_tree
   * `basic` - Steiner Tree
+  * `degree` - Degree-Constrained Steiner Tree
+  * `group` - Group Steiner Tree
 
 ### subsequence
   * `increasing`  - Longest Increasing Subsequence

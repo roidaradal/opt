@@ -147,8 +147,8 @@
     [x] K-Minimum Spanning Tree
 ## Steiner Tree
     [x] Steiner Tree 
-    [ ] Group Steiner Tree 
-    [ ] Degree-Constrained Steiner Tree
+    [x] Group Steiner Tree 
+    [x] Degree-Constrained Steiner Tree
 ## Subsequence
     [x] Longest Increasing 
     [x] Longest Alternating 

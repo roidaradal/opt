@@ -506,6 +506,16 @@
 * Task: **Select a susbet** of edges to form a steiner tree: _all terminal vertices are reachable and the tree is connected_
 * Goal: **Minimize** the sum of edge weights
 
+### Degree-Constrained Steiner Tree
+* Input: undirected graph, with edge weights, and list of terminal vertices, integer limit
+* Task: **Select a susbet** of edges to form a steiner tree: _all terminal vertices are reachable and the tree is connected_, where each node's degree does not exceed the limit
+* Goal: **Minimize** the sum of edge weights
+
+### Group Steiner Tree
+* Input: undirected graph, with edge weights, and list of vertex groups
+* Task: **Select a susbet** of edges to form a steiner tree: _the tree is connected and all vertex groups have at least one vertex covered_
+* Goal: **Minimize** the sum of edge weights
+
 ## Subsequence Problems
 
 ### Longest Increasing Subsequence 
